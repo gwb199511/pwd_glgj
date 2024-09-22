@@ -1,0 +1,141 @@
+:root {
+    --popup-bg-color: #f9f7f0;
+    --popup-border-radius: 12px;
+    --popup-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    --popup-transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    background-color: var(--popup-bg-color);
+    border-radius: var(--popup-border-radius);
+    box-shadow: var(--popup-shadow);
+    overflow: hidden;
+    opacity: 0;
+    transition: var(--popup-transition);
+    transform: scale(0.9);
+}
+
+.popup.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.popup-content {
+    padding: 10px 20px;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease-out 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.popup.show .popup-content {
+    opacity: 1;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    color: #888;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close:hover,
+.close:focus {
+    color: #333;
+}
+
+.logs-table-container {
+    flex-grow: 1;
+    overflow: auto;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+#logsTable {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+#logsTable th, #logsTable td {
+    border: none;
+    padding: 6px 12px;
+    text-align: left;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#logsTable th {
+    background-color: #2980b9;
+    color: white;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid #2980b9;
+}
+
+#logsTable tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+#logsTable tr:hover {
+    background-color: #e9ecef;
+}
+
+#pagination {
+    margin-top: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+}
+
+#pagination button {
+    margin: 0 5px;
+    padding: 4px 10px;
+    font-size: 13px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#pagination button:hover {
+    background-color: #0056b3;
+}
+
+#pagination button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+#pagination span {
+    margin: 0 10px;
+    font-size: 13px;
+}
+
+.popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-size: 20px;
+    border-bottom: 1px solid #007bff;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}

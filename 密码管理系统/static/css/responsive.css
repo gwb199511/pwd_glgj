@@ -1,0 +1,24 @@
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        margin: 2% auto;
+        padding: 10px;
+        font-size: 12px;
+    }
+    
+    .history-button {
+        bottom: 10px;
+        left: 10px;
+        padding: 8px 15px;
+        font-size: 12px;
+        min-width: 100px;
+    }
+    
+    #logsTable {
+        font-size: 11px;
+    }
+    
+    #logsTable th, #logsTable td {
+        padding: 5px;
+    }
+}

@@ -1,0 +1,232 @@
+/* 通用表格样式 */
+table, #logsTable, #serverList {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+/* 表格单元格和表头通用样式 */
+table th, table td,
+#logsTable th, #logsTable td,
+#serverList th, #serverList td {
+    text-align: center;
+    padding: 2px;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+}
+
+/* 表头特殊样式 */
+table th, #logsTable th, #serverList th {
+    font-size: 13px;
+    background-color: #2980b9;
+    color: white;
+    font-weight: bold;
+}
+
+/* 行悬停效果 */
+table tr:hover, #logsTable tr:hover, #serverList tr:hover {
+    background-color: rgba(230, 242, 255, 0.6);
+    transition: background-color 0.3s ease;
+}
+
+/* 输入框样式 */
+#serverList input[type="text"],
+#serverList input[type="password"],
+#serverList .new-password-input {
+    width: calc(100% - 8px);
+    min-width: 30px;
+    padding: 2px 3px;
+    margin: 0;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+/* 复选框样式 */
+#serverList .server-select {
+    width: 15px;
+    height: 15px;
+    margin: 0;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px solid #2980b9;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+}
+
+#serverList .server-select:checked {
+    background-color: #2980b9;
+    position: relative;
+}
+
+#serverList .server-select:checked::after {
+    content: '\2714';
+    font-size: 12px;
+    position: absolute;
+    top: 0;
+    left: 2px;
+    color: white;
+}
+
+/* 表格容器 */
+.table-container {
+    max-width: 100%;
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+/* 特定列宽度设置 */
+#serverList th:first-child,
+#serverList td:first-child {
+    width: 19px;
+    min-width: 19px;
+    max-width: 19px;
+    padding: 0px 0;
+}
+
+#serverList th:nth-child(2),
+#serverList td:nth-child(2) {
+    width: 20px;
+    min-width: 20px;
+    max-width: 20px;
+    padding: 2px 2px;
+}
+
+/* 调整 IP 地址列宽度 */
+#serverList th:nth-child(3),
+#serverList td:nth-child(3) {
+    width: 100px;
+    min-width: 100px;
+    max-width: 100px;
+}
+
+/* 调整用户名列宽度 */
+#serverList th:nth-child(4),
+#serverList td:nth-child(4) {
+    width: 60px;
+    min-width: 60px;
+    max-width: 60px;
+}
+
+/* 调整密码列宽度 */
+#serverList th:nth-child(5),
+#serverList td:nth-child(5) {
+    width: 200px;
+    min-width: 200px;
+    max-width: 240px;
+}
+
+/* 调整用途列宽度 */
+#serverList th:nth-child(6),
+#serverList td:nth-child(6) {
+    width: 200px;
+    min-width: 200px;
+    max-width: 240px;
+}
+
+/* 调整用途列宽度 */
+#serverList th:nth-child(7),
+#serverList td:nth-child(7) {
+    width: 200px;
+    min-width: 200px;
+    max-width: 240px;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 1200px) {
+    #serverList { min-width: 548px; }
+}
+
+/* 分页控件样式 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* 分页控件容器样式 */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* 分页按钮样式 */
+.pagination-container button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.pagination-container button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* 页码信息样式 */
+.pagination-container .page-info {
+    margin: 0 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* 搜索容器样式 */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#searchInput {
+    width: 300px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    font-size: 14px;
+}
+
+#searchButton {
+    padding: 8px 15px;
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#searchButton:hover {
+    background-color: #3498db;
+}

@@ -1,0 +1,30 @@
+@keyframes bounceInOut {
+    0%, 100% { transform: translateY(-20px); opacity: 0; }
+    10%, 90% { transform: translateY(0); opacity: 1; }
+    15% { transform: translateY(-5px); }
+    20% { transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.4); }
+    70%, 100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
+}
+
+@keyframes bounceInOutFade {
+    0%, 100% { transform: translateY(-20px); opacity: 0; }
+    12%, 92% { transform: translateY(0); opacity: 1; }
+    16% { transform: translateY(-10px); }
+    20% { transform: translateY(0); }
+}
+
+@keyframes colorfulFlash {
+    0%, 100% { background-color: white; }
+    20% { background-color: #ff9999; }
+    40% { background-color: #99ff99; }
+    60% { background-color: #9999ff; }
+    80% { background-color: #ffff99; }
+}
+
+.password-flash {
+    animation: colorfulFlash 2s ease-in-out 3;
+}

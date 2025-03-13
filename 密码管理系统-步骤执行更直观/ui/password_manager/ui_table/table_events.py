@@ -1,0 +1,212 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""
+密码管理表格事件模块
+处理表格的事件过滤器和右键菜单
+"""
+
+import logging
+from typing import List, Tuple, Optional
+
+from PyQt5.QtWidgets import QMenu, QAction, QTableWidgetItem, QApplication
+from PyQt5.QtCore import Qt, QObject, QEvent
+from PyQt5.QtGui import QIcon
+
+from config import PASSWORD_COLUMNS
+
+# 配置日志
+logger = logging.getLogger(__name__)
+
+
+class TableEventsMixin:
+    """
+    表格事件管理混入类
+    
+    提供表格事件处理的方法，如右键菜单等
+    """
+    
+    def _show_context_menu(self, position):
+        """
+        显示右键菜单
+        
+        Args:
+            position: 鼠标位置
+        """
+        # 如果正在编辑，不显示菜单
+        if self.editing_row >= 0:
+            return
+            
+        # 获取当前鼠标位置下的行和列
+        row = self.table.rowAt(position.y())
+        col = self.table.columnAt(position.x())
+        
+        # 只在有效行上显示菜单
+        if row >= 0:
+            # 获取所有选中的单元格
+            selected_items = self.table.selectedItems()
+            # 获取选中的行（去重）
+            selected_rows = list(set(item.row() for item in selected_items))
+            selected_count = len(selected_rows)
+            
+            # 找出选中的密码列单元格
+            password_cells = [(item.row(), item.column()) for item in selected_items if item.column() == 4]
+            password_cell_count = len(password_cells)
+            
+            # 记录右键菜单信息到日志
+            logger.info(f"右键菜单 - 当前行: {row + 1}, 当前列: {col + 1}, 选中行数: {selected_count}, 选中行: {[r + 1 for r in selected_rows]}")
+            logger.info(f"选中的密码单元格数量: {password_cell_count}")
+            
+            # 创建菜单
+            menu = QMenu(self.table)
+            
+            # 添加菜单项
+            if col == 4:  # 密码列
+                # 复制密码
+                copy_action = QAction(QIcon(""), "复制密码", self.table)
+                copy_action.triggered.connect(self.copy_selected_content)
+                menu.addAction(copy_action)
+                
+                # 生成新密码
+                if selected_items:
+                    menu.addSeparator()
+                    
+                    # 生成随机密码并更新到服务器
+                    ssh_update_action = QAction(QIcon(""), "生成16位随机密码并更新到服务器", self.table)
+                    ssh_update_action.triggered.connect(lambda: self._generate_and_update_passwords(password_cells, 16))
+                    menu.addAction(ssh_update_action)
+            else:
+                # 复制内容
+                copy_action = QAction(QIcon(""), "复制内容", self.table)
+                copy_action.triggered.connect(self.copy_selected_content)
+                menu.addAction(copy_action)
+                
+            # 编辑和删除菜单项（不管在哪一列）
+            menu.addSeparator()
+            
+            # 添加行功能 - 只在单行选择或无选择时显示
+            if row >= 0 and selected_count <= 1:  # 确保在有效行上点击了右键，且最多只选中了一行
+                logger.info(f"准备添加'添加行'子菜单 (选中行数: {selected_count})")
+                add_menu = menu.addMenu("添加行")
+                
+                # 在上方添加行
+                add_above_action = QAction(QIcon(""), "在上方添加行", self.table)
+                add_above_action.triggered.connect(lambda: self._add_row_with_logging(row, "上方"))
+                add_menu.addAction(add_above_action)
+                
+                # 在下方添加行
+                add_below_action = QAction(QIcon(""), "在下方添加行", self.table)
+                add_below_action.triggered.connect(lambda: self._add_row_with_logging(row + 1, "下方"))
+                add_menu.addAction(add_below_action)
+                
+                # 在末尾添加行
+                add_last_action = QAction(QIcon(""), "在末尾添加行", self.table)
+                add_last_action.triggered.connect(lambda: self._add_row_with_logging(self.table.rowCount(), "末尾"))
+                add_menu.addAction(add_last_action)
+                
+                logger.info(f"已添加'添加行'子菜单，包含上方、下方和末尾三个选项")
+                menu.addSeparator()
+            
+            # 删除行(们)
+            if selected_count > 0:
+                delete_text = "删除选中的行" if selected_count > 1 else "删除行"
+                delete_action = QAction(QIcon(""), delete_text, self.table)
+                delete_action.triggered.connect(lambda: self.delete_selected_rows(selected_rows))
+                menu.addAction(delete_action)
+            
+            # 显示菜单
+            menu.exec_(self.table.mapToGlobal(position))
+    
+    def _add_editing_row_proxy(self):
+        """
+        代理方法，将调用转发到add_editing_row方法
+        """
+        if hasattr(self, 'add_editing_row'):
+            return self.add_editing_row()
+        else:
+            logger.error("实例没有add_editing_row方法")
+            return -1
+            
+    def copy_selected_content(self):
+        """
+        复制选中的内容到剪贴板
+        """
+        # 获取选中的单元格
+        selected_items = self.table.selectedItems()
+        if not selected_items:
+            return
+            
+        # 获取文本内容
+        text_list = [item.text() for item in selected_items]
+        text = "\n".join(text_list)
+        
+        # 复制到剪贴板
+        clipboard = QApplication.clipboard()
+        clipboard.setText(text)
+        
+        logger.info(f"已复制{len(selected_items)}个单元格内容到剪贴板")
+
+    def _add_row_with_logging(self, position: int, position_type: str):
+        """
+        带日志的添加行操作
+        
+        Args:
+            position (int): 添加行的位置
+            position_type (str): 位置类型描述（"上方"/"下方"/"末尾"）
+        """
+        logger.info(f"尝试在行{position + 1}（{position_type}）添加新行 [添加方式: {position_type}]")
+        try:
+            # 调用原有的添加行方法
+            new_row = self.add_row_at(position)
+            if new_row >= 0:
+                logger.info(f"成功在行{position + 1}（{position_type}）添加新行，新行索引: {new_row + 1} [添加方式: {position_type}]")
+            else:
+                logger.error(f"在行{position + 1}（{position_type}）添加新行失败 [添加方式: {position_type}]")
+        except Exception as e:
+            logger.error(f"在行{position + 1}（{position_type}）添加新行时出错: {str(e)} [添加方式: {position_type}]")
+
+
+class TableEventFilter(QObject):
+    """
+    表格事件过滤器
+    
+    处理表格的键盘和鼠标事件
+    """
+    
+    def __init__(self, table_widget, password_table):
+        """
+        初始化事件过滤器
+        
+        Args:
+            table_widget (QTableWidget): 表格控件
+            password_table (PasswordTable): 密码表格管理器
+        """
+        super().__init__()
+        self.table = table_widget
+        self.password_table = password_table
+        
+    def eventFilter(self, obj, event):
+        """
+        事件过滤器
+        
+        Args:
+            obj: 事件对象
+            event: 事件
+            
+        Returns:
+            bool: 是否处理了事件
+        """
+        # 处理双击事件 - 已禁用编辑功能
+        if event.type() == QEvent.MouseButtonDblClick:
+            # 不再触发编辑功能
+            return True
+            
+        # 处理键盘事件
+        if event.type() == QEvent.KeyPress:
+            # 处理Ctrl+C复制
+            if event.modifiers() == Qt.ControlModifier and event.key() == Qt.Key_C:
+                self.password_table.copy_selected_content()
+                return True
+                
+        # 其他事件交给默认处理
+        return super().eventFilter(obj, event) 

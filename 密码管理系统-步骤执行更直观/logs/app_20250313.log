@@ -1705,3 +1705,17 @@
 2025-03-13 17:50:47,762 - ui.password_manager.ui_table.table_events - INFO - 尝试在行7（下方）添加新行 [添加方式: 下方]
 2025-03-13 17:50:47,762 - ui.password_manager.ui_table.table_edit - INFO - 在位置 6 添加新行
 2025-03-13 17:50:47,777 - ui.password_manager.ui_table.table_events - ERROR - 在行7（下方）添加新行时出错: '>=' not supported between instances of 'NoneType' and 'int' [添加方式: 下方]
+2025-03-13 22:17:00,007 - root - INFO - 密码管理系统启动
+2025-03-13 22:17:01,993 - user - INFO - 用户 admin 登录成功
+2025-03-13 22:17:01,993 - login_ui - INFO - 用户 admin 登录成功
+2025-03-13 22:17:01,995 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-13 22:17:03,981 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 3, 当前列: 5, 选中行数: 1, 选中行: [3]
+2025-03-13 22:17:03,981 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-13 22:17:03,982 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-13 22:17:03,983 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-13 22:17:07,012 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 5, 选中行数: 1, 选中行: [1]
+2025-03-13 22:17:07,013 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-13 22:17:07,014 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-13 22:17:07,015 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-13 22:17:10,336 - ui.password_manager.ui_table.table_password - INFO - 用户取消了服务器密码更新
+2025-03-13 22:18:26,564 - user - INFO - 用户已登出

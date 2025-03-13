@@ -237,3 +237,23 @@
 2025-03-13 17:50:33,380 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\密码管理系统-步骤执行更直观\main.py
 2025-03-13 17:50:33,380 - __main__ - INFO - 正在启动应用程序...
 2025-03-13 17:50:54,957 - __main__ - INFO - 应用程序退出，返回代码: 3221226505
+2025-03-13 22:09:14,223 - __main__ - INFO - 找到Qt插件路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv/Lib/site-packages/PyQt5/Qt5/plugins
+2025-03-13 22:09:14,230 - __main__ - INFO - Python解释器路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv\Scripts\python.exe
+2025-03-13 22:09:14,231 - __main__ - INFO - 主脚本路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-03-13 22:09:14,231 - __main__ - INFO - 正在启动应用程序...
+2025-03-13 22:09:15,284 - __main__ - INFO - 应用程序退出，返回代码: 1
+2025-03-13 22:09:58,224 - __main__ - INFO - 找到Qt插件路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv/Lib/site-packages/PyQt5/Qt5/plugins
+2025-03-13 22:09:58,225 - __main__ - INFO - Python解释器路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv\Scripts\python.exe
+2025-03-13 22:09:58,226 - __main__ - INFO - 主脚本路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-03-13 22:09:58,227 - __main__ - INFO - 正在启动应用程序...
+2025-03-13 22:09:58,492 - __main__ - INFO - 应用程序退出，返回代码: 1
+2025-03-13 22:11:08,515 - __main__ - INFO - 找到Qt插件路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv/Lib/site-packages/PyQt5/Qt5/plugins
+2025-03-13 22:11:08,516 - __main__ - INFO - Python解释器路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv\Scripts\python.exe
+2025-03-13 22:11:08,517 - __main__ - INFO - 主脚本路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-03-13 22:11:08,517 - __main__ - INFO - 正在启动应用程序...
+2025-03-13 22:11:08,755 - __main__ - INFO - 应用程序退出，返回代码: 1
+2025-03-13 22:16:59,595 - __main__ - WARNING - 未找到有效的Qt插件路径，可能会导致UI加载问题
+2025-03-13 22:16:59,595 - __main__ - INFO - Python解释器路径: C:\Users\14214\Desktop\pwd_glgj\.venv\Scripts\python.exe
+2025-03-13 22:16:59,596 - __main__ - INFO - 主脚本路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-03-13 22:16:59,596 - __main__ - INFO - 正在启动应用程序...
+2025-03-13 22:18:26,905 - __main__ - INFO - 应用程序退出，返回代码: 0

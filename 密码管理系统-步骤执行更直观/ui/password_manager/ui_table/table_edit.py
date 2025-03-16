@@ -201,16 +201,17 @@ class TableEditMixin:
         button_layout.setSpacing(6)  # 增加按钮间距
         
         # 确认按钮
-        confirm_button = QPushButton("✓")
-        confirm_button.setFixedSize(23, 23)  # 调整为更小的尺寸，与行高更协调
+        confirm_button = QPushButton("确认")
+        confirm_button.setFixedHeight(23)  # 调整高度，宽度根据文字自适应
         confirm_button.setToolTip("确认修改")
         confirm_button.setStyleSheet("""
             QPushButton {
                 background-color: #4caf50; 
                 color: white; 
-                border-radius: 12px; 
+                border-radius: 4px; 
                 font-weight: bold;
                 font-size: 12px;
+                padding: 1px 8px;
             }
             QPushButton:hover {
                 background-color: #45a049;
@@ -222,16 +223,17 @@ class TableEditMixin:
         confirm_button.clicked.connect(lambda: self.confirm_editing(row))
         
         # 取消按钮
-        cancel_button = QPushButton("✕")
-        cancel_button.setFixedSize(23, 23)  # 调整为更小的尺寸，与行高更协调
+        cancel_button = QPushButton("取消")
+        cancel_button.setFixedHeight(23)  # 调整高度，宽度根据文字自适应
         cancel_button.setToolTip("取消修改")
         cancel_button.setStyleSheet("""
             QPushButton {
                 background-color: #f44336; 
                 color: white; 
-                border-radius: 12px; 
+                border-radius: 4px; 
                 font-weight: bold;
-                font-size: 10px;
+                font-size: 12px;
+                padding: 1px 8px;
             }
             QPushButton:hover {
                 background-color: #e53935;
@@ -252,7 +254,7 @@ class TableEditMixin:
         
         # 如果是新添加的行，设置行高较小
         if is_last_row:
-            self.table.setRowHeight(button_row, 30)
+            self.table.setRowHeight(button_row, 35)  # 增加行高以适应文字按钮
         
     def confirm_editing(self, row: int) -> bool:
         """

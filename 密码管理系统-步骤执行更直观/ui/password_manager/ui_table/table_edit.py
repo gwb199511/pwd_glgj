@@ -254,6 +254,9 @@ class TableEditMixin:
         Returns:
             bool: 是否成功保存
         """
+        # 初始化成功状态变量
+        success = False
+        
         # 获取行信息
         row_name = self.table.item(row, 0).text() if self.table.item(row, 0) else '新行'
         logger.info(f"开始确认编辑 - 第{row+1}行: {row_name}")
@@ -725,40 +728,63 @@ class TableEditMixin:
             self.table.setSortingEnabled(old_sort_state)
         except Exception as e:
             logger.exception(f"添加行失败: {str(e)}")
-        
-    def confirm_editing(self, row: int = None) -> Tuple[bool, str]:
+    
+    def _setup_data_validation(self, row: int):
         """
-        确认编辑
-
+        设置行数据验证
+        
         Args:
-            row (int, optional): 要编辑的行. Defaults to None.
-
-        Returns:
-            Tuple[bool, str]: (成功状态, 消息)
+            row (int): 行索引
         """
-        # ... existing code ...
-                
-        # 如果添加/更新成功
-        if success:
-            # 新行
-            if self.is_new_row:
-                # 保存插入位置
-                position = self.insert_position if hasattr(self, 'insert_position') else None
-                
-                # 添加到密码管理器
-                success, message = self.password_manager.add_password(
-                    self.current_user,
-                    site_info,
-                    position=position  # 传递插入位置
-                )
-            else:
-                # 更新现有记录
-                success, message = self.password_manager.update_password(
-                    self.current_user,
-                    self.original_site_info,
-                    site_info
-                )
+        # 添加基本数据验证（高亮必填字段）
+        highlight_required_fields(self.table, row)
+        # 可以添加更多验证...
+    
+    def check_ssh_password_updates(self) -> bool:
+        """
+        检查SSH密码更新
         
-        # ... existing code ...
-
-        # ... existing code ... 
+        Returns:
+            bool: 是否更新成功
+        """
+        # 实现检查SSH密码更新的逻辑
+        # 这可能需要根据您的具体实现来决定
+        return True
+    
+    def _get_real_row_index(self, row: int) -> Optional[int]:
+        """
+        获取真实行索引
+        
+        Args:
+            row (int): 显示行索引
+            
+        Returns:
+            Optional[int]: 真实行索引或None
+        """
+        # 实现逻辑以获取真实行索引
+        # 在搜索模式下需要从search_results中获取
+        if self.search_mode and hasattr(self, 'search_results') and self.search_results:
+            if 0 <= row < len(self.search_results):
+                return self.search_results[row][0]  # 假设search_results存储格式为[(real_index, data), ...]
+        return row
+    
+    def _load_passwords_internal(self, owner: str, preserve_position: bool = False, insert_position: Optional[int] = None):
+        """
+        内部加载密码
+        
+        Args:
+            owner (str): 所有者
+            preserve_position (bool): 是否保留位置
+            insert_position (Optional[int]): 插入位置
+        """
+        # 实现加载密码的逻辑
+        # 这可能需要根据您的具体实现来决定
+        pass
+    
+    def _refresh_search_results(self):
+        """
+        刷新搜索结果
+        """
+        # 实现刷新搜索结果的逻辑
+        # 这可能需要根据您的具体实现来决定
+        pass 

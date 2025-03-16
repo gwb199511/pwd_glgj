@@ -1,0 +1,67 @@
+2025-03-16 20:54:49,459 - root - INFO - 密码管理系统启动
+2025-03-16 20:54:54,977 - user - INFO - 用户 admin 登录成功
+2025-03-16 20:54:55,014 - login_ui - INFO - 用户 admin 登录成功
+2025-03-16 20:54:55,028 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-16 20:54:58,438 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 5, 当前列: 5, 选中行数: 3, 选中行: [4, 5, 6]
+2025-03-16 20:54:58,439 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 3
+2025-03-16 20:54:59,919 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 4, 当前列: 5, 选中行数: 1, 选中行: [4]
+2025-03-16 20:54:59,920 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-16 20:54:59,921 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-16 20:54:59,921 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-16 20:55:02,214 - ui.password_manager.ui_table.table_password - INFO - 开始更新1个服务器的密码
+2025-03-16 20:55:02,214 - ui.password_manager.ui_table.table_password - INFO - 开始更新服务器密码 - 行: 4, 项目: ERP系统, IP: 243.193.66.197, 用户: sysadmin12
+2025-03-16 20:55:02,303 - ui.password_manager.ui_table.table_password - WARNING - 更新服务器 243.193.66.197 上用户 sysadmin12 的密码失败: 连接或命令执行失败: [WinError 10051] 向一个无法连接的网络尝试了一个套接字操作。
+2025-03-16 20:55:02,303 - ui.password_manager.ui_table.table_password - WARNING - SSH密码更新结果: 失败 1/1 个
+2025-03-16 20:55:10,170 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 5, 当前列: 4, 选中行数: 1, 选中行: [5]
+2025-03-16 20:55:10,170 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-16 20:55:10,171 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-16 20:55:10,171 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-16 20:55:12,744 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 7, 当前列: 5, 选中行数: 1, 选中行: [7]
+2025-03-16 20:55:12,744 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-16 20:55:12,745 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-16 20:55:12,746 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-16 20:55:14,807 - ui.password_manager.ui_table.table_password - INFO - 开始更新1个服务器的密码
+2025-03-16 20:55:14,807 - ui.password_manager.ui_table.table_password - INFO - 开始更新服务器密码 - 行: 7, 项目: SQL Server, IP: 197.194.24.24, 用户: pilzbb
+2025-03-16 20:55:24,811 - ui.password_manager.ui_table.table_password - WARNING - 更新服务器 197.194.24.24 上用户 pilzbb 的密码失败: 连接或命令执行失败: timed out
+2025-03-16 20:55:24,811 - ui.password_manager.ui_table.table_password - WARNING - SSH密码更新结果: 失败 1/1 个
+2025-03-16 20:55:31,161 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 6, 当前列: 3, 选中行数: 1, 选中行: [6]
+2025-03-16 20:55:31,161 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-16 20:55:31,162 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-16 20:55:31,162 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-16 20:55:33,394 - ui.password_manager.ui_table.table_events - INFO - 尝试在行6（上方）添加新行 [添加方式: 上方]
+2025-03-16 20:55:33,395 - ui.password_manager.ui_table.table_edit - INFO - 在位置 5 添加新行
+2025-03-16 20:55:33,517 - ui.password_manager.ui_table.table_events - ERROR - 在行6（上方）添加新行时出错: '>=' not supported between instances of 'NoneType' and 'int' [添加方式: 上方]
+2025-03-16 21:02:37,383 - root - INFO - 密码管理系统启动
+2025-03-16 21:02:38,970 - user - INFO - 用户 admin 登录成功
+2025-03-16 21:02:38,970 - login_ui - INFO - 用户 admin 登录成功
+2025-03-16 21:02:38,972 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-16 21:02:40,879 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 3, 当前列: 4, 选中行数: 1, 选中行: [3]
+2025-03-16 21:02:40,879 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-16 21:02:40,879 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-16 21:02:40,880 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-16 21:02:43,174 - ui.password_manager.ui_table.table_events - INFO - 尝试在行3（上方）添加新行 [添加方式: 上方]
+2025-03-16 21:02:43,175 - ui.password_manager.ui_table.table_edit - INFO - 在位置 2 添加新行
+2025-03-16 21:02:43,189 - ui.password_manager.ui_table.table_events - ERROR - 在行3（上方）添加新行时出错: '>=' not supported between instances of 'NoneType' and 'int' [添加方式: 上方]
+2025-03-16 21:09:21,306 - root - INFO - 密码管理系统启动
+2025-03-16 21:09:23,030 - user - INFO - 用户 admin 登录成功
+2025-03-16 21:09:23,030 - login_ui - INFO - 用户 admin 登录成功
+2025-03-16 21:09:23,032 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-16 21:09:23,868 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 6, 当前列: 1, 选中行数: 1, 选中行: [6]
+2025-03-16 21:09:23,869 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-16 21:09:23,869 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-16 21:09:23,870 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-16 21:09:26,140 - ui.password_manager.ui_table.table_events - INFO - 尝试在行6（上方）添加新行 [添加方式: 上方]
+2025-03-16 21:09:26,140 - ui.password_manager.ui_table.table_edit - INFO - 在位置 5 添加新行
+2025-03-16 21:09:26,155 - ui.password_manager.ui_table.table_events - ERROR - 在行6（上方）添加新行时出错: '>=' not supported between instances of 'NoneType' and 'int' [添加方式: 上方]
+2025-03-16 21:09:33,696 - ui.password_manager.ui_table.table_edit - INFO - 开始确认编辑 - 第6行: Jenkins
+2025-03-16 21:09:33,696 - ui.password_manager.ui_table.table_edit - INFO - 根据位置判断第6行是否为新行: False
+2025-03-16 21:09:33,697 - ui.password_manager.ui_table.table_edit - INFO - 检查是否有需要SSH更新的密码
+2025-03-16 21:09:33,698 - password - INFO - 调试信息 - update_password被调用，skip_server_sync参数值为: False，类型: <class 'bool'>
+2025-03-16 21:09:33,698 - password - INFO - 更新密码记录 - 所有者: 徐国明, 索引: 5, 项目: Jenkins, 跳过服务器同步: 否
+2025-03-16 21:09:33,699 - password - INFO - 需要SSH更新密码 - 项目: Jenkins, IP: 237.111.92.192, 用户: operator97
+2025-03-16 21:09:33,700 - password - INFO - 尝试更新服务器密码 - 项目: Jenkins, IP: 237.111.92.192, 用户: operator97
+2025-03-16 21:09:33,706 - password - INFO - SSH密码更新操作已记录到日志文件: logs\ssh_operations.log
+2025-03-16 21:09:33,708 - password - INFO - 更新所有者 徐国明 的密码记录成功
+2025-03-16 21:09:33,709 - password - WARNING - 服务器密码更新失败，但本地密码已更新：连接或命令执行失败: [WinError 10049] 在其上下文中，该请求的地址无效。
+2025-03-16 21:09:33,712 - ui.password_manager.ui_table.table_edit - INFO - 成功确认编辑 - 第6行: Jenkins
+2025-03-16 21:09:43,383 - user - INFO - 用户已登出

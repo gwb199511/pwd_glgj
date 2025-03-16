@@ -87,6 +87,16 @@ class TableEditMixin:
             self.edited_rows.add(insert_row)
             logger.info(f"已将第{insert_row+1}行添加到编辑行列表")
             
+            # 返回添加的行索引
+            logger.info(f"添加编辑行完成，行索引: {insert_row}")
+            
+            # 在状态栏显示提示信息
+            if hasattr(self.table, 'parent') and hasattr(self.table.parent(), 'statusBar'):
+                try:
+                    self.table.parent().statusBar().showMessage("新添加的记录不会自动更新到服务器，需要使用右键菜单中的'生成16位随机密码并更新到服务器(SSH)'选项")
+                except:
+                    pass
+                
             return insert_row
         except Exception as e:
             logger.error(f"添加编辑行时发生错误: {str(e)}")
@@ -270,12 +280,12 @@ class TableEditMixin:
             if len(original_row_data) > 4 and len(current_row_data) > 4:
                 password_changed = original_row_data[4] != current_row_data[4]
         
-        # 如果修改了密码，则要求用户验证身份
+        # 如果密码变更，则要求用户验证身份
         if password_changed:
             logger.info("检测到密码变更，需要进行身份验证")
             # 创建密码确认对话框
             from ui.password_manager.ui_dialogs import PasswordConfirmDialog
-            password_dialog = PasswordConfirmDialog(self.table.parent())
+            password_dialog = PasswordConfirmDialog(self.table.window())
             if password_dialog.exec_() != password_dialog.Accepted:
                 logger.warning("用户取消了身份验证，编辑操作被取消")
                 return False
@@ -287,7 +297,7 @@ class TableEditMixin:
             login_success, _ = user_manager.login(self.current_owner, current_password)
             if not login_success:
                 logger.warning(f"用户 {self.current_owner} 身份验证失败，编辑操作被取消")
-                msg_box = QMessageBox()
+                msg_box = QMessageBox(self.table.window())
                 msg_box.setWindowTitle("验证失败")
                 msg_box.setText("密码不正确，无法继续操作。")
                 msg_box.setIcon(QMessageBox.Warning)
@@ -320,7 +330,7 @@ class TableEditMixin:
             
             if real_row is None:
                 logger.error(f"无法获取第{row+1}行的真实索引")
-                msg_box = QMessageBox()
+                msg_box = QMessageBox(self.table.window())
                 msg_box.setWindowTitle("确认编辑")
                 msg_box.setText(f"无法获取第{row+1}行的真实索引")
                 msg_box.setIcon(QMessageBox.Warning)
@@ -340,18 +350,9 @@ class TableEditMixin:
                 is_new_row = (row == self.table.rowCount() - 2)  # 减2是因为有一个按钮行
                 logger.info(f"根据位置判断第{row+1}行是否为新行: {is_new_row}")
             
-            if is_new_row:
-                logger.info("检测到新添加的行，将跳过SSH密码更新步骤")
-            else:
-                # 先进行SSH更新检查
-                logger.info("检查是否有需要SSH更新的密码")
-                ssh_update_result = self.check_ssh_password_updates()
-                
-                # 如果SSH更新失败，取消编辑并返回
-                if ssh_update_result == False:
-                    logger.warning("SSH密码更新失败，取消本地数据库更新")
-                    return False
-                    
+            # 不管是新添加的行还是修改的行，都跳过SSH密码更新步骤
+            logger.info("根据用户需求，跳过SSH密码更新步骤，仅在右键菜单中选择'生成16位随机密码并更新到服务器'时才进行更新")
+            
             # 执行本地数据库更新操作
             if is_new_row:
                 logger.info(f"检测到新添加的行，使用add_password方法直接添加")
@@ -362,16 +363,17 @@ class TableEditMixin:
                     position=row if is_new_row else None
                 )
             else:
-                # 对于现有行，执行正常更新
+                # 对于现有行，执行正常更新，但跳过SSH更新 - 添加skip_server_sync参数
                 success, message = password_manager.update_password(
                     self.current_owner, 
                     real_row, 
-                    row_data
+                    row_data,
+                    skip_server_sync=True  # 添加此参数，确保跳过服务器同步
                 )
             
             if not success:
                 logger.error(f"保存第{row+1}行数据失败: {message}")
-                msg_box = QMessageBox()
+                msg_box = QMessageBox(self.table.window())
                 msg_box.setWindowTitle("确认编辑")
                 msg_box.setText(f"保存第{row+1}行数据失败: {message}")
                 msg_box.setIcon(QMessageBox.Warning)

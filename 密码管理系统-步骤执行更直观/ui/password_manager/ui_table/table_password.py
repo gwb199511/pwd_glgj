@@ -301,31 +301,50 @@ class TablePasswordMixin:
                 failed_updates.append((row, ip, username, message))
                 logger.warning(f"更新服务器 {ip} 上用户 {username} 的密码失败: {message}")
         
+        # 显示操作结果
+        if success_count > 0:
+            success_msg = f"成功更新了 {success_count}/{len(ssh_updates)} 个服务器的密码。"
+            logger.info(success_msg)
+            
+            # 显示成功消息
+            from PyQt5.QtWidgets import QMessageBox
+            msg_box = QMessageBox()
+            msg_box.setWindowTitle("服务器密码更新成功")
+            msg_box.setText(success_msg)
+            msg_box.setIcon(QMessageBox.Information)
+            msg_box.setWindowFlags(msg_box.windowFlags() | Qt.WindowStaysOnTopHint)
+            msg_box.exec_()
+            
+            # 手动触发表格刷新以确保内容正确显示
+            if hasattr(self, 'current_owner') and self.current_owner:
+                if hasattr(self, 'search_mode') and self.search_mode:
+                    self._refresh_search_results()
+                else:
+                    self._load_passwords_internal(self.current_owner)
+        
         # 如果有失败的更新，显示警告消息
         if failed_updates:
-            error_msg = "以下服务器的密码更新失败（本地密码将不会更新）：\n\n"
+            error_msg = "以下服务器的密码更新失败：\n\n"
             for row, ip, username, message in failed_updates:
-                error_msg += f"• 第{row+1}行: {ip} ({username}) - {message}\n"
+                error_msg += f"• 行 {row+1}: {ip} ({username}) - {message}\n"
             
             error_msg += "\n您可能需要手动更新这些服务器的密码。"
             logger.warning(f"SSH密码更新结果: 失败 {len(failed_updates)}/{len(ssh_updates)} 个")
+            
+            from PyQt5.QtWidgets import QMessageBox
             msg_box = QMessageBox()
-            msg_box.setWindowTitle("SSH密码更新失败")
+            msg_box.setWindowTitle("部分服务器更新失败")
             msg_box.setText(error_msg)
             msg_box.setIcon(QMessageBox.Warning)
             msg_box.setWindowFlags(msg_box.windowFlags() | Qt.WindowStaysOnTopHint)
             msg_box.exec_()
-            
-            return False  # 有失败的更新，返回失败以阻止本地数据库更新
         
-        if ssh_updates:
-            logger.info(f"SSH密码更新结果: 成功 {success_count}/{len(ssh_updates)} 个")
-            msg_box = QMessageBox()
-            msg_box.setWindowTitle("SSH密码更新成功")
-            msg_box.setText(f"{len(ssh_updates)}个服务器密码已成功更新。")
-            msg_box.setIcon(QMessageBox.Information)
-            msg_box.setWindowFlags(msg_box.windowFlags() | Qt.WindowStaysOnTopHint)
-            msg_box.exec_()
+        # 手动触发表格刷新以确保内容正确显示
+        if hasattr(self, 'current_owner') and self.current_owner:
+            if hasattr(self, 'search_mode') and self.search_mode:
+                self._refresh_search_results()
+            else:
+                self._load_passwords_internal(self.current_owner)
         
         return True
 
@@ -629,11 +648,18 @@ class TablePasswordMixin:
                 # 显示成功消息
                 from PyQt5.QtWidgets import QMessageBox
                 msg_box = QMessageBox()
-                msg_box.setWindowTitle("更新完成")
+                msg_box.setWindowTitle("服务器密码更新成功")
                 msg_box.setText(success_msg)
                 msg_box.setIcon(QMessageBox.Information)
                 msg_box.setWindowFlags(msg_box.windowFlags() | Qt.WindowStaysOnTopHint)
                 msg_box.exec_()
+                
+                # 手动触发表格刷新以确保内容正确显示
+                if hasattr(self, 'current_owner') and self.current_owner:
+                    if hasattr(self, 'search_mode') and self.search_mode:
+                        self._refresh_search_results()
+                    else:
+                        self._load_passwords_internal(self.current_owner)
             
             # 如果有失败的更新，显示警告消息
             if failed_updates:
@@ -646,12 +672,19 @@ class TablePasswordMixin:
                 
                 from PyQt5.QtWidgets import QMessageBox
                 msg_box = QMessageBox()
-                msg_box.setWindowTitle("部分更新失败")
+                msg_box.setWindowTitle("部分服务器更新失败")
                 msg_box.setText(error_msg)
                 msg_box.setIcon(QMessageBox.Warning)
                 msg_box.setWindowFlags(msg_box.windowFlags() | Qt.WindowStaysOnTopHint)
                 msg_box.exec_()
-                
+            
+            # 手动触发表格刷新以确保内容正确显示
+            if hasattr(self, 'current_owner') and self.current_owner:
+                if hasattr(self, 'search_mode') and self.search_mode:
+                    self._refresh_search_results()
+                else:
+                    self._load_passwords_internal(self.current_owner)
+            
         finally:
             # 重新启用表格更新
             self.table.setUpdatesEnabled(True)

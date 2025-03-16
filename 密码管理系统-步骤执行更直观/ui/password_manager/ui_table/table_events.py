@@ -72,7 +72,7 @@ class TableEventsMixin:
                     menu.addSeparator()
                     
                     # 生成随机密码并更新到服务器
-                    ssh_update_action = QAction(QIcon(""), "生成16位随机密码并更新到服务器", self.table)
+                    ssh_update_action = QAction(QIcon(""), "生成16位随机密码并更新到服务器 (SSH)", self.table)
                     ssh_update_action.triggered.connect(lambda: self._generate_and_update_passwords(password_cells, 16))
                     menu.addAction(ssh_update_action)
             else:
@@ -107,6 +107,13 @@ class TableEventsMixin:
                 logger.info(f"已添加'添加行'子菜单，包含上方、下方和末尾三个选项")
                 menu.addSeparator()
             
+            # 编辑行功能 - 只在单行选择且有效行选择时显示
+            if row >= 0 and selected_count == 1:
+                edit_action = QAction(QIcon(""), "编辑行", self.table)
+                edit_action.triggered.connect(lambda: self.edit_row(row))
+                menu.addAction(edit_action)
+                logger.info(f"已添加'编辑行'选项")
+                
             # 删除行(们)
             if selected_count > 0:
                 delete_text = "删除选中的行" if selected_count > 1 else "删除行"

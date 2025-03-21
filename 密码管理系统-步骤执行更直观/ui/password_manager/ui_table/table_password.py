@@ -18,6 +18,7 @@ from PyQt5.QtGui import QColor
 
 from password import password_manager
 from ssh_password_updater import ssh_password_updater
+from ui.password_manager.ui_guide import show_guide_if_needed
 
 # 配置日志
 logger = logging.getLogger(__name__)
@@ -491,7 +492,7 @@ class TablePasswordMixin:
 
     def _generate_and_update_passwords(self, cells: List[Tuple[int, int]], length: int):
         """
-        生成随机密码并更新到服务器
+        为选中的单元格生成随机密码并更新到服务器
         
         Args:
             cells (List[Tuple[int, int]]): 单元格列表，每个元素为 (行, 列)
@@ -500,194 +501,165 @@ class TablePasswordMixin:
         if not cells:
             return
             
-        # 收集需要更新的服务器信息
+        # 显示密码更新引导
+        if hasattr(self.table, 'parent'):
+            parent = self.table.parent()
+            if parent:
+                show_guide_if_needed("password_update", parent)
+        
+        # 获取当前选择的所有者
+        owner = self.current_owner
+        
+        # 显示确认对话框
+        from ui.password_manager.ui_utils import show_confirmation
+        confirm_message = f"将为选中的 {len(cells)} 个单元格生成随机密码，并尝试更新到对应的服务器。\n\n" \
+                         f"此操作不可撤销，请确认："
+        if not show_confirmation(self.table.parent(), "更新密码", confirm_message):
+            logger.info("用户取消了服务器密码更新")
+            return
+        
+        # 获取被选中的服务器信息，用于更新密码
         servers_to_update = []
         for row, col in cells:
-            # 检查是否是服务器密码
-            ip_item = self.table.item(row, 2)  # IP地址列
-            username_item = self.table.item(row, 3)  # 账户列
-            password_item = self.table.item(row, 4)  # 密码列
-            project_item = self.table.item(row, 0)  # 项目名称列
+            # 确保单元格存在且列为密码列(4)
+            if col != 4 or not self.table.item(row, col):
+                continue
             
-            if ip_item and username_item and password_item and project_item:
+            # 获取IP地址和用户名，用于判断是否需要更新服务器密码
+            ip_item = self.table.item(row, 2)  # IP地址列
+            username_item = self.table.item(row, 3)  # 用户名列
+            project_item = self.table.item(row, 0)  # 项目名称列
+            password_item = self.table.item(row, col)  # 密码单元格
+            
+            # 如果存在IP地址和用户名，则加入待更新列表
+            if ip_item and username_item and project_item and password_item:
                 ip = ip_item.text().strip()
                 username = username_item.text().strip()
-                current_password = password_item.text()
                 project = project_item.text().strip()
+                current_password = password_item.text().strip()
                 
                 # 简单验证IP格式
                 ip_parts = ip.split('.')
-                if len(ip_parts) == 4 and all(part.isdigit() and 0 <= int(part) <= 255 for part in ip_parts):
-                    # 生成随机密码
-                    new_password = self._generate_secure_password(length)
+                is_valid_ip = len(ip_parts) == 4 and all(part.isdigit() and 0 <= int(part) <= 255 for part in ip_parts)
+                
+                if ip and username and is_valid_ip:
+                    # 获取在原始数据中的索引，用于后续更新本地数据库
+                    real_index = self._get_real_row_index(row)
                     
-                    # 添加到待更新列表
                     servers_to_update.append({
-                        "row": row,
-                        "col": col,
-                        "ip": ip,
-                        "username": username,
-                        "old_password": current_password,
-                        "new_password": new_password,
-                        "project": project
+                        'row': row,
+                        'ip': ip,
+                        'username': username,
+                        'project': project,
+                        'current_password': current_password,
+                        'new_password': '',  # 将在下一步生成
+                        'real_index': real_index
                     })
         
-        # 如果没有服务器需要更新，直接返回
+        # 如果没有有效的服务器信息，给出提示
         if not servers_to_update:
-            from PyQt5.QtWidgets import QMessageBox
-            msg_box = QMessageBox()
-            msg_box.setWindowTitle("无服务器可更新")
-            msg_box.setText("未找到有效的服务器信息。\n\n请确保选择的密码单元格对应有效的IP地址和账户名。")
-            msg_box.setIcon(QMessageBox.Information)
-            msg_box.setWindowFlags(msg_box.windowFlags() | Qt.WindowStaysOnTopHint)
-            msg_box.exec_()
+            from ui.password_manager.ui_utils import show_message
+            show_message(
+                self.table.parent(),
+                "无法更新服务器",
+                "没有找到有效的服务器信息。\n\n请确保选中的密码单元格对应的记录包含有效的IP地址和用户名。",
+                QMessageBox.Warning
+            )
             return
-            
-        # 显示确认对话框
-        from PyQt5.QtWidgets import QDialog, QVBoxLayout, QLabel, QDialogButtonBox, QTableWidget, QTableWidgetItem, QHBoxLayout
         
-        confirm_dialog = QDialog()
-        confirm_dialog.setWindowTitle("确认更新服务器密码")
-        confirm_dialog.resize(600, 400)
-        
-        layout = QVBoxLayout(confirm_dialog)
-        
-        # 添加说明
-        label = QLabel("将要生成新密码并更新到以下服务器：")
-        layout.addWidget(label)
-        
-        # 创建表格显示服务器信息
-        table = QTableWidget()
-        table.setColumnCount(5)
-        table.setHorizontalHeaderLabels(["项目名称", "IP地址", "账户", "旧密码", "新密码"])
-        table.setRowCount(len(servers_to_update))
-        
-        # 填充表格
-        for i, server in enumerate(servers_to_update):
-            table.setItem(i, 0, QTableWidgetItem(server["project"]))
-            table.setItem(i, 1, QTableWidgetItem(server["ip"]))
-            table.setItem(i, 2, QTableWidgetItem(server["username"]))
-            table.setItem(i, 3, QTableWidgetItem(server["old_password"]))
-            table.setItem(i, 4, QTableWidgetItem(server["new_password"]))
-        
-        # 自动调整列宽
-        table.resizeColumnsToContents()
-        layout.addWidget(table)
-        
-        # 添加警告信息
-        warning_label = QLabel("注意：此操作将立即连接到服务器并更新密码。该操作不可撤销！")
-        warning_label.setStyleSheet("color: red; font-weight: bold;")
-        layout.addWidget(warning_label)
-        
-        # 添加确认和取消按钮
-        button_box = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
-        button_box.accepted.connect(confirm_dialog.accept)
-        button_box.rejected.connect(confirm_dialog.reject)
-        layout.addWidget(button_box)
-        
-        # 显示对话框
-        if confirm_dialog.exec_() != QDialog.Accepted:
-            logger.info("用户取消了服务器密码更新")
-            return
-            
-        # 用户确认更新，执行更新操作
-        logger.info(f"开始更新{len(servers_to_update)}个服务器的密码")
-        
-        # 禁用表格更新，提高性能
+        # 批量处理前禁用UI更新以提高性能
         self.table.setUpdatesEnabled(False)
         
         try:
-            # 更新密码和UI
-            success_count = 0
-            failed_updates = []
+            # 为每个服务器生成新密码并进行更新
+            logger.info(f"开始更新{len(servers_to_update)}个服务器的密码")
             
+            success_count = 0
             for server in servers_to_update:
-                row = server["row"]
-                col = server["col"]
-                ip = server["ip"]
-                username = server["username"]
-                old_password = server["old_password"]
-                new_password = server["new_password"]
-                project = server["project"]
+                row = server['row']
+                ip = server['ip']
+                username = server['username']
+                project = server['project']
+                current_password = server['current_password']
                 
+                # 生成新密码
+                new_password = self._generate_secure_password(length)
+                server['new_password'] = new_password
+                
+                # 日志记录
                 logger.info(f"开始更新服务器密码 - 行: {row+1}, 项目: {project}, IP: {ip}, 用户: {username}")
                 
-                # 更新远程密码
+                # 更新到服务器
                 success, message = ssh_password_updater.update_password(
-                    ip=ip, 
-                    username=username, 
-                    old_password=old_password, 
+                    ip=ip,
+                    username=username,
+                    old_password=current_password,
                     new_password=new_password
                 )
                 
                 # 处理结果
                 if success:
-                    success_count += 1
-                    logger.info(f"SSH密码更新成功 - 行: {row+1}, IP: {ip}, 用户: {username}")
-                    
-                    # 更新UI中的密码
-                    password_item = self.table.item(row, col)
+                    # 更新UI显示
+                    password_item = self.table.item(row, 4)  # 密码列
                     if password_item:
                         password_item.setText(new_password)
-                        # 标记为已成功更新
-                        password_item.setBackground(QColor("#d4edda"))  # 浅绿色
+                        # 设置背景色为绿色，表示成功更新
+                        password_item.setBackground(QColor("#d4edda"))
                     
                     # 更新本地数据库
-                    self._update_local_password(row, new_password)
+                    real_index = server['real_index']
+                    if real_index is not None:
+                        # 获取当前行的完整数据
+                        data = []
+                        for col in range(self.table.columnCount()):
+                            item = self.table.item(row, col)
+                            text = item.text() if item else ""
+                            data.append(text)
+                        
+                        # 更新本地数据库，但跳过SSH更新步骤（因为已经完成）
+                        update_success, update_message = password_manager.update_password(
+                            owner, real_index, data, skip_server_sync=True
+                        )
+                        
+                        if update_success:
+                            logger.info(f"成功更新本地数据库 - 所有者: {owner}, 行: {row+1}")
+                        else:
+                            logger.error(f"更新本地数据库失败 - 所有者: {owner}, 行: {row+1}, 错误: {update_message}")
                     
+                    success_count += 1
+                    logger.info(f"SSH密码更新成功 - 行: {row+1}, IP: {ip}, 用户: {username}")
                 else:
-                    # 处理失败的更新
-                    failed_updates.append((row, ip, username, message))
-                    logger.warning(f"更新服务器 {ip} 上用户 {username} 的密码失败: {message}")
-            
-            # 显示操作结果
-            if success_count > 0:
-                success_msg = f"成功更新了 {success_count}/{len(servers_to_update)} 个服务器的密码。"
-                logger.info(success_msg)
-                
-                # 显示成功消息
-                from PyQt5.QtWidgets import QMessageBox
-                msg_box = QMessageBox()
-                msg_box.setWindowTitle("服务器密码更新成功")
-                msg_box.setText(success_msg)
-                msg_box.setIcon(QMessageBox.Information)
-                msg_box.setWindowFlags(msg_box.windowFlags() | Qt.WindowStaysOnTopHint)
-                msg_box.exec_()
-                
-                # 手动触发表格刷新以确保内容正确显示
-                if hasattr(self, 'current_owner') and self.current_owner:
-                    if hasattr(self, 'search_mode') and self.search_mode:
-                        self._refresh_search_results()
-                    else:
-                        self._load_passwords_internal(self.current_owner)
-            
-            # 如果有失败的更新，显示警告消息
-            if failed_updates:
-                error_msg = "以下服务器的密码更新失败：\n\n"
-                for row, ip, username, message in failed_updates:
-                    error_msg += f"• 行 {row+1}: {ip} ({username}) - {message}\n"
-                
-                error_msg += "\n您可能需要手动更新这些服务器的密码。"
-                logger.warning(f"SSH密码更新结果: 失败 {len(failed_updates)}/{len(servers_to_update)} 个")
-                
-                from PyQt5.QtWidgets import QMessageBox
-                msg_box = QMessageBox()
-                msg_box.setWindowTitle("部分服务器更新失败")
-                msg_box.setText(error_msg)
-                msg_box.setIcon(QMessageBox.Warning)
-                msg_box.setWindowFlags(msg_box.windowFlags() | Qt.WindowStaysOnTopHint)
-                msg_box.exec_()
-            
-            # 手动触发表格刷新以确保内容正确显示
-            if hasattr(self, 'current_owner') and self.current_owner:
-                if hasattr(self, 'search_mode') and self.search_mode:
-                    self._refresh_search_results()
-                else:
-                    self._load_passwords_internal(self.current_owner)
-            
+                    # 更新失败，设置背景色为红色
+                    password_item = self.table.item(row, 4)
+                    if password_item:
+                        password_item.setBackground(QColor("#f8d7da"))
+                        
+                    # 显示错误信息
+                    from ui.password_manager.ui_utils import show_message
+                    show_message(
+                        self.table.parent(),
+                        "密码更新失败",
+                        f"更新服务器 {ip} 的密码失败：\n\n{message}",
+                        QMessageBox.Warning
+                    )
+                    
+                    logger.error(f"SSH密码更新失败 - 行: {row+1}, IP: {ip}, 用户: {username}, 错误: {message}")
+        
         finally:
-            # 重新启用表格更新
+            # 重新启用UI更新
             self.table.setUpdatesEnabled(True)
+        
+        # 显示结果
+        logger.info(f"成功更新了 {success_count}/{len(servers_to_update)} 个服务器的密码。")
+        
+        from ui.password_manager.ui_utils import show_message
+        if success_count > 0:
+            result_message = f"成功更新了 {success_count}/{len(servers_to_update)} 个服务器的密码。"
+            if success_count < len(servers_to_update):
+                result_message += "\n\n部分更新失败，请检查错误信息。"
+            show_message(self.table.parent(), "密码更新完成", result_message, QMessageBox.Information)
+        else:
+            show_message(self.table.parent(), "密码更新失败", "所有服务器密码更新均失败，请检查错误信息。", QMessageBox.Warning)
     
     def _update_local_password(self, row: int, new_password: str) -> bool:
         """

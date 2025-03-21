@@ -24,6 +24,7 @@ from ui.password_manager.ui_utils import (
     highlight_required_fields, confirm_delete,
     show_message, show_confirmation
 )
+from ui.password_manager.ui_guide import show_guide_if_needed
 
 # 配置日志
 logger = logging.getLogger(__name__)
@@ -119,6 +120,12 @@ class TableEditMixin:
         if self.editing_row >= 0:
             self.cancel_editing()
             
+        # 显示首次编辑引导
+        if hasattr(self.table, 'parent'):
+            parent = self.table.parent()
+            if parent:
+                show_guide_if_needed("first_edit", parent)
+        
         # 保存原始数据
         self.editing_row = row
         
@@ -258,164 +265,118 @@ class TableEditMixin:
         
     def confirm_editing(self, row: int) -> bool:
         """
-        确认编辑指定行，保存数据
+        确认编辑，保存修改
         
         Args:
             row (int): 行索引
             
         Returns:
-            bool: 是否成功保存
+            bool: 如果确认成功返回True，否则返回False
         """
-        # 初始化成功状态变量
-        success = False
+        logger.info(f"开始确认编辑 - 第{row+1}行: {self.table.item(row, 0).text() if self.table.item(row, 0) else '未知项目'}")
         
-        # 获取行信息
-        row_name = self.table.item(row, 0).text() if self.table.item(row, 0) else '新行'
-        logger.info(f"开始确认编辑 - 第{row+1}行: {row_name}")
-        
-        # 检查是否修改了密码字段
-        password_changed = False
-        if hasattr(self, 'original_data') and row < len(self.original_data):
-            original_row_data = self.original_data[row]
-            current_row_data = get_row_data(self.table, row)
-            # 检查密码列(通常是第5列，索引为4)是否发生变化
-            if len(original_row_data) > 4 and len(current_row_data) > 4:
-                password_changed = original_row_data[4] != current_row_data[4]
-        
-        # 如果密码变更，则要求用户验证身份
-        if password_changed:
-            logger.info("检测到密码变更，需要进行身份验证")
-            # 创建密码确认对话框
-            from ui.password_manager.ui_dialogs import PasswordConfirmDialog
-            password_dialog = PasswordConfirmDialog(self.table.window())
-            if password_dialog.exec_() != password_dialog.Accepted:
-                logger.warning("用户取消了身份验证，编辑操作被取消")
-                return False
-            
-            # 获取用户输入的密码
-            current_password = password_dialog.get_password()
-            
-            # 验证用户密码
-            login_success, _ = user_manager.login(self.current_owner, current_password)
-            if not login_success:
-                logger.warning(f"用户 {self.current_owner} 身份验证失败，编辑操作被取消")
-                msg_box = QMessageBox(self.table.window())
-                msg_box.setWindowTitle("验证失败")
-                msg_box.setText("密码不正确，无法继续操作。")
-                msg_box.setIcon(QMessageBox.Warning)
-                msg_box.setWindowFlags(msg_box.windowFlags() | Qt.WindowStaysOnTopHint)
-                msg_box.exec_()
-                return False
-            
-            logger.info(f"用户 {self.current_owner} 身份验证成功，继续执行编辑操作")
-        
-        # 批量编辑模式下的确认处理
+        # 检查是否是批量编辑模式
         if hasattr(self, 'batch_editing') and self.batch_editing:
-            logger.info("批量编辑模式 - 一次性确认所有修改")
+            logger.info("检测到批量编辑模式")
             return self._confirm_batch_editing(row)
-            
-        try:
-            # 验证必填字段
-            valid = validate_password_entry(self.table, row)
-            if not valid:
-                logger.warning(f"确认编辑失败 - 第{row+1}行: 必填字段未完成")
-                return False
+        
+        # 取消链式编辑属性，如果存在
+        if hasattr(self, 'pending_edit_rows'):
+            logger.info(f"取消链式编辑属性(rows={len(self.pending_edit_rows) if hasattr(self, 'pending_edit_rows') else 0})")
+            delattr(self, 'pending_edit_rows')
+        
+        if hasattr(self, 'original_confirm_editing'):
+            logger.info("取消original_confirm_editing属性")
+            delattr(self, 'original_confirm_editing')
+        
+        # 判断是否是新添加的行
+        is_new_row = False
+        
+        # 首先检查是否有存储在第一个单元格的数据标记
+        if self.table.item(row, 0) and self.table.item(row, 0).data(Qt.UserRole + 200):
+            is_new_row = True
+            logger.info(f"根据存储的标记判断第{row+1}行是否为新行: {is_new_row}")
+        else:
+            # 退回到位置判断（作为备用方法）
+            is_new_row = (row == self.table.rowCount() - 2)  # 减2是因为有一个按钮行
+            logger.info(f"根据位置判断第{row+1}行是否为新行: {is_new_row}")
+        
+        # 验证数据
+        if not validate_password_entry(self.table, row):
+            return False
+        
+        # 获取行数据
+        data = get_row_data(self.table, row)
+        
+        # 获取当前选择的所有者
+        owner = self.current_owner
+        
+        # 保存数据
+        success = False
+        if is_new_row:
+            # 添加新记录
+            success, message = password_manager.add_password(owner, data)
+            if success:
+                # 清除新行标记
+                if self.table.item(row, 0):
+                    self.table.item(row, 0).setData(Qt.UserRole + 200, None)
                 
-            # 移除高亮
-            self._clear_highlight(row)
-            
-            # 获取行数据
-            row_data = get_row_data(self.table, row)
-            
-            # 获取真实行索引
-            real_row = self._get_real_row_index(row) if self.search_mode else row
-            
-            if real_row is None:
-                logger.error(f"无法获取第{row+1}行的真实索引")
-                msg_box = QMessageBox(self.table.window())
-                msg_box.setWindowTitle("确认编辑")
-                msg_box.setText(f"无法获取第{row+1}行的真实索引")
-                msg_box.setIcon(QMessageBox.Warning)
-                msg_box.setWindowFlags(msg_box.windowFlags() | Qt.WindowStaysOnTopHint)
-                msg_box.exec_()
-                return False
+                logger.info(f"成功添加新密码记录: {data[0]}")
                 
-            # 判断是否是新添加的行
-            is_new_row = False
-            
-            # 首先检查是否有存储在第一个单元格的数据标记
-            if self.table.item(row, 0) and self.table.item(row, 0).data(Qt.UserRole + 200):
-                is_new_row = True
-                logger.info(f"根据存储的标记判断第{row+1}行是新添加的行")
+                # 显示密码更新引导
+                if hasattr(self.table, 'parent'):
+                    parent = self.table.parent()
+                    if parent:
+                        # 如果是新添加的记录且有IP地址和账户，可能需要更新到服务器
+                        if data[2] and data[3]:  # IP地址和账户不为空
+                            show_guide_if_needed("password_update", parent)
             else:
-                # 退回到位置判断（作为备用方法）
-                is_new_row = (row == self.table.rowCount() - 2)  # 减2是因为有一个按钮行
-                logger.info(f"根据位置判断第{row+1}行是否为新行: {is_new_row}")
-            
-            # 不管是新添加的行还是修改的行，都跳过SSH密码更新步骤
+                show_message(self.table.parent(), "添加失败", message, QMessageBox.Warning)
+                logger.error(f"添加密码记录失败: {message}")
+                return False
+        else:
+            # 更新记录
+            # 根据用户需求，跳过SSH密码更新步骤，仅在右键菜单中选择'生成16位随机密码并更新到服务器'时才进行更新
             logger.info("根据用户需求，跳过SSH密码更新步骤，仅在右键菜单中选择'生成16位随机密码并更新到服务器'时才进行更新")
             
-            # 执行本地数据库更新操作
-            if is_new_row:
-                logger.info(f"检测到新添加的行，使用add_password方法直接添加")
-                # 对于新行，直接调用add_password方法添加新记录
-                success, message = password_manager.add_password(
-                    self.current_owner, 
-                    row_data,
-                    position=row if is_new_row else None
-                )
-            else:
-                # 对于现有行，执行正常更新，但跳过SSH更新 - 添加skip_server_sync参数
-                success, message = password_manager.update_password(
-                    self.current_owner, 
-                    real_row, 
-                    row_data,
-                    skip_server_sync=True  # 添加此参数，确保跳过服务器同步
-                )
-            
-            if not success:
-                logger.error(f"保存第{row+1}行数据失败: {message}")
-                msg_box = QMessageBox(self.table.window())
-                msg_box.setWindowTitle("确认编辑")
-                msg_box.setText(f"保存第{row+1}行数据失败: {message}")
-                msg_box.setIcon(QMessageBox.Warning)
-                msg_box.setWindowFlags(msg_box.windowFlags() | Qt.WindowStaysOnTopHint)
-                msg_box.exec_()
+            # 获取实际的记录索引
+            real_index = self._get_real_row_index(row)
+            if real_index is None:
+                show_message(self.table.parent(), "更新失败", "无法找到记录索引", QMessageBox.Warning)
+                logger.error(f"无法确定第{row+1}行对应的实际索引")
                 return False
-                
-            # 清除编辑状态
-            self.editing_row = -1
             
-            # 移除确认和取消按钮
-            self._remove_confirm_cancel_buttons(row)
-            
-            # 重新加载数据以显示最新内容 - 对于新添加的行，记录插入位置
-            insert_position = row if is_new_row else None
-            
-            if self.search_mode:
-                self._refresh_search_results()
+            success, message = password_manager.update_password(owner, real_index, data, skip_server_sync=True)
+            if success:
+                logger.info(f"成功更新密码记录: {data[0]}")
             else:
-                self._load_passwords_internal(self.current_owner, preserve_position=is_new_row, insert_position=insert_position)
-                
-            # 处理链式编辑的下一行
-            if hasattr(self, 'pending_edit_rows') and self.pending_edit_rows:
-                next_row = self.pending_edit_rows.pop(0)
-                logger.info(f"继续编辑下一行 - 行: {next_row+1}")
-                self.edit_row(next_row)
-                
-                # 如果没有更多待编辑行，恢复原始确认函数
-                if not self.pending_edit_rows and hasattr(self, 'original_confirm_editing'):
-                    logger.info("所有行编辑完成，恢复原始确认函数")
-                    self.confirm_editing = self.original_confirm_editing
-                    delattr(self, 'original_confirm_editing')
-                
-            logger.info(f"成功确认编辑 - 第{row+1}行: {row_name}")
-            return True
+                show_message(self.table.parent(), "更新失败", message, QMessageBox.Warning)
+                logger.error(f"更新密码记录失败: {message}")
+                return False
+        
+        # 清除编辑状态
+        self._clear_highlight(row)
+        
+        # 删除确认和取消按钮行
+        self._remove_confirm_cancel_buttons(row)
+        
+        # 重新设置编辑触发器
+        self.table.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        
+        # 重置编辑状态
+        self.editing_row = -1
+        
+        logger.info(f"成功确认编辑 - 第{row+1}行: {data[0]}")
+        
+        # 在状态栏显示提示
+        if hasattr(self.table, 'parent') and hasattr(self.table.parent(), 'statusBar'):
+            try:
+                self.table.parent().statusBar().showMessage(f"{'新增' if is_new_row else '更新'}密码记录成功: {data[0]}")
+            except:
+                pass
             
-        except Exception as e:
-            logger.error(f"确认编辑时出错: {str(e)}")
-            return False
-            
+        return True
+        
     def _confirm_batch_editing(self, current_row: int) -> bool:
         """
         批量编辑模式下的确认处理 (已简化，保留基本功能)
@@ -735,14 +696,62 @@ class TableEditMixin:
     
     def _setup_data_validation(self, row: int):
         """
-        设置行数据验证
+        为新增行添加数据验证
         
         Args:
             row (int): 行索引
         """
-        # 添加基本数据验证（高亮必填字段）
+        # 高亮显示必填字段
         highlight_required_fields(self.table, row)
-        # 可以添加更多验证...
+        
+        # 添加字段编辑监听，用于触发相应的引导
+        if hasattr(self, '_setup_field_guides'):
+            self._setup_field_guides(row)
+
+    def _setup_field_guides(self, row: int):
+        """
+        设置字段编辑引导
+        
+        当用户编辑特定字段时，显示相应的引导
+        
+        Args:
+            row (int): 行索引
+        """
+        # 首先显示首次编辑引导
+        show_guide_if_needed("first_edit", self.table.window())
+        
+        # 监听密码和IP地址字段的编辑
+        # 要实现这个功能，我们需要在单元格激活时检查它的列
+        # 这部分在itemActivated信号中处理
+        
+        # 连接单元格变化信号
+        self.table.itemDoubleClicked.connect(
+            lambda item: self._show_field_guide_for_item(item)
+        )
+    
+    def _show_field_guide_for_item(self, item):
+        """
+        根据单元格类型显示相应的引导
+        
+        Args:
+            item (QTableWidgetItem): 表格单元格项
+        """
+        if not item:
+            return
+            
+        # 如果不是在编辑状态，忽略
+        if self.editing_row < 0:
+            return
+            
+        column = item.column()
+        
+        # 密码字段 (列索引4)
+        if column == 4:
+            show_guide_if_needed("password_field", self.table.window())
+            
+        # IP地址字段 (列索引2)
+        elif column == 2:
+            show_guide_if_needed("ip_field", self.table.window())
     
     def check_ssh_password_updates(self) -> bool:
         """

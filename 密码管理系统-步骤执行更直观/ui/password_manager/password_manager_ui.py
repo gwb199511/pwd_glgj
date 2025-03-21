@@ -9,17 +9,19 @@ import sys
 import logging
 from typing import Dict, Any, Callable, Optional
 
-from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox
+from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox, QAction
 from PyQt5.QtCore import Qt, QEvent
 from PyQt5.QtGui import QFont, QIcon, QCloseEvent
 
 from config import VERSION, WINDOW_WIDTH, WINDOW_HEIGHT
 from password import password_manager
 from user import user_manager
+from user_settings import user_settings
 from ui.password_manager.ui_layout import PasswordManagerLayout
 from ui.password_manager.ui_table import PasswordTable
 from ui.password_manager.ui_operations import PasswordOperations
 from ui_components import show_message
+from ui.password_manager.ui_guide import show_guide_if_needed, PASSWORD_UPDATE_GUIDE
 
 # 配置日志
 logger = logging.getLogger(__name__)
@@ -75,6 +77,49 @@ class PasswordManagerUI(QMainWindow):
         
         # 调整窗口大小
         self.layout_manager.resize_to_default()
+        
+        # 创建菜单栏
+        menubar = self.menuBar()
+        
+        # 文件菜单
+        file_menu = menubar.addMenu('文件')
+        
+        # 退出动作
+        exit_action = QAction('退出', self)
+        exit_action.setShortcut('Ctrl+Q')
+        exit_action.triggered.connect(self.close)
+        file_menu.addAction(exit_action)
+        
+        # 工具菜单
+        tools_menu = menubar.addMenu('工具')
+        
+        # 密码生成器动作
+        password_gen_action = QAction('密码生成器', self)
+        password_gen_action.triggered.connect(self._open_password_generator)
+        tools_menu.addAction(password_gen_action)
+        
+        # SSH日志查看器动作
+        ssh_log_action = QAction('SSH操作日志', self)
+        ssh_log_action.triggered.connect(self._open_ssh_log_viewer)
+        tools_menu.addAction(ssh_log_action)
+        
+        # 帮助菜单
+        help_menu = menubar.addMenu('帮助')
+        
+        # 查看密码更新引导动作
+        view_guide_action = QAction('查看密码更新引导', self)
+        view_guide_action.triggered.connect(self._show_password_update_guide)
+        help_menu.addAction(view_guide_action)
+        
+        # 重置所有引导动作
+        reset_guides_action = QAction('重置所有引导', self)
+        reset_guides_action.triggered.connect(self._reset_all_guides)
+        help_menu.addAction(reset_guides_action)
+        
+        # 关于动作
+        about_action = QAction('关于', self)
+        about_action.triggered.connect(self._show_about_dialog)
+        help_menu.addAction(about_action)
         
     def _setup_callbacks(self):
         """
@@ -190,6 +235,70 @@ class PasswordManagerUI(QMainWindow):
         # 确保窗口使用配置的默认大小
         self.resize(WINDOW_WIDTH, WINDOW_HEIGHT)
         self.show()
+        
+        # 显示密码更新引导
+        self._show_password_update_guide()
+        
+    def _show_password_update_guide(self):
+        """显示密码更新引导"""
+        show_guide_if_needed("password_update", self)
+        
+    def _reset_all_guides(self):
+        """重置所有引导状态"""
+        # 确认重置
+        result = QMessageBox.question(
+            self,
+            "重置引导",
+            "确定要重置所有引导状态吗？\n\n这将使所有引导对话框在相应操作时再次显示。",
+            QMessageBox.Yes | QMessageBox.No,
+            QMessageBox.No
+        )
+        
+        if result == QMessageBox.Yes:
+            user_settings.reset_guides()
+            QMessageBox.information(
+                self,
+                "重置完成",
+                "所有引导状态已重置。\n\n在执行相应操作时，引导对话框将再次显示。",
+                QMessageBox.Ok
+            )
+
+    def _show_about_dialog(self):
+        """显示关于对话框"""
+        from config import VERSION, BUILD_DATE
+        QMessageBox.about(
+            self,
+            "关于密码管理系统",
+            f"<h3>密码管理系统</h3>"
+            f"<p>版本: {VERSION}</p>"
+            f"<p>构建日期: {BUILD_DATE}</p>"
+            f"<p>一个安全、易用的密码管理工具</p>"
+        )
+
+    def _open_password_generator(self):
+        """打开密码生成器"""
+        # 这里可以实现密码生成器功能
+        QMessageBox.information(
+            self,
+            "密码生成器",
+            "密码生成器功能尚未实现。\n\n您可以通过表格右键菜单中的'生成随机密码'选项来生成密码。",
+            QMessageBox.Ok
+        )
+
+    def _open_ssh_log_viewer(self):
+        """打开SSH日志查看器"""
+        try:
+            from ssh_log_viewer import SSHLogViewer
+            log_viewer = SSHLogViewer()
+            log_viewer.show()
+        except Exception as e:
+            logger.error(f"打开SSH日志查看器时出错: {str(e)}")
+            QMessageBox.warning(
+                self,
+                "打开失败",
+                f"无法打开SSH日志查看器: {str(e)}",
+                QMessageBox.Ok
+            )
 
 
 def main():

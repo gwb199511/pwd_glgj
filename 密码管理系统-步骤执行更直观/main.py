@@ -17,6 +17,7 @@ from PyQt5.QtGui import QFont
 from config import LOG_DIR, LOG_FILE, LOG_LEVEL, LOG_FORMAT, FONT_FAMILY
 from login_ui import LoginUI
 from ui.password_manager.password_manager_ui import PasswordManagerUI
+from user_settings import user_settings
 
 
 def setup_logging():
@@ -57,6 +58,15 @@ def main():
     """
     # 设置日志系统
     setup_logging()
+    
+    # 确保用户设置模块已经初始化
+    logging.info(f"初始化用户设置模块...")
+    try:
+        # 访问设置以触发初始化
+        _ = user_settings.get("version", "未知")
+        logging.info(f"用户设置模块已初始化")
+    except Exception as e:
+        logging.error(f"初始化用户设置模块时出错: {str(e)}")
 
     # 创建应用程序
     app = QApplication(sys.argv)

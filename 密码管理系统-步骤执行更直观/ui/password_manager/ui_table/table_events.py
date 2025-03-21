@@ -14,6 +14,7 @@ from PyQt5.QtCore import Qt, QObject, QEvent
 from PyQt5.QtGui import QIcon
 
 from config import PASSWORD_COLUMNS
+from ui.password_manager.ui_guide import show_guide_if_needed
 
 # 配置日志
 logger = logging.getLogger(__name__)
@@ -214,6 +215,35 @@ class TableEventFilter(QObject):
             if event.modifiers() == Qt.ControlModifier and event.key() == Qt.Key_C:
                 self.password_table.copy_selected_content()
                 return True
-                
+        
+        # 处理单元格编辑事件 - 检测并触发相应的引导
+        if event.type() == QEvent.FocusIn:
+            # 只有当表格处于编辑状态时才进行检查
+            if hasattr(self.password_table, 'editing_row') and self.password_table.editing_row >= 0:
+                # 获取当前选中的单元格
+                current_item = self.table.currentItem()
+                if current_item:
+                    row = current_item.row()
+                    col = current_item.column()
+                    
+                    # 根据列类型触发相应的引导
+                    if col == 4:  # 密码列
+                        # 获取主窗口作为引导对话框的父窗口
+                        if hasattr(self.table, 'parent'):
+                            parent = self.table.parent()
+                            if parent:
+                                # 显示密码字段编辑引导
+                                show_guide_if_needed("password_field", parent)
+                                logger.info(f"触发密码字段编辑引导 - 行: {row+1}")
+                    
+                    elif col == 2:  # IP地址列
+                        # 获取主窗口作为引导对话框的父窗口
+                        if hasattr(self.table, 'parent'):
+                            parent = self.table.parent()
+                            if parent:
+                                # 显示IP地址字段编辑引导
+                                show_guide_if_needed("ip_field", parent)
+                                logger.info(f"触发IP地址字段编辑引导 - 行: {row+1}")
+        
         # 其他事件交给默认处理
         return super().eventFilter(obj, event) 

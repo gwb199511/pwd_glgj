@@ -1,0 +1,18 @@
+{
+    "guides": {
+        "password_update_guided": false,
+        "first_edit_guided": false,
+        "password_field_guided": false,
+        "ip_field_guided": false
+    },
+    "ui": {
+        "table_font_size": 9,
+        "show_grid_lines": true,
+        "auto_resize_columns": true
+    },
+    "password": {
+        "default_length": 16,
+        "include_special_chars": true,
+        "auto_generate_for_new": false
+    }
+}

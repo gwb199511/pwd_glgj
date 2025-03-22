@@ -10,16 +10,37 @@ import logging
 import string
 import random
 import time
-from typing import List, Tuple, Optional
+import traceback
+import sys
+import os
+from typing import List, Tuple, Optional, Dict, Any
 
-from PyQt5.QtWidgets import QTableWidgetItem, QMessageBox
-from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QColor
+from PyQt5.QtWidgets import QTableWidgetItem, QMessageBox, QTableWidget, QApplication, QLabel, QHeaderView
+from PyQt5.QtCore import Qt, QTimer
+from PyQt5.QtGui import QColor, QBrush
 
 from password import password_manager
 from ssh_password_updater import ssh_password_updater
 from ui.password_manager.ui_guide import show_guide_if_needed
 from audit_log import audit_logger, OP_TYPE_GENERATE, OP_TYPE_UPDATE, OP_TYPE_SSH_UPDATE, OP_RESULT_SUCCESS, OP_RESULT_FAIL, OP_RESULT_WARNING, OP_RESULT_INFO, LOG_TYPE_SSH
+from encrypt import encryptor
+
+# 导入新的对话框
+try:
+    from ui.password_manager.ui_dialogs.password_update_dialog import PasswordUpdateDialog
+except ImportError:
+    # 获取当前脚本所在目录
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    # 获取ui_dialogs路径
+    dialogs_dir = os.path.join(os.path.dirname(os.path.dirname(current_dir)), "ui_dialogs")
+    if dialogs_dir not in sys.path:
+        sys.path.append(dialogs_dir)
+    try:
+        from password_update_dialog import PasswordUpdateDialog
+    except ImportError:
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.error("无法导入PasswordUpdateDialog模块，请确保文件存在且路径正确")
 
 # 配置日志
 logger = logging.getLogger(__name__)
@@ -210,98 +231,117 @@ class TablePasswordMixin:
 
     def check_ssh_password_updates(self) -> bool:
         """
-        在确认编辑时，检查并更新所有标记为需要SSH更新的密码
+        检查SSH密码更新
         
         Returns:
-            bool: 是否所有更新都成功，如果有失败则返回False
+            bool: 是否更新成功
         """
-        # 检查是否是批量编辑模式
-        if hasattr(self, 'batch_editing') and self.batch_editing:
-            # 批量编辑模式下的SSH更新
-            return self._batch_check_ssh_password_updates()
-            
-        # 以下为原有单行SSH更新逻辑
-        # 尝试查找标记为需要SSH更新的单元格
+        # 如果没有标记为需要SSH更新的单元格，直接返回
         ssh_updates = []
         
+        # 查找标记为需要SSH更新的密码单元格
         for row in range(self.table.rowCount()):
-            # 判断是否是新添加的行
-            is_new_row = False
+            password_item = self.table.item(row, 4)  # 密码列
             
-            # 首先检查是否有存储在第一个单元格的数据标记
-            if self.table.item(row, 0) and self.table.item(row, 0).data(Qt.UserRole + 200):
-                is_new_row = True
-                logger.info(f"根据存储的标记判断第{row+1}行是新添加的行")
-            else:
-                # 退回到位置判断（作为备用方法）
-                is_new_row = (row == self.table.rowCount() - 2)  # 减2是因为有一个按钮行
-                logger.info(f"根据位置判断第{row+1}行是否为新行: {is_new_row}")
-            
-            # 跳过新行的SSH更新检查
-            if is_new_row:
-                logger.info(f"跳过第{row+1}行的SSH更新检查 (新添加的行)")
-                continue
-                
-            password_item = self.table.item(row, 4)  # 密码列 (第5列，索引为4)
             if password_item and password_item.data(Qt.UserRole + 101):
-                # 获取保存的SSH更新信息
+                # 获取原密码和更新信息
+                old_password = password_item.data(Qt.UserRole + 100)
                 ip = password_item.data(Qt.UserRole + 102)
                 username = password_item.data(Qt.UserRole + 103)
-                old_password = password_item.data(Qt.UserRole + 100)
                 new_password = password_item.text()
                 
-                if ip and username and old_password is not None:
-                    # 加入更新列表
-                    ssh_updates.append((row, 4, ip, username, old_password, new_password))
-                    logger.info(f"找到需要SSH更新的密码 - 行: {row+1}, IP: {ip}, 用户: {username}")
+                # 如果标记了SSH更新但缺少必要的信息，给出警告
+                if not old_password or not ip or not username:
+                    logger.warning(f"行 {row+1} 标记为需要SSH更新，但缺少必要的信息")
+                    continue
                     
-                # 清除标记，无论是否有完整信息
-                password_item.setData(Qt.UserRole + 101, None)
-        
-        # 如果没有需要更新的密码，直接返回成功
+                # 添加到待更新列表
+                ssh_updates.append((row, ip, username, old_password, new_password))
+                
         if not ssh_updates:
             logger.info("没有找到需要SSH更新的密码")
             return True
-        
-        # 显示确认对话框
-        if len(ssh_updates) > 0:
-            confirm_msg = f"是否要通过SSH更新{len(ssh_updates)}个服务器密码？"
-            logger.info(f"显示SSH更新确认对话框: {confirm_msg}")
-            reply = QMessageBox.question(None, "SSH密码更新确认", 
-                                        confirm_msg, QMessageBox.Yes | QMessageBox.No, QMessageBox.Yes)
             
-            if reply != QMessageBox.Yes:
-                logger.info("用户取消了SSH密码更新")
-                return False  # 用户取消，返回失败以阻止本地数据库更新
-            
-            logger.info(f"用户确认开始SSH更新 {len(ssh_updates)} 个服务器密码")
+        # 显示一个确认对话框，让用户决定是否更新服务器密码
+        from ui.password_manager.ui_utils import show_confirmation
+        if not show_confirmation(self.table.parent(), "确认更新服务器密码", 
+                              f"即将更新 {len(ssh_updates)} 个服务器的密码。\n\n"
+                              "这个操作会将生成的新密码更新到对应的服务器上。\n"
+                              "此操作无法撤销，是否继续？"):
+            logger.info("用户取消了服务器密码更新")
+            return False
         
-        # 执行SSH密码更新
-        failed_updates = []
+        # 记录开始更新的审计日志
+        owner = self.current_owner if hasattr(self, 'current_owner') else "未知"
+        audit_logger.log_operation(
+            operation_type=OP_TYPE_SSH_UPDATE,
+            result=OP_RESULT_INFO,
+            details=f"开始批量更新{len(ssh_updates)}个服务器的密码",
+            target=f"{owner}/批量更新"
+        )
+            
+        # 处理每个需要更新的密码
         success_count = 0
+        failed_updates = []
         
-        for row, col, ip, username, old_password, new_password in ssh_updates:
-            logger.info(f"开始SSH密码更新 - 行: {row+1}, IP: {ip}, 用户: {username}")
+        # 预先保存真实行索引到字典中，避免多次计算
+        real_indices = {}
+        for row, _, _, _, _ in ssh_updates:
+            real_indices[row] = self._get_real_row_index(row)
+            logger.info(f"行 {row+1} 对应的真实索引: {real_indices[row]}")
+        
+        for row, ip, username, old_password, new_password in ssh_updates:
+            logger.info(f"开始更新服务器 {ip} 的密码")
             
-            # 更新远程密码
+            # 尝试更新服务器密码
             success, message = ssh_password_updater.update_password(
-                ip=ip, 
-                username=username, 
-                old_password=old_password, 
+                ip=ip,
+                username=username,
+                old_password=old_password,
                 new_password=new_password
             )
             
-            # 记录操作结果
-            logger.info("SSH密码更新操作已记录到日志文件: " + ssh_password_updater.get_log_file_path())
-            
-            # 处理结果
             if success:
+                # 更新成功，清除SSH更新标记并设置背景为正常
+                password_item = self.table.item(row, 4)
+                if password_item:
+                    password_item.setData(Qt.UserRole + 101, False)  # 清除SSH更新标记
+                    password_item.setBackground(QBrush())  # 恢复默认背景
+                    
+                # 立即更新本地数据库，使用预先计算的真实索引
+                real_row = real_indices.get(row)
+                if real_row is not None:
+                    # 获取当前所有者
+                    owner = self.current_owner if hasattr(self, 'current_owner') else "未知"
+                    
+                    # 获取完整的行数据
+                    row_data = []
+                    for col in range(self.table.columnCount()):
+                        cell_item = self.table.item(row, col)
+                        cell_text = cell_item.text() if cell_item else ""
+                        row_data.append(cell_text)
+                    
+                    # 直接调用PasswordManager的update_password方法
+                    update_success, update_message = password_manager.update_password(
+                        owner, real_row, row_data, skip_server_sync=True
+                    )
+                    
+                    if update_success:
+                        logger.info(f"成功更新本地数据库 - 所有者: {owner}, 行: {row+1}, 真实索引: {real_row}")
+                    else:
+                        logger.error(f"更新本地数据库失败 - 所有者: {owner}, 行: {row+1}, 真实索引: {real_row}, 错误: {update_message}")
+                
                 success_count += 1
-                logger.info(f"SSH密码更新成功 - 行: {row+1}, IP: {ip}, 用户: {username}")
+                logger.info(f"成功更新服务器 {ip} 的密码")
             else:
-                # 处理失败的更新
+                # 更新失败
+                logger.error(f"更新服务器 {ip} 的密码失败: {message}")
                 failed_updates.append((row, ip, username, message))
-                logger.warning(f"更新服务器 {ip} 上用户 {username} 的密码失败: {message}")
+                
+                # 在UI中标记为错误
+                password_item = self.table.item(row, 4)
+                if password_item:
+                    password_item.setBackground(QColor("#f8d7da"))  # 设置为红色背景表示错误
         
         # 显示操作结果
         if success_count > 0:
@@ -316,13 +356,6 @@ class TablePasswordMixin:
             msg_box.setIcon(QMessageBox.Information)
             msg_box.setWindowFlags(msg_box.windowFlags() | Qt.WindowStaysOnTopHint)
             msg_box.exec_()
-            
-            # 手动触发表格刷新以确保内容正确显示
-            if hasattr(self, 'current_owner') and self.current_owner:
-                if hasattr(self, 'search_mode') and self.search_mode:
-                    self._refresh_search_results()
-                else:
-                    self._load_passwords_internal(self.current_owner)
         
         # 如果有失败的更新，显示警告消息
         if failed_updates:
@@ -341,12 +374,54 @@ class TablePasswordMixin:
             msg_box.setWindowFlags(msg_box.windowFlags() | Qt.WindowStaysOnTopHint)
             msg_box.exec_()
         
-        # 手动触发表格刷新以确保内容正确显示
+        # 处理完所有更新后，强制刷新表格和数据库
+        self.table.setUpdatesEnabled(False)  # 暂时禁用UI更新以提高性能
+        try:
+            # 确保数据库中的密码与表格显示一致
+            for row, ip, username, old_password, new_password in ssh_updates:
+                if not any(failed_row == row for failed_row, _, _, _ in failed_updates):
+                    # 再次确认本地数据库与UI显示一致
+                    real_row = real_indices.get(row)
+                    if real_row is not None:
+                        # 获取当前所有者
+                        owner = self.current_owner
+                        
+                        # 获取该所有者的所有密码
+                        passwords = password_manager.get_passwords_by_owner(owner)
+                        
+                        # 检查索引是否有效，更新密码字段
+                        if 0 <= real_row < len(passwords):
+                            # 获取当前密码记录并更新
+                            passwords[real_row][4] = new_password
+                            
+                            # 再次调用update_password确保永久保存
+                            success, message = password_manager.update_password(owner, real_row, passwords[real_row], skip_server_sync=True)
+                            if success:
+                                logger.info(f"确认永久保存密码成功 - 所有者: {owner}, 行: {row+1}, 真实索引: {real_row}")
+                            else:
+                                logger.error(f"确认永久保存密码失败 - 所有者: {owner}, 行: {row+1}, 真实索引: {real_row}, 错误: {message}")
+        finally:
+            self.table.setUpdatesEnabled(True)  # 恢复UI更新
+        
+        # 强制刷新表格UI和数据
         if hasattr(self, 'current_owner') and self.current_owner:
+            # 第一次调用 - 重新加载表格数据
             if hasattr(self, 'search_mode') and self.search_mode:
                 self._refresh_search_results()
             else:
                 self._load_passwords_internal(self.current_owner)
+            
+            # 处理界面事件，确保UI更新
+            QApplication.processEvents()
+            
+            # 第二次调用 - 确保数据被全部刷新
+            if hasattr(self, 'search_mode') and self.search_mode:
+                self._refresh_search_results()
+            else:
+                self._load_passwords_internal(self.current_owner)
+        
+        # 最后一次处理事件，确保所有更新被应用
+        QApplication.processEvents()
         
         return True
 
@@ -493,52 +568,49 @@ class TablePasswordMixin:
 
     def _generate_and_update_passwords(self, cells: List[Tuple[int, int]], length: int):
         """
-        为选中的单元格生成随机密码并更新到服务器
+        生成随机密码并更新到服务器
         
         Args:
-            cells (List[Tuple[int, int]]): 单元格列表，每个元素为 (行, 列)
+            cells (List[Tuple[int, int]]): 需要生成密码的单元格列表（行,列）
             length (int): 密码长度
         """
         if not cells:
+            logger.warning("没有选择需要生成密码的单元格")
             return
             
-        # 显示密码更新引导
-        if hasattr(self.table, 'parent'):
-            parent = self.table.parent()
-            if parent:
-                show_guide_if_needed("password_update", parent)
-        
-        # 获取当前选择的所有者
+        # 获取当前所有者
+        if not hasattr(self, 'current_owner') or not self.current_owner:
+            logger.error("找不到当前所有者信息")
+            return
+            
         owner = self.current_owner
         
-        # 显示确认对话框
-        from ui.password_manager.ui_utils import show_confirmation
-        confirm_message = f"将为选中的 {len(cells)} 个单元格生成随机密码，并尝试更新到对应的服务器。\n\n" \
-                         f"此操作不可撤销，请确认："
-        if not show_confirmation(self.table.parent(), "更新密码", confirm_message):
-            logger.info("用户取消了服务器密码更新")
-            return
-        
-        # 记录审计日志 - 开始生成随机密码
-        audit_logger.log_operation(
-            operation_type=OP_TYPE_GENERATE,
-            result=OP_RESULT_INFO,
-            details=f"开始生成随机密码并更新服务器，选中单元格数量：{len(cells)}",
-            target=f"{owner}/批量操作"
-        )
-        
-        # 获取被选中的服务器信息，用于更新密码
-        servers_to_update = []
+        # 检查所选单元格是否都是密码列
+        password_cells = []
         for row, col in cells:
-            # 确保单元格存在且列为密码列(4)
-            if col != 4 or not self.table.item(row, col):
-                continue
+            if col == 4:  # 密码列
+                password_cells.append((row, col))
+                
+        if not password_cells:
+            from ui.password_manager.ui_utils import show_message
+            show_message(
+                self.table.parent(),
+                "无效的选择",
+                "请选择密码列（第5列）中的单元格",
+                QMessageBox.Warning
+            )
+            return
             
-            # 获取IP地址和用户名，用于判断是否需要更新服务器密码
-            ip_item = self.table.item(row, 2)  # IP地址列
-            username_item = self.table.item(row, 3)  # 用户名列
+        # 收集要更新的服务器信息
+        servers_to_update = []
+        
+        for row, col in password_cells:
+            # 获取相关单元格
             project_item = self.table.item(row, 0)  # 项目名称列
-            password_item = self.table.item(row, col)  # 密码单元格
+            desc_item = self.table.item(row, 1)     # 描述列
+            ip_item = self.table.item(row, 2)       # IP地址列
+            username_item = self.table.item(row, 3)  # 用户名列
+            password_item = self.table.item(row, 4)  # 密码列
             
             # 如果存在IP地址和用户名，则加入待更新列表
             if ip_item and username_item and project_item and password_item:
@@ -555,13 +627,31 @@ class TablePasswordMixin:
                     # 获取在原始数据中的索引，用于后续更新本地数据库
                     real_index = self._get_real_row_index(row)
                     
+                    # 记录真实索引获取状态
+                    if real_index is None:
+                        logger.warning(f"无法获取行 {row} 的真实索引，将使用表格行索引作为备选")
+                        # 如果在搜索模式下，尝试从搜索结果获取真实索引
+                        if hasattr(self, 'search_mode') and self.search_mode:
+                            logger.warning(f"在搜索模式下无法获取真实索引，这可能导致密码更新但不会永久保存到数据库")
+                            # 在搜索模式下，如果获取不到真实索引，可能导致更新没有保存
+                        else:
+                            # 非搜索模式下使用当前行索引作为真实索引
+                            real_index = row
+                            logger.info(f"在非搜索模式下使用当前行索引 {row} 作为真实索引")
+                    else:
+                        logger.info(f"成功获取行 {row} 的真实索引: {real_index}")
+                    
+                    # 生成新密码
+                    new_password = self._generate_secure_password(length)
+                    
+                    # 添加到更新列表
                     servers_to_update.append({
                         'row': row,
                         'ip': ip,
                         'username': username,
                         'project': project,
-                        'current_password': current_password,
-                        'new_password': '',  # 将在下一步生成
+                        'old_password': current_password,
+                        'new_password': new_password,
                         'real_index': real_index
                     })
         
@@ -584,148 +674,83 @@ class TablePasswordMixin:
             )
             
             return
-        
-        # 批量处理前禁用UI更新以提高性能
-        self.table.setUpdatesEnabled(False)
-        
-        try:
-            # 为每个服务器生成新密码并进行更新
-            logger.info(f"开始更新{len(servers_to_update)}个服务器的密码")
             
-            success_count = 0
-            for server in servers_to_update:
-                row = server['row']
-                ip = server['ip']
-                username = server['username']
-                project = server['project']
-                current_password = server['current_password']
-                
-                # 生成新密码
-                new_password = self._generate_secure_password(length)
-                server['new_password'] = new_password
-                
-                # 日志记录
-                logger.info(f"开始更新服务器密码 - 行: {row+1}, 项目: {project}, IP: {ip}, 用户: {username}")
-                
-                # 记录审计日志 - 开始更新特定服务器
-                audit_logger.log_operation(
-                    operation_type=OP_TYPE_SSH_UPDATE,
-                    result=OP_RESULT_INFO,
-                    details=f"开始更新服务器密码，项目：{project}，IP：{ip}，用户：{username}",
-                    target=f"{owner}/{project}",
-                    log_type=LOG_TYPE_SSH
-                )
-                
-                # 更新到服务器
-                success, message = ssh_password_updater.update_password(
-                    ip=ip,
-                    username=username,
-                    old_password=current_password,
-                    new_password=new_password
-                )
-                
-                # 处理结果
-                if success:
-                    # 更新UI显示
-                    password_item = self.table.item(row, 4)  # 密码列
-                    if password_item:
-                        password_item.setText(new_password)
-                        # 设置背景色为蓝色，保持统一风格
-                        password_item.setBackground(QColor("#008C8C"))
-                    
-                    # 更新本地数据库
-                    real_index = server['real_index']
-                    if real_index is not None:
-                        # 获取当前行的完整数据
-                        data = []
-                        for col in range(self.table.columnCount()):
-                            item = self.table.item(row, col)
-                            text = item.text() if item else ""
-                            data.append(text)
-                        
-                        # 更新本地数据库，但跳过SSH更新步骤（因为已经完成）
-                        update_success, update_message = password_manager.update_password(
-                            owner, real_index, data, skip_server_sync=True
-                        )
-                        
-                        if update_success:
-                            logger.info(f"成功更新本地数据库 - 所有者: {owner}, 行: {row+1}")
-                        else:
-                            logger.error(f"更新本地数据库失败 - 所有者: {owner}, 行: {row+1}, 错误: {update_message}")
-                    
-                    success_count += 1
-                    logger.info(f"SSH密码更新成功 - 行: {row+1}, IP: {ip}, 用户: {username}")
-                    
-                    # 记录审计日志 - 更新服务器成功
-                    audit_logger.log_operation(
-                        operation_type=OP_TYPE_SSH_UPDATE,
-                        result=OP_RESULT_SUCCESS,
-                        details=f"服务器密码更新成功，项目：{project}，IP：{ip}，用户：{username}",
-                        target=f"{owner}/{project}",
-                        log_type=LOG_TYPE_SSH
-                    )
-                else:
-                    # 更新失败，设置背景色为红色
-                    password_item = self.table.item(row, 4)
-                    if password_item:
-                        # 错误状态保持红色
-                        password_item.setBackground(QColor("#f8d7da"))
-                        
-                    # 显示错误信息
-                    from ui.password_manager.ui_utils import show_message
-                    show_message(
-                        self.table.parent(),
-                        "密码更新失败",
-                        f"更新服务器 {ip} 的密码失败：\n\n{message}",
-                        QMessageBox.Warning
-                    )
-                    
-                    logger.error(f"SSH密码更新失败 - 行: {row+1}, IP: {ip}, 用户: {username}, 错误: {message}")
-                    
-                    # 记录审计日志 - 更新服务器失败
-                    audit_logger.log_operation(
-                        operation_type=OP_TYPE_SSH_UPDATE,
-                        result=OP_RESULT_FAIL,
-                        details=f"服务器密码更新失败：{message}，项目：{project}，IP：{ip}，用户：{username}",
-                        target=f"{owner}/{project}",
-                        log_type=LOG_TYPE_SSH
-                    )
+        # 记录审计日志 - 开始生成随机密码
+        audit_logger.log_operation(
+            operation_type=OP_TYPE_GENERATE,
+            result=OP_RESULT_INFO,
+            details=f"开始为{len(servers_to_update)}个服务器生成{length}位随机密码",
+            target=f"{owner}/批量操作"
+        )
         
-        finally:
-            # 重新启用UI更新
-            self.table.setUpdatesEnabled(True)
+        # 创建并显示密码更新对话框
+        update_dialog = PasswordUpdateDialog(
+            parent=self.table.parent(),
+            servers_to_update=servers_to_update,
+            owner=owner
+        )
         
-        # 显示结果
-        logger.info(f"成功更新了 {success_count}/{len(servers_to_update)} 个服务器的密码。")
+        # 显示对话框
+        result = update_dialog.exec_()
         
-        # 记录审计日志 - 批量操作完成
-        if success_count > 0:
-            result_status = OP_RESULT_SUCCESS if success_count == len(servers_to_update) else OP_RESULT_WARNING
-            audit_logger.log_operation(
-                operation_type=OP_TYPE_GENERATE,
-                result=result_status,
-                details=f"批量生成随机密码并更新服务器完成，成功：{success_count}，失败：{len(servers_to_update) - success_count}",
-                target=f"{owner}/批量操作",
-                log_type=LOG_TYPE_SSH
-            )
+        # 如果对话框返回接受结果(确认更新)，强制刷新表格
+        if result == update_dialog.Accepted:
+            logger.info(f"密码更新对话框返回确认结果，刷新表格显示更新后的密码")
+            
+            # 强制刷新表格显示
+            if hasattr(self, 'search_mode') and self.search_mode:
+                self._refresh_search_results()
+            else:
+                self._load_passwords_internal(owner)
+                
+            # 处理界面事件
+            QApplication.processEvents()
         else:
-            audit_logger.log_operation(
-                operation_type=OP_TYPE_GENERATE,
-                result=OP_RESULT_FAIL,
-                details=f"批量生成随机密码并更新服务器全部失败，共{len(servers_to_update)}个服务器",
-                target=f"{owner}/批量操作",
-                log_type=LOG_TYPE_SSH
-            )
+            logger.info("用户取消了密码更新操作")
+            
+        # 记录审计日志 - 完成随机密码生成
+        audit_logger.log_operation(
+            operation_type=OP_TYPE_GENERATE,
+            result=OP_RESULT_SUCCESS,
+            details=f"完成随机密码生成和更新操作",
+            target=f"{owner}/批量操作"
+        )
+
+    def _generate_secure_password(self, length: int) -> str:
+        """
+        生成安全的随机密码
         
-        from ui.password_manager.ui_utils import show_message
-        if success_count > 0:
-            result_message = f"成功更新了 {success_count}/{len(servers_to_update)} 个服务器的密码。"
-            if success_count < len(servers_to_update):
-                result_message += "\n\n部分更新失败，请检查错误信息。"
-            show_message(self.table.parent(), "密码更新完成", result_message, QMessageBox.Information)
-        else:
-            show_message(self.table.parent(), "密码更新失败", "所有服务器密码更新均失败，请检查错误信息。", QMessageBox.Warning)
-    
+        Args:
+            length (int): 密码长度
+            
+        Returns:
+            str: 生成的随机密码
+        """
+        # 确保密码至少包含一个小写字母、一个大写字母、一个数字和一个特殊字符
+        lower = string.ascii_lowercase
+        upper = string.ascii_uppercase
+        digits = string.digits
+        special = '!@#$%^&*()_-+=<>?'
+        
+        # 至少包含各种字符
+        password = [
+            random.choice(lower),
+            random.choice(upper),
+            random.choice(digits),
+            random.choice(special)
+        ]
+        
+        # 填充剩余长度
+        remaining_length = length - 4
+        all_chars = lower + upper + digits + special
+        
+        password.extend(random.choice(all_chars) for _ in range(remaining_length))
+        
+        # 打乱密码顺序
+        random.shuffle(password)
+        
+        return ''.join(password)
+
     def _update_local_password(self, row: int, new_password: str) -> bool:
         """
         更新本地数据库中的密码
@@ -743,27 +768,120 @@ class TablePasswordMixin:
             
             if real_row is None:
                 logger.error(f"无法获取第{row+1}行的真实索引")
+                # 在非搜索模式下，如果获取不到真实索引，则尝试使用表显示的行索引
+                if not hasattr(self, 'search_mode') or not self.search_mode:
+                    logger.info(f"在非搜索模式下使用当前行索引 {row} 作为真实索引")
+                    real_row = row
+                else:
+                    # 在搜索模式下，无法直接使用表格行索引
+                    # 尝试从表格项的隐藏数据中获取真实索引
+                    try:
+                        item = self.table.item(row, 0)  # 第一列
+                        if item and item.data(Qt.UserRole):
+                            # 如果项目中存储了真实索引，则使用它
+                            stored_index = item.data(Qt.UserRole)
+                            if isinstance(stored_index, int):
+                                real_row = stored_index
+                                logger.info(f"从表格项数据中获取到真实索引: {real_row}")
+                        
+                        if real_row is None:
+                            # 进一步尝试从搜索结果中获取
+                            if hasattr(self, 'search_results') and self.search_results and 0 <= row < len(self.search_results):
+                                # 尝试从搜索结果中提取索引信息
+                                try:
+                                    from password import password_manager
+                                    owner = self.current_owner
+                                    current_passwords = password_manager.get_passwords_by_owner(owner)
+                                    
+                                    # 使用当前行的数据与所有密码比较来找到匹配项
+                                    row_data = []
+                                    for col in range(self.table.columnCount()):
+                                        item = self.table.item(row, col)
+                                        text = item.text() if item else ""
+                                        row_data.append(text)
+                                    
+                                    # 匹配前三列（通常是项目、IP、用户名）
+                                    for idx, pwd in enumerate(current_passwords):
+                                        if (len(pwd) >= 3 and len(row_data) >= 3 and 
+                                            pwd[0] == row_data[0] and 
+                                            pwd[2] == row_data[2] and 
+                                            pwd[3] == row_data[3]):
+                                            real_row = idx
+                                            logger.info(f"通过数据匹配找到真实索引: {real_row}")
+                                            break
+                                except Exception as e:
+                                    logger.error(f"尝试从搜索结果获取真实索引时出错: {str(e)}")
+                    except Exception as e:
+                        logger.error(f"尝试获取备选真实索引时出错: {str(e)}")
+            
+            if real_row is None:
                 return False
                 
             # 获取当前所有者
             owner = self.current_owner
-            
+            if not owner:
+                logger.error("无法获取当前所有者")
+                return False
+                
             # 获取该所有者的所有密码
             passwords = password_manager.get_passwords_by_owner(owner)
             
             # 检查索引是否有效
             if 0 <= real_row < len(passwords):
-                # 获取当前密码记录
-                password_record = passwords[real_row]
+                # 获取当前行的完整数据
+                row_data = []
+                for col in range(self.table.columnCount()):
+                    item = self.table.item(row, col)
+                    text = item.text() if item else ""
+                    row_data.append(text)
                 
-                # 更新密码字段
-                password_record[4] = new_password
+                # 确保密码字段为新密码
+                if len(row_data) > 4:  # 至少需要5个字段
+                    row_data[4] = new_password
+                else:
+                    # 扩展数组以确保有足够的元素
+                    while len(row_data) < 5:
+                        row_data.append("")
+                    row_data[4] = new_password
                 
                 # 更新数据库
-                success, message = password_manager.update_password(owner, real_row, password_record, skip_server_sync=True)
+                success, message = password_manager.update_password(owner, real_row, row_data, skip_server_sync=True)
                 
                 if success:
                     logger.info(f"成功更新本地数据库 - 所有者: {owner}, 行: {real_row+1}")
+                    
+                    # 更新表格UI显示
+                    password_item = self.table.item(row, 4)  # 密码列
+                    if password_item:
+                        password_item.setText(new_password)
+                    
+                    # 确保数据被刷新显示
+                    QApplication.processEvents()
+                    
+                    # 强制刷新表格以确保显示正确的数据
+                    if hasattr(self, 'search_mode') and self.search_mode:
+                        self._refresh_search_results()
+                    else:
+                        # 延迟刷新，以避免递归问题
+                        QApplication.processEvents()
+                        self._load_passwords_internal(owner)
+                    
+                    # 最后处理一次，确保更新完成
+                    QApplication.processEvents()
+                    
+                    # 二次验证，确保内存和数据库一致
+                    updated_passwords = password_manager.get_passwords_by_owner(owner)
+                    if 0 <= real_row < len(updated_passwords):
+                        updated_record = updated_passwords[real_row]
+                        if encryptor.decrypt(updated_record[4]) != new_password:
+                            logger.warning(f"检测到数据库中的密码与新密码不匹配，尝试再次更新")
+                            # 再次尝试更新
+                            updated_record[4] = new_password
+                            retry_success, retry_message = password_manager.update_password(
+                                owner, real_row, updated_record, skip_server_sync=True
+                            )
+                            logger.info(f"密码二次更新结果: {retry_success}, {retry_message}")
+                    
                     return True
                 else:
                     logger.error(f"更新本地数据库失败 - 所有者: {owner}, 行: {real_row+1}, 错误: {message}")
@@ -774,37 +892,6 @@ class TablePasswordMixin:
                 
         except Exception as e:
             logger.error(f"更新本地数据库时出错: {str(e)}")
-            return False
-    
-    def _generate_secure_password(self, length: int) -> str:
-        """
-        生成一个安全的随机密码
-        
-        Args:
-            length (int): 密码长度
-            
-        Returns:
-            str: 生成的随机密码
-        """
-        # 确保包含各种字符类型
-        lowercase = string.ascii_lowercase
-        uppercase = string.ascii_uppercase
-        digits = string.digits
-        special = "!@#$%^&*()-_=+[]{}|;:,.<>?/"
-        
-        # 确保至少有一个小写字母、大写字母、数字和特殊字符
-        password = [
-            random.choice(lowercase),
-            random.choice(uppercase),
-            random.choice(digits),
-            random.choice(special)
-        ]
-        
-        # 填充剩余长度
-        all_chars = lowercase + uppercase + digits + special
-        for _ in range(length - 4):
-            password.append(random.choice(all_chars))
-            
-        # 打乱密码
-        random.shuffle(password)
-        return ''.join(password) 
+            import traceback
+            logger.error(traceback.format_exc())
+            return False 

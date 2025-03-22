@@ -556,5 +556,563 @@
     "target": "用户登录",
     "details": "用户登录成功",
     "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T17:35:16.769472",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始生成随机密码并更新服务器，选中单元格数量：1",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T17:38:42.723256",
+    "user": "admin",
+    "operation": "update",
+    "result": "success",
+    "target": "徐国明/ceshi",
+    "details": "仅更新本地密码记录成功（跳过服务器同步），项目：ceshi",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T17:38:55.735028",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T17:44:45.802794",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T17:44:52.285758",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始生成随机密码并更新服务器，选中单元格数量：1",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T17:45:22.290233",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T17:45:35.876550",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T17:45:46.460274",
+    "user": "admin",
+    "operation": "update",
+    "result": "success",
+    "target": "徐国明/ceshi",
+    "details": "仅更新本地密码记录成功（跳过服务器同步），项目：ceshi",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T17:45:51.636295",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始生成随机密码并更新服务器，选中单元格数量：1",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:07:01.458185",
+    "user": "admin",
+    "operation": "update",
+    "result": "success",
+    "target": "徐国明/ceshi",
+    "details": "仅更新本地密码记录成功（跳过服务器同步），项目：ceshi",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:07:07.380456",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始生成随机密码并更新服务器，选中单元格数量：1",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:09:47.890103",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:15:25.764479",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:15:30.198306",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始生成随机密码并更新服务器，选中单元格数量：1",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:15:59.215774",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始生成随机密码并更新服务器，选中单元格数量：1",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:17:01.319015",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始生成随机密码并更新服务器，选中单元格数量：1",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:17:11.302477",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始生成随机密码并更新服务器，选中单元格数量：1",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:30:25.302830",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:40:07.876642",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:40:14.026382",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为1个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:40:41.855805",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:46:18.019253",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为3个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:47:31.953722",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:47:48.156373",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:49:25.470527",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:49:30.033397",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为1个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:50:03.260032",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:50:49.377879",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为1个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:51:07.194931",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:51:08.871326",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为1个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:51:16.887185",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:51:40.906742",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为1个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:55:14.636893",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:55:32.117841",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:55:33.251298",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:55:37.158811",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为1个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:56:01.623511",
+    "user": "admin",
+    "operation": "update",
+    "result": "success",
+    "target": "徐国明/ceshi",
+    "details": "仅更新本地密码记录成功（跳过服务器同步），项目：ceshi",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:56:08.565422",
+    "user": "admin",
+    "operation": "update",
+    "result": "success",
+    "target": "徐国明/ceshi",
+    "details": "仅更新本地密码记录成功（跳过服务器同步），项目：ceshi",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:56:08.614999",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:56:29.613107",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为3个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:57:13.618327",
+    "user": "admin",
+    "operation": "update",
+    "result": "success",
+    "target": "徐国明/ceshi",
+    "details": "仅更新本地密码记录成功（跳过服务器同步），项目：ceshi",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:57:25.974613",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:58:04.999052",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:58:25.433887",
+    "user": "admin",
+    "operation": "update",
+    "result": "success",
+    "target": "徐国明/ceshi",
+    "details": "仅更新本地密码记录成功（跳过服务器同步），项目：ceshi",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:58:30.902538",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为1个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:58:32.037976",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:58:35.320713",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为3个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:59:19.895010",
+    "user": "admin",
+    "operation": "update",
+    "result": "success",
+    "target": "徐国明/ceshi",
+    "details": "仅更新本地密码记录成功（跳过服务器同步），项目：ceshi",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:59:23.945345",
+    "user": "admin",
+    "operation": "update",
+    "result": "success",
+    "target": "徐国明/ceshi",
+    "details": "仅更新本地密码记录成功（跳过服务器同步），项目：ceshi",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:59:23.995874",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T18:59:58.247703",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为1个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T19:00:06.596128",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T19:00:08.822361",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为1个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T19:01:58.975515",
+    "user": "admin",
+    "operation": "update",
+    "result": "success",
+    "target": "徐国明/ceshi",
+    "details": "仅更新本地密码记录成功（跳过服务器同步），项目：ceshi",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T19:05:03.238903",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T19:05:12.581208",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为3个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T19:06:12.241691",
+    "user": "admin",
+    "operation": "update",
+    "result": "success",
+    "target": "徐国明/ceshi",
+    "details": "仅更新本地密码记录成功（跳过服务器同步），项目：ceshi",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T19:06:26.375878",
+    "user": "admin",
+    "operation": "update",
+    "result": "success",
+    "target": "徐国明/ceshi",
+    "details": "仅更新本地密码记录成功（跳过服务器同步），项目：ceshi",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T19:06:26.426892",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T19:06:40.078716",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为1个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T19:07:25.456039",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T19:07:26.356340",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
   }
 ]

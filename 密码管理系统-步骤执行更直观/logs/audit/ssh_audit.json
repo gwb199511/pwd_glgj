@@ -106,5 +106,221 @@
     "target": "徐国明/批量操作",
     "details": "批量生成随机密码并更新服务器全部失败，共1个服务器",
     "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T17:35:16.773473",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "info",
+    "target": "徐国明/ceshi",
+    "details": "开始更新服务器密码，项目：ceshi，IP：192.168.2.7，用户：root",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T17:35:39.160545",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/ceshi",
+    "details": "服务器密码更新成功，项目：ceshi，IP：192.168.2.7，用户：root",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T17:35:39.163540",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "批量生成随机密码并更新服务器完成，成功：1，失败：0",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T17:44:52.290759",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "info",
+    "target": "徐国明/Windows Server",
+    "details": "开始更新服务器密码，项目：Windows Server，IP：91.205.241.193，用户：nokpu",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T17:45:06.787718",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "徐国明/Windows Server",
+    "details": "服务器密码更新失败：连接或命令执行失败: timed out，项目：Windows Server，IP：91.205.241.193，用户：nokpu",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T17:45:06.790720",
+    "user": "admin",
+    "operation": "generate",
+    "result": "fail",
+    "target": "徐国明/批量操作",
+    "details": "批量生成随机密码并更新服务器全部失败，共1个服务器",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T17:45:51.640296",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "info",
+    "target": "徐国明/ceshi",
+    "details": "开始更新服务器密码，项目：ceshi，IP：192.168.2.7，用户：root",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T17:46:04.422479",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "徐国明/ceshi",
+    "details": "服务器密码更新失败：连接或命令执行失败: timed out，项目：ceshi，IP：192.168.2.7，用户：root",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T17:46:04.425480",
+    "user": "admin",
+    "operation": "generate",
+    "result": "fail",
+    "target": "徐国明/批量操作",
+    "details": "批量生成随机密码并更新服务器全部失败，共1个服务器",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T18:07:07.384456",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "info",
+    "target": "徐国明/ceshi",
+    "details": "开始更新服务器密码，项目：ceshi，IP：192.168.5.8，用户：root",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T18:07:29.783343",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/ceshi",
+    "details": "服务器密码更新成功，项目：ceshi，IP：192.168.5.8，用户：root",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T18:07:29.788338",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "批量生成随机密码并更新服务器完成，成功：1，失败：0",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T18:15:30.249326",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "info",
+    "target": "徐国明/ERP系统",
+    "details": "开始更新服务器密码，项目：ERP系统，IP：67.87.151.129，用户：user898",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T18:15:48.694325",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "徐国明/ERP系统",
+    "details": "服务器密码更新失败：连接或命令执行失败: timed out，项目：ERP系统，IP：67.87.151.129，用户：user898",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T18:15:48.703325",
+    "user": "admin",
+    "operation": "generate",
+    "result": "fail",
+    "target": "徐国明/批量操作",
+    "details": "批量生成随机密码并更新服务器全部失败，共1个服务器",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T18:15:59.256774",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "info",
+    "target": "徐国明/ceshi",
+    "details": "开始更新服务器密码，项目：ceshi，IP：192.168.5.8，用户：root",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T18:16:21.648656",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/ceshi",
+    "details": "服务器密码更新成功，项目：ceshi，IP：192.168.5.8，用户：root",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T18:16:21.703132",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "批量生成随机密码并更新服务器完成，成功：1，失败：0",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T18:17:01.364147",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "info",
+    "target": "徐国明/ceshi",
+    "details": "开始更新服务器密码，项目：ceshi，IP：192.168.5.8，用户：root",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T18:17:04.913429",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "徐国明/ceshi",
+    "details": "服务器密码更新失败：连接或命令执行失败: Authentication failed.，项目：ceshi，IP：192.168.5.8，用户：root",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T18:17:04.921429",
+    "user": "admin",
+    "operation": "generate",
+    "result": "fail",
+    "target": "徐国明/批量操作",
+    "details": "批量生成随机密码并更新服务器全部失败，共1个服务器",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T18:17:11.346477",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "info",
+    "target": "徐国明/ceshi",
+    "details": "开始更新服务器密码，项目：ceshi，IP：192.168.5.8，用户：root",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T18:17:16.185903",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "徐国明/ceshi",
+    "details": "服务器密码更新失败：连接或命令执行失败: Authentication failed.，项目：ceshi，IP：192.168.5.8，用户：root",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T18:17:16.192906",
+    "user": "admin",
+    "operation": "generate",
+    "result": "fail",
+    "target": "徐国明/批量操作",
+    "details": "批量生成随机密码并更新服务器全部失败，共1个服务器",
+    "log_type": "ssh"
   }
 ]

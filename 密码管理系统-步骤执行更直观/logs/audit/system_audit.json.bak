@@ -1,0 +1,416 @@
+[
+  {
+    "timestamp": "2025-03-22T15:51:25.696319",
+    "user": "test_user",
+    "operation": "login",
+    "result": "success",
+    "target": "用户认证",
+    "details": "测试登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T15:51:25.697319",
+    "user": "test_user",
+    "operation": "login",
+    "result": "fail",
+    "target": "用户认证",
+    "details": "测试登录失败 - 密码错误",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T15:51:25.698318",
+    "user": "test_user",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户认证",
+    "details": "测试登出成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T15:52:17.554183",
+    "user": "test_user",
+    "operation": "login",
+    "result": "success",
+    "target": "用户认证",
+    "details": "测试登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T15:52:17.555184",
+    "user": "test_user",
+    "operation": "login",
+    "result": "fail",
+    "target": "用户认证",
+    "details": "测试登录失败 - 密码错误",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T15:52:17.556285",
+    "user": "test_user",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户认证",
+    "details": "测试登出成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T15:52:58.624502",
+    "user": "test_user",
+    "operation": "login",
+    "result": "success",
+    "target": "用户认证",
+    "details": "测试登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T15:52:58.626502",
+    "user": "test_user",
+    "operation": "login",
+    "result": "fail",
+    "target": "用户认证",
+    "details": "测试登录失败 - 密码错误",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T15:52:58.628663",
+    "user": "test_user",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户认证",
+    "details": "测试登出成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T15:53:23.502151",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T15:58:48.734824",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:07:23.386003",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:07:33.877294",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:11:18.023222",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:11:53.426338",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:21:45.391467",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:22:34.264337",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:23:15.215698",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:26:12.983101",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:26:20.573387",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始生成随机密码并更新服务器，选中单元格数量：1",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:26:20.578397",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "info",
+    "target": "徐国明/Windows Server",
+    "details": "开始更新服务器密码，项目：Windows Server，IP：91.205.241.193，用户：nokpu",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:26:36.053038",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "徐国明/Windows Server",
+    "details": "服务器密码更新失败：连接或命令执行失败: timed out，项目：Windows Server，IP：91.205.241.193，用户：nokpu",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:26:36.056396",
+    "user": "admin",
+    "operation": "generate",
+    "result": "fail",
+    "target": "徐国明/批量操作",
+    "details": "批量生成随机密码并更新服务器全部失败，共1个服务器",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:26:51.829151",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:27:09.359012",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:30:46.457784",
+    "user": "admin",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/ceshi",
+    "details": "添加密码记录成功，项目：ceshi",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:31:26.373973",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始生成随机密码并更新服务器，选中单元格数量：1",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:31:26.378974",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "info",
+    "target": "徐国明/ceshi",
+    "details": "开始更新服务器密码，项目：ceshi，IP：192.168.2.7，用户：root",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:31:48.937040",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/ceshi",
+    "details": "服务器密码更新成功，项目：ceshi，IP：192.168.2.7，用户：root",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:31:48.942036",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "批量生成随机密码并更新服务器完成，成功：1，失败：0",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:37:40.507419",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:38:12.446296",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始生成随机密码并更新服务器，选中单元格数量：1",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:38:54.382455",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:39:00.204930",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:40:24.024266",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:40:39.030749",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始生成随机密码并更新服务器，选中单元格数量：1",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:47:07.441417",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:47:11.902073",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:48:51.184162",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始生成随机密码并更新服务器，选中单元格数量：1",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:55:59.063407",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:58:00.298940",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T16:59:17.294645",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T17:02:08.595034",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T17:02:39.082142",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始生成随机密码并更新服务器，选中单元格数量：1",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T17:05:19.808365",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-22T17:08:49.301327",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  }
+]

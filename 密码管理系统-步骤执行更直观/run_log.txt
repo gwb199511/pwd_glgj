@@ -615,3 +615,69 @@
 2025-03-22 15:23:00,373 - __main__ - INFO - Python解释器路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv\Scripts\python.exe
 2025-03-22 15:23:00,373 - __main__ - INFO - 主脚本路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
 2025-03-22 15:23:00,374 - __main__ - INFO - 正在启动应用程序...
+2025-03-22 15:33:17,726 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-03-22 15:53:21,941 - __main__ - INFO - 找到Qt插件路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv/Lib/site-packages/PyQt5/Qt5/plugins
+2025-03-22 15:53:21,942 - __main__ - INFO - Python解释器路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv\Scripts\python.exe
+2025-03-22 15:53:21,942 - __main__ - INFO - 主脚本路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-03-22 15:53:21,942 - __main__ - INFO - 正在启动应用程序...
+2025-03-22 15:58:49,054 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-03-22 16:07:21,466 - __main__ - INFO - 找到Qt插件路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv/Lib/site-packages/PyQt5/Qt5/plugins
+2025-03-22 16:07:21,467 - __main__ - INFO - Python解释器路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv\Scripts\python.exe
+2025-03-22 16:07:21,467 - __main__ - INFO - 主脚本路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-03-22 16:07:21,467 - __main__ - INFO - 正在启动应用程序...
+2025-03-22 16:07:34,283 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-03-22 16:11:16,224 - __main__ - INFO - 找到Qt插件路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv/Lib/site-packages/PyQt5/Qt5/plugins
+2025-03-22 16:11:16,225 - __main__ - INFO - Python解释器路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv\Scripts\python.exe
+2025-03-22 16:11:16,225 - __main__ - INFO - 主脚本路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-03-22 16:11:16,226 - __main__ - INFO - 正在启动应用程序...
+2025-03-22 16:11:53,728 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-03-22 16:21:32,716 - __main__ - INFO - 找到Qt插件路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv/Lib/site-packages/PyQt5/Qt5/plugins
+2025-03-22 16:21:32,717 - __main__ - INFO - Python解释器路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv\Scripts\python.exe
+2025-03-22 16:21:32,718 - __main__ - INFO - 主脚本路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-03-22 16:21:32,718 - __main__ - INFO - 正在启动应用程序...
+2025-03-22 16:22:34,542 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-03-22 16:23:13,225 - __main__ - INFO - 找到Qt插件路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv/Lib/site-packages/PyQt5/Qt5/plugins
+2025-03-22 16:23:13,226 - __main__ - INFO - Python解释器路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv\Scripts\python.exe
+2025-03-22 16:23:13,226 - __main__ - INFO - 主脚本路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-03-22 16:23:13,226 - __main__ - INFO - 正在启动应用程序...
+2025-03-22 16:23:45,310 - __main__ - INFO - 应用程序退出，返回代码: 3221226505
+2025-03-22 16:26:11,261 - __main__ - INFO - 找到Qt插件路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv/Lib/site-packages/PyQt5/Qt5/plugins
+2025-03-22 16:26:11,261 - __main__ - INFO - Python解释器路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv\Scripts\python.exe
+2025-03-22 16:26:11,263 - __main__ - INFO - 主脚本路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-03-22 16:26:11,263 - __main__ - INFO - 正在启动应用程序...
+2025-03-22 16:26:52,224 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-03-22 16:27:07,530 - __main__ - INFO - 找到Qt插件路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv/Lib/site-packages/PyQt5/Qt5/plugins
+2025-03-22 16:27:07,530 - __main__ - INFO - Python解释器路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv\Scripts\python.exe
+2025-03-22 16:27:07,531 - __main__ - INFO - 主脚本路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-03-22 16:27:07,531 - __main__ - INFO - 正在启动应用程序...
+2025-03-22 16:37:38,379 - __main__ - INFO - 找到Qt插件路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv/Lib/site-packages/PyQt5/Qt5/plugins
+2025-03-22 16:37:38,379 - __main__ - INFO - Python解释器路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv\Scripts\python.exe
+2025-03-22 16:37:38,380 - __main__ - INFO - 主脚本路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-03-22 16:37:38,380 - __main__ - INFO - 正在启动应用程序...
+2025-03-22 16:38:54,672 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-03-22 16:39:09,692 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-03-22 16:40:22,333 - __main__ - INFO - 找到Qt插件路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv/Lib/site-packages/PyQt5/Qt5/plugins
+2025-03-22 16:40:22,333 - __main__ - INFO - Python解释器路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv\Scripts\python.exe
+2025-03-22 16:40:22,333 - __main__ - INFO - 主脚本路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-03-22 16:40:22,333 - __main__ - INFO - 正在启动应用程序...
+2025-03-22 16:47:07,763 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-03-22 16:47:09,052 - __main__ - INFO - 找到Qt插件路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv/Lib/site-packages/PyQt5/Qt5/plugins
+2025-03-22 16:47:09,053 - __main__ - INFO - Python解释器路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv\Scripts\python.exe
+2025-03-22 16:47:09,053 - __main__ - INFO - 主脚本路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-03-22 16:47:09,053 - __main__ - INFO - 正在启动应用程序...
+2025-03-22 16:55:59,328 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-03-22 16:57:58,196 - __main__ - INFO - 找到Qt插件路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv/Lib/site-packages/PyQt5/Qt5/plugins
+2025-03-22 16:57:58,197 - __main__ - INFO - Python解释器路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv\Scripts\python.exe
+2025-03-22 16:57:58,197 - __main__ - INFO - 主脚本路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-03-22 16:57:58,197 - __main__ - INFO - 正在启动应用程序...
+2025-03-22 16:59:21,114 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-03-22 17:02:06,449 - __main__ - INFO - 找到Qt插件路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv/Lib/site-packages/PyQt5/Qt5/plugins
+2025-03-22 17:02:06,450 - __main__ - INFO - Python解释器路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv\Scripts\python.exe
+2025-03-22 17:02:06,450 - __main__ - INFO - 主脚本路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-03-22 17:02:06,450 - __main__ - INFO - 正在启动应用程序...
+2025-03-22 17:05:20,158 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-03-22 17:08:47,491 - __main__ - INFO - 找到Qt插件路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv/Lib/site-packages/PyQt5/Qt5/plugins
+2025-03-22 17:08:47,492 - __main__ - INFO - Python解释器路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\.venv\Scripts\python.exe
+2025-03-22 17:08:47,493 - __main__ - INFO - 主脚本路径: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-03-22 17:08:47,493 - __main__ - INFO - 正在启动应用程序...
+2025-03-22 17:09:12,633 - __main__ - INFO - 应用程序退出，返回代码: 0

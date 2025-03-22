@@ -2,20 +2,30 @@
 # -*- coding: utf-8 -*-
 
 """
-用户管理模块，提供用户注册和登录功能
+用户管理模块，提供用户注册、登录、验证等功能
 """
 
 import logging
 import os
-from typing import Tuple, Dict, Any, Optional
+import json
+import time
+import hashlib
+import getpass
+import threading
+from typing import Tuple, Dict, Any, Optional, List, Union
 
-from config import USER_DATA_FILE, REMEMBER_FILE
+from config import DATA_DIR
 from database import Database
 from encrypt import encryptor
+from audit_log import AuditLogger, OP_TYPE_LOGIN, OP_TYPE_LOGOUT, OP_RESULT_SUCCESS, OP_RESULT_FAIL
 
 # 配置日志
 logger = logging.getLogger(__name__)
+audit_logger = AuditLogger()
 
+# 用户数据文件路径
+USER_DATA_FILE = os.path.join(DATA_DIR, 'users.json')
+REMEMBER_FILE = os.path.join(DATA_DIR, 'remember.json')
 
 class UserManager:
     """
@@ -25,6 +35,7 @@ class UserManager:
     """
 
     _instance = None
+    _lock = threading.Lock()
 
     def __new__(cls):
         """
@@ -33,9 +44,10 @@ class UserManager:
         Returns:
             UserManager: 用户管理器实例
         """
-        if cls._instance is None:
-            cls._instance = super(UserManager, cls).__new__(cls)
-            cls._instance._initialize()
+        with cls._lock:
+            if cls._instance is None:
+                cls._instance = super(UserManager, cls).__new__(cls)
+                cls._instance._initialize()
         return cls._instance
 
     def _initialize(self):
@@ -87,12 +99,28 @@ class UserManager:
             Tuple[bool, str]: (成功状态, 消息)
         """
         if not username or not password:
+            # 记录审计日志 - 登录失败（输入为空）
+            audit_logger.log_operation(
+                operation_type=OP_TYPE_LOGIN,
+                result=OP_RESULT_FAIL,
+                details="登录失败：用户名和密码不能为空",
+                user=username if username else "未知用户",
+                target="用户登录"
+            )
             return False, "用户名和密码不能为空"
             
         # 获取存储的加密密码
         stored_password = self.db.get(username)
         
         if not stored_password:
+            # 记录审计日志 - 登录失败（用户不存在）
+            audit_logger.log_operation(
+                operation_type=OP_TYPE_LOGIN,
+                result=OP_RESULT_FAIL,
+                details="登录失败：用户名不存在",
+                user=username,
+                target="用户登录"
+            )
             return False, "用户名或密码错误"
             
         # 解密存储的密码
@@ -102,9 +130,29 @@ class UserManager:
         if password == decrypted_password:
             self.current_user = username
             logger.info(f"用户 {username} 登录成功")
+            
+            # 记录审计日志 - 登录成功
+            audit_logger.log_operation(
+                operation_type=OP_TYPE_LOGIN,
+                result=OP_RESULT_SUCCESS,
+                details="用户登录成功",
+                user=username,
+                target="用户登录"
+            )
+            
             return True, "登录成功"
         else:
             logger.warning(f"用户 {username} 登录失败，密码错误")
+            
+            # 记录审计日志 - 登录失败（密码错误）
+            audit_logger.log_operation(
+                operation_type=OP_TYPE_LOGIN,
+                result=OP_RESULT_FAIL,
+                details="登录失败：密码错误",
+                user=username,
+                target="用户登录"
+            )
+            
             return False, "用户名或密码错误"
 
     def save_credentials(self, username: str, password: str) -> bool:
@@ -176,8 +224,21 @@ class UserManager:
         """
         用户登出
         """
+        # 获取当前用户，用于日志记录
+        username = self.current_user or "未知用户"
+        
+        # 清除当前用户
         self.current_user = None
         logger.info("用户已登出")
+        
+        # 记录审计日志 - 登出
+        audit_logger.log_operation(
+            operation_type=OP_TYPE_LOGOUT,
+            result=OP_RESULT_SUCCESS,
+            details="用户登出系统",
+            user=username,
+            target="用户登出"
+        )
 
     def get_current_user(self) -> Optional[str]:
         """

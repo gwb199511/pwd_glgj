@@ -1,0 +1,101 @@
+[
+  {
+    "timestamp": "2025-03-22T16:38:12.451330",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "info",
+    "target": "徐国明/CRM系统",
+    "details": "开始更新服务器密码，项目：CRM系统，IP：118.106.214.81，用户：root92",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T16:38:23.781201",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "徐国明/CRM系统",
+    "details": "服务器密码更新失败：连接或命令执行失败: timed out，项目：CRM系统，IP：118.106.214.81，用户：root92",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T16:38:23.785196",
+    "user": "admin",
+    "operation": "generate",
+    "result": "fail",
+    "target": "徐国明/批量操作",
+    "details": "批量生成随机密码并更新服务器全部失败，共1个服务器",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T16:40:39.035762",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "info",
+    "target": "徐国明/CRM系统",
+    "details": "开始更新服务器密码，项目：CRM系统，IP：118.106.214.81，用户：root92",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T16:40:50.433569",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "徐国明/CRM系统",
+    "details": "服务器密码更新失败：连接或命令执行失败: timed out，项目：CRM系统，IP：118.106.214.81，用户：root92",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T16:40:50.437568",
+    "user": "admin",
+    "operation": "generate",
+    "result": "fail",
+    "target": "徐国明/批量操作",
+    "details": "批量生成随机密码并更新服务器全部失败，共1个服务器",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T16:48:51.189153",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "info",
+    "target": "徐国明/CRM系统",
+    "details": "开始更新服务器密码，项目：CRM系统，IP：118.106.214.81，用户：root92",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T16:49:03.433683",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "徐国明/CRM系统",
+    "details": "服务器密码更新失败：连接或命令执行失败: timed out，项目：CRM系统，IP：118.106.214.81，用户：root92",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T16:49:03.436684",
+    "user": "admin",
+    "operation": "generate",
+    "result": "fail",
+    "target": "徐国明/批量操作",
+    "details": "批量生成随机密码并更新服务器全部失败，共1个服务器",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T17:02:39.086133",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "info",
+    "target": "徐国明/Windows Server",
+    "details": "开始更新服务器密码，项目：Windows Server，IP：91.205.241.193，用户：nokpu",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T17:02:50.944341",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "徐国明/Windows Server",
+    "details": "服务器密码更新失败：连接或命令执行失败: timed out，项目：Windows Server，IP：91.205.241.193，用户：nokpu",
+    "log_type": "ssh"
+  }
+]

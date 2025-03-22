@@ -103,6 +103,11 @@ class PasswordManagerUI(QMainWindow):
         ssh_log_action.triggered.connect(self._open_ssh_log_viewer)
         tools_menu.addAction(ssh_log_action)
         
+        # 日志审计动作
+        audit_log_action = QAction('日志审计', self)
+        audit_log_action.triggered.connect(self._open_audit_log_viewer)
+        tools_menu.addAction(audit_log_action)
+        
         # 帮助菜单
         help_menu = menubar.addMenu('帮助')
         
@@ -321,6 +326,73 @@ class PasswordManagerUI(QMainWindow):
                 self,
                 "打开失败",
                 f"无法打开SSH日志查看器: {str(e)}",
+                QMessageBox.Warning
+            )
+
+    def _open_audit_log_viewer(self):
+        """打开日志审计查看器"""
+        try:
+            # 优先使用内嵌方式打开
+            try:
+                from audit_log_viewer import AuditLogViewer
+                logger.info("使用内嵌方式打开审计日志查看器")
+                
+                viewer = AuditLogViewer()
+                viewer.setWindowModality(Qt.NonModal)  # 非模态窗口
+                viewer.show()
+                
+                # 保持窗口引用，防止被垃圾回收
+                if not hasattr(self, '_audit_log_viewers'):
+                    self._audit_log_viewers = []
+                self._audit_log_viewers.append(viewer)
+                
+                return
+            except Exception as inner_err:
+                logger.error(f"内嵌方式启动审计日志查看器失败: {str(inner_err)}")
+                logger.info("尝试使用独立进程方式启动")
+            
+            # 使用独立的审计日志查看器脚本
+            import sys
+            import subprocess
+            import os
+            
+            # 获取Python解释器路径
+            python_executable = sys.executable
+            
+            # 获取独立的日志审计查看器脚本路径
+            base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+            script_path = os.path.join(base_dir, 'audit_log_viewer_standalone.py')
+            
+            # 检查脚本是否存在
+            if not os.path.exists(script_path):
+                logger.warning(f"审计日志查看器脚本不存在: {script_path}")
+                show_message(
+                    self,
+                    "文件不存在",
+                    "审计日志查看器脚本不存在，请检查安装",
+                    QMessageBox.Warning
+                )
+                return
+            
+            # 复制当前环境变量，包括Qt插件路径
+            env = os.environ.copy()
+            
+            # 确保至少有这些Qt环境变量
+            if "QT_PLUGIN_PATH" in env:
+                logger.info(f"使用已有Qt插件路径: {env['QT_PLUGIN_PATH']}")
+            
+            # 启动新进程运行独立脚本
+            logger.info(f"启动审计日志查看器: {script_path}")
+            subprocess.Popen([python_executable, script_path], env=env)
+            
+        except Exception as e:
+            logger.error(f"打开日志审计查看器时出错: {str(e)}")
+            import traceback
+            logger.error(traceback.format_exc())
+            show_message(
+                self,
+                "打开失败",
+                f"无法打开日志审计查看器: {str(e)}",
                 QMessageBox.Warning
             )
 

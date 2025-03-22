@@ -19,6 +19,7 @@ from PyQt5.QtGui import QColor
 from password import password_manager
 from ssh_password_updater import ssh_password_updater
 from ui.password_manager.ui_guide import show_guide_if_needed
+from audit_log import audit_logger, OP_TYPE_GENERATE, OP_TYPE_UPDATE, OP_TYPE_SSH_UPDATE, OP_RESULT_SUCCESS, OP_RESULT_FAIL, OP_RESULT_WARNING, OP_RESULT_INFO, LOG_TYPE_SSH
 
 # 配置日志
 logger = logging.getLogger(__name__)
@@ -518,6 +519,14 @@ class TablePasswordMixin:
             logger.info("用户取消了服务器密码更新")
             return
         
+        # 记录审计日志 - 开始生成随机密码
+        audit_logger.log_operation(
+            operation_type=OP_TYPE_GENERATE,
+            result=OP_RESULT_INFO,
+            details=f"开始生成随机密码并更新服务器，选中单元格数量：{len(cells)}",
+            target=f"{owner}/批量操作"
+        )
+        
         # 获取被选中的服务器信息，用于更新密码
         servers_to_update = []
         for row, col in cells:
@@ -565,6 +574,15 @@ class TablePasswordMixin:
                 "没有找到有效的服务器信息。\n\n请确保选中的密码单元格对应的记录包含有效的IP地址和用户名。",
                 QMessageBox.Warning
             )
+            
+            # 记录审计日志 - 无有效服务器
+            audit_logger.log_operation(
+                operation_type=OP_TYPE_GENERATE,
+                result=OP_RESULT_FAIL,
+                details="生成随机密码失败：没有找到有效的服务器信息",
+                target=f"{owner}/批量操作"
+            )
+            
             return
         
         # 批量处理前禁用UI更新以提高性能
@@ -588,6 +606,15 @@ class TablePasswordMixin:
                 
                 # 日志记录
                 logger.info(f"开始更新服务器密码 - 行: {row+1}, 项目: {project}, IP: {ip}, 用户: {username}")
+                
+                # 记录审计日志 - 开始更新特定服务器
+                audit_logger.log_operation(
+                    operation_type=OP_TYPE_SSH_UPDATE,
+                    result=OP_RESULT_INFO,
+                    details=f"开始更新服务器密码，项目：{project}，IP：{ip}，用户：{username}",
+                    target=f"{owner}/{project}",
+                    log_type=LOG_TYPE_SSH
+                )
                 
                 # 更新到服务器
                 success, message = ssh_password_updater.update_password(
@@ -628,6 +655,15 @@ class TablePasswordMixin:
                     
                     success_count += 1
                     logger.info(f"SSH密码更新成功 - 行: {row+1}, IP: {ip}, 用户: {username}")
+                    
+                    # 记录审计日志 - 更新服务器成功
+                    audit_logger.log_operation(
+                        operation_type=OP_TYPE_SSH_UPDATE,
+                        result=OP_RESULT_SUCCESS,
+                        details=f"服务器密码更新成功，项目：{project}，IP：{ip}，用户：{username}",
+                        target=f"{owner}/{project}",
+                        log_type=LOG_TYPE_SSH
+                    )
                 else:
                     # 更新失败，设置背景色为红色
                     password_item = self.table.item(row, 4)
@@ -645,6 +681,15 @@ class TablePasswordMixin:
                     )
                     
                     logger.error(f"SSH密码更新失败 - 行: {row+1}, IP: {ip}, 用户: {username}, 错误: {message}")
+                    
+                    # 记录审计日志 - 更新服务器失败
+                    audit_logger.log_operation(
+                        operation_type=OP_TYPE_SSH_UPDATE,
+                        result=OP_RESULT_FAIL,
+                        details=f"服务器密码更新失败：{message}，项目：{project}，IP：{ip}，用户：{username}",
+                        target=f"{owner}/{project}",
+                        log_type=LOG_TYPE_SSH
+                    )
         
         finally:
             # 重新启用UI更新
@@ -652,6 +697,25 @@ class TablePasswordMixin:
         
         # 显示结果
         logger.info(f"成功更新了 {success_count}/{len(servers_to_update)} 个服务器的密码。")
+        
+        # 记录审计日志 - 批量操作完成
+        if success_count > 0:
+            result_status = OP_RESULT_SUCCESS if success_count == len(servers_to_update) else OP_RESULT_WARNING
+            audit_logger.log_operation(
+                operation_type=OP_TYPE_GENERATE,
+                result=result_status,
+                details=f"批量生成随机密码并更新服务器完成，成功：{success_count}，失败：{len(servers_to_update) - success_count}",
+                target=f"{owner}/批量操作",
+                log_type=LOG_TYPE_SSH
+            )
+        else:
+            audit_logger.log_operation(
+                operation_type=OP_TYPE_GENERATE,
+                result=OP_RESULT_FAIL,
+                details=f"批量生成随机密码并更新服务器全部失败，共{len(servers_to_update)}个服务器",
+                target=f"{owner}/批量操作",
+                log_type=LOG_TYPE_SSH
+            )
         
         from ui.password_manager.ui_utils import show_message
         if success_count > 0:

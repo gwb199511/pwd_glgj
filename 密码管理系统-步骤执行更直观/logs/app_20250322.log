@@ -2853,3 +2853,283 @@ password519
 2025-03-22 15:23:42,302 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
 2025-03-22 15:23:42,303 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
 2025-03-22 15:23:43,001 - ui.password_manager.ui_table.table_events - INFO - 已复制1个单元格内容到剪贴板
+2025-03-22 15:33:17,364 - user - INFO - 用户已登出
+2025-03-22 15:50:07,819 - root - INFO - 密码管理系统启动
+2025-03-22 15:50:07,819 - root - INFO - 初始化用户设置模块...
+2025-03-22 15:50:07,820 - root - INFO - 用户设置模块已初始化
+2025-03-22 15:53:22,226 - root - INFO - 密码管理系统启动
+2025-03-22 15:53:22,227 - root - INFO - 初始化用户设置模块...
+2025-03-22 15:53:22,227 - root - INFO - 用户设置模块已初始化
+2025-03-22 15:53:23,502 - user - INFO - 用户 admin 登录成功
+2025-03-22 15:53:23,504 - login_ui - INFO - 用户 admin 登录成功
+2025-03-22 15:53:23,505 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-22 15:53:23,590 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-22 15:53:23,731 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-22 15:58:48,733 - user - INFO - 用户已登出
+2025-03-22 16:07:02,962 - root - INFO - 密码管理系统启动
+2025-03-22 16:07:02,962 - root - INFO - 初始化用户设置模块...
+2025-03-22 16:07:02,962 - root - INFO - 用户设置模块已初始化
+2025-03-22 16:07:21,763 - root - INFO - 密码管理系统启动
+2025-03-22 16:07:21,763 - root - INFO - 初始化用户设置模块...
+2025-03-22 16:07:21,765 - root - INFO - 用户设置模块已初始化
+2025-03-22 16:07:23,386 - user - INFO - 用户 admin 登录成功
+2025-03-22 16:07:23,388 - login_ui - INFO - 用户 admin 登录成功
+2025-03-22 16:07:23,390 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-22 16:07:23,460 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-22 16:07:23,596 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-22 16:07:25,888 - audit_log_viewer - INFO - 所有模块导入成功
+2025-03-22 16:07:33,876 - user - INFO - 用户已登出
+2025-03-22 16:10:58,841 - root - INFO - 密码管理系统启动
+2025-03-22 16:10:58,842 - root - INFO - 初始化用户设置模块...
+2025-03-22 16:10:58,842 - root - INFO - 用户设置模块已初始化
+2025-03-22 16:11:16,529 - root - INFO - 密码管理系统启动
+2025-03-22 16:11:16,530 - root - INFO - 初始化用户设置模块...
+2025-03-22 16:11:16,530 - root - INFO - 用户设置模块已初始化
+2025-03-22 16:11:18,021 - user - INFO - 用户 admin 登录成功
+2025-03-22 16:11:18,024 - login_ui - INFO - 用户 admin 登录成功
+2025-03-22 16:11:18,025 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-22 16:11:18,105 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-22 16:11:18,219 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-22 16:11:19,977 - ui.password_manager.password_manager_ui - INFO - 启动审计日志查看器: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\audit_log_viewer_standalone.py
+2025-03-22 16:11:31,883 - ui.password_manager.password_manager_ui - INFO - 启动审计日志查看器: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\audit_log_viewer_standalone.py
+2025-03-22 16:11:44,913 - ui.password_manager.password_manager_ui - INFO - 启动审计日志查看器: C:\Users\14214\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\audit_log_viewer_standalone.py
+2025-03-22 16:11:53,426 - user - INFO - 用户已登出
+2025-03-22 16:21:33,017 - root - INFO - 密码管理系统启动
+2025-03-22 16:21:33,018 - root - INFO - 初始化用户设置模块...
+2025-03-22 16:21:33,018 - root - INFO - 用户设置模块已初始化
+2025-03-22 16:21:45,391 - user - INFO - 用户 admin 登录成功
+2025-03-22 16:21:45,395 - login_ui - INFO - 用户 admin 登录成功
+2025-03-22 16:21:45,397 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-22 16:21:45,464 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-22 16:21:45,528 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-22 16:22:34,264 - user - INFO - 用户已登出
+2025-03-22 16:23:13,474 - root - INFO - 密码管理系统启动
+2025-03-22 16:23:13,475 - root - INFO - 初始化用户设置模块...
+2025-03-22 16:23:13,475 - root - INFO - 用户设置模块已初始化
+2025-03-22 16:23:15,214 - user - INFO - 用户 admin 登录成功
+2025-03-22 16:23:15,217 - login_ui - INFO - 用户 admin 登录成功
+2025-03-22 16:23:15,218 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-22 16:23:15,299 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-22 16:23:15,419 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-22 16:23:17,475 - audit_log_viewer - INFO - 所有模块导入成功
+2025-03-22 16:23:17,476 - ui.password_manager.password_manager_ui - INFO - 使用内嵌方式打开审计日志查看器
+2025-03-22 16:23:17,483 - audit_log_viewer - INFO - 界面初始化完成
+2025-03-22 16:23:17,486 - audit_log_viewer - INFO - AuditLogViewer初始化成功
+2025-03-22 16:23:24,511 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 4, 选中行数: 1, 选中行: [1]
+2025-03-22 16:23:24,512 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-22 16:23:24,513 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-22 16:23:24,513 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-22 16:23:24,514 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-22 16:23:25,459 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 5, 选中行数: 1, 选中行: [1]
+2025-03-22 16:23:25,460 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-22 16:23:25,461 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-22 16:23:25,461 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-22 16:23:25,462 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-22 16:23:26,154 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-22 16:25:49,465 - root - INFO - 密码管理系统启动
+2025-03-22 16:25:49,465 - root - INFO - 初始化用户设置模块...
+2025-03-22 16:25:49,466 - root - INFO - 用户设置模块已初始化
+2025-03-22 16:26:11,575 - root - INFO - 密码管理系统启动
+2025-03-22 16:26:11,576 - root - INFO - 初始化用户设置模块...
+2025-03-22 16:26:11,576 - root - INFO - 用户设置模块已初始化
+2025-03-22 16:26:12,983 - user - INFO - 用户 admin 登录成功
+2025-03-22 16:26:12,986 - login_ui - INFO - 用户 admin 登录成功
+2025-03-22 16:26:12,988 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-22 16:26:13,068 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-22 16:26:13,214 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-22 16:26:15,727 - audit_log_viewer - INFO - 所有模块导入成功
+2025-03-22 16:26:15,728 - ui.password_manager.password_manager_ui - INFO - 使用内嵌方式打开审计日志查看器
+2025-03-22 16:26:15,738 - audit_log_viewer - INFO - 界面初始化完成
+2025-03-22 16:26:15,741 - audit_log_viewer - INFO - AuditLogViewer初始化成功
+2025-03-22 16:26:18,722 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 5, 当前列: 5, 选中行数: 1, 选中行: [5]
+2025-03-22 16:26:18,723 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-22 16:26:18,723 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-22 16:26:18,724 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-22 16:26:18,724 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-22 16:26:19,580 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-22 16:26:20,576 - ui.password_manager.ui_table.table_password - INFO - 开始更新1个服务器的密码
+2025-03-22 16:26:20,577 - ui.password_manager.ui_table.table_password - INFO - 开始更新服务器密码 - 行: 5, 项目: Windows Server, IP: 91.205.241.193, 用户: nokpu
+2025-03-22 16:26:36,052 - ui.password_manager.ui_table.table_password - ERROR - SSH密码更新失败 - 行: 5, IP: 91.205.241.193, 用户: nokpu, 错误: 连接或命令执行失败: timed out
+2025-03-22 16:26:36,056 - ui.password_manager.ui_table.table_password - INFO - 成功更新了 0/1 个服务器的密码。
+2025-03-22 16:26:51,828 - user - INFO - 用户已登出
+2025-03-22 16:27:07,807 - root - INFO - 密码管理系统启动
+2025-03-22 16:27:07,808 - root - INFO - 初始化用户设置模块...
+2025-03-22 16:27:07,808 - root - INFO - 用户设置模块已初始化
+2025-03-22 16:27:09,358 - user - INFO - 用户 admin 登录成功
+2025-03-22 16:27:09,361 - login_ui - INFO - 用户 admin 登录成功
+2025-03-22 16:27:09,363 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-22 16:27:09,431 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-22 16:27:09,548 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-22 16:27:12,384 - audit_log_viewer - INFO - 所有模块导入成功
+2025-03-22 16:27:12,385 - ui.password_manager.password_manager_ui - INFO - 使用内嵌方式打开审计日志查看器
+2025-03-22 16:27:12,393 - audit_log_viewer - INFO - 界面初始化完成
+2025-03-22 16:27:12,398 - audit_log_viewer - INFO - AuditLogViewer初始化成功
+2025-03-22 16:30:19,361 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 1, 选中行数: 1, 选中行: [1]
+2025-03-22 16:30:19,361 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-22 16:30:19,363 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-22 16:30:19,363 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-22 16:30:19,364 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-22 16:30:20,736 - ui.password_manager.ui_table.table_events - INFO - 尝试在行1（上方）添加新行 [添加方式: 上方]
+2025-03-22 16:30:20,737 - ui.password_manager.ui_table.table_edit - INFO - 在位置 0 添加新行
+2025-03-22 16:30:20,747 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 1
+2025-03-22 16:30:20,748 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-22 16:30:20,749 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-22 16:30:20,752 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 1 的编辑模式
+2025-03-22 16:30:20,753 - ui.password_manager.ui_table.table_events - INFO - 成功在行1（上方）添加新行，新行索引: 1 [添加方式: 上方]
+2025-03-22 16:30:46,454 - ui.password_manager.ui_table.table_edit - INFO - 确认编辑 - 第1行
+2025-03-22 16:30:46,454 - ui.password_manager.ui_table.table_edit - INFO - 添加新记录
+2025-03-22 16:30:46,456 - password - INFO - 为所有者 徐国明 添加密码记录成功
+2025-03-22 16:30:46,463 - ui.password_manager.ui_table.table_edit - INFO - 重新加载所有密码数据
+2025-03-22 16:30:46,468 - ui.password_manager.ui_table.table_edit - INFO - 添加成功：添加成功
+2025-03-22 16:31:24,279 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 48, 当前列: 5, 选中行数: 1, 选中行: [48]
+2025-03-22 16:31:24,280 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-22 16:31:24,280 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-22 16:31:24,281 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-22 16:31:24,281 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-22 16:31:25,169 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-22 16:31:26,377 - ui.password_manager.ui_table.table_password - INFO - 开始更新1个服务器的密码
+2025-03-22 16:31:26,377 - ui.password_manager.ui_table.table_password - INFO - 开始更新服务器密码 - 行: 48, 项目: ceshi, IP: 192.168.2.7, 用户: root
+2025-03-22 16:31:26,408 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-03-22 16:31:26,639 - paramiko.transport - INFO - Authentication (password) successful!
+2025-03-22 16:31:48,803 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-03-22 16:31:48,871 - paramiko.transport - INFO - Authentication (password) successful!
+2025-03-22 16:31:48,936 - ui.password_manager.ui_table.table_password - INFO - SSH密码更新成功 - 行: 48, IP: 192.168.2.7, 用户: root
+2025-03-22 16:31:48,941 - ui.password_manager.ui_table.table_password - INFO - 成功更新了 1/1 个服务器的密码。
+2025-03-22 16:31:57,267 - ui.password_manager.password_manager_ui - INFO - 使用内嵌方式打开审计日志查看器
+2025-03-22 16:31:57,275 - audit_log_viewer - INFO - 界面初始化完成
+2025-03-22 16:31:57,278 - audit_log_viewer - INFO - AuditLogViewer初始化成功
+2025-03-22 16:37:38,908 - root - INFO - 密码管理系统启动
+2025-03-22 16:37:38,909 - root - INFO - 初始化用户设置模块...
+2025-03-22 16:37:38,909 - root - INFO - 用户设置模块已初始化
+2025-03-22 16:37:40,506 - user - INFO - 用户 admin 登录成功
+2025-03-22 16:37:40,510 - login_ui - INFO - 用户 admin 登录成功
+2025-03-22 16:37:40,511 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-22 16:37:40,586 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-22 16:37:40,675 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-22 16:37:43,136 - audit_log_viewer - INFO - 所有模块导入成功
+2025-03-22 16:37:43,137 - ui.password_manager.password_manager_ui - INFO - 使用内嵌方式打开审计日志查看器
+2025-03-22 16:37:43,147 - audit_log_viewer - INFO - 界面初始化完成
+2025-03-22 16:37:43,153 - audit_log_viewer - INFO - AuditLogViewer初始化成功
+2025-03-22 16:38:10,561 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 5, 选中行数: 1, 选中行: [1]
+2025-03-22 16:38:10,562 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-22 16:38:10,563 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-22 16:38:10,563 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-22 16:38:10,564 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-22 16:38:11,409 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-22 16:38:12,449 - ui.password_manager.ui_table.table_password - INFO - 开始更新1个服务器的密码
+2025-03-22 16:38:12,450 - ui.password_manager.ui_table.table_password - INFO - 开始更新服务器密码 - 行: 1, 项目: CRM系统, IP: 118.106.214.81, 用户: root92
+2025-03-22 16:38:23,780 - ui.password_manager.ui_table.table_password - ERROR - SSH密码更新失败 - 行: 1, IP: 118.106.214.81, 用户: root92, 错误: 连接或命令执行失败: timed out
+2025-03-22 16:38:23,784 - ui.password_manager.ui_table.table_password - INFO - 成功更新了 0/1 个服务器的密码。
+2025-03-22 16:38:33,920 - ui.password_manager.password_manager_ui - INFO - 使用内嵌方式打开审计日志查看器
+2025-03-22 16:38:33,925 - audit_log_viewer - INFO - 界面初始化完成
+2025-03-22 16:38:33,929 - audit_log_viewer - INFO - AuditLogViewer初始化成功
+2025-03-22 16:38:54,380 - user - INFO - 用户已登出
+2025-03-22 16:39:00,204 - user - INFO - 用户已登出
+2025-03-22 16:40:22,775 - root - INFO - 密码管理系统启动
+2025-03-22 16:40:22,776 - root - INFO - 初始化用户设置模块...
+2025-03-22 16:40:22,776 - root - INFO - 用户设置模块已初始化
+2025-03-22 16:40:24,024 - user - INFO - 用户 admin 登录成功
+2025-03-22 16:40:24,027 - login_ui - INFO - 用户 admin 登录成功
+2025-03-22 16:40:24,028 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-22 16:40:24,096 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-22 16:40:24,221 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-22 16:40:26,597 - audit_log_viewer - INFO - 所有模块导入成功
+2025-03-22 16:40:26,597 - ui.password_manager.password_manager_ui - INFO - 使用内嵌方式打开审计日志查看器
+2025-03-22 16:40:26,605 - audit_log_viewer - INFO - 界面初始化完成
+2025-03-22 16:40:26,613 - audit_log_viewer - INFO - AuditLogViewer初始化成功
+2025-03-22 16:40:36,750 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 5, 选中行数: 1, 选中行: [1]
+2025-03-22 16:40:36,751 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-22 16:40:36,752 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-22 16:40:36,753 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-22 16:40:36,753 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-22 16:40:37,890 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-22 16:40:39,034 - ui.password_manager.ui_table.table_password - INFO - 开始更新1个服务器的密码
+2025-03-22 16:40:39,034 - ui.password_manager.ui_table.table_password - INFO - 开始更新服务器密码 - 行: 1, 项目: CRM系统, IP: 118.106.214.81, 用户: root92
+2025-03-22 16:40:50,432 - ui.password_manager.ui_table.table_password - ERROR - SSH密码更新失败 - 行: 1, IP: 118.106.214.81, 用户: root92, 错误: 连接或命令执行失败: timed out
+2025-03-22 16:40:50,436 - ui.password_manager.ui_table.table_password - INFO - 成功更新了 0/1 个服务器的密码。
+2025-03-22 16:41:30,436 - ui.password_manager.password_manager_ui - INFO - 使用内嵌方式打开审计日志查看器
+2025-03-22 16:41:30,442 - audit_log_viewer - INFO - 界面初始化完成
+2025-03-22 16:41:30,447 - audit_log_viewer - INFO - AuditLogViewer初始化成功
+2025-03-22 16:47:07,440 - user - INFO - 用户已登出
+2025-03-22 16:47:09,313 - root - INFO - 密码管理系统启动
+2025-03-22 16:47:09,314 - root - INFO - 初始化用户设置模块...
+2025-03-22 16:47:09,315 - root - INFO - 用户设置模块已初始化
+2025-03-22 16:47:11,902 - user - INFO - 用户 admin 登录成功
+2025-03-22 16:47:11,906 - login_ui - INFO - 用户 admin 登录成功
+2025-03-22 16:47:11,907 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-22 16:47:11,968 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-22 16:47:12,111 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-22 16:47:14,205 - audit_log_viewer - INFO - 所有模块导入成功
+2025-03-22 16:47:14,206 - ui.password_manager.password_manager_ui - INFO - 使用内嵌方式打开审计日志查看器
+2025-03-22 16:47:14,216 - audit_log_viewer - INFO - 界面初始化完成
+2025-03-22 16:47:14,223 - audit_log_viewer - INFO - AuditLogViewer初始化成功
+2025-03-22 16:48:45,517 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 4, 选中行数: 1, 选中行: [1]
+2025-03-22 16:48:45,518 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-22 16:48:45,518 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-22 16:48:45,519 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-22 16:48:45,519 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-22 16:48:48,957 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 5, 选中行数: 1, 选中行: [1]
+2025-03-22 16:48:48,958 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-22 16:48:48,959 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-22 16:48:48,960 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-22 16:48:48,961 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-22 16:48:50,003 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-22 16:48:51,188 - ui.password_manager.ui_table.table_password - INFO - 开始更新1个服务器的密码
+2025-03-22 16:48:51,188 - ui.password_manager.ui_table.table_password - INFO - 开始更新服务器密码 - 行: 1, 项目: CRM系统, IP: 118.106.214.81, 用户: root92
+2025-03-22 16:49:03,432 - ui.password_manager.ui_table.table_password - ERROR - SSH密码更新失败 - 行: 1, IP: 118.106.214.81, 用户: root92, 错误: 连接或命令执行失败: timed out
+2025-03-22 16:49:03,436 - ui.password_manager.ui_table.table_password - INFO - 成功更新了 0/1 个服务器的密码。
+2025-03-22 16:55:59,063 - user - INFO - 用户已登出
+2025-03-22 16:57:58,457 - root - INFO - 密码管理系统启动
+2025-03-22 16:57:58,457 - root - INFO - 初始化用户设置模块...
+2025-03-22 16:57:58,457 - root - INFO - 用户设置模块已初始化
+2025-03-22 16:58:00,297 - user - INFO - 用户 admin 登录成功
+2025-03-22 16:58:00,300 - login_ui - INFO - 用户 admin 登录成功
+2025-03-22 16:58:00,301 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-22 16:58:00,373 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-22 16:58:00,516 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-22 16:58:02,520 - audit_log_viewer - INFO - 所有模块导入成功
+2025-03-22 16:58:02,520 - ui.password_manager.password_manager_ui - INFO - 使用内嵌方式打开审计日志查看器
+2025-03-22 16:58:02,528 - audit_log_viewer - INFO - 界面初始化完成
+2025-03-22 16:58:02,535 - audit_log_viewer - INFO - AuditLogViewer初始化成功
+2025-03-22 16:59:17,293 - user - INFO - 用户已登出
+2025-03-22 17:02:06,722 - root - INFO - 密码管理系统启动
+2025-03-22 17:02:06,722 - root - INFO - 初始化用户设置模块...
+2025-03-22 17:02:06,723 - root - INFO - 用户设置模块已初始化
+2025-03-22 17:02:08,594 - user - INFO - 用户 admin 登录成功
+2025-03-22 17:02:08,598 - login_ui - INFO - 用户 admin 登录成功
+2025-03-22 17:02:08,599 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-22 17:02:08,665 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-22 17:02:08,810 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-22 17:02:10,528 - audit_log_viewer - INFO - 所有模块导入成功
+2025-03-22 17:02:10,528 - ui.password_manager.password_manager_ui - INFO - 使用内嵌方式打开审计日志查看器
+2025-03-22 17:02:10,536 - audit_log_viewer - INFO - 界面初始化完成
+2025-03-22 17:02:10,543 - audit_log_viewer - INFO - AuditLogViewer初始化成功
+2025-03-22 17:02:33,271 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 2, 当前列: 5, 选中行数: 1, 选中行: [2]
+2025-03-22 17:02:33,272 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-22 17:02:33,273 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-22 17:02:33,273 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-22 17:02:33,274 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-22 17:02:37,058 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 5, 当前列: 5, 选中行数: 1, 选中行: [5]
+2025-03-22 17:02:37,058 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-22 17:02:37,059 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-22 17:02:37,060 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-22 17:02:37,060 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-22 17:02:37,845 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-22 17:02:39,085 - ui.password_manager.ui_table.table_password - INFO - 开始更新1个服务器的密码
+2025-03-22 17:02:39,086 - ui.password_manager.ui_table.table_password - INFO - 开始更新服务器密码 - 行: 5, 项目: Windows Server, IP: 91.205.241.193, 用户: nokpu
+2025-03-22 17:02:50,943 - ui.password_manager.ui_table.table_password - ERROR - SSH密码更新失败 - 行: 5, IP: 91.205.241.193, 用户: nokpu, 错误: 连接或命令执行失败: timed out
+2025-03-22 17:02:50,947 - ui.password_manager.ui_table.table_password - INFO - 成功更新了 0/1 个服务器的密码。
+2025-03-22 17:05:19,807 - user - INFO - 用户已登出
+2025-03-22 17:08:47,761 - root - INFO - 密码管理系统启动
+2025-03-22 17:08:47,761 - root - INFO - 初始化用户设置模块...
+2025-03-22 17:08:47,762 - root - INFO - 用户设置模块已初始化
+2025-03-22 17:08:49,301 - user - INFO - 用户 admin 登录成功
+2025-03-22 17:08:49,305 - login_ui - INFO - 用户 admin 登录成功
+2025-03-22 17:08:49,306 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-22 17:08:49,367 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-22 17:08:49,496 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-22 17:08:51,167 - audit_log_viewer - INFO - 所有模块导入成功
+2025-03-22 17:08:51,168 - ui.password_manager.password_manager_ui - INFO - 使用内嵌方式打开审计日志查看器
+2025-03-22 17:08:51,176 - audit_log_viewer - INFO - 界面初始化完成
+2025-03-22 17:08:51,183 - audit_log_viewer - INFO - AuditLogViewer初始化成功
+2025-03-22 17:09:12,252 - user - INFO - 用户已登出

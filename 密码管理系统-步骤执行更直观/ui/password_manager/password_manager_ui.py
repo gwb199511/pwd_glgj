@@ -82,7 +82,7 @@ class PasswordManagerUI(QMainWindow):
         menubar = self.menuBar()
         
         # 文件菜单
-        file_menu = menubar.addMenu('文件')
+        file_menu = menubar.addMenu('选项')
         
         # 退出动作
         exit_action = QAction('退出', self)
@@ -106,10 +106,28 @@ class PasswordManagerUI(QMainWindow):
         # 帮助菜单
         help_menu = menubar.addMenu('帮助')
         
-        # 查看密码更新引导动作
-        view_guide_action = QAction('查看密码更新引导', self)
-        view_guide_action.triggered.connect(self._show_password_update_guide)
-        help_menu.addAction(view_guide_action)
+        # 引导帮助子菜单
+        guide_submenu = help_menu.addMenu('引导帮助')
+        
+        # 密码更新引导
+        password_update_guide_action = QAction('密码更新引导', self)
+        password_update_guide_action.triggered.connect(lambda: self._show_specific_guide("password_update"))
+        guide_submenu.addAction(password_update_guide_action)
+        
+        # 编辑功能引导
+        first_edit_guide_action = QAction('表格编辑功能引导', self)
+        first_edit_guide_action.triggered.connect(lambda: self._show_specific_guide("first_edit"))
+        guide_submenu.addAction(first_edit_guide_action)
+        
+        # 密码字段引导
+        password_field_guide_action = QAction('密码字段引导', self)
+        password_field_guide_action.triggered.connect(lambda: self._show_specific_guide("password_field"))
+        guide_submenu.addAction(password_field_guide_action)
+        
+        # IP地址字段引导
+        ip_field_guide_action = QAction('IP地址字段引导', self)
+        ip_field_guide_action.triggered.connect(lambda: self._show_specific_guide("ip_field"))
+        guide_submenu.addAction(ip_field_guide_action)
         
         # 重置所有引导动作
         reset_guides_action = QAction('重置所有引导', self)
@@ -299,6 +317,17 @@ class PasswordManagerUI(QMainWindow):
                 f"无法打开SSH日志查看器: {str(e)}",
                 QMessageBox.Ok
             )
+
+    def _show_specific_guide(self, guide_type: str):
+        """
+        显示特定类型的引导
+        
+        从菜单主动选择查看引导时，总是显示引导内容，不管用户是否已经看过
+        
+        Args:
+            guide_type (str): 引导类型
+        """
+        show_guide_if_needed(guide_type, self, force=True)
 
 
 def main():

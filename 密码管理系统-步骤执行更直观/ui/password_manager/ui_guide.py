@@ -175,11 +175,6 @@ class GuideDialog(QDialog):
         self.next_button.clicked.connect(self._go_next)
         bottom_layout.addWidget(self.next_button)
         
-        # 跳过按钮
-        self.skip_button = ModernButton("跳过", color=COLORS["secondary"])
-        self.skip_button.clicked.connect(self.accept)
-        bottom_layout.addWidget(self.skip_button)
-        
         # 添加底部布局
         bottom_container = QWidget()
         bottom_container.setLayout(bottom_layout)
@@ -220,10 +215,15 @@ class GuideDialog(QDialog):
             
     def accept(self):
         """接受对话框"""
-        # 保存"不再显示"设置
+        # 保存引导完成状态
+        # 无论是否勾选"不再显示"，只要用户点击了"完成"按钮，就标记为已完成
+        user_settings.user_settings.mark_guide_completed(self.guide_key)
+        
+        # 记录日志
         if self.dont_show_checkbox.isChecked():
-            user_settings.user_settings.mark_guide_completed(self.guide_key)
             logger.info(f"用户选择不再显示引导: {self.guide_key}")
+        else:
+            logger.info(f"用户已完成引导: {self.guide_key}")
             
         super().accept()
         
@@ -315,18 +315,19 @@ IP_FIELD_GUIDE = [
 ]
 
 
-def show_guide_if_needed(guide_key: str, parent=None) -> bool:
+def show_guide_if_needed(guide_key: str, parent=None, force: bool = False) -> bool:
     """
-    如果需要，显示引导对话框
+    如果需要或强制要求，显示引导对话框
     
     Args:
         guide_key (str): 引导键名
         parent: 父窗口
+        force (bool): 是否强制显示，即使用户已完成该引导
         
     Returns:
         bool: 如果显示了引导返回True，否则返回False
     """
-    if user_settings.user_settings.is_guide_completed(guide_key):
+    if not force and user_settings.user_settings.is_guide_completed(guide_key):
         logger.info(f"用户已完成引导: {guide_key}，跳过显示")
         return False
         
@@ -346,6 +347,11 @@ def show_guide_if_needed(guide_key: str, parent=None) -> bool:
         
     # 显示引导对话框
     dialog = GuideDialog(guide_key, guide_content, parent)
+    
+    # 如果是强制显示，初始时取消选中"不再显示"复选框
+    if force and hasattr(dialog, "dont_show_checkbox"):
+        dialog.dont_show_checkbox.setChecked(False)
+        
     result = dialog.exec_()
     
     logger.info(f"显示引导: {guide_key}, 结果: {'接受' if result else '拒绝'}")

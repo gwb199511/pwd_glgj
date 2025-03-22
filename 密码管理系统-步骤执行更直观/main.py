@@ -10,6 +10,8 @@ import sys
 import os
 import logging
 from logging.handlers import RotatingFileHandler
+import traceback
+from datetime import datetime
 
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtGui import QFont
@@ -68,6 +70,11 @@ def main():
     except Exception as e:
         logging.error(f"初始化用户设置模块时出错: {str(e)}")
 
+    # 检查是否有重置引导记录的命令行参数
+    if len(sys.argv) > 1 and sys.argv[1] == "--reset-guides":
+        user_settings.reset_guides()
+        logging.info("已重置所有引导记录")
+
     # 创建应用程序
     app = QApplication(sys.argv)
     
@@ -102,4 +109,9 @@ def main():
 
 
 if __name__ == "__main__":
-    main() 
+    try:
+        main()
+    except Exception as e:
+        logging.error(f"程序发生错误: {str(e)}")
+        logging.error(traceback.format_exc())
+        sys.exit(1) 

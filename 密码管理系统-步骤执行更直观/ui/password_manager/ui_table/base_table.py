@@ -17,6 +17,7 @@ from PyQt5.QtGui import QColor
 
 from config import PASSWORD_COLUMNS
 from ui.password_manager.ui_utils import set_table_headers
+from ui.password_manager.ui_table.custom_delegates import RequiredFieldDelegate
 
 # 配置日志
 logger = logging.getLogger(__name__)
@@ -43,6 +44,7 @@ class BasePasswordTable:
         self.editing_row = -1  # 当前正在编辑的行，-1表示没有正在编辑的行
         
         self._setup_table()
+        self._setup_custom_delegates()  # 设置自定义委托
         self._setup_context_menu()  # 设置右键菜单
         
         # 连接单元格点击信号，处理占位符文本
@@ -85,8 +87,15 @@ class BasePasswordTable:
                 padding: 2.5px;
                 border: none;
             }
+            /* 被选中项的样式 - 降低不透明度以便看到背景色 */
             QTableWidget::item:selected {
-                background-color: #e3f2fd;
+                background-color: rgba(227, 242, 253, 180); /* 半透明的选中色 */
+                color: #333333;
+            }
+            /* 必填字段样式，增加优先级 */
+            QTableWidget::item[required="true"] {
+                background-color: #ffecb3 !important;
+                font-weight: bold;
             }
         """)
         
@@ -161,6 +170,18 @@ class BasePasswordTable:
         
         # 设置表头可以点击排序
         self.table.setSortingEnabled(True)
+    
+    def _setup_custom_delegates(self):
+        """
+        设置自定义委托
+        
+        为表格添加自定义的单元格委托，实现必填字段黄色背景等特殊效果
+        """
+        # 创建并设置必填字段委托
+        self.required_field_delegate = RequiredFieldDelegate(self.table)
+        self.table.setItemDelegate(self.required_field_delegate)
+        
+        logger.info("已设置必填字段自定义委托")
     
     def _setup_context_menu(self):
         """

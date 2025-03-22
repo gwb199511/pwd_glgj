@@ -16,7 +16,7 @@ from PyQt5.QtWidgets import (
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QColor, QBrush
 
-from config import PASSWORD_COLUMNS
+from config import PASSWORD_COLUMNS, REQUIRED_FIELDS
 from password import password_manager
 from user import user_manager
 from ui.password_manager.ui_utils import (
@@ -39,132 +39,85 @@ class TableEditMixin:
     
     def add_editing_row(self) -> int:
         """
-        在表格最后添加一个新的编辑行
+        添加一行并进入编辑模式
         
         Returns:
-            int: 新添加行的索引
+            int: 新行的索引
         """
-        try:
-            # 获取当前表格行数
-            row_count = self.table.rowCount()
-            logger.info(f"当前表格总行数: {row_count}")
-            
-            # 判断最后一行是否是按钮行
-            has_button_row = (row_count > 0 and self.table.cellWidget(row_count - 1, 0) is not None)
-            if has_button_row:
-                logger.info("检测到表格底部有按钮行")
-            
-            # 计算实际插入行的位置
-            insert_row = row_count - 1 if has_button_row else row_count
-            logger.info(f"将在位置 {insert_row} 插入新行")
-            
-            # 插入新行
-            self.table.insertRow(insert_row)
-            
-            # 设置项目单元格为可编辑
-            for col in range(self.table.columnCount()):
-                item = QTableWidgetItem("")
-                if col == 0:
-                    # 在第一个单元格中设置标记，表示这是新添加的行
-                    item.setData(Qt.UserRole + 200, True)
-                    logger.info(f"在第{insert_row+1}行第1列设置了新行标记")
-                self.table.setItem(insert_row, col, item)
-            
-            # 设置编辑状态
-            self.editing_row = insert_row
-            
-            # 添加确认和取消按钮
-            self._add_confirm_cancel_buttons(insert_row)
-            
-            # 添加数据验证
-            self._setup_data_validation(insert_row)
-            
-            # 设置焦点到第一个单元格
-            if self.table.item(insert_row, 0):
-                self.table.setCurrentCell(insert_row, 0)
-                self.table.editItem(self.table.item(insert_row, 0))
-            
-            # 添加到编辑行列表
-            self.edited_rows.add(insert_row)
-            logger.info(f"已将第{insert_row+1}行添加到编辑行列表")
-            
-            # 返回添加的行索引
-            logger.info(f"添加编辑行完成，行索引: {insert_row}")
-            
-            # 在状态栏显示提示信息
-            if hasattr(self.table, 'parent') and hasattr(self.table.parent(), 'statusBar'):
-                try:
-                    self.table.parent().statusBar().showMessage("新添加的记录不会自动更新到服务器，需要使用右键菜单中的'生成16位随机密码并更新到服务器(SSH)'选项")
-                except:
-                    pass
-                
-            return insert_row
-        except Exception as e:
-            logger.error(f"添加编辑行时发生错误: {str(e)}")
-            return -1
+        self.add_row()
+        new_row = self.table.rowCount() - 1
+        return self.edit_row(new_row)
         
     def edit_row(self, row: int) -> bool:
         """
-        开始编辑指定行
+        进入行编辑模式
         
         Args:
-            row (int): 行索引
+            row (int): 要编辑的行索引
             
         Returns:
-            bool: 开始编辑成功返回True，否则返回False
+            bool: 如果成功进入编辑模式返回True，否则返回False
         """
-        if row < 0 or row >= self.table.rowCount():
-            return False
-            
-        # 如果已经在编辑状态，先取消当前编辑
-        if self.editing_row >= 0:
+        if self.editing_row != -1:
+            # 如果已经有正在编辑的行，取消编辑
             self.cancel_editing()
             
-        # 显示首次编辑引导
-        if hasattr(self.table, 'parent'):
-            parent = self.table.parent()
-            if parent:
-                show_guide_if_needed("first_edit", parent)
-        
-        # 保存原始数据
         self.editing_row = row
         
-        # 禁用排序，以避免在编辑时排序
-        self.table.setSortingEnabled(False)
+        # 通知委托进入编辑模式
+        if hasattr(self, 'required_field_delegate'):
+            self.required_field_delegate.set_editing_mode(True, row)
         
-        # 暂时存储并清除表格样式表，以避免样式冲突
-        original_style = self.table.styleSheet()
-        self.table.setStyleSheet("")
+        # 记录行数据的原始副本用于取消操作
+        self.original_row_data = get_row_data(self.table, row)
         
-        # 临时启用编辑功能 - 直接设置，不保存原始值
-        self.table.setEditTriggers(QAbstractItemView.DoubleClicked | QAbstractItemView.EditKeyPressed | QAbstractItemView.SelectedClicked)
-        
-        # 批量处理前禁用UI更新以提高性能
-        self.table.setUpdatesEnabled(False)
-        
-        # 使所有单元格可编辑并设置特殊的背景色
-        highlight_color = QColor("#cce5ff")
+        # 设置行为可编辑状态
         for col in range(self.table.columnCount()):
             item = self.table.item(row, col)
             if item:
-                # 保存原始数据以便取消时恢复
-                item.setData(Qt.UserRole, item.text())
-                # 设置为可编辑状态
                 item.setFlags(item.flags() | Qt.ItemIsEditable)
-                # 设置高亮背景色
-                item.setBackground(highlight_color)
-                
-        # 重新启用UI更新
-        self.table.setUpdatesEnabled(True)
+            else:
+                # 如果单元格项不存在，创建一个空的可编辑项
+                empty_item = QTableWidgetItem("")
+                empty_item.setFlags(empty_item.flags() | Qt.ItemIsEditable)
+                self.table.setItem(row, col, empty_item)
         
-        # 恢复样式表
-        self.table.setStyleSheet(original_style)
+        # 高亮显示必填字段
+        highlight_required_fields(self.table, row)
         
         # 添加确认和取消按钮
         self._add_confirm_cancel_buttons(row)
         
-        # 设置行高更大一点以凸显
-        self.table.setRowHeight(row, self.table.rowHeight(row) + 12)
+        # 设置数据验证
+        self._setup_data_validation(row)
+        
+        # 设置字段指导
+        self._setup_field_guides(row)
+        
+        # 让表格有接收键盘焦点的能力
+        self.table.setFocusPolicy(Qt.StrongFocus)
+        self.table.setFocus()
+        
+        # 设置操作按钮
+        self._setup_edit_buttons(row)
+        
+        # 使用单元格选择模式，允许用户选择任意单元格进行编辑
+        self.table.setSelectionMode(QAbstractItemView.SingleSelection)
+        self.table.setSelectionBehavior(QAbstractItemView.SelectItems)
+        
+        # 设置第一个必填字段为当前单元格，但同时确保用户知道所有字段都可编辑
+        if REQUIRED_FIELDS and len(REQUIRED_FIELDS) > 0:
+            first_required = REQUIRED_FIELDS[0]
+            self.table.setCurrentCell(row, first_required)
+            self.table.editItem(self.table.item(row, first_required))
+        
+        # 显示状态信息，提示用户可以编辑所有字段
+        statusBar = self._find_status_bar()
+        if statusBar:
+            statusBar.showMessage('编辑模式：点击任意单元格进行编辑，完成后点击"确认"按钮保存', 5000)
+        
+        # 确保表格支持多种编辑触发方式
+        self.table.setEditTriggers(QAbstractItemView.DoubleClicked | QAbstractItemView.SelectedClicked | QAbstractItemView.EditKeyPressed)
         
         return True
         
@@ -265,151 +218,79 @@ class TableEditMixin:
         
     def confirm_editing(self, row: int) -> bool:
         """
-        确认编辑，保存修改
+        确认编辑，保存更改
         
         Args:
-            row (int): 行索引
+            row (int): 要确认的行索引
             
         Returns:
-            bool: 如果确认成功返回True，否则返回False
+            bool: 如果成功确认编辑返回True，否则返回False
         """
-        logger.info(f"开始确认编辑 - 第{row+1}行: {self.table.item(row, 0).text() if self.table.item(row, 0) else '未知项目'}")
-        
-        # 检查是否是批量编辑模式
-        if hasattr(self, 'batch_editing') and self.batch_editing:
-            logger.info("检测到批量编辑模式")
-            return self._confirm_batch_editing(row)
-        
-        # 取消链式编辑属性，如果存在
-        if hasattr(self, 'pending_edit_rows'):
-            logger.info(f"取消链式编辑属性(rows={len(self.pending_edit_rows) if hasattr(self, 'pending_edit_rows') else 0})")
-            delattr(self, 'pending_edit_rows')
-        
-        if hasattr(self, 'original_confirm_editing'):
-            logger.info("取消original_confirm_editing属性")
-            delattr(self, 'original_confirm_editing')
-        
-        # 判断是否是新添加的行
-        is_new_row = False
-        
-        # 首先检查是否有存储在第一个单元格的数据标记
-        if self.table.item(row, 0) and self.table.item(row, 0).data(Qt.UserRole + 200):
-            is_new_row = True
-            logger.info(f"根据存储的标记判断第{row+1}行是否为新行: {is_new_row}")
-        else:
-            # 退回到位置判断（作为备用方法）
-            is_new_row = (row == self.table.rowCount() - 2)  # 减2是因为有一个按钮行
-            logger.info(f"根据位置判断第{row+1}行是否为新行: {is_new_row}")
-        
-        # 验证数据
+        # 先检查必填字段是否已填写
         if not validate_password_entry(self.table, row):
             return False
-        
-        # 获取行数据
-        data = get_row_data(self.table, row)
-        
-        # 获取当前选择的所有者
-        owner = self.current_owner
-        
-        # 保存数据
-        success = False
-        if is_new_row:
-            # 添加新记录
-            success, message = password_manager.add_password(owner, data)
-            if success:
-                # 清除新行标记
-                if self.table.item(row, 0):
-                    self.table.item(row, 0).setData(Qt.UserRole + 200, None)
-                
-                logger.info(f"成功添加新密码记录: {data[0]}")
-                
-                # 显示密码更新引导
-                if hasattr(self.table, 'parent'):
-                    parent = self.table.parent()
-                    if parent:
-                        # 如果是新添加的记录且有IP地址和账户，可能需要更新到服务器
-                        if data[2] and data[3]:  # IP地址和账户不为空
-                            show_guide_if_needed("password_update", parent)
-            else:
-                show_message(self.table.parent(), "添加失败", message, QMessageBox.Warning)
-                logger.error(f"添加密码记录失败: {message}")
-                return False
-        else:
-            # 更新记录
-            # 根据用户需求，跳过SSH密码更新步骤，仅在右键菜单中选择'生成16位随机密码并更新到服务器'时才进行更新
-            logger.info("根据用户需求，跳过SSH密码更新步骤，仅在右键菜单中选择'生成16位随机密码并更新到服务器'时才进行更新")
             
-            # 获取实际的记录索引
+        new_data = get_row_data(self.table, row)
+        
+        # 区分添加模式和编辑模式
+        if self.original_row_data and any(self.original_row_data):
+            # 编辑现有条目
+            # 查找真实的行索引（考虑搜索模式）
             real_index = self._get_real_row_index(row)
-            if real_index is None:
-                show_message(self.table.parent(), "更新失败", "无法找到记录索引", QMessageBox.Warning)
-                logger.error(f"无法确定第{row+1}行对应的实际索引")
-                return False
             
-            success, message = password_manager.update_password(owner, real_index, data, skip_server_sync=True)
-            if success:
-                logger.info(f"成功更新密码记录: {data[0]}")
+            if real_index is not None:
+                success, message = password_manager.update_password(
+                    self.current_owner, real_index, new_data
+                )
             else:
-                show_message(self.table.parent(), "更新失败", message, QMessageBox.Warning)
-                logger.error(f"更新密码记录失败: {message}")
-                return False
+                success, message = False, "无法确定要更新的记录索引"
+                
+            action_desc = "编辑"
+        else:
+            # 添加新条目
+            success, message = password_manager.add_password(self.current_owner, new_data)
+            action_desc = "添加"
         
-        # 清除编辑状态
-        self._clear_highlight(row)
-        
-        # 删除确认和取消按钮行
-        self._remove_confirm_cancel_buttons(row)
-        
-        # 重新设置编辑触发器
-        self.table.setEditTriggers(QAbstractItemView.NoEditTriggers)
-        
-        # 重置编辑状态
-        self.editing_row = -1
-        
-        logger.info(f"成功确认编辑 - 第{row+1}行: {data[0]}")
-        
-        # 在状态栏显示提示
-        if hasattr(self.table, 'parent') and hasattr(self.table.parent(), 'statusBar'):
-            try:
-                self.table.parent().statusBar().showMessage(f"{'新增' if is_new_row else '更新'}密码记录成功: {data[0]}")
-            except:
-                pass
+        if success:
+            # 取消编辑模式
+            self._remove_confirm_cancel_buttons(row)
+            self._clear_highlight(row)
             
-        return True
-        
-    def _confirm_batch_editing(self, current_row: int) -> bool:
-        """
-        批量编辑模式下的确认处理 (已简化，保留基本功能)
-        
-        Args:
-            current_row (int): 当前编辑的行
+            # 设置单元格为不可编辑状态
+            for col in range(self.table.columnCount()):
+                item = self.table.item(row, col)
+                if item:
+                    item.setFlags(item.flags() & ~Qt.ItemIsEditable)
             
-        Returns:
-            bool: 是否成功保存所有更改
-        """
-        logger.warning("批量编辑功能已被简化")
-        # 显示消息提示用户使用单行编辑
-        from PyQt5.QtWidgets import QMessageBox
-        msg_box = QMessageBox()
-        msg_box.setWindowTitle("批量编辑已简化")
-        msg_box.setText("批量编辑功能已被简化，请使用单行编辑。")
-        msg_box.setIcon(QMessageBox.Information)
-        msg_box.setWindowFlags(msg_box.windowFlags() | Qt.WindowStaysOnTopHint)
-        msg_box.exec_()
-        
-        # 清除编辑状态
-        self.cancel_editing()
-        
-        if hasattr(self, 'batch_editing'):
-            self.batch_editing = False
-        
-        if hasattr(self, 'batch_edited_rows'):
-            delattr(self, 'batch_edited_rows')
+            # 重置编辑行状态
+            self.editing_row = -1
+            self.original_row_data = None
             
-        if hasattr(self, 'original_passwords'):
-            delattr(self, 'original_passwords')
-        
-        return False
+            # 通知委托退出编辑模式
+            if hasattr(self, 'required_field_delegate'):
+                self.required_field_delegate.set_editing_mode(False)
+            
+            # 重置表格选择模式
+            self.table.setSelectionMode(QAbstractItemView.ExtendedSelection)
+            
+            # 重新加载数据
+            self._refresh_data()
+            
+            # 显示成功消息
+            statusBar = self._find_status_bar()
+            if statusBar:
+                statusBar.showMessage(f"密码记录{action_desc}成功", 5000)
+                
+            return True
+        else:
+            # 显示错误消息
+            QMessageBox.warning(
+                self.table.parent(), 
+                f"密码记录{action_desc}失败", 
+                message, 
+                QMessageBox.Ok
+            )
+            return False
         
     def _clear_highlight(self, row: int):
         """
@@ -468,82 +349,56 @@ class TableEditMixin:
         
     def cancel_editing(self):
         """
-        取消编辑，恢复到原始状态
+        取消编辑，恢复原始数据
         """
-        logger.info(f"取消编辑 - 第{self.editing_row+1}行: {self.table.item(self.editing_row, 0).text() if self.table.item(self.editing_row, 0) else '新行'}")
-            
-        # 如果没有正在编辑的行，直接返回
-        if self.editing_row < 0 or self.editing_row >= self.table.rowCount():
-            logger.warning(f"取消编辑失败: 没有正在编辑的行或行索引 {self.editing_row} 超出范围")
+        if self.editing_row == -1:
             return
-        
-        # 批量处理前禁用UI更新以提高性能
-        self.table.setUpdatesEnabled(False)
-        
-        # 获取当前编辑的行
-        row = self.editing_row
             
-        # 记录批量编辑模式下的取消
-        if hasattr(self, 'batch_editing') and self.batch_editing:
-            if hasattr(self, 'batch_edited_rows'):
-                logger.info(f"取消批量编辑 - 共{len(self.batch_edited_rows)}行")
-                
-                # 记录操作的项目名称
-                project_names = []
-                for r in self.batch_edited_rows:
-                    if self.table.item(r, 0):
-                        project_names.append(self.table.item(r, 0).text())
-                
-                if project_names:
-                    projects_str = "、".join(project_names[:3])
-                    if len(project_names) > 3:
-                        projects_str += f" 等{len(project_names)}个项目"
-                    logger.info(f"取消批量编辑项目: {projects_str}")
+        row = self.editing_row
+        logger.info(f"取消编辑 - 第{row}行: {self.table.item(row, 0).text() if self.table.item(row, 0) else '新行'}")
         
-        # 移除确认和取消按钮
-        self._remove_confirm_cancel_buttons(row)
-        
-        # 如果是新添加的行且不在搜索模式，则删除该行
-        if row == self.table.rowCount() - 1 and not self.search_mode:
-            # 如果是编辑最后一行，可能是新添加的行，执行删除
-            all_empty = True
+        # 如果是新添加的行（没有原始数据或原始数据为空），删除该行
+        if not self.original_row_data or not any(self.original_row_data):
+            self.table.removeRow(row)
+        else:
+            # 恢复原始数据
+            for col, text in enumerate(self.original_row_data):
+                if col < self.table.columnCount():
+                    item = self.table.item(row, col)
+                    if item:
+                        item.setText(text)
+                    else:
+                        self.table.setItem(row, col, QTableWidgetItem(text))
+                        
+            # 清除高亮
+            self._clear_highlight(row)
+            
+            # 设置单元格为不可编辑状态
             for col in range(self.table.columnCount()):
                 item = self.table.item(row, col)
-                if item and item.text() and item.text() != "<双击添加>":
-                    all_empty = False
-                    break
+                if item:
+                    item.setFlags(item.flags() & ~Qt.ItemIsEditable)
                     
-            # 如果所有单元格为空或只有占位符，则认为是新添加的行
-            if all_empty:
-                self.table.removeRow(row)
-                logger.info(f"删除空行: {row+1}")
-        else:
-            # 如果是编辑现有行，则重新加载数据以恢复原始值
-            if self.search_mode:
-                self._refresh_search_results()
-                logger.debug("搜索模式: 刷新搜索结果以恢复原始数据")
-            else:
-                self._load_passwords_internal(self.current_owner)
-                logger.debug("重新加载数据以恢复原始值")
-                
-        # 清除批量编辑相关属性
-        if hasattr(self, 'batch_editing'):
-            self.batch_editing = False
-        if hasattr(self, 'batch_edited_rows'):
-            delattr(self, 'batch_edited_rows')
-        if hasattr(self, 'original_passwords'):
-            delattr(self, 'original_passwords')
-                
-        # 清除编辑状态
+            # 移除操作按钮
+            self._remove_confirm_cancel_buttons(row)
+        
+        # 重置编辑行状态
         self.editing_row = -1
+        self.original_row_data = None
         
-        # 恢复表格的编辑触发器设置
-        self.table.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        # 通知委托退出编辑模式
+        if hasattr(self, 'required_field_delegate'):
+            self.required_field_delegate.set_editing_mode(False)
         
-        # 重新启用UI更新
-        self.table.setUpdatesEnabled(True)
+        # 重置表格选择模式
+        self.table.setSelectionMode(QAbstractItemView.ExtendedSelection)
         
         logger.info("取消编辑完成，已恢复原始数据")
+        
+        # 显示状态消息
+        statusBar = self._find_status_bar()
+        if statusBar:
+            statusBar.showMessage("已取消编辑", 3000)
         
     def delete_row(self, row: int) -> bool:
         """
@@ -704,9 +559,52 @@ class TableEditMixin:
         # 高亮显示必填字段
         highlight_required_fields(self.table, row)
         
+        # 设置单元格变化监听，保持必填字段的高亮状态
+        self.table.itemChanged.connect(self._refresh_required_field_highlight)
+        
         # 添加字段编辑监听，用于触发相应的引导
         if hasattr(self, '_setup_field_guides'):
             self._setup_field_guides(row)
+    
+    def _refresh_required_field_highlight(self, item):
+        """
+        刷新必填字段高亮
+        
+        当单元格内容变化时，确保必填字段保持高亮状态
+        
+        Args:
+            item (QTableWidgetItem): 变化的单元格项
+        """
+        # 如果不在编辑状态，忽略
+        if self.editing_row < 0:
+            return
+            
+        # 仅处理编辑行的单元格变化
+        if item.row() != self.editing_row:
+            return
+            
+        # 仅对必填字段进行处理
+        if item.column() in REQUIRED_FIELDS:
+            # 如果单元格内容为空，设置占位符标记
+            if not item.text().strip():
+                item.setData(Qt.UserRole, "placeholder")
+            else:
+                # 如果有内容，清除占位符标记
+                item.setData(Qt.UserRole, None)
+            
+            # 刷新表格，让委托重新渲染单元格
+            self.table.viewport().update()
+            
+            # 在状态栏提示用户必填项
+            try:
+                field_name = PASSWORD_COLUMNS[item.column()]
+                if not item.text().strip():
+                    status_msg = f"请填写必填项: {field_name}"
+                    if hasattr(self.table, 'window') and hasattr(self.table.window(), 'statusBar'):
+                        self.table.window().statusBar().showMessage(status_msg, 3000)
+            except:
+                # 忽略任何出错
+                pass
 
     def _setup_field_guides(self, row: int):
         """
@@ -800,4 +698,62 @@ class TableEditMixin:
         """
         # 实现刷新搜索结果的逻辑
         # 这可能需要根据您的具体实现来决定
-        pass 
+        pass
+    
+    def _setup_edit_buttons(self, row: int):
+        """
+        设置编辑行的操作按钮
+        
+        Args:
+            row (int): 要编辑的行索引
+        """
+        # 目前此方法仅作为占位符，以避免AttributeError
+        # 如果需要添加额外的编辑功能按钮，可以在此实现
+        logger.debug(f"设置行 {row} 的编辑按钮")
+        # 可能的实现：添加额外的工具按钮，例如密码生成器按钮等
+        pass
+    
+    def _find_status_bar(self):
+        """
+        查找状态栏对象
+        
+        Returns:
+            QStatusBar: 状态栏对象，或None（如果找不到）
+        """
+        try:
+            parent = self.table.parent()
+            while parent:
+                if hasattr(parent, 'statusBar'):
+                    return parent.statusBar()
+                parent = parent.parent()
+            return None
+        except Exception as e:
+            logger.error(f"查找状态栏时出错: {str(e)}")
+            return None
+    
+    def _refresh_data(self):
+        """
+        刷新表格数据
+        
+        根据当前模式（搜索模式或普通模式）重新加载数据
+        """
+        if self.search_mode:
+            self._refresh_search_results()
+        else:
+            self._load_passwords_internal(self.current_owner)
+
+    def add_row(self):
+        """
+        在表格末尾添加一个空行
+        """
+        # 获取当前表格行数
+        row_count = self.table.rowCount()
+        
+        # 插入新行
+        self.table.insertRow(row_count)
+        
+        # 设置空单元格
+        for col in range(self.table.columnCount()):
+            self.table.setItem(row_count, col, QTableWidgetItem(""))
+        
+        return row_count 

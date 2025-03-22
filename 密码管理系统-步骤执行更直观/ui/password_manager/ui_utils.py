@@ -89,44 +89,29 @@ def highlight_required_fields(table: QTableWidget, row: int) -> None:
     """
     高亮显示必填字段
     
+    在编辑模式下准备必填字段的显示
+    不再直接设置背景色，而是通过委托(RequiredFieldDelegate)进行渲染
+    
     Args:
         table (QTableWidget): 表格控件
         row (int): 行索引
     """
-    # 暂时存储并清除表格样式表，以避免样式冲突
-    original_style = table.styleSheet()
-    table.setStyleSheet("")
+    # 确保单元格存在
+    for col in range(table.columnCount()):
+        if not table.item(row, col):
+            table.setItem(row, col, QTableWidgetItem(""))
     
-    # 使用更明显的颜色来突出显示必填字段
-    required_bg_color = QColor("#ffecb3")  # 更明显的暖黄色背景
-    
+    # 为空的必填字段设置占位符数据标记，便于委托识别
     for col in REQUIRED_FIELDS:
         if col < table.columnCount():
             item = table.item(row, col)
-            if item:
-                # 设置明显的背景色 - 尝试多种方法确保至少一种能生效
-                item.setBackground(required_bg_color)
-                item.setData(Qt.BackgroundRole, QBrush(required_bg_color))
-                
-                # 使用加粗字体增强视觉效果
-                font = item.font()
-                font.setBold(True)  # 加粗字体
-                item.setFont(font)
-                
-                # 设置工具提示提醒用户这是必填字段
-                field_name = PASSWORD_COLUMNS[col] if col < len(PASSWORD_COLUMNS) else ""
-                item.setToolTip(f"必填字段: {field_name}")
-                
-                # 如果单元格为空，显示提示文本
-                if not item.text():
-                    # 设置为明显的红色文本作为提示
-                    item.setForeground(QColor("#ff5252"))
-                    item.setText(f"*请输入{field_name}")
-                    # 用Data记录这是一个placeholder，方便编辑时清除
-                    item.setData(Qt.UserRole, "placeholder")
-
-    # 恢复原始样式表
-    table.setStyleSheet(original_style)
+            if item and not item.text().strip():
+                # 添加数据标记，供委托识别
+                item.setData(Qt.UserRole, "required_empty")
+    
+    # 刷新表格显示 - 委托会负责渲染必填字段的背景色
+    table.update()
+    table.viewport().update()
 
 
 def validate_password_entry(table: QTableWidget, row: int) -> bool:

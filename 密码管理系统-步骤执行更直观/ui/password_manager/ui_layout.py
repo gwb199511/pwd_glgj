@@ -106,8 +106,8 @@ class PasswordManagerLayout:
         # 右侧密码表格
         self.password_table = QTableWidget()
         self.password_table.setFont(QFont(FONT_FAMILY, 9))
-        self.password_table.setSelectionBehavior(QAbstractItemView.SelectRows)
-        self.password_table.setSelectionMode(QAbstractItemView.SingleSelection)
+        self.password_table.setSelectionBehavior(QAbstractItemView.SelectItems)
+        self.password_table.setSelectionMode(QAbstractItemView.ExtendedSelection)
         self.password_table.setAlternatingRowColors(True)
         self.password_table.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.password_table.verticalHeader().setVisible(False)

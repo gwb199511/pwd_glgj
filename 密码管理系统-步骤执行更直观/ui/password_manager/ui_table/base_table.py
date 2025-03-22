@@ -69,7 +69,7 @@ class BasePasswordTable:
         设置表格属性和样式
         """
         # 设置表格属性
-        self.table.setSelectionBehavior(QAbstractItemView.SelectItems)  # 允许选择单元格
+        self.table.setSelectionBehavior(QAbstractItemView.SelectItems)  # 修改为单元格选择模式
         self.table.setSelectionMode(QAbstractItemView.ExtendedSelection)  # 允许多选
         self.table.setAlternatingRowColors(True)
         self.table.setEditTriggers(QAbstractItemView.NoEditTriggers)  # 默认不可编辑（在编辑模式下会改为SingleClicked）

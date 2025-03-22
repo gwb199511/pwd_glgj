@@ -295,13 +295,19 @@ class PasswordManagerUI(QMainWindow):
 
     def _open_password_generator(self):
         """打开密码生成器"""
-        # 这里可以实现密码生成器功能
-        QMessageBox.information(
-            self,
-            "密码生成器",
-            "密码生成器功能尚未实现。\n\n您可以通过表格右键菜单中的'生成随机密码'选项来生成密码。",
-            QMessageBox.Ok
-        )
+        try:
+            from password_generator_dialog import PasswordGeneratorDialog
+            dialog = PasswordGeneratorDialog(self)
+            dialog.show()
+            logger.debug("已打开密码生成器对话框")
+        except Exception as e:
+            logger.error(f"打开密码生成器时出错: {str(e)}")
+            show_message(
+                self,
+                "打开失败",
+                f"无法打开密码生成器: {str(e)}",
+                QMessageBox.Warning
+            )
 
     def _open_ssh_log_viewer(self):
         """打开SSH日志查看器"""
@@ -311,11 +317,11 @@ class PasswordManagerUI(QMainWindow):
             log_viewer.show()
         except Exception as e:
             logger.error(f"打开SSH日志查看器时出错: {str(e)}")
-            QMessageBox.warning(
+            show_message(
                 self,
                 "打开失败",
                 f"无法打开SSH日志查看器: {str(e)}",
-                QMessageBox.Ok
+                QMessageBox.Warning
             )
 
     def _show_specific_guide(self, guide_type: str):

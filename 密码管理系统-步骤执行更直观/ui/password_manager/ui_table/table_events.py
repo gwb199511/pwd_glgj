@@ -9,16 +9,15 @@
 import logging
 from typing import List, Tuple, Optional
 
+# 配置日志
+logger = logging.getLogger(__name__)
+
 from PyQt5.QtWidgets import QMenu, QAction, QTableWidgetItem, QApplication
 from PyQt5.QtCore import Qt, QObject, QEvent
 from PyQt5.QtGui import QIcon
 
 from config import PASSWORD_COLUMNS
 from ui.password_manager.ui_guide import show_guide_if_needed
-
-# 配置日志
-logger = logging.getLogger(__name__)
-
 
 class TableEventsMixin:
     """
@@ -61,8 +60,8 @@ class TableEventsMixin:
             # 创建菜单
             menu = QMenu(self.table)
             
-            # 添加菜单项
-            if col == 4:  # 密码列
+            # 添加菜单项 - 检查是否有密码列被选中
+            if password_cell_count > 0:
                 # 复制密码
                 copy_action = QAction(QIcon(""), "复制密码", self.table)
                 copy_action.triggered.connect(self.copy_selected_content)
@@ -78,7 +77,7 @@ class TableEventsMixin:
                     menu.addAction(ssh_update_action)
             else:
                 # 复制内容
-                copy_action = QAction(QIcon(""), "复制内容", self.table)
+                copy_action = QAction(QIcon(""), "复制", self.table)
                 copy_action.triggered.connect(self.copy_selected_content)
                 menu.addAction(copy_action)
                 
@@ -139,21 +138,38 @@ class TableEventsMixin:
         """
         复制选中的内容到剪贴板
         """
-        # 获取选中的单元格
         selected_items = self.table.selectedItems()
         if not selected_items:
-            return
+            return False
             
-        # 获取文本内容
-        text_list = [item.text() for item in selected_items]
-        text = "\n".join(text_list)
+        # 获取所有选中的单元格内容，按行列顺序组织
+        rows = {}
+        for item in selected_items:
+            row_idx = item.row()
+            col_idx = item.column()
+            if row_idx not in rows:
+                rows[row_idx] = {}
+            rows[row_idx][col_idx] = item.text()
+        
+        # 构建要复制的文本，按行列组织
+        text_lines = []
+        for row_idx in sorted(rows.keys()):
+            row_data = rows[row_idx]
+            line = []
+            for col_idx in sorted(row_data.keys()):
+                line.append(row_data[col_idx])
+            text_lines.append("\t".join(line))
+        
+        # 将行组合成完整文本
+        text = "\n".join(text_lines)
         
         # 复制到剪贴板
         clipboard = QApplication.clipboard()
         clipboard.setText(text)
         
         logger.info(f"已复制{len(selected_items)}个单元格内容到剪贴板")
-
+        return True
+    
     def _add_row_with_logging(self, position: int, position_type: str):
         """
         带日志的添加行操作
@@ -225,7 +241,44 @@ class TableEventFilter(QObject):
         if event.type() == QEvent.KeyPress:
             # 处理Ctrl+C复制
             if event.modifiers() == Qt.ControlModifier and event.key() == Qt.Key_C:
-                self.password_table.copy_selected_content()
+                # 获取选中的内容
+                selected_items = self.table.selectedItems()
+                if not selected_items:
+                    return False
+                
+                # 获取所有选中的单元格内容，按行列顺序组织
+                rows = {}
+                for item in selected_items:
+                    row_idx = item.row()
+                    col_idx = item.column()
+                    if row_idx not in rows:
+                        rows[row_idx] = {}
+                    rows[row_idx][col_idx] = item.text()
+                
+                # 构建要复制的文本，按行列组织
+                text_lines = []
+                for row_idx in sorted(rows.keys()):
+                    row_data = rows[row_idx]
+                    line = []
+                    for col_idx in sorted(row_data.keys()):
+                        line.append(row_data[col_idx])
+                    text_lines.append("\t".join(line))
+                
+                # 将行组合成完整文本
+                text = "\n".join(text_lines)
+                
+                # 复制到剪贴板
+                clipboard = QApplication.clipboard()
+                clipboard.setText(text)
+                
+                logger.info(f"已复制{len(selected_items)}个单元格内容到剪贴板")
+                return True
+                
+            # 处理Ctrl+A全选
+            if event.modifiers() == Qt.ControlModifier and event.key() == Qt.Key_A:
+                # 执行表格全选
+                self.table.selectAll()
+                logger.debug("已执行表格全选操作")
                 return True
         
         # 处理单元格编辑事件 - 检测并触发相应的引导

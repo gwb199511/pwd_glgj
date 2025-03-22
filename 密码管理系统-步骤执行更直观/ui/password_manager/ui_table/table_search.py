@@ -40,6 +40,10 @@ class TableSearchMixin:
             return self.clear_search()
             
         try:
+            # 保存搜索关键字，用于后续刷新
+            self.last_search_text = keyword
+            logger.debug(f"设置搜索关键字: '{keyword}'")
+            
             # 执行搜索
             results = password_manager.search_passwords(keyword, self.current_owner)
             
@@ -128,12 +132,18 @@ class TableSearchMixin:
         try:
             # 清除搜索模式标识
             self.search_mode = False
+            
+            # 清除搜索文本
+            if hasattr(self, 'last_search_text'):
+                logger.debug(f"清除搜索关键字: '{self.last_search_text}'")
+                self.last_search_text = ""
+                
+            # 清除搜索结果
             self.search_results = None
             
-            # 如果有当前所有者，重新加载其密码
-            if self.current_owner:
-                return self._load_passwords_internal(self.current_owner)
-                
+            # 重新加载全部密码
+            self._load_passwords_internal(self.current_owner)
+            
             return True
         except Exception as e:
             logger.error(f"清除搜索结果时出错: {str(e)}")

@@ -29,7 +29,7 @@ for directory in [DATA_DIR, LOG_DIR]:
 PASSWORD_COLUMNS = [
     "项目名称", "功能", "IP地址", "账户", "密码", "所在区域", "网络类型", "其他账号"
 ]
-REQUIRED_FIELDS = [0, 3, 4]  # 项目名称、账户、密码为必填字段
+REQUIRED_FIELDS = [0, 2, 3, 4]  # 项目名称、IP地址、账户、密码为必填字段
 
 # UI配置
 WINDOW_WIDTH = 1400

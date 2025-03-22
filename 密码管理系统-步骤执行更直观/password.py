@@ -566,68 +566,12 @@ class PasswordManager:
                 logger.warning(f"SSH操作日志文件不存在: {log_file}")
                 return []
                 
-            # 使用更高效的方式读取文件最后几行
-            return self._read_last_lines(log_file, lines)
+            # 使用view_ssh_logs模块的函数读取文件最后几行
+            from view_ssh_logs import read_last_lines
+            return read_last_lines(log_file, lines)
         except Exception as e:
             logger.error(f"获取SSH操作日志失败: {str(e)}")
             return [f"获取日志失败: {str(e)}"]
-
-    def _read_last_lines(self, file_path: str, lines: int) -> List[str]:
-        """
-        高效地读取文件的最后几行
-        
-        Args:
-            file_path (str): 文件路径
-            lines (int): 要读取的行数
-            
-        Returns:
-            List[str]: 文件最后几行
-        """
-        try:
-            with open(file_path, 'rb') as f:
-                # 获取文件大小
-                f.seek(0, os.SEEK_END)
-                file_size = f.tell()
-                
-                # 如果文件为空，直接返回空列表
-                if file_size == 0:
-                    return []
-                    
-                # 设置初始位置为文件末尾前的1024字节或文件大小（取较小值）
-                block_size = 1024
-                block_num = -1
-                # 保存读取的行
-                lines_found = []
-                
-                # 从文件末尾开始，每次读取一个块
-                while len(lines_found) < lines and file_size > abs(block_num * block_size):
-                    # 定位到文件的特定位置
-                    position = max(file_size + block_num * block_size, 0)
-                    f.seek(position)
-                    
-                    # 读取一个数据块
-                    data = f.read(min(abs(block_num * block_size), file_size))
-                    
-                    # 解码数据并分割成行
-                    text = data.decode('utf-8', errors='replace')
-                    current_lines = text.split('\n')
-                    
-                    # 如果不是第一个数据块且最后一行不完整，则与前一块的第一行合并
-                    if position > 0 and len(lines_found) > 0:
-                        lines_found[0] = current_lines[-1] + lines_found[0]
-                        current_lines = current_lines[:-1]
-                    
-                    # 将当前块的行添加到结果列表前面
-                    lines_found = current_lines + lines_found
-                    
-                    # 移动到下一个块
-                    block_num -= 1
-                
-                # 返回最后 'lines' 行
-                return [line.rstrip('\r') for line in lines_found[-lines:] if line]
-        except Exception as e:
-            logger.error(f"读取文件最后几行时出错: {str(e)}")
-            return []
 
 
 # 创建密码管理器实例

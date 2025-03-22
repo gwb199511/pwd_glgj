@@ -115,18 +115,18 @@ class TablePasswordMixin:
                 password_item.setData(Qt.UserRole + 103, username)  # 保存用户名
                 
                 # 高亮显示已更改的密码
-                highlight_color = QColor("#fff3cd")  # 浅黄色，表示待更新
+                highlight_color = QColor("#1660AB")  # 蓝色，统一编辑背景色
                 password_item.setBackground(highlight_color)
             elif is_server_password and is_new_row:
                 # 是服务器密码但是新行，不需要SSH更新
                 logger.info(f"已为第{row+1}行生成{length}位随机密码 (服务器密码，新行，跳过SSH更新)")
                 
                 # 高亮显示已更改的密码，使用不同颜色表示不需要SSH更新
-                highlight_color = QColor("#d4edda")  # 浅绿色，表示新行
+                highlight_color = QColor("#1660AB")  # 蓝色，统一添加行背景色
                 password_item.setBackground(highlight_color)
             else:
                 # 不是服务器密码，直接设置
-                highlight_color = QColor("#cce5ff")  # 浅蓝色
+                highlight_color = QColor("#1660AB")  # 蓝色，统一编辑行背景色
                 
                 # 记录操作到日志
                 row_text = f"第{row+1}行" if col == 4 else f"第{row+1}行"  # 兼容性考虑
@@ -603,8 +603,8 @@ class TablePasswordMixin:
                     password_item = self.table.item(row, 4)  # 密码列
                     if password_item:
                         password_item.setText(new_password)
-                        # 设置背景色为绿色，表示成功更新
-                        password_item.setBackground(QColor("#d4edda"))
+                        # 设置背景色为蓝色，保持统一风格
+                        password_item.setBackground(QColor("#1660AB"))
                     
                     # 更新本地数据库
                     real_index = server['real_index']
@@ -632,6 +632,7 @@ class TablePasswordMixin:
                     # 更新失败，设置背景色为红色
                     password_item = self.table.item(row, 4)
                     if password_item:
+                        # 错误状态保持红色
                         password_item.setBackground(QColor("#f8d7da"))
                         
                     # 显示错误信息

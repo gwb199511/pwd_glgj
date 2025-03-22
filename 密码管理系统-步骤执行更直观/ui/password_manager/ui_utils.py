@@ -99,9 +99,11 @@ def highlight_required_fields(table: QTableWidget, row: int) -> None:
     # 确保单元格存在
     for col in range(table.columnCount()):
         if not table.item(row, col):
-            table.setItem(row, col, QTableWidgetItem(""))
+            empty_item = QTableWidgetItem("")
+            # 不再设置背景色，让委托类负责绘制
+            table.setItem(row, col, empty_item)
     
-    # 为空的必填字段设置占位符数据标记，便于委托识别
+    # 只为必填字段设置标记，不修改背景色
     for col in REQUIRED_FIELDS:
         if col < table.columnCount():
             item = table.item(row, col)
@@ -109,7 +111,7 @@ def highlight_required_fields(table: QTableWidget, row: int) -> None:
                 # 添加数据标记，供委托识别
                 item.setData(Qt.UserRole, "required_empty")
     
-    # 刷新表格显示 - 委托会负责渲染必填字段的背景色
+    # 刷新表格显示 - 委托会负责渲染必填字段的文本颜色和背景色
     table.update()
     table.viewport().update()
 

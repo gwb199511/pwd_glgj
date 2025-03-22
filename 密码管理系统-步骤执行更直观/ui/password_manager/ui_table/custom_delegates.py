@@ -33,9 +33,9 @@ class RequiredFieldDelegate(QStyledItemDelegate):
             parent: 父对象
         """
         super(RequiredFieldDelegate, self).__init__(parent)
-        # 使用亮黄色作为必填字段背景色
-        self.required_bg_color = QColor(255, 220, 90)  # 明亮鲜艳的黄色
-        self.required_text_color = QColor(200, 0, 0)   # 红色警示文本颜色
+        # 使用与编辑行相同的蓝色作为必填字段背景色
+        self.required_bg_color = QColor("#1660AB")  # 蓝色背景
+        self.required_text_color = QColor(255, 0, 0)   # 红色警示文本颜色
         self.empty_text_format = "*必填: {}"
         
         # 跟踪编辑模式状态，默认为非编辑模式
@@ -77,21 +77,20 @@ class RequiredFieldDelegate(QStyledItemDelegate):
         is_required = column in REQUIRED_FIELDS
         
         # 判断是否需要高亮显示（仅在编辑模式且是当前编辑行或未指定编辑行时高亮）
-        is_highlight = self.editing_mode and (self.editing_row == -1 or self.editing_row == row)
+        is_editing_row = self.editing_mode and (self.editing_row == -1 or self.editing_row == row)
         
-        if is_required and is_highlight:
-            # 填充黄色背景
+        if is_editing_row:
+            # 为编辑行的所有单元格设置蓝色背景
             painter.fillRect(option.rect, self.required_bg_color)
             
-            # 设置文本绘制选项
+            # 设置文本选项
             text_option = QStyleOptionViewItem(option)
             text_option.state &= ~QStyle.State_Selected
             
             # 获取单元格文本内容
             text = index.data(Qt.DisplayRole)
             
-            # 如果单元格为空，设置提示文本和红色前景色
-            if not text or text.startswith("*必填:"):
+            if is_required and (not text or text.startswith("*必填:")):
                 # 获取字段名称
                 field_name = PASSWORD_COLUMNS[column] if column < len(PASSWORD_COLUMNS) else ""
                 display_text = self.empty_text_format.format(field_name)
@@ -105,28 +104,35 @@ class RequiredFieldDelegate(QStyledItemDelegate):
                 painter.setFont(font)
                 
                 # 绘制文本
-                text_rect = option.rect.adjusted(4, 0, -4, 0)  # 添加左右内边距
+                text_rect = option.rect.adjusted(4, 0, -4, 0)
                 painter.drawText(text_rect, Qt.AlignLeft | Qt.AlignVCenter, display_text)
-            else:
-                # 单元格有内容，使用默认文本颜色但加粗
-                # 设置加粗字体
+                
+            elif is_required and text:
+                # 必填字段有内容时，使用红色文本
                 font = painter.font()
                 font.setBold(True)
                 painter.setFont(font)
                 
-                # 使用默认前景色
-                painter.setPen(QPen(option.palette.color(option.palette.Text)))
-                
-                # 绘制文本
-                text_rect = option.rect.adjusted(4, 0, -4, 0)  # 添加左右内边距
+                painter.setPen(QPen(self.required_text_color))
+                text_rect = option.rect.adjusted(4, 0, -4, 0)
                 painter.drawText(text_rect, Qt.AlignLeft | Qt.AlignVCenter, text)
+                
+            else:
+                # 非必填字段，使用白色文本
+                font = painter.font()
+                font.setBold(True)
+                painter.setFont(font)
+                
+                painter.setPen(QPen(Qt.white))
+                text_rect = option.rect.adjusted(4, 0, -4, 0)
+                painter.drawText(text_rect, Qt.AlignLeft | Qt.AlignVCenter, text if text else "")
                 
             # 如果是选中状态，绘制半透明的选中框
             if option.state & QStyle.State_Selected:
                 selection_color = QColor(100, 150, 230, 50)  # 半透明蓝色
                 painter.fillRect(option.rect, selection_color)
         else:
-            # 非必填字段或非编辑模式，使用默认渲染
+            # 非编辑模式，使用默认渲染
             QStyledItemDelegate.paint(self, painter, option, index)
         
         # 恢复绘制器状态

@@ -92,11 +92,7 @@ class BasePasswordTable:
                 background-color: rgba(227, 242, 253, 180); /* 半透明的选中色 */
                 color: #333333;
             }
-            /* 必填字段样式，增加优先级 */
-            QTableWidget::item[required="true"] {
-                background-color: #ffecb3 !important;
-                font-weight: bold;
-            }
+            /* 移除必填字段的背景色样式，由委托类负责处理 */
         """)
         
         # 设置表格列和列宽

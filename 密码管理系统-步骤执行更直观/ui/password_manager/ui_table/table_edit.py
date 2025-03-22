@@ -76,10 +76,12 @@ class TableEditMixin:
             item = self.table.item(row, col)
             if item:
                 item.setFlags(item.flags() | Qt.ItemIsEditable)
+                # 不再设置背景色，让委托类负责绘制
             else:
                 # 如果单元格项不存在，创建一个空的可编辑项
                 empty_item = QTableWidgetItem("")
                 empty_item.setFlags(empty_item.flags() | Qt.ItemIsEditable)
+                # 不再设置背景色，让委托类负责绘制
                 self.table.setItem(row, col, empty_item)
         
         # 高亮显示必填字段

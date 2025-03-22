@@ -98,11 +98,6 @@ class PasswordManagerUI(QMainWindow):
         password_gen_action.triggered.connect(self._open_password_generator)
         tools_menu.addAction(password_gen_action)
         
-        # SSH日志查看器动作
-        ssh_log_action = QAction('SSH操作日志', self)
-        ssh_log_action.triggered.connect(self._open_ssh_log_viewer)
-        tools_menu.addAction(ssh_log_action)
-        
         # 日志审计动作
         audit_log_action = QAction('日志审计', self)
         audit_log_action.triggered.connect(self._open_audit_log_viewer)

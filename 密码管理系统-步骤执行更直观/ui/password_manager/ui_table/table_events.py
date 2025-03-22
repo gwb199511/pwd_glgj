@@ -62,8 +62,8 @@ class TableEventsMixin:
             
             # 添加菜单项 - 检查是否有密码列被选中
             if password_cell_count > 0:
-                # 复制密码
-                copy_action = QAction(QIcon(""), "复制密码", self.table)
+                # 复制
+                copy_action = QAction(QIcon(""), "复制", self.table)
                 copy_action.triggered.connect(self.copy_selected_content)
                 menu.addAction(copy_action)
                 
@@ -72,7 +72,7 @@ class TableEventsMixin:
                     menu.addSeparator()
                     
                     # 生成随机密码并更新到服务器
-                    ssh_update_action = QAction(QIcon(""), "生成16位随机密码并更新到服务器 (SSH)", self.table)
+                    ssh_update_action = QAction(QIcon(""), "生成16位随机密码\n并更新到服务器", self.table)
                     ssh_update_action.triggered.connect(lambda: self._generate_and_update_passwords(password_cells, 16))
                     menu.addAction(ssh_update_action)
             else:

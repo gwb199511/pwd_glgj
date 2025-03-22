@@ -478,7 +478,7 @@ class PasswordGeneratorDialog(QDialog):
             context_menu = QMenu(self)
             
             # 添加菜单项
-            copy_action = QAction("复制密码", self)
+            copy_action = QAction("复制", self)
             copy_action.triggered.connect(lambda: self.copy_from_list(item))
             
             remove_action = QAction("移除此项", self)

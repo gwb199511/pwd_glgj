@@ -3133,3 +3133,165 @@ password519
 2025-03-22 17:08:51,176 - audit_log_viewer - INFO - 界面初始化完成
 2025-03-22 17:08:51,183 - audit_log_viewer - INFO - AuditLogViewer初始化成功
 2025-03-22 17:09:12,252 - user - INFO - 用户已登出
+2025-03-22 17:14:23,240 - root - INFO - 密码管理系统启动
+2025-03-22 17:14:23,241 - root - INFO - 初始化用户设置模块...
+2025-03-22 17:14:23,241 - root - INFO - 用户设置模块已初始化
+2025-03-22 17:14:24,410 - user - INFO - 用户 admin 登录成功
+2025-03-22 17:14:24,413 - login_ui - INFO - 用户 admin 登录成功
+2025-03-22 17:14:24,415 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-22 17:14:24,500 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-22 17:14:24,670 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-22 17:14:32,831 - user - INFO - 用户已登出
+2025-03-22 17:14:34,760 - root - INFO - 密码管理系统启动
+2025-03-22 17:14:34,760 - root - INFO - 初始化用户设置模块...
+2025-03-22 17:14:34,760 - root - INFO - 用户设置模块已初始化
+2025-03-22 17:14:35,879 - user - INFO - 用户 admin 登录成功
+2025-03-22 17:14:35,883 - login_ui - INFO - 用户 admin 登录成功
+2025-03-22 17:14:35,884 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-22 17:14:35,952 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-22 17:14:36,063 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-22 17:14:41,755 - audit_log_viewer - INFO - 所有模块导入成功
+2025-03-22 17:14:41,756 - ui.password_manager.password_manager_ui - INFO - 使用内嵌方式打开审计日志查看器
+2025-03-22 17:14:41,765 - audit_log_viewer - INFO - 界面初始化完成
+2025-03-22 17:14:41,772 - audit_log_viewer - INFO - AuditLogViewer初始化成功
+2025-03-22 17:20:00,484 - user - INFO - 用户已登出
+2025-03-22 17:21:43,667 - root - INFO - 密码管理系统启动
+2025-03-22 17:21:43,667 - root - INFO - 初始化用户设置模块...
+2025-03-22 17:21:43,668 - root - INFO - 用户设置模块已初始化
+2025-03-22 17:21:45,223 - user - INFO - 用户 admin 登录成功
+2025-03-22 17:21:45,226 - login_ui - INFO - 用户 admin 登录成功
+2025-03-22 17:21:45,228 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-22 17:21:45,302 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-22 17:21:45,428 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-22 17:21:49,325 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 8, 当前列: 5, 选中行数: 5, 选中行: [5, 6, 7, 8, 9]
+2025-03-22 17:21:49,325 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 5
+2025-03-22 17:21:51,036 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 6, 当前列: 4, 选中行数: 5, 选中行: [5, 6, 7, 8, 9]
+2025-03-22 17:21:51,036 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 5
+2025-03-22 17:21:52,017 - ui.password_manager.ui_table.table_events - INFO - 已复制10个单元格内容到剪贴板
+2025-03-22 17:22:00,375 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 7, 当前列: 4, 选中行数: 6, 选中行: [5, 6, 7, 8, 9, 10]
+2025-03-22 17:22:00,375 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 6
+2025-03-22 17:22:01,568 - ui.password_manager.ui_table.table_events - INFO - 已复制12个单元格内容到剪贴板
+2025-03-22 17:22:02,333 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 5, 当前列: 5, 选中行数: 1, 选中行: [5]
+2025-03-22 17:22:02,333 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-22 17:22:02,334 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-22 17:22:02,334 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-22 17:22:02,335 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-22 17:22:05,812 - ui.password_manager.ui_table.table_events - INFO - 已复制1个单元格内容到剪贴板
+2025-03-22 17:22:09,310 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 5, 当前列: 5, 选中行数: 1, 选中行: [5]
+2025-03-22 17:22:09,311 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-22 17:22:09,312 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-22 17:22:09,312 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-22 17:22:09,313 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-22 17:22:42,567 - user - INFO - 用户已登出
+2025-03-22 17:22:44,352 - root - INFO - 密码管理系统启动
+2025-03-22 17:22:44,353 - root - INFO - 初始化用户设置模块...
+2025-03-22 17:22:44,353 - root - INFO - 用户设置模块已初始化
+2025-03-22 17:22:45,514 - user - INFO - 用户 admin 登录成功
+2025-03-22 17:22:45,518 - login_ui - INFO - 用户 admin 登录成功
+2025-03-22 17:22:45,519 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-22 17:22:45,578 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-22 17:22:45,734 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-22 17:22:46,923 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 7, 当前列: 5, 选中行数: 6, 选中行: [5, 6, 7, 8, 9, 10]
+2025-03-22 17:22:46,924 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 6
+2025-03-22 17:22:52,111 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 8, 当前列: 4, 选中行数: 7, 选中行: [5, 6, 7, 8, 9, 10, 11]
+2025-03-22 17:22:52,111 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-22 17:22:53,143 - ui.password_manager.ui_table.table_events - INFO - 已复制14个单元格内容到剪贴板
+2025-03-22 17:22:56,143 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 10, 当前列: 5, 选中行数: 9, 选中行: [7, 8, 9, 10, 11, 12, 13, 14, 15]
+2025-03-22 17:22:56,143 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 9
+2025-03-22 17:22:56,862 - ui.password_manager.ui_table.table_events - INFO - 已复制36个单元格内容到剪贴板
+2025-03-22 17:22:58,514 - user - INFO - 用户已登出
+2025-03-22 17:23:15,919 - root - INFO - 密码管理系统启动
+2025-03-22 17:23:15,920 - root - INFO - 初始化用户设置模块...
+2025-03-22 17:23:15,920 - root - INFO - 用户设置模块已初始化
+2025-03-22 17:23:17,170 - user - INFO - 用户 admin 登录成功
+2025-03-22 17:23:17,175 - login_ui - INFO - 用户 admin 登录成功
+2025-03-22 17:23:17,176 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-22 17:23:17,258 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-22 17:23:17,401 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-22 17:23:18,827 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 7, 当前列: 5, 选中行数: 5, 选中行: [5, 6, 7, 8, 9]
+2025-03-22 17:23:18,828 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 5
+2025-03-22 17:23:21,393 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 7, 当前列: 4, 选中行数: 6, 选中行: [5, 6, 7, 8, 9, 10]
+2025-03-22 17:23:21,393 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-22 17:23:23,880 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 6, 当前列: 5, 选中行数: 1, 选中行: [6]
+2025-03-22 17:23:23,880 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-22 17:23:23,881 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-22 17:23:23,881 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-22 17:23:23,882 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-22 17:23:26,498 - user - INFO - 用户已登出
+2025-03-22 17:23:57,282 - root - INFO - 密码管理系统启动
+2025-03-22 17:23:57,283 - root - INFO - 初始化用户设置模块...
+2025-03-22 17:23:57,283 - root - INFO - 用户设置模块已初始化
+2025-03-22 17:23:58,426 - user - INFO - 用户 admin 登录成功
+2025-03-22 17:23:58,429 - login_ui - INFO - 用户 admin 登录成功
+2025-03-22 17:23:58,431 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-22 17:23:58,504 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-22 17:23:58,609 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-22 17:23:59,468 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 3, 当前列: 5, 选中行数: 1, 选中行: [3]
+2025-03-22 17:23:59,468 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-22 17:23:59,469 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-22 17:23:59,470 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-22 17:23:59,471 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-22 17:24:01,915 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 10, 当前列: 5, 选中行数: 2, 选中行: [10, 11]
+2025-03-22 17:24:01,915 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 2
+2025-03-22 17:24:03,427 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 9, 当前列: 5, 选中行数: 1, 选中行: [9]
+2025-03-22 17:24:03,427 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-22 17:24:03,428 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-22 17:24:03,429 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-22 17:24:03,429 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-22 17:24:04,480 - ui.password_manager.ui_table.table_events - INFO - 已复制1个单元格内容到剪贴板
+2025-03-22 17:24:08,003 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 10, 当前列: 5, 选中行数: 3, 选中行: [9, 10, 11]
+2025-03-22 17:24:08,003 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 3
+2025-03-22 17:24:08,692 - ui.password_manager.ui_table.table_events - INFO - 已复制6个单元格内容到剪贴板
+2025-03-22 17:24:10,228 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 7, 当前列: 4, 选中行数: 1, 选中行: [7]
+2025-03-22 17:24:10,229 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-22 17:24:10,229 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-22 17:24:10,230 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-22 17:24:10,230 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-22 17:24:12,654 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 7, 当前列: 5, 选中行数: 1, 选中行: [7]
+2025-03-22 17:24:12,655 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-22 17:24:12,656 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-22 17:24:12,656 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-22 17:24:12,657 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-22 17:25:21,299 - user - INFO - 用户已登出
+2025-03-22 17:25:23,442 - root - INFO - 密码管理系统启动
+2025-03-22 17:25:23,442 - root - INFO - 初始化用户设置模块...
+2025-03-22 17:25:23,443 - root - INFO - 用户设置模块已初始化
+2025-03-22 17:25:24,708 - user - INFO - 用户 admin 登录成功
+2025-03-22 17:25:24,711 - login_ui - INFO - 用户 admin 登录成功
+2025-03-22 17:25:24,712 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-22 17:25:24,782 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-22 17:25:24,910 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-22 17:25:25,428 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 6, 当前列: 5, 选中行数: 1, 选中行: [6]
+2025-03-22 17:25:25,428 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-22 17:25:25,429 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-22 17:25:25,430 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-22 17:25:25,430 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-22 17:25:27,533 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 7, 当前列: 5, 选中行数: 1, 选中行: [7]
+2025-03-22 17:25:27,534 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-22 17:25:27,535 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-22 17:25:27,535 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-22 17:25:27,536 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-22 17:25:45,468 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 5, 当前列: 4, 选中行数: 1, 选中行: [5]
+2025-03-22 17:25:45,469 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-22 17:25:45,469 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-22 17:25:45,470 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-22 17:25:45,470 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-22 17:25:50,341 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 5, 当前列: 5, 选中行数: 1, 选中行: [5]
+2025-03-22 17:25:50,342 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-22 17:25:50,342 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-22 17:25:50,343 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-22 17:25:50,343 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-22 17:26:46,648 - user - INFO - 用户已登出
+2025-03-22 17:26:48,211 - root - INFO - 密码管理系统启动
+2025-03-22 17:26:48,212 - root - INFO - 初始化用户设置模块...
+2025-03-22 17:26:48,213 - root - INFO - 用户设置模块已初始化
+2025-03-22 17:26:49,895 - user - INFO - 用户 admin 登录成功
+2025-03-22 17:26:49,899 - login_ui - INFO - 用户 admin 登录成功
+2025-03-22 17:26:49,900 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-22 17:26:49,972 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-22 17:26:50,112 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-22 17:27:12,954 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 5, 当前列: 1, 选中行数: 1, 选中行: [5]
+2025-03-22 17:27:12,955 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-22 17:27:12,956 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-22 17:27:12,956 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-22 17:27:12,957 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项

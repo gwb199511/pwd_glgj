@@ -608,38 +608,186 @@ class AuditLogViewer(QMainWindow):
     def update_stats(self):
         """更新统计信息"""
         try:
-            # 简化统计，仅显示基本信息
+            # 如果没有日志，显示空统计
             if not self.current_logs:
-                # 无日志时显示空统计
                 self.stats_table.setRowCount(0)
                 return
             
-            # 计算基本统计: 总数、成功数、失败数
+            # 获取当前的时间范围
+            start_time = self.start_time_edit.dateTime().toPyDateTime()
+            end_time = self.end_time_edit.dateTime().toPyDateTime()
+            
+            # 计算基本统计
             total_count = len(self.current_logs)
             success_count = sum(1 for log in self.current_logs if log.get("result") == OP_RESULT_SUCCESS)
             fail_count = sum(1 for log in self.current_logs if log.get("result") == OP_RESULT_FAIL)
+            warning_count = sum(1 for log in self.current_logs if log.get("result") == OP_RESULT_WARNING)
+            info_count = sum(1 for log in self.current_logs if log.get("result") == OP_RESULT_INFO)
+            
+            # 按操作类型统计
+            op_type_stats = {}
+            for log in self.current_logs:
+                op_type = log.get("operation", "未知")
+                op_type_stats[op_type] = op_type_stats.get(op_type, 0) + 1
+            
+            # 按用户统计
+            user_stats = {}
+            for log in self.current_logs:
+                user = log.get("user", "未知")
+                user_stats[user] = user_stats.get(user, 0) + 1
+            
+            # 按结果类型统计
+            result_stats = {}
+            for log in self.current_logs:
+                result = log.get("result", "未知")
+                result_stats[result] = result_stats.get(result, 0) + 1
+            
+            # 按操作目标统计
+            target_stats = {}
+            for log in self.current_logs:
+                target = log.get("target", "未知")
+                target_stats[target] = target_stats.get(target, 0) + 1
+            
+            # 按日期统计
+            date_stats = {}
+            for log in self.current_logs:
+                try:
+                    # 从时间戳解析日期
+                    timestamp = log.get("timestamp", "")
+                    log_date = datetime.fromisoformat(timestamp).date()
+                    date_key = log_date.isoformat()
+                    date_stats[date_key] = date_stats.get(date_key, 0) + 1
+                except (ValueError, TypeError):
+                    continue
+            
+            # 获取各统计数据的排序结果
+            top_users = sorted(user_stats.items(), key=lambda x: x[1], reverse=True)
+            top_operations = sorted(op_type_stats.items(), key=lambda x: x[1], reverse=True)
+            top_targets = sorted(target_stats.items(), key=lambda x: x[1], reverse=True)
+            sorted_results = sorted(result_stats.items(), key=lambda x: x[1], reverse=True)
+            
+            # 获取日期统计，按日期排序
+            sorted_dates = sorted(date_stats.items(), key=lambda x: x[0])
+            
+            # 计算成功率
+            success_rate = round(success_count / total_count * 100, 2) if total_count else 0
             
             # 更新统计表格
-            self.stats_table.setRowCount(3)
+            self.stats_table.setRowCount(0)  # 清空表格
             
-            # 总数
-            self.stats_table.setItem(0, 0, QTableWidgetItem("总记录数"))
-            self.stats_table.setItem(0, 1, QTableWidgetItem(str(total_count)))
+            # 添加基本统计
+            self._add_stats_row(f"「{self.current_log_type}」日志统计", "", bold=True, color=COLORS["primary"])
+            self._add_stats_row("时间范围", f"{start_time.strftime('%Y-%m-%d %H:%M:%S')} 至 {end_time.strftime('%Y-%m-%d %H:%M:%S')}")
+            self._add_stats_row("总记录数", str(total_count))
+            self._add_stats_row("", "")
             
-            # 成功数
-            self.stats_table.setItem(1, 0, QTableWidgetItem("成功操作"))
-            self.stats_table.setItem(1, 1, QTableWidgetItem(str(success_count)))
-            self.stats_table.item(1, 1).setForeground(QColor(COLORS["success"]))
+            # 添加结果统计
+            self._add_stats_row("结果分类", "", bold=True)
+            self._add_stats_row("  成功操作", f"{success_count} ({round(success_count/total_count*100, 1)}%)" if total_count else "0", color=COLORS["success"])
+            self._add_stats_row("  失败操作", f"{fail_count} ({round(fail_count/total_count*100, 1)}%)" if total_count else "0", color=COLORS["danger"])
+            self._add_stats_row("  警告操作", f"{warning_count} ({round(warning_count/total_count*100, 1)}%)" if total_count else "0", color=COLORS["warning"])
+            self._add_stats_row("  信息操作", f"{info_count} ({round(info_count/total_count*100, 1)}%)" if total_count else "0", color=COLORS["info"])
+            self._add_stats_row("", "")
             
-            # 失败数
-            self.stats_table.setItem(2, 0, QTableWidgetItem("失败操作"))
-            self.stats_table.setItem(2, 1, QTableWidgetItem(str(fail_count)))
-            self.stats_table.item(2, 1).setForeground(QColor(COLORS["danger"]))
+            # 添加最常见的操作类型
+            self._add_stats_row("常见操作类型", "", bold=True)
+            for op_type, count in top_operations[:5]:  # 显示前5个最常见的操作类型
+                # 计算百分比
+                percentage = round(count/total_count*100, 1) if total_count else 0
+                self._add_stats_row(f"  {op_type}", f"{count} ({percentage}%)")
+            self._add_stats_row("", "")
             
+            # 添加最常见的操作目标
+            self._add_stats_row("常见操作目标", "", bold=True)
+            for target, count in top_targets[:5]:  # 显示前5个最常见的操作目标
+                # 计算百分比
+                percentage = round(count/total_count*100, 1) if total_count else 0
+                self._add_stats_row(f"  {target}", f"{count} ({percentage}%)")
+            self._add_stats_row("", "")
+            
+            # 添加最活跃的用户
+            self._add_stats_row("活跃用户", "", bold=True)
+            for user, count in top_users[:5]:  # 显示前5个最活跃的用户
+                # 计算百分比
+                percentage = round(count/total_count*100, 1) if total_count else 0
+                self._add_stats_row(f"  {user}", f"{count} ({percentage}%)")
+            self._add_stats_row("", "")
+            
+            # 添加日期分布
+            if len(sorted_dates) <= 10:  # 如果日期数量合理，则显示全部
+                self._add_stats_row("日期分布", "", bold=True)
+                # 如果日期跨度大，仅显示有数据的日期
+                if len(sorted_dates) > 0:
+                    for date, count in sorted_dates:
+                        # 将ISO格式日期转换为更易读的格式
+                        try:
+                            date_obj = datetime.fromisoformat(date).date()
+                            formatted_date = date_obj.strftime("%Y-%m-%d (%a)")  # 添加星期几
+                            # 计算百分比
+                            percentage = round(count/total_count*100, 1) if total_count else 0
+                            self._add_stats_row(f"  {formatted_date}", f"{count} ({percentage}%)")
+                        except:
+                            self._add_stats_row(f"  {date}", str(count))
+                else:
+                    self._add_stats_row("  无日期数据", "0")
+            else:
+                # 如果日期太多，只显示总体信息
+                self._add_stats_row("日期分布", f"跨越 {len(sorted_dates)} 天", bold=True)
+                # 显示前5天和后5天
+                first_dates = sorted_dates[:5]
+                last_dates = sorted_dates[-5:]
+                
+                # 显示前5天
+                for date, count in first_dates:
+                    try:
+                        date_obj = datetime.fromisoformat(date).date()
+                        formatted_date = date_obj.strftime("%Y-%m-%d (%a)")
+                        percentage = round(count/total_count*100, 1) if total_count else 0
+                        self._add_stats_row(f"  {formatted_date}", f"{count} ({percentage}%)")
+                    except:
+                        self._add_stats_row(f"  {date}", str(count))
+                
+                # 如果有更多日期，显示中间省略
+                if len(sorted_dates) > 10:
+                    self._add_stats_row("  ...", "...")
+                
+                # 显示后5天
+                for date, count in last_dates:
+                    try:
+                        date_obj = datetime.fromisoformat(date).date()
+                        formatted_date = date_obj.strftime("%Y-%m-%d (%a)")
+                        percentage = round(count/total_count*100, 1) if total_count else 0
+                        self._add_stats_row(f"  {formatted_date}", f"{count} ({percentage}%)")
+                    except:
+                        self._add_stats_row(f"  {date}", str(count))
+        
         except Exception as e:
             logger.error(f"更新统计信息时出错: {str(e)}")
             import traceback
             logger.error(traceback.format_exc())
+    
+    def _add_stats_row(self, label, value, color=None, bold=False):
+        """添加统计行到统计表格"""
+        row = self.stats_table.rowCount()
+        self.stats_table.insertRow(row)
+        
+        # 添加标签
+        label_item = QTableWidgetItem(label)
+        if bold:
+            font = label_item.font()
+            font.setBold(True)
+            label_item.setFont(font)
+        self.stats_table.setItem(row, 0, label_item)
+        
+        # 添加值
+        value_item = QTableWidgetItem(value)
+        if bold:
+            font = value_item.font()
+            font.setBold(True)
+            value_item.setFont(font)
+        if color:
+            value_item.setForeground(QColor(color))
+        self.stats_table.setItem(row, 1, value_item)
     
     def export_logs(self):
         """导出日志记录"""

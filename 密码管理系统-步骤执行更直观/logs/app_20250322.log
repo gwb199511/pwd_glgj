@@ -2809,3 +2809,47 @@ password519
 2025-03-22 15:18:05,697 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑 - 第6行: 
 2025-03-22 15:18:05,700 - ui.password_manager.ui_table.table_edit - INFO - 删除新添加的空行
 2025-03-22 15:18:05,701 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑完成，已恢复原始数据
+2025-03-22 15:19:01,236 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 2, 当前列: 5, 选中行数: 1, 选中行: [2]
+2025-03-22 15:19:01,236 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-22 15:19:01,237 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-22 15:19:01,237 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-22 15:19:01,238 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-22 15:22:26,690 - user - INFO - 用户已登出
+2025-03-22 15:22:48,843 - root - INFO - 密码管理系统启动
+2025-03-22 15:22:48,844 - root - INFO - 初始化用户设置模块...
+2025-03-22 15:22:48,845 - root - INFO - 用户设置模块已初始化
+2025-03-22 15:23:00,640 - root - INFO - 密码管理系统启动
+2025-03-22 15:23:00,640 - root - INFO - 初始化用户设置模块...
+2025-03-22 15:23:00,641 - root - INFO - 用户设置模块已初始化
+2025-03-22 15:23:01,970 - user - INFO - 用户 admin 登录成功
+2025-03-22 15:23:01,971 - login_ui - INFO - 用户 admin 登录成功
+2025-03-22 15:23:01,972 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-22 15:23:02,043 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-22 15:23:02,186 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-22 15:23:28,465 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 10, 当前列: 4, 选中行数: 1, 选中行: [10]
+2025-03-22 15:23:28,466 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-22 15:23:28,467 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-22 15:23:28,468 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-22 15:23:28,468 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-22 15:23:30,115 - ui.password_manager.ui_table.table_events - INFO - 尝试在行10（上方）添加新行 [添加方式: 上方]
+2025-03-22 15:23:30,116 - ui.password_manager.ui_table.table_edit - INFO - 在位置 9 添加新行
+2025-03-22 15:23:30,122 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 10
+2025-03-22 15:23:30,124 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-22 15:23:30,124 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-22 15:23:30,128 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 10 的编辑模式
+2025-03-22 15:23:30,129 - ui.password_manager.ui_table.table_events - INFO - 成功在行10（上方）添加新行，新行索引: 10 [添加方式: 上方]
+2025-03-22 15:23:31,572 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑 - 第10行: 
+2025-03-22 15:23:31,575 - ui.password_manager.ui_table.table_edit - INFO - 删除新添加的空行
+2025-03-22 15:23:31,576 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑完成，已恢复原始数据
+2025-03-22 15:23:38,981 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 5, 当前列: 1, 选中行数: 1, 选中行: [5]
+2025-03-22 15:23:38,981 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-22 15:23:38,981 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-22 15:23:38,982 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-22 15:23:38,982 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-22 15:23:41,349 - ui.password_manager.ui_table.table_events - INFO - 已复制1个单元格内容到剪贴板
+2025-03-22 15:23:42,300 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 5, 当前列: 3, 选中行数: 1, 选中行: [5]
+2025-03-22 15:23:42,300 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-22 15:23:42,301 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-22 15:23:42,302 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-22 15:23:42,303 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-22 15:23:43,001 - ui.password_manager.ui_table.table_events - INFO - 已复制1个单元格内容到剪贴板

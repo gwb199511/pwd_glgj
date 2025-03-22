@@ -48,25 +48,49 @@ class PasswordManagerLayout:
         
     def _create_toolbar(self):
         """
-        创建工具栏
+        创建工具栏和搜索框
+        
+        注意：搜索框现在位于菜单栏，工具栏仅作为预留位置保留
         """
+        # 创建一个新的工具栏，但暂时不显示
+        # 仅保留这段代码以备将来需要在工具栏上添加其他工具
         self.toolbar = self.parent.addToolBar("工具栏")
         self.toolbar.setMovable(False)
         self.toolbar.setIconSize(QSize(20, 20))
         self.toolbar.setFont(QFont(FONT_FAMILY, 9))
+        # 隐藏工具栏，因为现在搜索框已移至菜单栏
+        self.toolbar.setVisible(False)
         
-        # 添加弹性空间，使搜索框靠右显示
-        spacer = QWidget()
-        spacer.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        self.toolbar.addWidget(spacer)
+        # 将搜索框添加到菜单栏
+        menubar = self.parent.menuBar()
         
         # 添加搜索框
         self.search_edit = ModernLineEdit(placeholder="输入关键词搜索...")
         self.search_edit.setFixedWidth(180)
-        self.search_edit.setFixedHeight(20)
+        # 调整搜索框的高度以匹配菜单栏高度
+        self.search_edit.setFixedHeight(22)
         self.search_edit.setFont(QFont(FONT_FAMILY, 9))
         self.search_edit.setClearButtonEnabled(True)
-        self.toolbar.addWidget(self.search_edit)
+        # 设置样式使其与菜单栏更协调
+        self.search_edit.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #c0c0c0;
+                border-radius: 3px;
+                background-color: #ffffff;
+                padding: 1px 18px 1px 3px;
+                margin-top: 1px;
+            }
+        """)
+        
+        # 创建一个包含搜索框的容器部件
+        search_container = QWidget()
+        search_layout = QHBoxLayout(search_container)
+        search_layout.setContentsMargins(0, 0, 10, 0)  # 右侧留一点间距
+        search_layout.setSpacing(0)
+        search_layout.addWidget(self.search_edit)
+        
+        # 将搜索框容器设置为右上角部件
+        menubar.setCornerWidget(search_container, Qt.TopRightCorner)
         
     def _create_status_bar(self):
         """

@@ -166,12 +166,24 @@ class TableEventsMixin:
         try:
             # 调用原有的添加行方法
             new_row = self.add_row_at(position)
-            if new_row >= 0:
+            
+            # 检查返回值，注意处理可能的None值
+            if new_row is not None and new_row >= 0:
                 logger.info(f"成功在行{position + 1}（{position_type}）添加新行，新行索引: {new_row + 1} [添加方式: {position_type}]")
             else:
-                logger.error(f"在行{position + 1}（{position_type}）添加新行失败 [添加方式: {position_type}]")
+                logger.error(f"在行{position + 1}（{position_type}）添加新行失败，返回值: {new_row} [添加方式: {position_type}]")
         except Exception as e:
             logger.error(f"在行{position + 1}（{position_type}）添加新行时出错: {str(e)} [添加方式: {position_type}]")
+            # 确保表格处于正常状态
+            if hasattr(self, 'editing_row') and self.editing_row >= 0:
+                try:
+                    # 取消任何可能的编辑状态
+                    self.cancel_editing()
+                except:
+                    # 如果清理失败，至少重置编辑状态属性
+                    self.editing_row = -1
+                    if hasattr(self, 'original_row_data'):
+                        self.original_row_data = None
 
 
 class TableEventFilter(QObject):

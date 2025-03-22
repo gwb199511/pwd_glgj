@@ -34,7 +34,7 @@ class RequiredFieldDelegate(QStyledItemDelegate):
         """
         super(RequiredFieldDelegate, self).__init__(parent)
         # 使用与编辑行相同的蓝色作为必填字段背景色
-        self.required_bg_color = QColor("#1660AB")  # 蓝色背景
+        self.required_bg_color = QColor("#008C8C")  # 蓝色背景
         self.required_text_color = QColor(255, 0, 0)   # 红色警示文本颜色
         self.empty_text_format = "*必填: {}"
         

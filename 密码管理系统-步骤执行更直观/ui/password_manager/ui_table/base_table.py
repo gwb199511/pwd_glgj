@@ -72,7 +72,7 @@ class BasePasswordTable:
         self.table.setSelectionBehavior(QAbstractItemView.SelectItems)  # 允许选择单元格
         self.table.setSelectionMode(QAbstractItemView.ExtendedSelection)  # 允许多选
         self.table.setAlternatingRowColors(True)
-        self.table.setEditTriggers(QAbstractItemView.NoEditTriggers)  # 默认不可编辑
+        self.table.setEditTriggers(QAbstractItemView.NoEditTriggers)  # 默认不可编辑（在编辑模式下会改为SingleClicked）
         
         # 美化表格整体外观
         self.table.setStyleSheet("""

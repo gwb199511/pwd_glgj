@@ -1,0 +1,544 @@
+2025-03-24 09:41:40,711 - root - INFO - 密码管理系统启动
+2025-03-24 09:41:40,712 - root - INFO - 初始化用户设置模块...
+2025-03-24 09:41:40,712 - root - INFO - 用户设置模块已初始化
+2025-03-24 09:41:42,289 - user - INFO - 用户 admin 登录成功
+2025-03-24 09:41:42,294 - login_ui - INFO - 用户 admin 登录成功
+2025-03-24 09:41:42,295 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-24 09:41:42,378 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-24 09:41:42,421 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-24 09:41:44,681 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 7, 当前列: 4, 选中行数: 1, 选中行: [7]
+2025-03-24 09:41:44,682 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-24 09:41:44,683 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 09:41:44,683 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 09:41:44,683 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 09:41:46,401 - ui.password_manager.ui_table.table_events - INFO - 尝试在行7（上方）添加新行 [添加方式: 上方]
+2025-03-24 09:41:46,402 - ui.password_manager.ui_table.table_edit - INFO - 在位置 6 添加新行
+2025-03-24 09:41:46,406 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 7
+2025-03-24 09:41:46,407 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-24 09:41:46,408 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-24 09:41:46,411 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 7 的编辑模式
+2025-03-24 09:41:46,412 - ui.password_manager.ui_table.table_events - INFO - 成功在行7（上方）添加新行，新行索引: 7 [添加方式: 上方]
+2025-03-24 09:41:47,986 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑 - 第7行: 
+2025-03-24 09:41:47,989 - ui.password_manager.ui_table.table_edit - INFO - 删除新添加的空行
+2025-03-24 09:41:47,989 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑完成，已恢复原始数据
+2025-03-24 09:41:49,209 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 7, 当前列: 5, 选中行数: 1, 选中行: [7]
+2025-03-24 09:41:49,209 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 09:41:49,210 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 09:41:49,211 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 09:41:49,211 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 09:41:50,017 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 6 的真实索引，将使用表格行索引作为备选
+2025-03-24 09:41:50,018 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 6 作为真实索引
+2025-03-24 09:42:05,162 - ui.password_manager.ui_table.table_password - INFO - 用户取消了密码更新操作
+2025-03-24 09:42:06,968 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 8, 当前列: 5, 选中行数: 1, 选中行: [8]
+2025-03-24 09:42:06,968 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 09:42:06,969 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 09:42:06,969 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 09:42:06,970 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 09:42:10,112 - ui.password_manager.ui_table.table_events - INFO - 尝试在行49（末尾）添加新行 [添加方式: 末尾]
+2025-03-24 09:42:10,113 - ui.password_manager.ui_table.table_edit - INFO - 在位置 48 添加新行
+2025-03-24 09:42:10,116 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 49
+2025-03-24 09:42:10,117 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-24 09:42:10,118 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-24 09:42:10,120 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 49 的编辑模式
+2025-03-24 09:42:10,120 - ui.password_manager.ui_table.table_events - INFO - 成功在行49（末尾）添加新行，新行索引: 49 [添加方式: 末尾]
+2025-03-24 09:42:12,680 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑 - 第49行: 
+2025-03-24 09:42:12,705 - ui.password_manager.ui_table.table_edit - INFO - 删除新添加的空行
+2025-03-24 09:42:12,707 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑完成，已恢复原始数据
+2025-03-24 09:42:13,655 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 32, 当前列: 5, 选中行数: 1, 选中行: [32]
+2025-03-24 09:42:13,656 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 09:42:13,657 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 09:42:13,657 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 09:42:13,658 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 09:42:14,849 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 32
+2025-03-24 09:42:14,850 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-24 09:42:14,851 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-24 09:42:14,855 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 32 的编辑模式
+2025-03-24 09:42:16,377 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑 - 第32行: Docker
+2025-03-24 09:42:16,378 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑完成，已恢复原始数据
+2025-03-24 09:42:17,641 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 33, 当前列: 5, 选中行数: 1, 选中行: [33]
+2025-03-24 09:42:17,642 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 09:42:17,643 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 09:42:17,643 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 09:42:17,644 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 09:42:19,329 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 33
+2025-03-24 09:42:19,331 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-24 09:42:19,331 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-24 09:42:19,334 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 33 的编辑模式
+2025-03-24 09:42:21,296 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑 - 第33行: 财务系统
+2025-03-24 09:42:21,298 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑完成，已恢复原始数据
+2025-03-24 09:42:22,905 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 36, 当前列: 5, 选中行数: 6, 选中行: [33, 34, 35, 36, 37, 38]
+2025-03-24 09:42:22,905 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 6
+2025-03-24 09:42:23,645 - ui.password_manager.ui_table.table_events - INFO - 已复制12个单元格内容到剪贴板
+2025-03-24 09:42:30,280 - audit_log_viewer - INFO - 所有模块导入成功
+2025-03-24 09:42:30,281 - ui.password_manager.password_manager_ui - INFO - 使用内嵌方式打开审计日志查看器
+2025-03-24 09:42:30,292 - audit_log_viewer - INFO - 界面初始化完成
+2025-03-24 09:42:30,309 - audit_log_viewer - INFO - AuditLogViewer初始化成功
+2025-03-24 09:42:40,330 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 8, 当前列: 5, 选中行数: 1, 选中行: [8]
+2025-03-24 09:42:40,331 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 09:42:40,331 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 09:42:40,332 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 09:42:40,332 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 09:42:42,240 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 7 的真实索引，将使用表格行索引作为备选
+2025-03-24 09:42:42,241 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 7 作为真实索引
+2025-03-24 09:43:11,356 - ui.password_manager.ui_table.table_password - INFO - 用户取消了密码更新操作
+2025-03-24 09:43:16,257 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 1, 选中行数: 1, 选中行: [1]
+2025-03-24 09:43:16,257 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-24 09:43:16,258 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 09:43:16,258 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 09:43:16,259 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 09:43:18,505 - ui.password_manager.ui_table.table_events - INFO - 尝试在行1（上方）添加新行 [添加方式: 上方]
+2025-03-24 09:43:18,506 - ui.password_manager.ui_table.table_edit - INFO - 在位置 0 添加新行
+2025-03-24 09:43:18,509 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 1
+2025-03-24 09:43:18,511 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-24 09:43:18,511 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-24 09:43:18,514 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 1 的编辑模式
+2025-03-24 09:43:18,515 - ui.password_manager.ui_table.table_events - INFO - 成功在行1（上方）添加新行，新行索引: 1 [添加方式: 上方]
+2025-03-24 09:45:23,962 - ui.password_manager.ui_table.table_edit - INFO - 确认编辑 - 第1行
+2025-03-24 09:45:23,962 - ui.password_manager.ui_table.table_edit - INFO - 添加新记录
+2025-03-24 09:45:23,964 - password - INFO - 为所有者 徐国明 添加密码记录成功
+2025-03-24 09:45:23,968 - ui.password_manager.ui_table.table_edit - INFO - 重新加载所有密码数据
+2025-03-24 09:45:23,976 - ui.password_manager.ui_table.table_edit - INFO - 添加成功：添加成功
+2025-03-24 09:48:37,887 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 6, 当前列: 1, 选中行数: 1, 选中行: [6]
+2025-03-24 09:48:37,887 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-24 09:48:37,888 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 09:48:37,888 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 09:48:37,889 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 09:48:41,001 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 6, 当前列: 5, 选中行数: 1, 选中行: [6]
+2025-03-24 09:48:41,001 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 09:48:41,002 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 09:48:41,002 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 09:48:41,003 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 09:50:44,328 - user - INFO - 用户已登出
+2025-03-24 09:50:48,091 - root - INFO - 密码管理系统启动
+2025-03-24 09:50:48,092 - root - INFO - 初始化用户设置模块...
+2025-03-24 09:50:48,092 - root - INFO - 用户设置模块已初始化
+2025-03-24 09:50:49,089 - user - INFO - 用户 admin 登录成功
+2025-03-24 09:50:49,093 - login_ui - INFO - 用户 admin 登录成功
+2025-03-24 09:50:49,094 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-24 09:50:49,143 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-24 09:51:13,504 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update
+2025-03-24 09:51:13,509 - ui.password_manager.ui_guide - INFO - 显示引导: password_update, 结果: 接受
+2025-03-24 09:51:59,784 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 4, 当前列: 5, 选中行数: 1, 选中行: [4]
+2025-03-24 09:51:59,786 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 09:51:59,787 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 09:51:59,788 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 09:51:59,789 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 09:52:00,392 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 3 的真实索引，将使用表格行索引作为备选
+2025-03-24 09:52:00,393 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 3 作为真实索引
+2025-03-24 09:52:02,300 - ui.password_manager.ui_table.table_password - INFO - 用户取消了密码更新操作
+2025-03-24 09:52:05,752 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 7, 当前列: 5, 选中行数: 1, 选中行: [7]
+2025-03-24 09:52:05,752 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 09:52:05,753 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 09:52:05,753 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 09:52:05,753 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 09:52:06,696 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 6 的真实索引，将使用表格行索引作为备选
+2025-03-24 09:52:06,697 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 6 作为真实索引
+2025-03-24 09:52:08,971 - ui.password_manager.ui_table.table_password - INFO - 用户取消了密码更新操作
+2025-03-24 10:23:26,163 - root - INFO - 密码管理系统启动
+2025-03-24 10:23:26,164 - root - INFO - 初始化用户设置模块...
+2025-03-24 10:23:26,164 - root - INFO - 用户设置模块已初始化
+2025-03-24 10:23:27,765 - user - INFO - 用户 admin 登录成功
+2025-03-24 10:23:27,769 - login_ui - INFO - 用户 admin 登录成功
+2025-03-24 10:23:27,771 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-24 10:23:27,819 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-24 10:23:27,864 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-24 10:23:29,909 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 6, 当前列: 5, 选中行数: 1, 选中行: [6]
+2025-03-24 10:23:29,909 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 10:23:29,910 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:23:29,910 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:23:29,910 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:23:30,997 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 5 的真实索引，将使用表格行索引作为备选
+2025-03-24 10:23:30,997 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 5 作为真实索引
+2025-03-24 10:23:32,346 - ui.password_manager.ui_table.table_password - INFO - 用户取消了密码更新操作
+2025-03-24 10:25:20,141 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 6, 当前列: 5, 选中行数: 1, 选中行: [6]
+2025-03-24 10:25:20,141 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 10:25:20,142 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:25:20,142 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:25:20,143 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:25:21,134 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 5 的真实索引，将使用表格行索引作为备选
+2025-03-24 10:25:21,135 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 5 作为真实索引
+2025-03-24 10:25:22,242 - ui.password_manager.ui_table.table_password - INFO - 用户取消了密码更新操作
+2025-03-24 10:25:25,709 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 1, 选中行数: 1, 选中行: [1]
+2025-03-24 10:25:25,709 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-24 10:25:25,710 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:25:25,710 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:25:25,711 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:25:27,566 - ui.password_manager.ui_table.table_events - INFO - 尝试在行1（上方）添加新行 [添加方式: 上方]
+2025-03-24 10:25:27,567 - ui.password_manager.ui_table.table_edit - INFO - 在位置 0 添加新行
+2025-03-24 10:25:27,569 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 1
+2025-03-24 10:25:29,582 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit
+2025-03-24 10:25:29,586 - ui.password_manager.ui_guide - INFO - 显示引导: first_edit, 结果: 接受
+2025-03-24 10:25:29,587 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-24 10:25:29,588 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 1 的编辑模式
+2025-03-24 10:25:29,588 - ui.password_manager.ui_table.table_events - INFO - 成功在行1（上方）添加新行，新行索引: 1 [添加方式: 上方]
+2025-03-24 10:25:45,837 - ui.password_manager.ui_table.table_edit - INFO - 确认编辑 - 第1行
+2025-03-24 10:25:45,838 - ui.password_manager.ui_table.table_edit - INFO - 添加新记录
+2025-03-24 10:25:45,838 - ui.password_manager.ui_table.table_edit - INFO - 使用保存的插入位置: 0
+2025-03-24 10:25:45,839 - password - INFO - 在位置 1 插入新记录
+2025-03-24 10:25:45,840 - password - INFO - 为所有者 徐国明 添加密码记录成功
+2025-03-24 10:25:45,845 - ui.password_manager.ui_table.table_edit - INFO - 保存插入位置 0 以便在刷新后恢复
+2025-03-24 10:25:45,846 - ui.password_manager.ui_table.table_edit - INFO - 使用保存的位置 0 刷新数据
+2025-03-24 10:25:45,851 - ui.password_manager.ui_table.table_edit - INFO - 添加成功：添加成功
+2025-03-24 10:27:52,116 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 5, 当前列: 5, 选中行数: 1, 选中行: [5]
+2025-03-24 10:27:52,117 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 10:27:52,117 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:27:52,118 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:27:52,118 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:27:54,702 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 5, 当前列: 5, 选中行数: 1, 选中行: [5]
+2025-03-24 10:27:54,702 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 10:27:54,703 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:27:54,703 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:27:54,703 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:27:56,094 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 4 的真实索引，将使用表格行索引作为备选
+2025-03-24 10:27:56,094 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 4 作为真实索引
+2025-03-24 10:27:57,505 - ui.password_manager.ui_table.table_password - INFO - 用户取消了密码更新操作
+2025-03-24 10:28:04,004 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 10, 当前列: 5, 选中行数: 1, 选中行: [10]
+2025-03-24 10:28:04,005 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 10:28:04,005 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:28:04,006 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:28:04,006 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:28:08,276 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 12, 当前列: 5, 选中行数: 1, 选中行: [12]
+2025-03-24 10:28:08,276 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 10:28:08,277 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:28:08,277 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:28:08,278 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:29:04,678 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 7, 当前列: 4, 选中行数: 1, 选中行: [7]
+2025-03-24 10:29:04,678 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-24 10:29:04,679 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:29:04,680 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:29:04,680 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:29:06,108 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 7, 当前列: 4, 选中行数: 1, 选中行: [7]
+2025-03-24 10:29:06,109 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-24 10:29:06,109 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:29:06,110 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:29:06,110 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:29:12,861 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 6, 当前列: 4, 选中行数: 1, 选中行: [6]
+2025-03-24 10:29:12,861 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-24 10:29:12,862 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:29:12,862 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:29:12,863 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:29:15,556 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 6, 当前列: 5, 选中行数: 1, 选中行: [6]
+2025-03-24 10:29:15,557 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 10:29:15,557 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:29:15,558 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:29:15,558 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:31:28,908 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 11, 当前列: 3, 选中行数: 1, 选中行: [11]
+2025-03-24 10:31:28,909 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-24 10:31:28,909 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:31:28,910 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:31:28,911 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:31:31,012 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 7, 当前列: 5, 选中行数: 1, 选中行: [7]
+2025-03-24 10:31:31,012 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 10:31:31,013 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:31:31,014 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:31:31,015 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:31:33,542 - ui.password_manager.ui_table.table_events - INFO - 尝试在行7（上方）添加新行 [添加方式: 上方]
+2025-03-24 10:31:33,542 - ui.password_manager.ui_table.table_edit - INFO - 在位置 6 添加新行
+2025-03-24 10:31:33,543 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 7
+2025-03-24 10:31:33,546 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-24 10:31:33,546 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-24 10:31:33,551 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 7 的编辑模式
+2025-03-24 10:31:33,552 - ui.password_manager.ui_table.table_events - INFO - 成功在行7（上方）添加新行，新行索引: 7 [添加方式: 上方]
+2025-03-24 10:31:34,550 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑 - 第7行: 
+2025-03-24 10:31:34,552 - ui.password_manager.ui_table.table_edit - INFO - 删除新添加的空行
+2025-03-24 10:31:34,553 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑完成，已恢复原始数据
+2025-03-24 10:31:34,988 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 5, 当前列: 4, 选中行数: 1, 选中行: [5]
+2025-03-24 10:31:34,988 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-24 10:31:34,989 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:31:34,989 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:31:34,990 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:35:01,318 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 7, 当前列: 5, 选中行数: 1, 选中行: [7]
+2025-03-24 10:35:01,319 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 10:35:01,321 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:35:01,322 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:35:01,323 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:35:02,005 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 6 的真实索引，将使用表格行索引作为备选
+2025-03-24 10:35:02,005 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 6 作为真实索引
+2025-03-24 10:35:08,057 - ui.password_manager.ui_table.table_password - INFO - 用户取消了密码更新操作
+2025-03-24 10:35:10,084 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 7, 当前列: 5, 选中行数: 1, 选中行: [7]
+2025-03-24 10:35:10,085 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 10:35:10,085 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:35:10,086 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:35:10,086 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:35:11,277 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 6 的真实索引，将使用表格行索引作为备选
+2025-03-24 10:35:11,278 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 6 作为真实索引
+2025-03-24 10:35:18,443 - ui.password_manager.ui_table.table_password - INFO - 用户取消了密码更新操作
+2025-03-24 10:35:34,861 - user - INFO - 用户已登出
+2025-03-24 10:35:36,732 - root - INFO - 密码管理系统启动
+2025-03-24 10:35:36,732 - root - INFO - 初始化用户设置模块...
+2025-03-24 10:35:36,733 - root - INFO - 用户设置模块已初始化
+2025-03-24 10:35:37,653 - user - INFO - 用户 admin 登录成功
+2025-03-24 10:35:37,657 - login_ui - INFO - 用户 admin 登录成功
+2025-03-24 10:35:37,658 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-24 10:35:37,715 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-24 10:35:37,777 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-24 10:35:39,078 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 2, 当前列: 5, 选中行数: 1, 选中行: [2]
+2025-03-24 10:35:39,078 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 10:35:39,079 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:35:39,079 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:35:39,080 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:35:49,011 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 2, 当前列: 1, 选中行数: 1, 选中行: [2]
+2025-03-24 10:35:49,012 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 10:35:49,012 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:35:49,013 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:35:49,013 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:35:50,398 - ui.password_manager.ui_table.table_events - INFO - 尝试在行2（上方）添加新行 [添加方式: 上方]
+2025-03-24 10:35:50,398 - ui.password_manager.ui_table.table_edit - INFO - 在位置 1 添加新行
+2025-03-24 10:35:50,401 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 2
+2025-03-24 10:35:50,403 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-24 10:35:50,403 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-24 10:35:50,405 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 2 的编辑模式
+2025-03-24 10:35:50,406 - ui.password_manager.ui_table.table_events - INFO - 成功在行2（上方）添加新行，新行索引: 2 [添加方式: 上方]
+2025-03-24 10:36:00,493 - ui.password_manager.ui_table.table_edit - INFO - 确认编辑 - 第2行
+2025-03-24 10:36:00,493 - ui.password_manager.ui_table.table_edit - INFO - 添加新记录
+2025-03-24 10:36:00,494 - ui.password_manager.ui_table.table_edit - INFO - 使用保存的插入位置: 1
+2025-03-24 10:36:00,494 - password - INFO - 在位置 2 插入新记录
+2025-03-24 10:36:00,495 - password - INFO - 为所有者 徐国明 添加密码记录成功
+2025-03-24 10:36:00,502 - ui.password_manager.ui_table.table_edit - INFO - 保存插入位置 1 以便在刷新后恢复
+2025-03-24 10:36:00,502 - ui.password_manager.ui_table.table_edit - INFO - 使用保存的位置 1 刷新数据
+2025-03-24 10:36:00,507 - ui.password_manager.ui_table.table_edit - INFO - 添加成功：添加成功
+2025-03-24 10:36:04,677 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 9, 当前列: 2, 选中行数: 1, 选中行: [9]
+2025-03-24 10:36:04,678 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-24 10:36:04,678 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:36:04,679 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:36:04,679 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:36:06,011 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 10, 当前列: 4, 选中行数: 1, 选中行: [10]
+2025-03-24 10:36:06,012 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-24 10:36:06,012 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:36:06,013 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:36:06,013 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:36:20,484 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 2, 当前列: 1, 选中行数: 1, 选中行: [2]
+2025-03-24 10:36:20,485 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-24 10:36:20,485 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:36:20,486 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:36:20,486 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:36:22,409 - password - INFO - 删除所有者 徐国明 的密码记录成功
+2025-03-24 10:36:24,628 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 9, 当前列: 3, 选中行数: 1, 选中行: [9]
+2025-03-24 10:36:24,628 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-24 10:36:24,629 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:36:24,629 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:36:24,629 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:36:26,173 - user - INFO - 用户已登出
+2025-03-24 10:36:28,384 - root - INFO - 密码管理系统启动
+2025-03-24 10:36:28,384 - root - INFO - 初始化用户设置模块...
+2025-03-24 10:36:28,385 - root - INFO - 用户设置模块已初始化
+2025-03-24 10:36:29,415 - user - INFO - 用户 admin 登录成功
+2025-03-24 10:36:29,419 - login_ui - INFO - 用户 admin 登录成功
+2025-03-24 10:36:29,420 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-24 10:36:29,476 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-24 10:36:29,547 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-24 10:38:32,252 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 2, 当前列: 1, 选中行数: 1, 选中行: [2]
+2025-03-24 10:38:32,252 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 10:38:32,253 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:38:32,253 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:38:32,254 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:38:33,677 - ui.password_manager.ui_table.table_events - INFO - 尝试在行2（上方）添加新行 [添加方式: 上方]
+2025-03-24 10:38:33,677 - ui.password_manager.ui_table.table_edit - INFO - 在位置 1 添加新行
+2025-03-24 10:38:33,680 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 2
+2025-03-24 10:38:33,682 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-24 10:38:33,682 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-24 10:38:33,685 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 2 的编辑模式
+2025-03-24 10:38:33,686 - ui.password_manager.ui_table.table_events - INFO - 成功在行2（上方）添加新行，新行索引: 2 [添加方式: 上方]
+2025-03-24 10:38:46,598 - ui.password_manager.ui_table.table_edit - INFO - 确认编辑 - 第2行
+2025-03-24 10:38:46,599 - ui.password_manager.ui_table.table_edit - INFO - 添加新记录
+2025-03-24 10:38:46,599 - ui.password_manager.ui_table.table_edit - INFO - 使用保存的插入位置: 1
+2025-03-24 10:38:46,599 - password - INFO - 在位置 2 插入新记录
+2025-03-24 10:38:46,601 - password - INFO - 为所有者 徐国明 添加密码记录成功
+2025-03-24 10:38:46,607 - ui.password_manager.ui_table.table_edit - INFO - 保存插入位置 1 以便在刷新后恢复
+2025-03-24 10:38:46,607 - ui.password_manager.ui_table.table_edit - INFO - 使用保存的位置 1 刷新数据
+2025-03-24 10:38:46,613 - ui.password_manager.ui_table.table_edit - INFO - 添加成功：添加成功
+2025-03-24 10:43:38,164 - user - INFO - 用户已登出
+2025-03-24 10:43:40,279 - root - INFO - 密码管理系统启动
+2025-03-24 10:43:40,279 - root - INFO - 初始化用户设置模块...
+2025-03-24 10:43:40,280 - root - INFO - 用户设置模块已初始化
+2025-03-24 10:43:41,716 - user - INFO - 用户 admin 登录成功
+2025-03-24 10:43:41,720 - login_ui - INFO - 用户 admin 登录成功
+2025-03-24 10:43:41,721 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-24 10:43:41,770 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-24 10:43:41,820 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-24 10:43:43,597 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 5, 当前列: 5, 选中行数: 1, 选中行: [5]
+2025-03-24 10:43:43,598 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 10:43:43,598 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:43:43,599 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:43:43,599 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:43:44,444 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 4 的真实索引，将使用表格行索引作为备选
+2025-03-24 10:43:44,445 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 4 作为真实索引
+2025-03-24 10:43:45,496 - ui.password_manager.ui_table.table_password - INFO - 用户取消了密码更新操作
+2025-03-24 10:43:49,620 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 2, 当前列: 1, 选中行数: 1, 选中行: [2]
+2025-03-24 10:43:49,621 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 10:43:49,621 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:43:49,622 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:43:49,622 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:43:51,437 - ui.password_manager.ui_table.table_events - INFO - 尝试在行2（上方）添加新行 [添加方式: 上方]
+2025-03-24 10:43:51,437 - ui.password_manager.ui_table.table_edit - INFO - 在位置 1 添加新行
+2025-03-24 10:43:51,440 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 2
+2025-03-24 10:43:51,441 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-24 10:43:51,442 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-24 10:43:51,444 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 2 的编辑模式
+2025-03-24 10:43:51,445 - ui.password_manager.ui_table.table_events - INFO - 成功在行2（上方）添加新行，新行索引: 2 [添加方式: 上方]
+2025-03-24 10:44:04,756 - ui.password_manager.ui_table.table_edit - INFO - 确认编辑 - 第2行
+2025-03-24 10:44:04,757 - ui.password_manager.ui_table.table_edit - INFO - 添加新记录
+2025-03-24 10:44:04,757 - ui.password_manager.ui_table.table_edit - INFO - 使用保存的插入位置: 1
+2025-03-24 10:44:04,758 - password - INFO - 在位置 2 插入新记录
+2025-03-24 10:44:04,759 - password - INFO - 为所有者 徐国明 添加密码记录成功
+2025-03-24 10:44:04,764 - ui.password_manager.ui_table.table_edit - INFO - 保存插入位置 1 以便在刷新后恢复
+2025-03-24 10:44:04,764 - ui.password_manager.ui_table.table_edit - INFO - 使用保存的位置 1 刷新数据
+2025-03-24 10:44:04,790 - ui.password_manager.ui_table.table_edit - INFO - 添加操作完成，已恢复表格选择模式
+2025-03-24 10:44:04,791 - ui.password_manager.ui_table.table_edit - INFO - 添加成功：添加成功
+2025-03-24 10:44:12,228 - user - INFO - 用户已登出
+2025-03-24 10:50:56,887 - root - INFO - 密码管理系统启动
+2025-03-24 10:50:56,888 - root - INFO - 初始化用户设置模块...
+2025-03-24 10:50:56,888 - root - INFO - 用户设置模块已初始化
+2025-03-24 10:50:58,108 - user - INFO - 用户 admin 登录成功
+2025-03-24 10:50:58,113 - login_ui - INFO - 用户 admin 登录成功
+2025-03-24 10:50:58,114 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-24 10:50:58,176 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-24 10:50:58,236 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-24 10:51:00,587 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 5, 当前列: 5, 选中行数: 1, 选中行: [5]
+2025-03-24 10:51:00,588 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 10:51:00,588 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:51:00,589 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:51:00,589 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:51:02,138 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 10, 当前列: 5, 选中行数: 1, 选中行: [10]
+2025-03-24 10:51:02,139 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 10:51:02,140 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:51:02,141 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:51:02,141 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:51:09,275 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 2, 当前列: 1, 选中行数: 1, 选中行: [2]
+2025-03-24 10:51:09,275 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 10:51:09,276 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:51:09,276 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:51:09,277 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:51:12,340 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 1, 选中行数: 1, 选中行: [1]
+2025-03-24 10:51:12,340 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 10:51:12,341 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:51:12,341 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:51:12,341 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:51:14,555 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 2, 当前列: 1, 选中行数: 1, 选中行: [2]
+2025-03-24 10:51:14,556 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 10:51:14,557 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:51:14,557 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:51:14,558 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:51:17,339 - ui.password_manager.ui_table.table_events - INFO - 尝试在行3（下方）添加新行 [添加方式: 下方]
+2025-03-24 10:51:17,340 - ui.password_manager.ui_table.table_edit - INFO - 在位置 2 添加新行
+2025-03-24 10:51:17,343 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 3
+2025-03-24 10:51:17,345 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-24 10:51:17,345 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-24 10:51:17,347 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 3 的编辑模式
+2025-03-24 10:51:17,348 - ui.password_manager.ui_table.table_events - INFO - 成功在行3（下方）添加新行，新行索引: 3 [添加方式: 下方]
+2025-03-24 10:51:32,518 - ui.password_manager.ui_table.table_edit - INFO - 确认编辑 - 第3行
+2025-03-24 10:51:32,518 - ui.password_manager.ui_table.table_edit - INFO - 添加新记录
+2025-03-24 10:51:32,518 - ui.password_manager.ui_table.table_edit - INFO - 使用保存的插入位置: 2
+2025-03-24 10:51:32,519 - password - INFO - 在位置 3 插入新记录
+2025-03-24 10:51:32,520 - password - INFO - 为所有者 徐国明 添加密码记录成功
+2025-03-24 10:51:32,525 - ui.password_manager.ui_table.table_edit - INFO - 保存插入位置 2 以便在刷新后恢复
+2025-03-24 10:51:32,525 - ui.password_manager.ui_table.table_edit - INFO - 使用保存的位置 2 刷新数据
+2025-03-24 10:51:32,554 - ui.password_manager.ui_table.table_edit - INFO - 添加操作完成，已恢复表格选择模式
+2025-03-24 10:51:32,554 - ui.password_manager.ui_table.table_edit - INFO - 添加成功：添加成功
+2025-03-24 10:51:47,796 - user - INFO - 用户已登出
+2025-03-24 10:51:49,729 - root - INFO - 密码管理系统启动
+2025-03-24 10:51:49,729 - root - INFO - 初始化用户设置模块...
+2025-03-24 10:51:49,730 - root - INFO - 用户设置模块已初始化
+2025-03-24 10:51:50,788 - user - INFO - 用户 admin 登录成功
+2025-03-24 10:51:50,793 - login_ui - INFO - 用户 admin 登录成功
+2025-03-24 10:51:50,794 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-24 10:51:50,856 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-24 10:51:50,917 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-24 10:55:08,275 - user - INFO - 用户已登出
+2025-03-24 10:55:10,478 - root - INFO - 密码管理系统启动
+2025-03-24 10:55:10,479 - root - INFO - 初始化用户设置模块...
+2025-03-24 10:55:10,479 - root - INFO - 用户设置模块已初始化
+2025-03-24 10:55:11,987 - user - INFO - 用户 admin 登录成功
+2025-03-24 10:55:11,992 - login_ui - INFO - 用户 admin 登录成功
+2025-03-24 10:55:11,993 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-24 10:55:12,049 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-24 10:55:12,110 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-24 10:55:14,212 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 9, 当前列: 5, 选中行数: 2, 选中行: [9, 10]
+2025-03-24 10:55:14,212 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 2
+2025-03-24 10:55:16,428 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 15, 当前列: 5, 选中行数: 7, 选中行: [10, 11, 12, 13, 14, 15, 16]
+2025-03-24 10:55:16,428 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 7
+2025-03-24 10:55:20,130 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 17, 当前列: 5, 选中行数: 8, 选中行: [12, 13, 14, 15, 16, 17, 18, 19]
+2025-03-24 10:55:20,131 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 8
+2025-03-24 10:55:20,962 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 14, 当前列: 3, 选中行数: 1, 选中行: [14]
+2025-03-24 10:55:20,963 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-24 10:55:20,964 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:55:20,964 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:55:20,964 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:55:22,507 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 14, 当前列: 4, 选中行数: 4, 选中行: [13, 14, 15, 16]
+2025-03-24 10:55:22,508 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-24 10:55:48,860 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 9, 当前列: 4, 选中行数: 1, 选中行: [9]
+2025-03-24 10:55:48,860 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-24 10:55:48,861 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:55:48,861 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:55:48,862 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:58:20,348 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 14, 当前列: 5, 选中行数: 1, 选中行: [14]
+2025-03-24 10:58:20,349 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 10:58:20,349 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:58:20,350 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:58:20,350 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:58:23,554 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 12, 当前列: 4, 选中行数: 6, 选中行: [11, 12, 13, 14, 15, 16]
+2025-03-24 10:58:23,554 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 6
+2025-03-24 10:58:24,315 - ui.password_manager.ui_table.table_events - INFO - 已复制18个单元格内容到剪贴板（表格格式）
+2025-03-24 10:58:29,570 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 14, 当前列: 5, 选中行数: 1, 选中行: [14]
+2025-03-24 10:58:29,570 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 10:58:29,571 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:58:29,571 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:58:29,572 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:58:31,724 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 13, 当前列: 5, 选中行数: 1, 选中行: [13]
+2025-03-24 10:58:31,724 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 10:58:31,725 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:58:31,725 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:58:31,725 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:58:34,284 - ui.password_manager.ui_table.table_events - INFO - 尝试在行13（上方）添加新行 [添加方式: 上方]
+2025-03-24 10:58:34,285 - ui.password_manager.ui_table.table_edit - INFO - 在位置 12 添加新行
+2025-03-24 10:58:34,288 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 13
+2025-03-24 10:58:34,290 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-24 10:58:34,290 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-24 10:58:34,293 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 13 的编辑模式
+2025-03-24 10:58:34,294 - ui.password_manager.ui_table.table_events - INFO - 成功在行13（上方）添加新行，新行索引: 13 [添加方式: 上方]
+2025-03-24 10:58:35,421 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑 - 第13行: 
+2025-03-24 10:58:35,424 - ui.password_manager.ui_table.table_edit - INFO - 删除新添加的空行
+2025-03-24 10:58:35,424 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑完成，已恢复原始数据
+2025-03-24 10:58:37,124 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 15, 当前列: 4, 选中行数: 1, 选中行: [15]
+2025-03-24 10:58:37,124 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-24 10:58:37,125 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:58:37,125 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:58:37,126 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:58:38,124 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 15
+2025-03-24 10:58:38,126 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-24 10:58:38,127 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-24 10:58:38,131 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 15 的编辑模式
+2025-03-24 10:58:39,675 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑 - 第15行: 门禁系统
+2025-03-24 10:58:39,678 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑完成，已恢复原始数据
+2025-03-24 10:58:41,339 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 12, 当前列: 3, 选中行数: 1, 选中行: [12]
+2025-03-24 10:58:41,340 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-24 10:58:41,340 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:58:41,340 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:58:41,341 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:58:42,554 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 12
+2025-03-24 10:58:42,556 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-24 10:58:42,556 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-24 10:58:42,561 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 12 的编辑模式
+2025-03-24 10:58:45,123 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑 - 第12行: 备份
+2025-03-24 10:58:45,125 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑完成，已恢复原始数据
+2025-03-24 10:58:47,114 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 12, 当前列: 4, 选中行数: 1, 选中行: [12]
+2025-03-24 10:58:47,115 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-24 10:58:47,115 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:58:47,116 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:58:47,116 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:58:48,275 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 12
+2025-03-24 10:58:48,277 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-24 10:58:48,277 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-24 10:58:48,281 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 12 的编辑模式
+2025-03-24 10:58:49,819 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑 - 第12行: 备份
+2025-03-24 10:58:49,820 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑完成，已恢复原始数据
+2025-03-24 10:59:35,979 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 9, 当前列: 5, 选中行数: 1, 选中行: [9]
+2025-03-24 10:59:35,979 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 10:59:35,980 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:59:35,980 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:59:35,981 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-24 10:59:37,803 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 9, 当前列: 5, 选中行数: 1, 选中行: [9]
+2025-03-24 10:59:37,804 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-24 10:59:37,804 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-24 10:59:37,805 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-24 10:59:37,805 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项

@@ -1312,5 +1312,392 @@
     "target": "用户登出",
     "details": "用户登出系统",
     "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T09:41:42.291193",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T09:41:50.018053",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为1个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T09:42:05.163771",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T09:42:42.241882",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为1个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T09:43:11.357746",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T09:45:23.964433",
+    "user": "admin",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/ceshi",
+    "details": "添加密码记录成功，项目：ceshi",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T09:50:44.328715",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T09:50:49.089461",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T09:52:00.393014",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为1个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T09:52:02.301934",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T09:52:06.697529",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为1个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T09:52:08.971203",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:23:27.766352",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:23:30.998621",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为1个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:23:32.346508",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:25:21.135131",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为1个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:25:22.243466",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:25:45.840391",
+    "user": "admin",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/测试",
+    "details": "添加密码记录成功，项目：测试",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:27:56.095795",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "高文彬/批量操作",
+    "details": "开始为1个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:27:57.506627",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "高文彬/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:35:02.006607",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "高文彬/批量操作",
+    "details": "开始为1个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:35:08.058724",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "高文彬/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:35:11.278475",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "高文彬/批量操作",
+    "details": "开始为1个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:35:18.444314",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "高文彬/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:35:34.862688",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:35:37.653919",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:36:00.496408",
+    "user": "admin",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/测试1",
+    "details": "添加密码记录成功，项目：测试1",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:36:22.410631",
+    "user": "admin",
+    "operation": "delete",
+    "result": "success",
+    "target": "徐国明/测试1",
+    "details": "删除密码记录成功，项目：测试1",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:36:26.173252",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:36:29.415386",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:38:46.601165",
+    "user": "admin",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/CRM系统1",
+    "details": "添加密码记录成功，项目：CRM系统1",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:43:38.164308",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:43:41.717520",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:43:44.446410",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为1个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:43:45.496723",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:44:04.759043",
+    "user": "admin",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/文件服务器34",
+    "details": "添加密码记录成功，项目：文件服务器34",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:44:12.229226",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:50:58.109656",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:51:32.521130",
+    "user": "admin",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/CRM系",
+    "details": "添加密码记录成功，项目：CRM系",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:51:47.796506",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:51:50.788065",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:55:08.275521",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-24T10:55:11.988801",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
   }
 ]

@@ -114,7 +114,7 @@ class TableEditMixin:
             
             # 使用单元格选择模式，允许用户选择任意单元格进行编辑
             self.table.setSelectionMode(QAbstractItemView.SingleSelection)
-            self.table.setSelectionBehavior(QAbstractItemView.SelectItems)
+            self.table.setSelectionBehavior(QAbstractItemView.SelectItems)  # 编辑模式下使用单元格选择
             
             # 设置第一个必填字段为当前单元格，但同时确保用户知道所有字段都可编辑
             if REQUIRED_FIELDS and len(REQUIRED_FIELDS) > 0:
@@ -359,8 +359,16 @@ class TableEditMixin:
             else:
                 # 添加新条目
                 logger.info(f"添加新记录")
+                
+                # 检查是否有保存的插入位置
+                position = None
+                if hasattr(self, 'insert_position') and self.is_new_row:
+                    position = self.insert_position
+                    logger.info(f"使用保存的插入位置: {position}")
+                
+                # 将position参数传递给add_password方法
                 success, message = password_manager.add_password(
-                    self.current_owner, new_data
+                    self.current_owner, new_data, position
                 )
                 action_desc = "添加"
                 
@@ -402,7 +410,8 @@ class TableEditMixin:
         # 清除高亮
         self._clear_highlight(self.editing_row)
         
-        # 清除编辑状态
+        # 保留insert_position和is_new_row属性，它们将在数据刷新后清除
+        # 但清除其他编辑状态
         self.editing_row = -1
         self.original_row_data = None
         
@@ -416,9 +425,33 @@ class TableEditMixin:
         status_bar = self._find_status_bar()
         if status_bar:
             status_bar.showMessage(f"{action_desc}成功", 3000)
+        
+        # 保存插入位置信息以便在刷新后恢复选择
+        preserve_position = False
+        insert_position = None
+        
+        if action_desc == "添加" and hasattr(self, 'insert_position') and hasattr(self, 'is_new_row'):
+            preserve_position = True
+            insert_position = self.insert_position
+            logger.info(f"保存插入位置 {insert_position} 以便在刷新后恢复")
             
         # 刷新数据
-        self._refresh_data()
+        if preserve_position and insert_position is not None and hasattr(self, '_load_passwords_internal'):
+            # 使用保存的位置刷新数据
+            logger.info(f"使用保存的位置 {insert_position} 刷新数据")
+            self._load_passwords_internal(self.current_owner, True, insert_position)
+        else:
+            # 正常刷新数据
+            self._refresh_data()
+            
+        # 重置表格选择模式
+        self.table.setSelectionMode(QAbstractItemView.ExtendedSelection)
+        self.table.setSelectionBehavior(QAbstractItemView.SelectItems)  # 设置为单元格选择模式
+        self.table.setEditTriggers(QAbstractItemView.NoEditTriggers)  # 确保不可编辑状态
+        
+        # 处理所有待处理事件，确保选择模式生效
+        QApplication.processEvents()
+        logger.info(f"{action_desc}操作完成，已恢复表格选择模式")
         
     def _clear_highlight(self, row: int):
         """
@@ -599,10 +632,10 @@ class TableEditMixin:
             if hasattr(self, 'required_field_delegate'):
                 self.required_field_delegate.set_editing_mode(False)
             
-            # 重置表格选择模式和编辑触发器
+            # 重置表格选择模式
             self.table.setSelectionMode(QAbstractItemView.ExtendedSelection)
-            self.table.setSelectionBehavior(QAbstractItemView.SelectItems)  # 恢复为单元格选择模式
-            self.table.setEditTriggers(QAbstractItemView.NoEditTriggers)
+            self.table.setSelectionBehavior(QAbstractItemView.SelectItems)  # 设置为单元格选择模式
+            self.table.setEditTriggers(QAbstractItemView.NoEditTriggers)  # 确保不可编辑状态
             
             logger.info("取消编辑完成，已恢复原始数据")
             
@@ -1072,7 +1105,20 @@ class TableEditMixin:
             self.editing_row = -1
             self.original_row_data = None
             
+            # 重置表格选择模式
+            self.table.setSelectionMode(QAbstractItemView.ExtendedSelection)
+            self.table.setSelectionBehavior(QAbstractItemView.SelectItems)  # 设置为单元格选择模式
+            self.table.setEditTriggers(QAbstractItemView.NoEditTriggers)  # 确保不可编辑状态
+            
+            # 处理所有待处理事件，确保选择模式生效
+            QApplication.processEvents()
+            
             # 清除位置信息标记
+            if preserve_position and insert_position is not None:
+                # 在保留位置选中行后再清除标记，确保UI能正确显示新添加或编辑的行
+                logger.info(f"已加载并选中指定位置 {insert_position}，现在可以安全清除临时位置标记")
+            
+            # 无论如何都清除这些临时属性，避免它们在下次操作中产生意外影响
             if hasattr(self, 'insert_position'):
                 delattr(self, 'insert_position')
                 
@@ -1224,6 +1270,10 @@ class TableEditMixin:
             
             # 重置表格选择模式
             self.table.setSelectionMode(QAbstractItemView.ExtendedSelection)
+            self.table.setSelectionBehavior(QAbstractItemView.SelectItems)  # 设置为单元格选择模式
+            
+            # 处理所有待处理事件，确保选择模式生效
+            QApplication.processEvents()
             
         except Exception as e:
             logger.error(f"刷新数据时出错: {str(e)}")

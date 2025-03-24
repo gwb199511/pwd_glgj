@@ -144,20 +144,29 @@ class TableEventsMixin:
             
         # 获取所有选中的单元格内容，按行列顺序组织
         rows = {}
+        cols = set()
+        
+        # 首先收集所有选中的行和列
         for item in selected_items:
             row_idx = item.row()
             col_idx = item.column()
             if row_idx not in rows:
                 rows[row_idx] = {}
             rows[row_idx][col_idx] = item.text()
+            cols.add(col_idx)
         
-        # 构建要复制的文本，按行列组织
+        # 构建要复制的文本，按表格格式组织
         text_lines = []
         for row_idx in sorted(rows.keys()):
             row_data = rows[row_idx]
             line = []
-            for col_idx in sorted(row_data.keys()):
-                line.append(row_data[col_idx])
+            # 遍历所有选中的列
+            for col_idx in sorted(cols):
+                # 如果该单元格被选中，添加其内容，否则添加空字符串
+                if col_idx in row_data:
+                    line.append(row_data[col_idx])
+                else:
+                    line.append("")
             text_lines.append("\t".join(line))
         
         # 将行组合成完整文本
@@ -167,7 +176,7 @@ class TableEventsMixin:
         clipboard = QApplication.clipboard()
         clipboard.setText(text)
         
-        logger.info(f"已复制{len(selected_items)}个单元格内容到剪贴板")
+        logger.info(f"已复制{len(selected_items)}个单元格内容到剪贴板（表格格式）")
         return True
     
     def _add_row_with_logging(self, position: int, position_type: str):
@@ -248,20 +257,29 @@ class TableEventFilter(QObject):
                 
                 # 获取所有选中的单元格内容，按行列顺序组织
                 rows = {}
+                cols = set()
+                
+                # 首先收集所有选中的行和列
                 for item in selected_items:
                     row_idx = item.row()
                     col_idx = item.column()
                     if row_idx not in rows:
                         rows[row_idx] = {}
                     rows[row_idx][col_idx] = item.text()
+                    cols.add(col_idx)
                 
-                # 构建要复制的文本，按行列组织
+                # 构建要复制的文本，按表格格式组织
                 text_lines = []
                 for row_idx in sorted(rows.keys()):
                     row_data = rows[row_idx]
                     line = []
-                    for col_idx in sorted(row_data.keys()):
-                        line.append(row_data[col_idx])
+                    # 遍历所有选中的列
+                    for col_idx in sorted(cols):
+                        # 如果该单元格被选中，添加其内容，否则添加空字符串
+                        if col_idx in row_data:
+                            line.append(row_data[col_idx])
+                        else:
+                            line.append("")
                     text_lines.append("\t".join(line))
                 
                 # 将行组合成完整文本
@@ -271,7 +289,7 @@ class TableEventFilter(QObject):
                 clipboard = QApplication.clipboard()
                 clipboard.setText(text)
                 
-                logger.info(f"已复制{len(selected_items)}个单元格内容到剪贴板")
+                logger.info(f"已复制{len(selected_items)}个单元格内容到剪贴板（表格格式）")
                 return True
                 
             # 处理Ctrl+A全选

@@ -2,8 +2,8 @@
     "guides": {
         "password_update_guided": true,
         "first_edit_guided": true,
-        "password_field_guided": true,
-        "ip_field_guided": true
+        "password_field_guided": false,
+        "ip_field_guided": false
     },
     "ui": {
         "table_font_size": 9,

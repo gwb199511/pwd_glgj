@@ -146,17 +146,17 @@ class BasePasswordTable:
         # 美化列表头
         self.table.horizontalHeader().setStyleSheet("""
             QHeaderView::section {
-                background-color: #f2f2f2;
-                color: #333333;
+                background-color: #4a6fa5;
+                color: white;
                 padding: 4px;
                 border: none;
-                border-bottom: 1px solid #cccccc;
-                border-right: 1px solid #cccccc;
+                border-bottom: 1px solid #3a5a8c;
+                border-right: 1px solid #3a5a8c;
                 font-size: 12px;
                 font-weight: bold;
             }
             QHeaderView::section:hover {
-                background-color: #e6e6e6;
+                background-color: #5580b9;
             }
         """)
         

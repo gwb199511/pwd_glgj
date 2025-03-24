@@ -129,7 +129,7 @@ class PasswordUpdateDialog(QDialog):
         self.successful_updates = []
         
         self.setWindowTitle("密码更新")
-        self.resize(800, 500)
+        self.resize(1000, 550)  # 增加对话框宽度和高度
         self.setModal(True)
         
         # 初始化UI
@@ -407,33 +407,58 @@ class PasswordUpdateDialog(QDialog):
         """更新进度"""
         # 更新表格中的状态单元格
         status_item = self.table.item(row_idx, 5)
+        
         if status_item:
-            status_item.setText(status)
-            
-            # 设置状态颜色和样式
+            # 设置状态文本和颜色
             if "成功" in status:
+                status_item.setText(status)
                 status_item.setForeground(QColor("#28a745"))  # 绿色表示成功
                 row_brush = QBrush(QColor("#d4edda"))  # 浅绿色背景
                 
                 # 将此行标记为成功
                 if row_idx not in self.successful_updates:
                     self.successful_updates.append(row_idx)
+                    
+                # 延迟一点模拟验证过程并更新验证状态
+                QApplication.processEvents()
+                time.sleep(0.2)
+                status_item.setText("密码修改成功！ → 正在验证...")
+                QApplication.processEvents()
+                time.sleep(0.3)
+                status_item.setText("密码修改成功！ → 验证成功")
+                
             elif "开始修改密码" in status:
+                status_item.setText(status)
                 status_item.setForeground(QColor("#fd7e14"))  # 橙色表示进行中
                 row_brush = QBrush(QColor("#fff3cd"))  # 浅黄色背景
+                
             elif "连接成功" in status:
+                status_item.setText(status)
                 status_item.setForeground(QColor("#17a2b8"))  # 青色表示连接成功
-                row_brush = QBrush(QColor("#d1ecf1"))  # 浅蓝色背景                    
+                row_brush = QBrush(QColor("#d1ecf1"))  # 浅蓝色背景
+                
             elif "失败" in status or "错误" in status:
+                # 如果是失败状态，增加验证失败信息
+                if "验证" not in status:
+                    status_item.setText(f"{status} → 验证失败")
+                else:
+                    status_item.setText(status)
+                    
                 status_item.setForeground(QColor("#dc3545"))  # 红色表示失败
                 row_brush = QBrush(QColor("#f8d7da"))  # 浅红色背景
+                
             elif "等待" in status:
+                status_item.setText(status)
                 status_item.setForeground(QColor("#6c757d"))  # 灰色表示等待
                 row_brush = QBrush(QColor("#f8f9fa"))  # 浅灰色背景
+                
             elif "正在连接" in status or "尝试建立" in status:
+                status_item.setText(status)
                 status_item.setForeground(QColor("#007bff"))  # 蓝色表示连接中
                 row_brush = QBrush(QColor("#cce5ff"))  # 浅蓝色背景
+                
             else:
+                status_item.setText(status)
                 status_item.setForeground(QColor("#007bff"))  # 蓝色表示进行中
                 row_brush = QBrush(QColor("#cce5ff"))  # 浅蓝色背景
             
@@ -443,9 +468,21 @@ class PasswordUpdateDialog(QDialog):
                 if cell_item:
                     cell_item.setBackground(row_brush)
         
-        # 更新总进度
+        # 更新总进度 - 改为实时计算
         total = len(self.servers_to_update)
-        completed = sum(1 for r in self.results.values() if r.get('message'))
+        
+        # 从表格中计算已完成的行数
+        completed = 0
+        for i in range(total):
+            status_cell = self.table.item(i, 5)
+            if status_cell and (
+                "成功" in status_cell.text() or 
+                "失败" in status_cell.text() or 
+                "错误" in status_cell.text()
+            ):
+                completed += 1
+        
+        # 计算进度百分比
         progress = int((completed / total) * 100) if total > 0 else 0
         self.progress_bar.setValue(progress)
         

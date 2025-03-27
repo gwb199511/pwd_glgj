@@ -313,5 +313,257 @@
     "target": "徐国明/ceshi",
     "details": "服务器密码更新失败：连接或命令执行失败: Authentication failed.，项目：ceshi，IP：192.168.5.8，用户：root",
     "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-22T18:17:16.192906",
+    "user": "admin",
+    "operation": "generate",
+    "result": "fail",
+    "target": "徐国明/批量操作",
+    "details": "批量生成随机密码并更新服务器全部失败，共1个服务器",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-27T10:20:15.080054",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 1成功, 0失败",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-27T10:21:42.292307",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 1成功, 0失败",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-27T10:28:03.437979",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 1成功, 0失败",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-27T10:28:34.804564",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 1成功, 0失败",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-27T10:32:08.437712",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 1成功, 0失败",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-27T10:32:56.784715",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 1成功, 0失败",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-27T10:33:19.404819",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 1成功, 0失败",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-27T10:33:48.466333",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 1成功, 0失败",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-27T10:42:21.758312",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 1成功, 0失败",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-27T10:43:11.419673",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 1成功, 0失败",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-27T10:43:27.328281",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 1成功, 0失败",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-27T10:47:40.292219",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 1成功, 0失败",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-27T10:56:26.405657",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 1成功, 0失败",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-27T10:56:58.417407",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 1成功, 0失败",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-27T10:57:47.160699",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 1成功, 2失败",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-27T10:58:42.072049",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 1成功, 2失败",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-27T11:01:56.279232",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 1成功, 0失败",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-27T11:02:29.513058",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 1成功, 0失败",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-27T11:06:00.189490",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 1成功, 0失败",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-27T11:06:33.903881",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 1成功, 2失败",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-27T11:07:00.762844",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 0成功, 1失败",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-27T11:07:12.849193",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 0成功, 1失败",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-27T11:24:20.060057",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 0成功, 1失败",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-27T11:24:52.420441",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 0成功, 1失败",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-27T11:25:49.472809",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 0成功, 1失败",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-27T11:32:39.522695",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 0成功, 1失败",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-27T14:08:14.416820",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 1成功, 0失败",
+    "log_type": "ssh"
   }
 ]

@@ -293,8 +293,8 @@ class TablePasswordMixin:
         for row, ip, username, old_password, new_password in ssh_updates:
             logger.info(f"开始更新服务器 {ip} 的密码")
             
-            # 尝试更新服务器密码
-            success, message = ssh_password_updater.update_password(
+            # 尝试更新服务器密码 - 使用update_password返回的三元组
+            success, message, verify_success = ssh_password_updater.update_password(
                 ip=ip,
                 username=username,
                 old_password=old_password,
@@ -311,119 +311,63 @@ class TablePasswordMixin:
                 # 立即更新本地数据库，使用预先计算的真实索引
                 real_row = real_indices.get(row)
                 if real_row is not None:
-                    # 获取当前所有者
-                    owner = self.current_owner if hasattr(self, 'current_owner') else "未知"
-                    
-                    # 获取完整的行数据
+                    # 获取当前行的所有数据
                     row_data = []
-                    for col in range(self.table.columnCount()):
-                        cell_item = self.table.item(row, col)
-                        cell_text = cell_item.text() if cell_item else ""
+                    for col in range(self.table.columnCount() - 1):  # 减1排除操作列
+                        item = self.table.item(row, col)
+                        cell_text = item.text() if item else ""
                         row_data.append(cell_text)
                     
-                    # 直接调用PasswordManager的update_password方法
-                    update_success, update_message = password_manager.update_password(
+                    # 更新数据库，跳过服务器同步（因为我们已经完成了）
+                    db_success, db_message = password_manager.update_password(
                         owner, real_row, row_data, skip_server_sync=True
                     )
                     
-                    if update_success:
-                        logger.info(f"成功更新本地数据库 - 所有者: {owner}, 行: {row+1}, 真实索引: {real_row}")
+                    if db_success:
+                        success_count += 1
+                        # 记录日志时包含验证结果信息
+                        verification_status = "并验证成功" if verify_success else "但验证未成功"
+                        logger.info(f"成功更新服务器 {ip} 的密码{verification_status}并保存到数据库")
                     else:
-                        logger.error(f"更新本地数据库失败 - 所有者: {owner}, 行: {row+1}, 真实索引: {real_row}, 错误: {update_message}")
-                
-                success_count += 1
-                logger.info(f"成功更新服务器 {ip} 的密码")
+                        failed_updates.append((ip, db_message))
+                        logger.error(f"服务器 {ip} 密码更新成功，但保存到数据库失败: {db_message}")
+                else:
+                    logger.error(f"无法获取行 {row} 的真实索引，无法更新数据库")
+                    failed_updates.append((ip, "无法获取数据库索引"))
             else:
-                # 更新失败
+                failed_updates.append((ip, message))
                 logger.error(f"更新服务器 {ip} 的密码失败: {message}")
-                failed_updates.append((row, ip, username, message))
-                
-                # 在UI中标记为错误
-                password_item = self.table.item(row, 4)
-                if password_item:
-                    password_item.setBackground(QColor("#f8d7da"))  # 设置为红色背景表示错误
         
-        # 显示操作结果
-        if success_count > 0:
-            success_msg = f"成功更新了 {success_count}/{len(ssh_updates)} 个服务器的密码。"
-            logger.info(success_msg)
-            
-            # 显示成功消息
-            from PyQt5.QtWidgets import QMessageBox
-            msg_box = QMessageBox()
-            msg_box.setWindowTitle("服务器密码更新成功")
-            msg_box.setText(success_msg)
-            msg_box.setIcon(QMessageBox.Information)
-            msg_box.setWindowFlags(msg_box.windowFlags() | Qt.WindowStaysOnTopHint)
-            msg_box.exec_()
+        # 记录完成更新的审计日志
+        audit_logger.log_operation(
+            operation_type=OP_TYPE_SSH_UPDATE,
+            result=OP_RESULT_SUCCESS if not failed_updates else OP_RESULT_FAIL,
+            details=f"批量更新完成: {success_count}成功, {len(failed_updates)}失败",
+            target=f"{owner}/批量更新"
+        )
         
-        # 如果有失败的更新，显示警告消息
+        # 显示结果
         if failed_updates:
-            error_msg = "以下服务器的密码更新失败：\n\n"
-            for row, ip, username, message in failed_updates:
-                error_msg += f"• 行 {row+1}: {ip} ({username}) - {message}\n"
-            
-            error_msg += "\n您可能需要手动更新这些服务器的密码。"
-            logger.warning(f"SSH密码更新结果: 失败 {len(failed_updates)}/{len(ssh_updates)} 个")
-            
-            from PyQt5.QtWidgets import QMessageBox
-            msg_box = QMessageBox()
-            msg_box.setWindowTitle("部分服务器更新失败")
-            msg_box.setText(error_msg)
-            msg_box.setIcon(QMessageBox.Warning)
-            msg_box.setWindowFlags(msg_box.windowFlags() | Qt.WindowStaysOnTopHint)
-            msg_box.exec_()
-        
-        # 处理完所有更新后，强制刷新表格和数据库
-        self.table.setUpdatesEnabled(False)  # 暂时禁用UI更新以提高性能
-        try:
-            # 确保数据库中的密码与表格显示一致
-            for row, ip, username, old_password, new_password in ssh_updates:
-                if not any(failed_row == row for failed_row, _, _, _ in failed_updates):
-                    # 再次确认本地数据库与UI显示一致
-                    real_row = real_indices.get(row)
-                    if real_row is not None:
-                        # 获取当前所有者
-                        owner = self.current_owner
-                        
-                        # 获取该所有者的所有密码
-                        passwords = password_manager.get_passwords_by_owner(owner)
-                        
-                        # 检查索引是否有效，更新密码字段
-                        if 0 <= real_row < len(passwords):
-                            # 获取当前密码记录并更新
-                            passwords[real_row][4] = new_password
-                            
-                            # 再次调用update_password确保永久保存
-                            success, message = password_manager.update_password(owner, real_row, passwords[real_row], skip_server_sync=True)
-                            if success:
-                                logger.info(f"确认永久保存密码成功 - 所有者: {owner}, 行: {row+1}, 真实索引: {real_row}")
-                            else:
-                                logger.error(f"确认永久保存密码失败 - 所有者: {owner}, 行: {row+1}, 真实索引: {real_row}, 错误: {message}")
-        finally:
-            self.table.setUpdatesEnabled(True)  # 恢复UI更新
-        
-        # 强制刷新表格UI和数据
-        if hasattr(self, 'current_owner') and self.current_owner:
-            # 第一次调用 - 重新加载表格数据
-            if hasattr(self, 'search_mode') and self.search_mode:
-                self._refresh_search_results()
-            else:
-                self._load_passwords_internal(self.current_owner)
-            
-            # 处理界面事件，确保UI更新
-            QApplication.processEvents()
-            
-            # 第二次调用 - 确保数据被全部刷新
-            if hasattr(self, 'search_mode') and self.search_mode:
-                self._refresh_search_results()
-            else:
-                self._load_passwords_internal(self.current_owner)
-        
-        # 最后一次处理事件，确保所有更新被应用
-        QApplication.processEvents()
-        
-        return True
+            from ui.password_manager.ui_utils import show_message
+            error_text = "\n".join([f"{ip}: {error}" for ip, error in failed_updates])
+            show_message(
+                self.table.parent(),
+                "部分更新失败",
+                f"成功更新: {success_count}\n失败: {len(failed_updates)}\n\n失败详情:\n{error_text}",
+                QMessageBox.Warning
+            )
+            # 返回False表示有失败
+            return False
+        else:
+            from ui.password_manager.ui_utils import show_message
+            show_message(
+                self.table.parent(),
+                "更新成功",
+                f"成功更新 {success_count} 个服务器的密码",
+                QMessageBox.Information
+            )
+            # 返回True表示全部成功
+            return True
 
     def _batch_check_ssh_password_updates(self) -> bool:
         """
@@ -505,7 +449,7 @@ class TablePasswordMixin:
             logger.info(f"批量SSH更新: 开始更新 - 行: {row+1}, IP: {ip}, 用户: {username}, 项目: {project}")
             
             # 更新远程密码
-            success, message = ssh_password_updater.update_password(
+            success, message, verify_success = ssh_password_updater.update_password(
                 ip=ip, 
                 username=username, 
                 old_password=old_password, 
@@ -517,9 +461,10 @@ class TablePasswordMixin:
             
             # 处理结果
             if success:
-                success_updates.append((row, ip, username, project))
+                success_updates.append((row, ip, username, project, verify_success))
                 all_failed = False  # 至少有一个成功
-                logger.info(f"批量SSH更新成功 - 行: {row+1}, IP: {ip}, 用户: {username}, 项目: {project}")
+                verification_status = "并验证成功" if verify_success else "但验证未成功"
+                logger.info(f"批量SSH更新成功{verification_status} - 行: {row+1}, IP: {ip}, 用户: {username}, 项目: {project}")
             else:
                 failed_updates.append((row, ip, username, message, project))
                 logger.warning(f"批量SSH更新失败 - 行: {row+1}, IP: {ip}, 用户: {username}, 项目: {project}, 错误: {message}")
@@ -533,8 +478,9 @@ class TablePasswordMixin:
         message = ""
         if success_updates:
             message += "以下服务器密码更新成功：\n\n"
-            for row, ip, username, project in success_updates:
-                message += f"• 第{row+1}行: {project} - {ip} ({username})\n"
+            for row, ip, username, project, verify_success in success_updates:
+                verification_status = "并验证成功" if verify_success else "但验证未成功"
+                message += f"• 第{row+1}行: {project} - {ip} ({username}) {verification_status}\n"
                 
         if failed_updates:
             if message:

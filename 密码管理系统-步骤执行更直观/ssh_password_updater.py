@@ -15,7 +15,7 @@ import datetime
 import time
 import paramiko
 from logging.handlers import RotatingFileHandler
-from typing import Tuple, Optional
+from typing import Tuple, Optional, Union, Dict, Any
 import socket
 
 # 创建日志目录 - 使用相对路径
@@ -70,7 +70,7 @@ class SSHPasswordUpdater:
         self.is_windows = platform.system().lower() == "windows"
         ssh_logger.info("SSH密码更新器初始化，运行平台：" + platform.system())
         
-    def update_password(self, ip: str, username: str, old_password: str, new_password: str) -> Tuple[bool, str]:
+    def update_password(self, ip: str, username: str, old_password: str, new_password: str) -> Tuple[bool, str, bool]:
         """
         更新远程服务器上的用户密码
         
@@ -81,30 +81,32 @@ class SSHPasswordUpdater:
             new_password (str): 新密码
             
         Returns:
-            Tuple[bool, str]: (成功状态, 消息)
+            Tuple[bool, str, bool]: (成功状态, 消息, 验证结果)
         """
         # 记录开始尝试更新密码的操作
-        ssh_logger.info(f"开始尝试更新服务器 {ip} 上用户 {username} 的密码")
+        ssh_logger.info(f"等待更新服务器 {ip} 上用户 {username} 的密码")
         
         # 检查paramiko是否可用
         if not PARAMIKO_AVAILABLE:
             error_msg = "未安装paramiko库，请执行 'pip install paramiko' 安装后重试"
             ssh_logger.error(error_msg)
-            return False, error_msg
+            return False, error_msg, False
         
         # 使用paramiko更新密码
-        result = self._update_password_with_paramiko(ip, username, old_password, new_password)
+        success, message, verify_success = self._update_password_with_paramiko(ip, username, old_password, new_password)
         
         # 记录操作结果
-        success, message = result
         if success:
-            ssh_logger.info(f"成功更新服务器 {ip} 上用户 {username} 的密码")
+            if verify_success:
+                ssh_logger.info(f"更新成功！！！ 服务器 {ip} 上用户 {username} 的密码已更新并验证")
+            else:
+                ssh_logger.info(f"密码修改成功！服务器 {ip} 上用户 {username} 的密码已更新但验证未成功")
         else:
-            ssh_logger.error(f"更新服务器 {ip} 上用户 {username} 的密码失败: {message}")
+            ssh_logger.error(f"更新失败: 服务器 {ip} 上用户 {username} 的密码更新失败: {message}")
             
-        return result
+        return success, message, verify_success
     
-    def _update_password_with_paramiko(self, ip: str, username: str, old_password: str, new_password: str) -> Tuple[bool, str]:
+    def _update_password_with_paramiko(self, ip: str, username: str, old_password: str, new_password: str) -> Tuple[bool, str, bool]:
         """
         使用paramiko更新远程服务器上的用户密码
         
@@ -115,7 +117,7 @@ class SSHPasswordUpdater:
             new_password (str): 新密码
             
         Returns:
-            Tuple[bool, str]: (成功状态, 消息)
+            Tuple[bool, str, bool]: (成功状态, 消息, 验证结果)
         """
         try:
             # 创建SSH客户端
@@ -124,7 +126,7 @@ class SSHPasswordUpdater:
             
             try:
                 # 连接到服务器
-                ssh_logger.info(f"尝试连接到服务器 {ip}")
+                ssh_logger.info(f"尝试连接服务器 {ip}")
                 client.connect(
                     hostname=ip,
                     username=username,
@@ -132,23 +134,23 @@ class SSHPasswordUpdater:
                     timeout=10
                 )
                 
-                ssh_logger.info(f"成功连接到服务器 {ip}，准备执行密码更新命令")
+                ssh_logger.info(f"连接成功，开始修改密码 - 服务器 {ip}")
                 
                 # 使用更智能的交互式密码更改方式
                 return self._interactive_password_change(client, username, old_password, new_password)
                 
             except Exception as e:
-                ssh_logger.error(f"连接到服务器 {ip} 或执行命令失败: {str(e)}")
-                return False, f"连接或命令执行失败: {str(e)}"
+                ssh_logger.error(f"连接失败: 连接到服务器 {ip} 或执行命令失败: {str(e)}")
+                return False, f"连接或命令执行失败: {str(e)}", False
             finally:
                 ssh_logger.info(f"关闭与服务器 {ip} 的连接")
                 client.close()
                 
         except Exception as e:
-            ssh_logger.error(f"使用paramiko更新密码时出错: {str(e)}")
-            return False, f"更新密码失败: {str(e)}"
+            ssh_logger.error(f"更新失败: 使用paramiko更新密码时出错: {str(e)}")
+            return False, f"更新密码失败: {str(e)}", False
             
-    def _interactive_password_change(self, client, username, old_password, new_password) -> Tuple[bool, str]:
+    def _interactive_password_change(self, client, username, old_password, new_password) -> Tuple[bool, str, bool]:
         """
         执行交互式密码更改
         
@@ -159,7 +161,7 @@ class SSHPasswordUpdater:
             new_password: 新密码
             
         Returns:
-            Tuple[bool, str]: (成功状态, 消息)
+            Tuple[bool, str, bool]: (成功状态, 消息, 验证结果)
         """
         host = client.get_transport().getpeername()[0]  # 获取主机IP
         success_indicators = [
@@ -175,9 +177,11 @@ class SSHPasswordUpdater:
             channel.get_pty()
             channel.exec_command('passwd')
             
+            ssh_logger.info(f"正在修改密码...")
+            
             # 读取初始提示 - 这通常是请求输入新密码的提示
             # 在大多数系统中，使用已验证的SSH会话执行passwd时，不需要再次验证当前密码
-            output = self._read_until(channel, 'password:', timeout=5)
+            output = self._read_until(channel, 'password:', timeout=3)
             ssh_logger.info(f"密码提示: {output}")
             
             # 直接发送新密码作为第一次输入
@@ -186,7 +190,7 @@ class SSHPasswordUpdater:
             time.sleep(1)  # 等待处理
             
             # 读取确认密码提示
-            output = self._read_until(channel, 'password:', timeout=5)
+            output = self._read_until(channel, 'password:', timeout=3)
             ssh_logger.info(f"确认密码提示: {output}")
             
             # 检查是否有密码长度错误或其他密码策略错误
@@ -201,7 +205,7 @@ class SSHPasswordUpdater:
             time.sleep(1)  # 等待处理
             
             # 读取最终结果
-            output = self._read_until(channel, '', timeout=10)
+            output = self._read_until(channel, '', timeout=3)
             ssh_logger.info(f"密码更新操作返回: {output}")
             
             # 检查是否包含明确的失败信息
@@ -210,28 +214,35 @@ class SSHPasswordUpdater:
             
             # 如果有明确的失败信息，则返回失败
             if has_clear_failure:
-                ssh_logger.error(f"密码更新失败，服务器明确拒绝: {output}")
-                return False, f"密码更新失败: {output}"
+                ssh_logger.error(f"更新失败: 密码更新失败，服务器明确拒绝: {output}")
+                return False, f"密码更新失败: {output}", False
             
-            # 即使有警告但没有明确失败，也尝试验证密码
-            ssh_logger.info(f"密码可能已更新，正在验证新密码是否生效...")
+            # 检查是否成功
+            password_modified = any(indicator in output.lower() for indicator in success_indicators)
+            if password_modified:
+                ssh_logger.info(f"密码修改成功，开始验证...")
+            else:
+                ssh_logger.warning(f"密码更新状态不明确，将尝试验证")
+            
+            # 验证密码
+            ssh_logger.info(f"开始验证修改...")
             verification_result = self._verify_password_change(host, username, new_password)
             
             if verification_result:
-                ssh_logger.info(f"成功更新并验证服务器上用户 {username} 的密码")
-                return True, "密码更新成功并已验证"
+                ssh_logger.info(f"更新成功！！！ 服务器上用户 {username} 的密码已更新并验证成功")
+                return True, "密码更新成功并已验证", True
             else:
                 ssh_logger.warning(f"密码更新操作可能成功，但验证失败")
                 # 如果验证失败但没有明确的错误信息，仍然返回成功
                 # 这是因为一些服务器可能需要一些时间来应用新密码
-                if any(indicator in output.lower() for indicator in success_indicators):
-                    return True, "密码可能已更新，但无法立即验证"
+                if password_modified:
+                    return True, "密码可能已更新，但无法立即验证", False
                 else:
-                    return False, "密码更新操作返回但验证失败，密码可能未实际更改"
+                    return False, "密码更新操作返回但验证失败，密码可能未实际更改", False
                 
         except Exception as e:
-            ssh_logger.error(f"交互式密码更改过程中出错: {str(e)}")
-            return False, f"密码更新失败: {str(e)}"
+            ssh_logger.error(f"更新失败: 交互式密码更改过程中出错: {str(e)}")
+            return False, f"密码更新失败: {str(e)}", False
             
     def _verify_password_change(self, host: str, username: str, new_password: str) -> bool:
         """
@@ -245,7 +256,7 @@ class SSHPasswordUpdater:
         Returns:
             bool: 密码是否验证成功
         """
-        ssh_logger.info(f"正在验证新密码是否生效：尝试使用新密码连接到 {host}")
+        ssh_logger.info(f"开始验证修改: 尝试使用新密码连接到 {host}")
         
         # 创建新的SSH客户端
         try:
@@ -253,7 +264,7 @@ class SSHPasswordUpdater:
             test_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
             
             # 尝试使用新密码连接
-            ssh_logger.info(f"尝试使用新密码连接服务器...")
+            ssh_logger.info(f"尝试使用新密码连接...")
             test_client.connect(
                 hostname=host,
                 username=username,
@@ -262,34 +273,34 @@ class SSHPasswordUpdater:
             )
             
             # 执行简单命令以确认连接有效
-            ssh_logger.info(f"连接成功，执行验证命令...")
+            ssh_logger.info(f"新密码连接成功，执行验证命令...")
             _, stdout, stderr = test_client.exec_command('echo "Password verification successful"')
             result = stdout.read().decode('utf-8')
             error = stderr.read().decode('utf-8')
             
             if error:
-                ssh_logger.warning(f"密码验证命令执行出错: {error}")
+                ssh_logger.warning(f"验证命令执行出错: {error}")
                 
             if "verification successful" in result:
-                ssh_logger.info(f"密码更改验证成功: 能够使用新密码登录并执行命令")
+                ssh_logger.info(f"密码修改验证成功: 能够使用新密码登录并执行命令")
                 test_client.close()
                 return True
             else:
-                ssh_logger.warning(f"密码更改验证失败: 连接成功但命令执行有问题，返回结果: '{result}'")
+                ssh_logger.warning(f"密码修改验证失败: 连接成功但命令执行有问题，返回结果: '{result}'")
                 test_client.close()
                 return False
                 
         except paramiko.AuthenticationException:
-            ssh_logger.error(f"密码更改验证失败: 使用新密码无法认证")
+            ssh_logger.error(f"验证失败: 使用新密码无法认证")
             return False
         except paramiko.SSHException as e:
-            ssh_logger.error(f"密码更改验证失败: SSH连接异常: {str(e)}")
+            ssh_logger.error(f"验证失败: SSH连接异常: {str(e)}")
             return False
         except socket.timeout:
-            ssh_logger.error(f"密码更改验证失败: 连接超时")
+            ssh_logger.error(f"验证失败: 连接超时")
             return False
         except Exception as e:
-            ssh_logger.error(f"密码更改验证失败: 未预期的错误: {str(e)}")
+            ssh_logger.error(f"验证失败: 未预期的错误: {str(e)}")
             return False
 
     def _read_until(self, channel, expected_text='', timeout=3):

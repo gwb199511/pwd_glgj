@@ -971,3 +971,191 @@
 2025-03-27 14:18:28,956 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 18 作为真实索引
 2025-03-27 14:18:44,674 - ui.password_manager.ui_table.table_password - INFO - 用户取消了密码更新操作
 2025-03-27 14:18:57,488 - user - INFO - 用户已登出
+2025-03-27 14:41:48,588 - root - INFO - 密码管理系统启动
+2025-03-27 14:41:48,589 - root - INFO - 初始化用户设置模块...
+2025-03-27 14:41:48,589 - root - INFO - 用户设置模块已初始化
+2025-03-27 14:41:49,995 - user - INFO - 用户 admin 登录成功
+2025-03-27 14:41:50,002 - login_ui - INFO - 用户 admin 登录成功
+2025-03-27 14:41:50,004 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-27 14:41:50,090 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-27 14:41:50,186 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-27 14:55:22,018 - user - INFO - 用户已登出
+2025-03-27 15:15:41,963 - root - INFO - 密码管理系统启动
+2025-03-27 15:15:41,964 - root - INFO - 初始化用户设置模块...
+2025-03-27 15:15:41,964 - root - INFO - 用户设置模块已初始化
+2025-03-27 15:15:43,531 - user - INFO - 用户 admin 登录成功
+2025-03-27 15:15:43,540 - login_ui - INFO - 用户 admin 登录成功
+2025-03-27 15:15:43,541 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-27 15:15:43,633 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-27 15:15:43,675 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-27 15:15:45,196 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 9, 当前列: 5, 选中行数: 1, 选中行: [9]
+2025-03-27 15:15:45,197 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-27 15:15:45,197 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-27 15:15:45,198 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-27 15:15:45,198 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-27 15:15:46,371 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 8 的真实索引，将使用表格行索引作为备选
+2025-03-27 15:15:46,372 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 8 作为真实索引
+2025-03-27 15:15:49,569 - ui.password_manager.ui_table.table_password - INFO - 用户取消了密码更新操作
+2025-03-27 15:15:51,659 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 23, 当前列: 5, 选中行数: 1, 选中行: [23]
+2025-03-27 15:15:51,660 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-27 15:15:51,660 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-27 15:15:51,661 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-27 15:15:51,661 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-27 15:15:52,516 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 22 的真实索引，将使用表格行索引作为备选
+2025-03-27 15:15:52,517 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 22 作为真实索引
+2025-03-27 15:15:54,328 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-03-27 15:15:54,459 - paramiko.transport - INFO - Authentication (password) successful!
+2025-03-27 15:15:54,498 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-03-27 15:15:54,608 - paramiko.transport - INFO - Authentication (password) successful!
+2025-03-27 15:15:59,878 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-03-27 15:16:00,008 - paramiko.transport - INFO - Authentication (password) successful!
+2025-03-27 15:16:05,002 - password - INFO - 调试信息 - update_password被调用，skip_server_sync参数值为: True，类型: <class 'bool'>
+2025-03-27 15:16:05,003 - password - INFO - 更新密码记录 - 所有者: 徐国明, 索引: 22, 项目: ceshi, 跳过服务器同步: 是
+2025-03-27 15:16:05,003 - password - INFO - 明确跳过SSH密码更新步骤 - 项目: ceshi, skip_server_sync=True
+2025-03-27 15:16:05,004 - password - INFO - 更新所有者 徐国明 的密码记录成功 (跳过服务器同步)
+2025-03-27 15:16:05,012 - ui.password_manager.ui_dialogs.password_update_dialog - INFO - 成功保存密码到数据库 - 服务器: 192.168.8.87, 索引: 22
+2025-03-27 15:16:05,015 - ui.password_manager.ui_table.table_password - INFO - 密码更新对话框返回确认结果，刷新表格显示更新后的密码
+2025-03-27 15:44:17,722 - user - INFO - 用户已登出
+2025-03-27 15:44:20,106 - root - INFO - 密码管理系统启动
+2025-03-27 15:44:20,107 - root - INFO - 初始化用户设置模块...
+2025-03-27 15:44:20,107 - root - INFO - 用户设置模块已初始化
+2025-03-27 15:44:21,619 - user - INFO - 用户 admin 登录成功
+2025-03-27 15:44:21,626 - login_ui - INFO - 用户 admin 登录成功
+2025-03-27 15:44:21,628 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-27 15:44:21,676 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-27 15:44:21,723 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-27 15:44:34,345 - user - INFO - 用户已登出
+2025-03-27 15:44:36,997 - root - INFO - 密码管理系统启动
+2025-03-27 15:44:36,997 - root - INFO - 初始化用户设置模块...
+2025-03-27 15:44:36,998 - root - INFO - 用户设置模块已初始化
+2025-03-27 15:44:38,315 - user - INFO - 用户 admin 登录成功
+2025-03-27 15:44:38,322 - login_ui - INFO - 用户 admin 登录成功
+2025-03-27 15:44:38,324 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-27 15:44:38,373 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-27 15:44:54,116 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update
+2025-03-27 15:44:54,121 - ui.password_manager.ui_guide - INFO - 显示引导: password_update, 结果: 接受
+2025-03-27 15:44:56,971 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 22, 当前列: 5, 选中行数: 3, 选中行: [21, 22, 23]
+2025-03-27 15:44:56,971 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 3
+2025-03-27 15:44:58,524 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 20 的真实索引，将使用表格行索引作为备选
+2025-03-27 15:44:58,524 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 20 作为真实索引
+2025-03-27 15:44:58,525 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 21 的真实索引，将使用表格行索引作为备选
+2025-03-27 15:44:58,525 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 21 作为真实索引
+2025-03-27 15:44:58,525 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 22 的真实索引，将使用表格行索引作为备选
+2025-03-27 15:44:58,526 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 22 作为真实索引
+2025-03-27 15:45:20,733 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-03-27 15:45:20,883 - paramiko.transport - INFO - Authentication (password) successful!
+2025-03-27 15:45:20,973 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-03-27 15:45:21,108 - paramiko.transport - INFO - Authentication (password) successful!
+2025-03-27 15:45:26,353 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-03-27 15:45:26,501 - paramiko.transport - INFO - Authentication (password) successful!
+2025-03-27 16:03:33,298 - password - INFO - 调试信息 - update_password被调用，skip_server_sync参数值为: True，类型: <class 'bool'>
+2025-03-27 16:03:33,299 - password - INFO - 更新密码记录 - 所有者: 徐国明, 索引: 22, 项目: ceshi, 跳过服务器同步: 是
+2025-03-27 16:03:33,299 - password - INFO - 明确跳过SSH密码更新步骤 - 项目: ceshi, skip_server_sync=True
+2025-03-27 16:03:33,301 - password - INFO - 更新所有者 徐国明 的密码记录成功 (跳过服务器同步)
+2025-03-27 16:03:33,308 - ui.password_manager.ui_dialogs.password_update_dialog - INFO - 成功保存密码到数据库 - 服务器: 192.168.8.87, 索引: 22
+2025-03-27 16:03:33,313 - ui.password_manager.ui_table.table_password - INFO - 密码更新对话框返回确认结果，刷新表格显示更新后的密码
+2025-03-27 16:04:11,834 - user - INFO - 用户已登出
+2025-03-27 16:04:28,264 - root - INFO - 密码管理系统启动
+2025-03-27 16:04:28,264 - root - INFO - 初始化用户设置模块...
+2025-03-27 16:04:28,265 - root - INFO - 用户设置模块已初始化
+2025-03-27 16:04:29,186 - user - WARNING - 用户 admin 登录失败，密码错误
+2025-03-27 16:04:29,197 - login_ui - WARNING - 用户登录失败: 用户名或密码错误
+2025-03-27 16:04:48,899 - user - WARNING - 用户 admin 登录失败，密码错误
+2025-03-27 16:04:48,907 - login_ui - WARNING - 用户登录失败: 用户名或密码错误
+2025-03-27 16:04:55,314 - root - INFO - 密码管理系统启动
+2025-03-27 16:04:55,314 - root - INFO - 初始化用户设置模块...
+2025-03-27 16:04:55,315 - root - INFO - 用户设置模块已初始化
+2025-03-27 16:04:59,346 - user - INFO - 用户 admin 登录成功
+2025-03-27 16:04:59,355 - login_ui - INFO - 用户 admin 登录成功
+2025-03-27 16:04:59,356 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-27 16:04:59,407 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-27 16:04:59,462 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-27 16:05:02,291 - user - INFO - 用户已登出
+2025-03-27 16:05:03,826 - root - INFO - 密码管理系统启动
+2025-03-27 16:05:03,826 - root - INFO - 初始化用户设置模块...
+2025-03-27 16:05:03,827 - root - INFO - 用户设置模块已初始化
+2025-03-27 16:05:05,347 - user - INFO - 用户 admin 登录成功
+2025-03-27 16:05:05,356 - login_ui - INFO - 用户 admin 登录成功
+2025-03-27 16:05:05,357 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-27 16:05:05,420 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-27 16:05:05,476 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-27 16:05:10,258 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 21, 当前列: 5, 选中行数: 17, 选中行: [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+2025-03-27 16:05:10,259 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 17
+2025-03-27 16:05:12,054 - password - INFO - 删除所有者 徐国明 的密码记录成功
+2025-03-27 16:05:12,064 - password - INFO - 删除所有者 徐国明 的密码记录成功
+2025-03-27 16:05:12,075 - password - INFO - 删除所有者 徐国明 的密码记录成功
+2025-03-27 16:05:12,085 - password - INFO - 删除所有者 徐国明 的密码记录成功
+2025-03-27 16:05:12,095 - password - INFO - 删除所有者 徐国明 的密码记录成功
+2025-03-27 16:05:12,105 - password - INFO - 删除所有者 徐国明 的密码记录成功
+2025-03-27 16:05:12,115 - password - INFO - 删除所有者 徐国明 的密码记录成功
+2025-03-27 16:05:12,125 - password - INFO - 删除所有者 徐国明 的密码记录成功
+2025-03-27 16:05:12,136 - password - INFO - 删除所有者 徐国明 的密码记录成功
+2025-03-27 16:05:12,149 - password - INFO - 删除所有者 徐国明 的密码记录成功
+2025-03-27 16:05:12,159 - password - INFO - 删除所有者 徐国明 的密码记录成功
+2025-03-27 16:05:12,170 - password - INFO - 删除所有者 徐国明 的密码记录成功
+2025-03-27 16:05:12,180 - password - INFO - 删除所有者 徐国明 的密码记录成功
+2025-03-27 16:05:12,190 - password - INFO - 删除所有者 徐国明 的密码记录成功
+2025-03-27 16:05:12,200 - password - INFO - 删除所有者 徐国明 的密码记录成功
+2025-03-27 16:05:12,211 - password - INFO - 删除所有者 徐国明 的密码记录成功
+2025-03-27 16:05:12,222 - password - INFO - 删除所有者 徐国明 的密码记录成功
+2025-03-27 16:05:15,723 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 12, 当前列: 3, 选中行数: 8, 选中行: [7, 8, 9, 10, 11, 12, 13, 14]
+2025-03-27 16:05:15,724 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-27 16:05:17,247 - password - INFO - 删除所有者 徐国明 的密码记录成功
+2025-03-27 16:05:17,257 - password - INFO - 删除所有者 徐国明 的密码记录成功
+2025-03-27 16:05:17,267 - password - INFO - 删除所有者 徐国明 的密码记录成功
+2025-03-27 16:05:17,276 - password - INFO - 删除所有者 徐国明 的密码记录成功
+2025-03-27 16:05:17,288 - password - INFO - 删除所有者 徐国明 的密码记录成功
+2025-03-27 16:05:17,298 - password - INFO - 删除所有者 徐国明 的密码记录成功
+2025-03-27 16:05:17,307 - password - INFO - 删除所有者 徐国明 的密码记录成功
+2025-03-27 16:05:17,318 - password - INFO - 删除所有者 徐国明 的密码记录成功
+2025-03-27 16:05:19,699 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 15, 当前列: 1, 选中行数: 1, 选中行: [15]
+2025-03-27 16:05:19,699 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-03-27 16:05:19,700 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-27 16:05:19,700 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-27 16:05:19,700 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-27 16:05:21,202 - ui.password_manager.ui_table.table_events - INFO - 尝试在行16（下方）添加新行 [添加方式: 下方]
+2025-03-27 16:05:21,202 - ui.password_manager.ui_table.table_edit - INFO - 在位置 15 添加新行
+2025-03-27 16:05:21,206 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 16
+2025-03-27 16:05:24,141 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit
+2025-03-27 16:05:24,145 - ui.password_manager.ui_guide - INFO - 显示引导: first_edit, 结果: 接受
+2025-03-27 16:05:24,147 - ui.password_manager.ui_guide - INFO - 用户已完成引导: first_edit，跳过显示
+2025-03-27 16:05:24,149 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 16 的编辑模式
+2025-03-27 16:05:24,150 - ui.password_manager.ui_table.table_events - INFO - 成功在行16（下方）添加新行，新行索引: 16 [添加方式: 下方]
+2025-03-27 16:05:41,075 - ui.password_manager.ui_table.table_edit - INFO - 确认编辑 - 第16行
+2025-03-27 16:05:41,075 - ui.password_manager.ui_table.table_edit - INFO - 添加新记录
+2025-03-27 16:05:41,076 - ui.password_manager.ui_table.table_edit - INFO - 使用保存的插入位置: 15
+2025-03-27 16:05:41,076 - password - INFO - 在位置 16 插入新记录
+2025-03-27 16:05:41,077 - password - INFO - 为所有者 徐国明 添加密码记录成功
+2025-03-27 16:05:41,105 - ui.password_manager.ui_table.table_edit - INFO - 保存插入位置 15 以便在刷新后恢复
+2025-03-27 16:05:41,106 - ui.password_manager.ui_table.table_edit - INFO - 使用保存的位置 15 刷新数据
+2025-03-27 16:05:41,127 - ui.password_manager.ui_table.table_edit - INFO - 添加操作完成，已恢复表格选择模式
+2025-03-27 16:05:41,127 - ui.password_manager.ui_table.table_edit - INFO - 添加成功：添加成功
+2025-03-27 16:22:24,139 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 16, 当前列: 5, 选中行数: 1, 选中行: [16]
+2025-03-27 16:22:24,139 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-27 16:22:24,140 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-27 16:22:24,140 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-27 16:22:24,141 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-27 16:22:25,060 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 15 的真实索引，将使用表格行索引作为备选
+2025-03-27 16:22:25,061 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 15 作为真实索引
+2025-03-27 16:22:26,819 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-03-27 16:22:26,938 - paramiko.transport - INFO - Authentication (password) successful!
+2025-03-27 16:22:26,978 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-03-27 16:22:27,088 - paramiko.transport - INFO - Authentication (password) successful!
+2025-03-27 16:22:32,358 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-03-27 16:22:32,464 - paramiko.transport - INFO - Authentication (password) successful!
+2025-03-27 16:22:34,201 - password - INFO - 调试信息 - update_password被调用，skip_server_sync参数值为: True，类型: <class 'bool'>
+2025-03-27 16:22:34,202 - password - INFO - 更新密码记录 - 所有者: 徐国明, 索引: 15, 项目: test, 跳过服务器同步: 是
+2025-03-27 16:22:34,202 - password - INFO - 明确跳过SSH密码更新步骤 - 项目: test, skip_server_sync=True
+2025-03-27 16:22:34,204 - password - INFO - 更新所有者 徐国明 的密码记录成功 (跳过服务器同步)
+2025-03-27 16:22:34,213 - ui.password_manager.ui_dialogs.password_update_dialog - INFO - 成功保存密码到数据库 - 服务器: 192.168.8.87, 索引: 15
+2025-03-27 16:22:34,217 - ui.password_manager.ui_table.table_password - INFO - 密码更新对话框返回确认结果，刷新表格显示更新后的密码
+2025-03-27 16:22:36,715 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 14, 当前列: 5, 选中行数: 3, 选中行: [14, 15, 16]
+2025-03-27 16:22:36,716 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 3
+2025-03-27 16:22:37,362 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 13 的真实索引，将使用表格行索引作为备选
+2025-03-27 16:22:37,363 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 13 作为真实索引
+2025-03-27 16:22:37,363 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 14 的真实索引，将使用表格行索引作为备选
+2025-03-27 16:22:37,363 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 14 作为真实索引
+2025-03-27 16:22:37,364 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 15 的真实索引，将使用表格行索引作为备选
+2025-03-27 16:22:37,364 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 15 作为真实索引
+2025-03-27 16:22:50,183 - ui.password_manager.ui_table.table_password - INFO - 用户取消了密码更新操作
+2025-03-27 16:22:51,426 - user - INFO - 用户已登出

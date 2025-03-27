@@ -4219,5 +4219,1616 @@
     "target": "徐国明/批量操作",
     "details": "完成随机密码生成和更新操作",
     "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T14:18:57.489790",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T14:41:49.995225",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T14:55:22.019657",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T15:15:43.532763",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T15:15:46.372560",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为1个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T15:15:49.570032",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T15:15:52.517023",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为1个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T15:16:05.005870",
+    "user": "admin",
+    "operation": "update",
+    "result": "success",
+    "target": "徐国明/ceshi",
+    "details": "仅更新本地密码记录成功（跳过服务器同步），项目：ceshi",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T15:16:05.059911",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T15:44:17.723660",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T15:44:21.619366",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T15:44:34.346855",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T15:44:38.315373",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T15:44:58.526447",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为3个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:00:10.184814",
+    "user": "test_user_8dabae6a",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:00:10.194786",
+    "user": "test_user_8dabae6a",
+    "operation": "add",
+    "result": "success",
+    "target": "test_owner_b7e0d5e9/测试项目",
+    "details": "添加密码记录成功，项目：测试项目",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:03:33.301734",
+    "user": "admin",
+    "operation": "update",
+    "result": "success",
+    "target": "徐国明/ceshi",
+    "details": "仅更新本地密码记录成功（跳过服务器同步），项目：ceshi",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:03:33.362573",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:11.834192",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.645417",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/Azure",
+    "details": "添加密码记录成功，项目：Azure",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.654392",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/ERP系统",
+    "details": "添加密码记录成功，项目：ERP系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.662371",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/Windows Server",
+    "details": "添加密码记录成功，项目：Windows Server",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.671347",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/域控制器",
+    "details": "添加密码记录成功，项目：域控制器",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.679325",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/财务系统",
+    "details": "添加密码记录成功，项目：财务系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.687308",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/打印服务器",
+    "details": "添加密码记录成功，项目：打印服务器",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.695283",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/Oracle",
+    "details": "添加密码记录成功，项目：Oracle",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.703263",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/Elasticsearch",
+    "details": "添加密码记录成功，项目：Elasticsearch",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.712238",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/财务系统",
+    "details": "添加密码记录成功，项目：财务系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.723210",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/Elasticsearch",
+    "details": "添加密码记录成功，项目：Elasticsearch",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.731188",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/PostgreSQL",
+    "details": "添加密码记录成功，项目：PostgreSQL",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.740164",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/防火墙",
+    "details": "添加密码记录成功，项目：防火墙",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.750136",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/堡垒机",
+    "details": "添加密码记录成功，项目：堡垒机",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.760111",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/VPN",
+    "details": "添加密码记录成功，项目：VPN",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.771082",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/SQL Server",
+    "details": "添加密码记录成功，项目：SQL Server",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.780057",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/文件服务器",
+    "details": "添加密码记录成功，项目：文件服务器",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.789034",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/文件服务器",
+    "details": "添加密码记录成功，项目：文件服务器",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.797013",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/笔记本电脑",
+    "details": "添加密码记录成功，项目：笔记本电脑",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.805989",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/Ubuntu",
+    "details": "添加密码记录成功，项目：Ubuntu",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.813967",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/视频会议",
+    "details": "添加密码记录成功，项目：视频会议",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.821945",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/视频会议",
+    "details": "添加密码记录成功，项目：视频会议",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.829924",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/腾讯云",
+    "details": "添加密码记录成功，项目：腾讯云",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.839897",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/Kubernetes",
+    "details": "添加密码记录成功，项目：Kubernetes",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.848874",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/Tomcat",
+    "details": "添加密码记录成功，项目：Tomcat",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.855853",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/视频会议",
+    "details": "添加密码记录成功，项目：视频会议",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.864835",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/备份系统",
+    "details": "添加密码记录成功，项目：备份系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.873806",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/HR系统",
+    "details": "添加密码记录成功，项目：HR系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.882782",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/Elasticsearch",
+    "details": "添加密码记录成功，项目：Elasticsearch",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.890762",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/项目管理系统",
+    "details": "添加密码记录成功，项目：项目管理系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.899738",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/MySQL",
+    "details": "添加密码记录成功，项目：MySQL",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.908713",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/Elasticsearch",
+    "details": "添加密码记录成功，项目：Elasticsearch",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.917712",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/堡垒机",
+    "details": "添加密码记录成功，项目：堡垒机",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.925729",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/互联网",
+    "details": "添加密码记录成功，项目：互联网",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.933703",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/CRM系统",
+    "details": "添加密码记录成功，项目：CRM系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.942679",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/考勤系统",
+    "details": "添加密码记录成功，项目：考勤系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.952651",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/专线",
+    "details": "添加密码记录成功，项目：专线",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.961627",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/打印服务器",
+    "details": "添加密码记录成功，项目：打印服务器",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.970604",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/域控制器",
+    "details": "添加密码记录成功，项目：域控制器",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.979578",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/Git仓库",
+    "details": "添加密码记录成功，项目：Git仓库",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.989554",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/Ubuntu",
+    "details": "添加密码记录成功，项目：Ubuntu",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:19.999528",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/打印服务器",
+    "details": "添加密码记录成功，项目：打印服务器",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.008531",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/Kubernetes",
+    "details": "添加密码记录成功，项目：Kubernetes",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.017513",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/专线",
+    "details": "添加密码记录成功，项目：专线",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.026489",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/Kubernetes",
+    "details": "添加密码记录成功，项目：Kubernetes",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.035469",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/SQL Server",
+    "details": "添加密码记录成功，项目：SQL Server",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.045459",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/项目管理系统",
+    "details": "添加密码记录成功，项目：项目管理系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.054414",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/备份系统",
+    "details": "添加密码记录成功，项目：备份系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.063390",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/Oracle",
+    "details": "添加密码记录成功，项目：Oracle",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.073363",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/PostgreSQL",
+    "details": "添加密码记录成功，项目：PostgreSQL",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.082339",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/邮件服务器",
+    "details": "添加密码记录成功，项目：邮件服务器",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.092312",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/Kubernetes",
+    "details": "添加密码记录成功，项目：Kubernetes",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.101290",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/Apache",
+    "details": "添加密码记录成功，项目：Apache",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.110289",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/数据库服务器",
+    "details": "添加密码记录成功，项目：数据库服务器",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.119267",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/SQL Server",
+    "details": "添加密码记录成功，项目：SQL Server",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.128243",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/Nginx",
+    "details": "添加密码记录成功，项目：Nginx",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.138245",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/Ubuntu",
+    "details": "添加密码记录成功，项目：Ubuntu",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.147194",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/财务系统",
+    "details": "添加密码记录成功，项目：财务系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.155172",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/Docker",
+    "details": "添加密码记录成功，项目：Docker",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.165145",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/视频会议",
+    "details": "添加密码记录成功，项目：视频会议",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.174121",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/RHEL",
+    "details": "添加密码记录成功，项目：RHEL",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.184125",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/AWS",
+    "details": "添加密码记录成功，项目：AWS",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.193070",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/MySQL",
+    "details": "添加密码记录成功，项目：MySQL",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.202048",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/邮件服务器",
+    "details": "添加密码记录成功，项目：邮件服务器",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.212019",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/Git仓库",
+    "details": "添加密码记录成功，项目：Git仓库",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.221993",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/路由器",
+    "details": "添加密码记录成功，项目：路由器",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.230973",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/腾讯云",
+    "details": "添加密码记录成功，项目：腾讯云",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.240942",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/Ubuntu",
+    "details": "添加密码记录成功，项目：Ubuntu",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.250915",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/数据库服务器",
+    "details": "添加密码记录成功，项目：数据库服务器",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.259892",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/考勤系统",
+    "details": "添加密码记录成功，项目：考勤系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.269867",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/ERP系统",
+    "details": "添加密码记录成功，项目：ERP系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.278840",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/Kubernetes",
+    "details": "添加密码记录成功，项目：Kubernetes",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.289811",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/Elasticsearch",
+    "details": "添加密码记录成功，项目：Elasticsearch",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.300782",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/Windows Server",
+    "details": "添加密码记录成功，项目：Windows Server",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.310756",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/专线",
+    "details": "添加密码记录成功，项目：专线",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.321725",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/MySQL",
+    "details": "添加密码记录成功，项目：MySQL",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.332697",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/CRM系统",
+    "details": "添加密码记录成功，项目：CRM系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.343667",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/VPN",
+    "details": "添加密码记录成功，项目：VPN",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.353640",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/MySQL",
+    "details": "添加密码记录成功，项目：MySQL",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.364618",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/Kubernetes",
+    "details": "添加密码记录成功，项目：Kubernetes",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.375583",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/Debian",
+    "details": "添加密码记录成功，项目：Debian",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.386553",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/域控制器",
+    "details": "添加密码记录成功，项目：域控制器",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.395529",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/视频会议",
+    "details": "添加密码记录成功，项目：视频会议",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.406499",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/笔记本电脑",
+    "details": "添加密码记录成功，项目：笔记本电脑",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.417470",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/政务外网",
+    "details": "添加密码记录成功，项目：政务外网",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.426445",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/视频会议",
+    "details": "添加密码记录成功，项目：视频会议",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.436422",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/政务外网",
+    "details": "添加密码记录成功，项目：政务外网",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.446393",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/MongoDB",
+    "details": "添加密码记录成功，项目：MongoDB",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.455369",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/即时通讯",
+    "details": "添加密码记录成功，项目：即时通讯",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.468338",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "高文彬/OA系统",
+    "details": "添加密码记录成功，项目：OA系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.478307",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/腾讯云",
+    "details": "添加密码记录成功，项目：腾讯云",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.488309",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/监控系统",
+    "details": "添加密码记录成功，项目：监控系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.499252",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/Oracle",
+    "details": "添加密码记录成功，项目：Oracle",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.509225",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/项目管理系统",
+    "details": "添加密码记录成功，项目：项目管理系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.519198",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/考勤系统",
+    "details": "添加密码记录成功，项目：考勤系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.529171",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/阿里云",
+    "details": "添加密码记录成功，项目：阿里云",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.540142",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/MySQL",
+    "details": "添加密码记录成功，项目：MySQL",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.550116",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/Tomcat",
+    "details": "添加密码记录成功，项目：Tomcat",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.560088",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/Kubernetes",
+    "details": "添加密码记录成功，项目：Kubernetes",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.570062",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/打印服务器",
+    "details": "添加密码记录成功，项目：打印服务器",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.580036",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/MongoDB",
+    "details": "添加密码记录成功，项目：MongoDB",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.591006",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/CRM系统",
+    "details": "添加密码记录成功，项目：CRM系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.602975",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/笔记本电脑",
+    "details": "添加密码记录成功，项目：笔记本电脑",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.612947",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/备份系统",
+    "details": "添加密码记录成功，项目：备份系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.623918",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/Debian",
+    "details": "添加密码记录成功，项目：Debian",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.633891",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/路由器",
+    "details": "添加密码记录成功，项目：路由器",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.644862",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/VPN",
+    "details": "添加密码记录成功，项目：VPN",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.655833",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/备份系统",
+    "details": "添加密码记录成功，项目：备份系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.665806",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/CentOS",
+    "details": "添加密码记录成功，项目：CentOS",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.675779",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/Office365",
+    "details": "添加密码记录成功，项目：Office365",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.686752",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/政务外网",
+    "details": "添加密码记录成功，项目：政务外网",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.697721",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/域控制器",
+    "details": "添加密码记录成功，项目：域控制器",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.707694",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/Web服务器",
+    "details": "添加密码记录成功，项目：Web服务器",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.718670",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/HR系统",
+    "details": "添加密码记录成功，项目：HR系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.729637",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/MongoDB",
+    "details": "添加密码记录成功，项目：MongoDB",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.740608",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/Kubernetes",
+    "details": "添加密码记录成功，项目：Kubernetes",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.752575",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/CRM系统",
+    "details": "添加密码记录成功，项目：CRM系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.764542",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/文件服务器",
+    "details": "添加密码记录成功，项目：文件服务器",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.775513",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/腾讯云",
+    "details": "添加密码记录成功，项目：腾讯云",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.787481",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/Ubuntu",
+    "details": "添加密码记录成功，项目：Ubuntu",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.798483",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/即时通讯",
+    "details": "添加密码记录成功，项目：即时通讯",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.808455",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/即时通讯",
+    "details": "添加密码记录成功，项目：即时通讯",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.820424",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/文件服务器",
+    "details": "添加密码记录成功，项目：文件服务器",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.830397",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/Elasticsearch",
+    "details": "添加密码记录成功，项目：Elasticsearch",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:20.841399",
+    "user": "未知用户",
+    "operation": "add",
+    "result": "success",
+    "target": "石帆/文件服务器",
+    "details": "添加密码记录成功，项目：文件服务器",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:29.186492",
+    "user": "admin",
+    "operation": "login",
+    "result": "fail",
+    "target": "用户登录",
+    "details": "登录失败：密码错误",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:48.899138",
+    "user": "admin",
+    "operation": "login",
+    "result": "fail",
+    "target": "用户登录",
+    "details": "登录失败：密码错误",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:04:59.346522",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:05:02.291550",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:05:05.347336",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:05:12.055905",
+    "user": "admin",
+    "operation": "delete",
+    "result": "success",
+    "target": "徐国明/Kubernetes",
+    "details": "删除密码记录成功，项目：Kubernetes",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:05:12.065878",
+    "user": "admin",
+    "operation": "delete",
+    "result": "success",
+    "target": "徐国明/腾讯云",
+    "details": "删除密码记录成功，项目：腾讯云",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:05:12.076849",
+    "user": "admin",
+    "operation": "delete",
+    "result": "success",
+    "target": "徐国明/视频会议",
+    "details": "删除密码记录成功，项目：视频会议",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:05:12.086822",
+    "user": "admin",
+    "operation": "delete",
+    "result": "success",
+    "target": "徐国明/视频会议",
+    "details": "删除密码记录成功，项目：视频会议",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:05:12.095797",
+    "user": "admin",
+    "operation": "delete",
+    "result": "success",
+    "target": "徐国明/Ubuntu",
+    "details": "删除密码记录成功，项目：Ubuntu",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:05:12.106769",
+    "user": "admin",
+    "operation": "delete",
+    "result": "success",
+    "target": "徐国明/笔记本电脑",
+    "details": "删除密码记录成功，项目：笔记本电脑",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:05:12.116741",
+    "user": "admin",
+    "operation": "delete",
+    "result": "success",
+    "target": "徐国明/文件服务器",
+    "details": "删除密码记录成功，项目：文件服务器",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:05:12.126753",
+    "user": "admin",
+    "operation": "delete",
+    "result": "success",
+    "target": "徐国明/文件服务器",
+    "details": "删除密码记录成功，项目：文件服务器",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:05:12.137726",
+    "user": "admin",
+    "operation": "delete",
+    "result": "success",
+    "target": "徐国明/SQL Server",
+    "details": "删除密码记录成功，项目：SQL Server",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:05:12.149693",
+    "user": "admin",
+    "operation": "delete",
+    "result": "success",
+    "target": "徐国明/VPN",
+    "details": "删除密码记录成功，项目：VPN",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:05:12.160664",
+    "user": "admin",
+    "operation": "delete",
+    "result": "success",
+    "target": "徐国明/堡垒机",
+    "details": "删除密码记录成功，项目：堡垒机",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:05:12.170640",
+    "user": "admin",
+    "operation": "delete",
+    "result": "success",
+    "target": "徐国明/防火墙",
+    "details": "删除密码记录成功，项目：防火墙",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:05:12.181607",
+    "user": "admin",
+    "operation": "delete",
+    "result": "success",
+    "target": "徐国明/PostgreSQL",
+    "details": "删除密码记录成功，项目：PostgreSQL",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:05:12.191580",
+    "user": "admin",
+    "operation": "delete",
+    "result": "success",
+    "target": "徐国明/Elasticsearch",
+    "details": "删除密码记录成功，项目：Elasticsearch",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:05:12.201554",
+    "user": "admin",
+    "operation": "delete",
+    "result": "success",
+    "target": "徐国明/财务系统",
+    "details": "删除密码记录成功，项目：财务系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:05:12.212524",
+    "user": "admin",
+    "operation": "delete",
+    "result": "success",
+    "target": "徐国明/Elasticsearch",
+    "details": "删除密码记录成功，项目：Elasticsearch",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:05:12.222497",
+    "user": "admin",
+    "operation": "delete",
+    "result": "success",
+    "target": "徐国明/Oracle",
+    "details": "删除密码记录成功，项目：Oracle",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:05:17.247615",
+    "user": "admin",
+    "operation": "delete",
+    "result": "success",
+    "target": "徐国明/Elasticsearch",
+    "details": "删除密码记录成功，项目：Elasticsearch",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:05:17.257589",
+    "user": "admin",
+    "operation": "delete",
+    "result": "success",
+    "target": "徐国明/MySQL",
+    "details": "删除密码记录成功，项目：MySQL",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:05:17.267562",
+    "user": "admin",
+    "operation": "delete",
+    "result": "success",
+    "target": "徐国明/项目管理系统",
+    "details": "删除密码记录成功，项目：项目管理系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:05:17.277536",
+    "user": "admin",
+    "operation": "delete",
+    "result": "success",
+    "target": "徐国明/Elasticsearch",
+    "details": "删除密码记录成功，项目：Elasticsearch",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:05:17.288506",
+    "user": "admin",
+    "operation": "delete",
+    "result": "success",
+    "target": "徐国明/HR系统",
+    "details": "删除密码记录成功，项目：HR系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:05:17.298480",
+    "user": "admin",
+    "operation": "delete",
+    "result": "success",
+    "target": "徐国明/备份系统",
+    "details": "删除密码记录成功，项目：备份系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:05:17.308511",
+    "user": "admin",
+    "operation": "delete",
+    "result": "success",
+    "target": "徐国明/视频会议",
+    "details": "删除密码记录成功，项目：视频会议",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:05:17.318485",
+    "user": "admin",
+    "operation": "delete",
+    "result": "success",
+    "target": "徐国明/Tomcat",
+    "details": "删除密码记录成功，项目：Tomcat",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:05:41.078074",
+    "user": "admin",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/test",
+    "details": "添加密码记录成功，项目：test",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:22:25.061090",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为1个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:22:34.204668",
+    "user": "admin",
+    "operation": "update",
+    "result": "success",
+    "target": "徐国明/test",
+    "details": "仅更新本地密码记录成功（跳过服务器同步），项目：test",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:22:34.251517",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:22:37.365047",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为3个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-27T16:22:50.184957",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
   }
 ]

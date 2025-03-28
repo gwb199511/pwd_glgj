@@ -440,10 +440,9 @@ class PasswordUpdateDialog(QDialog):
             
             # 旧密码 (显示为掩码)
             old_password = server.get('old_password', '')
-            old_password_display = '•' * len(old_password) if old_password else ''
+            old_password_display = old_password if old_password else ''  # 直接显示明文密码
             old_password_item = QTableWidgetItem(old_password_display)
             old_password_item.setTextAlignment(Qt.AlignCenter)
-            old_password_item.setToolTip("双击查看原密码")
             old_password_item.setData(Qt.UserRole, old_password)  # 存储实际密码
             self.table.setItem(i, 3, old_password_item)
             

@@ -496,19 +496,10 @@ class AuditLogger:
                         return json.load(f)
                 except json.JSONDecodeError as e:
                     logger.error(f"读取日志文件 {log_file} 时出错: {str(e)}")
-                    # 如果JSON解析失败，创建备份并返回空列表
-                    backup_file = f"{log_file}.bak_{int(time.time())}"
-                    try:
-                        import shutil
-                        shutil.copy2(log_file, backup_file)
-                        logger.info(f"已创建损坏日志文件的备份: {backup_file}")
-                        
-                        # 重新创建一个有效的空JSON文件
-                        with open(log_file, 'w', encoding='utf-8') as f:
-                            json.dump([], f)
-                        logger.info(f"已重新创建空日志文件: {log_file}")
-                    except Exception as backup_err:
-                        logger.error(f"创建备份文件时出错: {str(backup_err)}")
+                    # 重新创建一个有效的空JSON文件
+                    with open(log_file, 'w', encoding='utf-8') as f:
+                        json.dump([], f)
+                    logger.info(f"已重新创建空日志文件: {log_file}")
             return []
         except Exception as e:
             logger.error(f"读取日志文件 {log_file} 时出错: {str(e)}")
@@ -528,16 +519,6 @@ class AuditLogger:
         try:
             # 确保目录存在
             os.makedirs(os.path.dirname(log_file), exist_ok=True)
-            
-            # 如果日志文件已存在且不为空，先创建备份
-            if os.path.exists(log_file) and os.path.getsize(log_file) > 0:
-                try:
-                    import shutil
-                    backup_file = f"{log_file}.bak"
-                    shutil.copy2(log_file, backup_file)
-                    logger.debug(f"已创建日志文件备份: {backup_file}")
-                except Exception as backup_err:
-                    logger.warning(f"创建日志文件备份时出错: {str(backup_err)}")
             
             # 写入新日志
             with open(log_file, 'w', encoding='utf-8') as f:

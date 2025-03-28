@@ -55,6 +55,28 @@ class AuditLogViewer(QMainWindow):
     提供查看和分析系统操作日志、SSH更新日志等功能
     """
     
+    # 操作类型的中文映射
+    OPERATION_CN = {
+        "login": "登录",
+        "logout": "登出",
+        "query": "查询",
+        "add": "添加",
+        "update": "更新",
+        "delete": "删除",
+        "generate": "生成",
+        "ssh_update": "SSH更新",
+        "export": "导出",
+        "import": "导入"
+    }
+    
+    # 结果类型的中文映射
+    RESULT_CN = {
+        "success": "成功",
+        "fail": "失败",
+        "warning": "警告",
+        "info": "信息"
+    }
+    
     def __init__(self, parent=None):
         """
         初始化审计日志查看器窗口
@@ -263,16 +285,11 @@ class AuditLogViewer(QMainWindow):
         self.op_type_combo = QComboBox()
         self.op_type_combo.setFont(QFont(FONT_FAMILY, 9))
         self.op_type_combo.addItem("全部", None)
-        self.op_type_combo.addItem("登录", OP_TYPE_LOGIN)
-        self.op_type_combo.addItem("登出", OP_TYPE_LOGOUT)
-        self.op_type_combo.addItem("查询", OP_TYPE_QUERY)
-        self.op_type_combo.addItem("添加", OP_TYPE_ADD)
-        self.op_type_combo.addItem("更新", OP_TYPE_UPDATE)
-        self.op_type_combo.addItem("删除", OP_TYPE_DELETE)
-        self.op_type_combo.addItem("生成", OP_TYPE_GENERATE)
-        self.op_type_combo.addItem("SSH更新", OP_TYPE_SSH_UPDATE)
-        self.op_type_combo.addItem("导出", OP_TYPE_EXPORT)
-        self.op_type_combo.addItem("导入", OP_TYPE_IMPORT)
+        
+        # 使用中文映射添加操作类型选项
+        for op_code, op_name in self.OPERATION_CN.items():
+            self.op_type_combo.addItem(op_name, op_code)
+            
         self.op_type_combo.currentIndexChanged.connect(self.load_logs)
         op_type_layout.addWidget(op_type_label)
         op_type_layout.addWidget(self.op_type_combo)
@@ -533,11 +550,11 @@ class AuditLogViewer(QMainWindow):
                     self.log_table.setItem(row, 1, user_item)
                     
                     # 操作
-                    operation_item = QTableWidgetItem(log.get("operation", ""))
+                    operation_item = QTableWidgetItem(self.OPERATION_CN.get(log.get("operation", "").lower(), "未知"))
                     self.log_table.setItem(row, 2, operation_item)
                     
                     # 结果
-                    result_item = QTableWidgetItem(log.get("result", ""))
+                    result_item = QTableWidgetItem(self.RESULT_CN.get(log.get("result", "").lower(), "未知"))
                     self.log_table.setItem(row, 3, result_item)
                     
                     # 设置结果颜色
@@ -591,8 +608,8 @@ class AuditLogViewer(QMainWindow):
             # 格式化详情
             details = f"时间: {log.get('timestamp', '').replace('T', ' ')}\n"
             details += f"用户: {log.get('user', '')}\n"
-            details += f"操作: {log.get('operation', '')}\n"
-            details += f"结果: {log.get('result', '')}\n"
+            details += f"操作: {self.OPERATION_CN.get(log.get('operation', '').lower(), '未知')}\n"
+            details += f"结果: {self.RESULT_CN.get(log.get('result', '').lower(), '未知')}\n"
             details += f"目标: {log.get('target', '')}\n"
             details += f"详情: {log.get('details', '')}\n"
             
@@ -628,7 +645,8 @@ class AuditLogViewer(QMainWindow):
             op_type_stats = {}
             for log in self.current_logs:
                 op_type = log.get("operation", "未知")
-                op_type_stats[op_type] = op_type_stats.get(op_type, 0) + 1
+                op_type_cn = self.OPERATION_CN.get(op_type.lower(), op_type)
+                op_type_stats[op_type_cn] = op_type_stats.get(op_type_cn, 0) + 1
             
             # 按用户统计
             user_stats = {}
@@ -640,7 +658,8 @@ class AuditLogViewer(QMainWindow):
             result_stats = {}
             for log in self.current_logs:
                 result = log.get("result", "未知")
-                result_stats[result] = result_stats.get(result, 0) + 1
+                result_cn = self.RESULT_CN.get(result.lower(), result)
+                result_stats[result_cn] = result_stats.get(result_cn, 0) + 1
             
             # 按操作目标统计
             target_stats = {}

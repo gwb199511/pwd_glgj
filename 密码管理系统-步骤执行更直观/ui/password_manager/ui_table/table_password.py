@@ -620,12 +620,16 @@ class TablePasswordMixin:
             )
             
             return
+        
+        # 收集所有IP地址
+        ip_addresses = [server['ip'] for server in servers_to_update]
+        ip_addresses_str = "; ".join(ip_addresses)
             
         # 记录审计日志 - 开始生成随机密码
         audit_logger.log_operation(
             operation_type=OP_TYPE_GENERATE,
             result=OP_RESULT_INFO,
-            details=f"开始为{len(servers_to_update)}个服务器生成{length}位随机密码",
+            details=f"开始为{len(servers_to_update)}个服务器生成{length}位随机密码，ip地址为：{ip_addresses_str}",
             target=f"{owner}/批量操作"
         )
         
@@ -651,10 +655,58 @@ class TablePasswordMixin:
                 
             # 处理界面事件
             QApplication.processEvents()
+            
+            # 获取更新结果
+            if hasattr(update_dialog, 'results') and update_dialog.results:
+                # 检查结果状态
+                success_count = sum(1 for r in update_dialog.results.values() if r.get('success', False))
+                fail_count = len(update_dialog.results) - success_count
+                
+                # 获取失败的IP地址
+                failed_ips = []
+                for result in update_dialog.results.values():
+                    if not result.get('success', False):
+                        server_info = result.get('server', {})
+                        ip = server_info.get('ip', '')
+                        if ip:
+                            failed_ips.append(ip)
+                
+                # 根据成功/失败情况记录不同的日志
+                if success_count == len(update_dialog.results):
+                    # 全部成功
+                    success_ips = [result.get('server', {}).get('ip', '') for result in update_dialog.results.values() 
+                                  if result.get('success', False)]
+                    success_ips_str = "; ".join(success_ips)
+                    details = f"批量生成随机密码并更新服务器全部成功，共{success_count}个服务器，IP地址：{success_ips_str}"
+                    result_status = OP_RESULT_SUCCESS
+                elif success_count > 0:
+                    # 部分成功部分失败
+                    success_ips = [result.get('server', {}).get('ip', '') for result in update_dialog.results.values() 
+                                  if result.get('success', False)]
+                    failed_ips = [result.get('server', {}).get('ip', '') for result in update_dialog.results.values() 
+                                 if not result.get('success', False)]
+                    success_ips_str = "; ".join(success_ips)
+                    failed_ips_str = "; ".join(failed_ips)
+                    details = f"批量生成随机密码并更新服务器部分成功: {success_count}成功, {fail_count}失败。成功IP：{success_ips_str}，失败IP：{failed_ips_str}"
+                    result_status = OP_RESULT_SUCCESS
+                else:
+                    # 全部失败
+                    failed_ips_str = "; ".join(failed_ips)
+                    details = f"批量生成随机密码并更新服务器全部失败，共{fail_count}个服务器。失败IP: {failed_ips_str}"
+                    result_status = OP_RESULT_FAIL
+                
+                # 记录详细日志
+                audit_logger.log_operation(
+                    operation_type=OP_TYPE_GENERATE,
+                    result=result_status,
+                    details=details,
+                    target=f"{owner}/批量操作"
+                )
+                return
         else:
             logger.info("用户取消了密码更新操作")
-            
-        # 记录审计日志 - 完成随机密码生成
+        
+        # 如果没有获取到详细结果，记录一个简单的完成日志
         audit_logger.log_operation(
             operation_type=OP_TYPE_GENERATE,
             result=OP_RESULT_SUCCESS,

@@ -636,6 +636,15 @@ class PasswordUpdateDialog(QDialog):
         verified_count = sum(1 for r in results.values() if r.get('success', False) and r.get('verify_success', False))
         fail_count = len(results) - success_count
         
+        # 收集失败的IP地址
+        failed_ips = []
+        for result in results.values():
+            if not result.get('success', False):
+                server_info = result.get('server', {})
+                ip = server_info.get('ip', '')
+                if ip:
+                    failed_ips.append(ip)
+        
         # 计算最终的进度百分比 - 所有操作已完成，应为100%
         self.progress_bar.setValue(100)
         self.progress_bar.setFormat("100%  完成")
@@ -714,10 +723,32 @@ class PasswordUpdateDialog(QDialog):
         
         # 记录审计日志
         owner = self.owner if hasattr(self, 'owner') else "未知"
+        
+        # 根据成功/失败情况决定日志内容
+        if success_count == len(results):
+            # 全部成功
+            success_ips = [result.get('server', {}).get('ip', '') for result in results.values() 
+                          if result.get('success', False)]
+            success_ips_str = "; ".join(success_ips)
+            details = f"批量SSH密码更新完成: 全部成功，共{success_count}个服务器，IP地址：{success_ips_str}"
+        elif success_count > 0:
+            # 部分成功部分失败
+            success_ips = [result.get('server', {}).get('ip', '') for result in results.values() 
+                          if result.get('success', False)]
+            failed_ips = [result.get('server', {}).get('ip', '') for result in results.values() 
+                         if not result.get('success', False)]
+            success_ips_str = "; ".join(success_ips)
+            failed_ips_str = "; ".join(failed_ips)
+            details = f"批量SSH密码更新部分完成: {success_count}成功, {fail_count}失败。成功IP：{success_ips_str}，失败IP：{failed_ips_str}"
+        else:
+            # 全部失败
+            failed_ips_str = "; ".join(failed_ips)
+            details = f"批量SSH密码更新全部失败，共{fail_count}个服务器。失败IP: {failed_ips_str}"
+        
         audit_logger.log_operation(
             operation_type=OP_TYPE_SSH_UPDATE,
             result=OP_RESULT_SUCCESS if success_count == len(results) else OP_RESULT_FAIL,
-            details=f"批量SSH密码更新完成: {success_count}成功, {fail_count}失败",
+            details=details,
             target=f"{owner}/批量更新",
             log_type=LOG_TYPE_SSH
         )

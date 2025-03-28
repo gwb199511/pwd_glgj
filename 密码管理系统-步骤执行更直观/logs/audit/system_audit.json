@@ -6010,5 +6010,104 @@
     "target": "徐国明/批量操作",
     "details": "完成随机密码生成和更新操作",
     "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-28T14:37:19.189470",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-28T14:37:22.681981",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为1个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-28T14:37:39.735935",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-28T15:03:32.019669",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-28T15:03:36.332915",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-28T15:04:10.569296",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为3个服务器生成16位随机密码",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-28T15:07:42.589596",
+    "user": "admin",
+    "operation": "generate",
+    "result": "fail",
+    "target": "徐国明/批量操作",
+    "details": "批量生成随机密码并更新服务器全部失败，共3个服务器。失败IP: 214.111.222.8, 217.15.121.137, 130.89.7.247",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-28T15:08:53.980980",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-28T15:08:58.019949",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-28T15:09:02.877607",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为2个服务器生成16位随机密码，ip地址为：222.223.161.58; 197.86.238.164",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-03-28T15:09:36.156007",
+    "user": "admin",
+    "operation": "generate",
+    "result": "fail",
+    "target": "徐国明/批量操作",
+    "details": "批量生成随机密码并更新服务器全部失败，共2个服务器。失败IP: 222.223.161.58; 197.86.238.164",
+    "log_type": "system"
   }
 ]

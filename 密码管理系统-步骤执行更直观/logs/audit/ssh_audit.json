@@ -637,5 +637,32 @@
     "target": "徐国明/批量更新",
     "details": "批量SSH密码更新完成: 1成功, 0失败",
     "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-28T14:37:36.039720",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 0成功, 1失败",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-28T15:04:43.707102",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新全部失败，共3个服务器。失败IP: 214.111.222.8, 217.15.121.137, 130.89.7.247",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-03-28T15:09:24.159140",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新全部失败，共2个服务器。失败IP: 222.223.161.58; 197.86.238.164",
+    "log_type": "ssh"
   }
 ]

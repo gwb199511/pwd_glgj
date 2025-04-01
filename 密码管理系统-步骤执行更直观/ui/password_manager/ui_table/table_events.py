@@ -17,7 +17,7 @@ from PyQt5.QtCore import Qt, QObject, QEvent
 from PyQt5.QtGui import QIcon
 
 from config import PASSWORD_COLUMNS
-from ui.password_manager.ui_guide import show_guide_if_needed
+from ui.password_manager.ui_guide import start_walkthrough
 
 class TableEventsMixin:
     """
@@ -210,6 +210,151 @@ class TableEventsMixin:
                     if hasattr(self, 'original_row_data'):
                         self.original_row_data = None
 
+    def _setup_field_guides(self, row: int):
+        """
+        设置字段指导
+        
+        为表格字段添加指导和帮助信息
+        
+        Args:
+            row (int): 行索引
+        """
+        # 新版引导功能已移除对单独表格字段的引导
+        # 所有引导功能现在通过浮层式步骤引导提供
+        pass
+        
+    def _handle_field_custom_context_menu(self, position, field_name, field_index, parent=None):
+        """
+        处理字段的自定义上下文菜单
+        
+        Args:
+            position: 菜单显示位置
+            field_name (str): 字段名称
+            field_index (int): 字段索引
+            parent: 父窗口
+        """
+        if not hasattr(self, 'table') or self.table is None:
+            logger.error("表格对象不存在，无法处理字段上下文菜单")
+            return
+            
+        # 当前行
+        row = self.table.currentRow()
+        
+        if row < 0:
+            logger.warning("未选择行，无法处理字段上下文菜单")
+            return
+        
+        # 获取所选单元格
+        cell_value = ""
+        item = self.table.item(row, field_index)
+        if item:
+            cell_value = item.text().strip()
+        
+        # 根据不同字段类型，显示不同的菜单
+        if field_name == "密码":
+            self._handle_password_context_menu(position, row, field_index, cell_value, parent)
+        elif field_name == "IP地址":
+            self._handle_ip_address_context_menu(position, row, field_index, cell_value, parent)
+        else:
+            # 默认菜单处理
+            self._handle_general_context_menu(position, row, field_index, cell_value, parent)
+            
+    def _handle_password_context_menu(self, position, row, col, cell_value, parent=None):
+        """
+        处理密码字段的上下文菜单
+        
+        Args:
+            position: 菜单显示位置
+            row (int): 行索引
+            col (int): 列索引
+            cell_value (str): 单元格值
+            parent: 父窗口
+        """
+        # 创建上下文菜单
+        context_menu = QMenu()
+        
+        # 添加菜单项
+        # 复制密码
+        copy_action = QAction("复制密码", self.table)
+        copy_action.triggered.connect(lambda: self._copy_cell_to_clipboard(row, col))
+        context_menu.addAction(copy_action)
+        
+        # 生成随机密码
+        generate_action = QAction("生成16位随机密码", self.table)
+        generate_action.triggered.connect(lambda: self._generate_random_password(row, col))
+        context_menu.addAction(generate_action)
+        
+        # 生成16位随机密码并更新到服务器(SSH)
+        if hasattr(self, 'table') and self.table.item(row, PASSWORD_COLUMNS.index("IP地址")):
+            ip_address = self.table.item(row, PASSWORD_COLUMNS.index("IP地址")).text().strip()
+            if ip_address:
+                update_ssh_action = QAction("生成16位随机密码并更新到服务器(SSH)", self.table)
+                update_ssh_action.triggered.connect(lambda: self._generate_and_update_ssh_password(row, col))
+                context_menu.addAction(update_ssh_action)
+        
+        # 添加密码强度校验功能
+        if cell_value:
+            context_menu.addSeparator()
+            strength_action = QAction("检查密码强度", self.table)
+            strength_action.triggered.connect(lambda: self._check_password_strength(cell_value, parent))
+            context_menu.addAction(strength_action)
+        
+        # 显示菜单
+        context_menu.exec_(self.table.viewport().mapToGlobal(position))
+        
+        # 不再显示旧的引导对话框
+        # 主界面引导中已经包含了整体功能的说明
+    
+    def _handle_ip_address_context_menu(self, position, row, col, cell_value, parent=None):
+        """
+        处理IP地址字段的上下文菜单
+        
+        Args:
+            position: 菜单显示位置
+            row (int): 行索引
+            col (int): 列索引
+            cell_value (str): 单元格值
+            parent: 父窗口
+        """
+        # 创建上下文菜单
+        context_menu = QMenu()
+        
+        # 添加菜单项
+        # 复制IP地址
+        copy_action = QAction("复制IP地址", self.table)
+        copy_action.triggered.connect(lambda: self._copy_cell_to_clipboard(row, col))
+        context_menu.addAction(copy_action)
+        
+        # 尝试SSH连接
+        if cell_value:
+            ssh_action = QAction("SSH连接", self.table)
+            ssh_action.triggered.connect(lambda: self._ssh_connect(row, col))
+            context_menu.addAction(ssh_action)
+            
+            # Ping IP地址
+            ping_action = QAction("Ping测试", self.table)
+            ping_action.triggered.connect(lambda: self._ping_ip_address(cell_value))
+            context_menu.addAction(ping_action)
+            
+            # 更多网络工具
+            network_menu = QMenu("网络工具", context_menu)
+            
+            # 添加网络工具子菜单项
+            tracert_action = QAction("路由跟踪", self.table)
+            tracert_action.triggered.connect(lambda: self._tracert_ip_address(cell_value))
+            network_menu.addAction(tracert_action)
+            
+            whois_action = QAction("Whois查询", self.table)
+            whois_action.triggered.connect(lambda: self._whois_ip_address(cell_value))
+            network_menu.addAction(whois_action)
+            
+            context_menu.addMenu(network_menu)
+        
+        # 显示菜单
+        context_menu.exec_(self.table.viewport().mapToGlobal(position))
+        
+        # 不再显示旧的引导对话框
+        # 主界面引导中已经包含了整体功能的说明
 
 class TableEventFilter(QObject):
     """
@@ -315,18 +460,16 @@ class TableEventFilter(QObject):
                         if hasattr(self.table, 'parent'):
                             parent = self.table.parent()
                             if parent:
-                                # 显示密码字段编辑引导
-                                show_guide_if_needed("password_field", parent)
-                                logger.info(f"触发密码字段编辑引导 - 行: {row+1}")
+                                # 不再调用旧的引导功能
+                                logger.info(f"密码字段编辑 - 行: {row+1}")
                     
                     elif col == 2:  # IP地址列
                         # 获取主窗口作为引导对话框的父窗口
                         if hasattr(self.table, 'parent'):
                             parent = self.table.parent()
                             if parent:
-                                # 显示IP地址字段编辑引导
-                                show_guide_if_needed("ip_field", parent)
-                                logger.info(f"触发IP地址字段编辑引导 - 行: {row+1}")
+                                # 不再调用旧的引导功能
+                                logger.info(f"IP地址字段编辑 - 行: {row+1}")
         
         # 其他事件交给默认处理
         return super().eventFilter(obj, event) 

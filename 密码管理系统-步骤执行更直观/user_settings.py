@@ -162,7 +162,8 @@ class UserSettings:
         Returns:
             bool: 如果引导已完成则返回True，否则返回False
         """
-        return self.get(f"guides.{guide_key}_guided", False)
+        guided_key = f"{guide_key}_guided"
+        return self.get(f"guides.{guided_key}", False)
         
     def mark_guide_completed(self, guide_key: str) -> None:
         """
@@ -171,13 +172,25 @@ class UserSettings:
         Args:
             guide_key (str): 引导键名
         """
-        self.set(f"guides.{guide_key}_guided", True)
+        guided_key = f"{guide_key}_guided"
+        self.set(f"guides.{guided_key}", True)
+        logger.info(f"已标记引导 {guide_key} 为已完成")
         
     def reset_guides(self) -> None:
         """重置所有引导状态为未完成"""
         guides = self.get("guides", {})
-        for key in guides:
+        for key in list(guides.keys()):
             self.set(f"guides.{key}", False)
+            logger.info(f"已重置引导状态: {key}")
+            
+        # 特别确保主要引导状态被重置
+        key_list = ["main_features_guided", "password_update_guided", "main_features", "password_update"]
+        for key in key_list:
+            self.set(f"guides.{key}", False)
+            self.set(f"guides.{key}_guided", False)
+            logger.info(f"已强制重置引导状态: {key}")
+            
+        logger.info("所有引导状态已重置")
 
 
 # 创建单例实例

@@ -11,7 +11,7 @@ import logging
 from typing import Dict, Any, Callable, Optional
 
 from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox, QAction
-from PyQt5.QtCore import Qt, QEvent
+from PyQt5.QtCore import Qt, QEvent, QTimer
 from PyQt5.QtGui import QFont, QIcon, QCloseEvent
 
 from config import VERSION, WINDOW_WIDTH, WINDOW_HEIGHT
@@ -22,7 +22,7 @@ from ui.password_manager.ui_layout import PasswordManagerLayout
 from ui.password_manager.ui_table import PasswordTable
 from ui.password_manager.ui_operations import PasswordOperations
 from ui_components import show_message
-from ui.password_manager.ui_guide import show_guide_if_needed, PASSWORD_UPDATE_GUIDE
+from ui.password_manager.ui_guide import start_walkthrough
 
 # 为了解决导入问题，添加项目根目录到Python路径
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
@@ -89,19 +89,23 @@ class PasswordManagerUI(QMainWindow):
         menubar = self.menuBar()
         
         # 文件菜单
-        file_menu = menubar.addMenu('选项')
+        file_menu = menubar.addMenu('文件')
         
-        # 配置MySQL连接
-        mysql_config_action = QAction('配置MySQL连接', self)
-        mysql_config_action.triggered.connect(self._open_mysql_config)
-        file_menu.addAction(mysql_config_action)
+        # 导出动作
+        export_action = QAction('导出数据', self)
+        export_action.triggered.connect(self.operations_manager.export_data)
+        file_menu.addAction(export_action)
         
-        # 添加分隔线
+        # 导入动作
+        import_action = QAction('导入数据', self)
+        import_action.triggered.connect(self.operations_manager.import_data)
+        file_menu.addAction(import_action)
+        
+        # 分隔线
         file_menu.addSeparator()
         
         # 退出动作
         exit_action = QAction('退出', self)
-        exit_action.setShortcut('Ctrl+Q')
         exit_action.triggered.connect(self.close)
         file_menu.addAction(exit_action)
         
@@ -109,14 +113,24 @@ class PasswordManagerUI(QMainWindow):
         tools_menu = menubar.addMenu('工具')
         
         # 密码生成器动作
-        password_gen_action = QAction('密码生成器', self)
-        password_gen_action.triggered.connect(self._open_password_generator)
-        tools_menu.addAction(password_gen_action)
+        password_generator_action = QAction('密码生成器', self)
+        password_generator_action.triggered.connect(self._open_password_generator)
+        tools_menu.addAction(password_generator_action)
+        
+        # SSH日志查看器动作
+        ssh_log_viewer_action = QAction('SSH日志查看器', self)
+        ssh_log_viewer_action.triggered.connect(self._open_ssh_log_viewer)
+        tools_menu.addAction(ssh_log_viewer_action)
         
         # 日志审计动作
-        audit_log_action = QAction('日志审计', self)
+        audit_log_action = QAction('查看审计日志', self)
         audit_log_action.triggered.connect(self._open_audit_log_viewer)
         tools_menu.addAction(audit_log_action)
+        
+        # 数据库配置动作
+        mysql_config_action = QAction('数据库配置', self)
+        mysql_config_action.triggered.connect(self._open_mysql_config)
+        tools_menu.addAction(mysql_config_action)
         
         # 帮助菜单
         help_menu = menubar.addMenu('帮助')
@@ -124,10 +138,10 @@ class PasswordManagerUI(QMainWindow):
         # 引导帮助子菜单
         guide_submenu = help_menu.addMenu('引导帮助')
         
-        # 密码更新引导
-        password_update_guide_action = QAction('密码更新引导', self)
-        password_update_guide_action.triggered.connect(lambda: self._show_specific_guide("password_update"))
-        guide_submenu.addAction(password_update_guide_action)
+        # 主界面功能引导
+        main_features_guide_action = QAction('主界面功能引导', self)
+        main_features_guide_action.triggered.connect(self._show_main_features_guide)
+        guide_submenu.addAction(main_features_guide_action)
         
         # 重置所有引导动作
         reset_guides_action = QAction('重置所有引导', self)
@@ -254,12 +268,22 @@ class PasswordManagerUI(QMainWindow):
         self.resize(WINDOW_WIDTH, WINDOW_HEIGHT)
         self.show()
         
-        # 显示密码更新引导
-        self._show_password_update_guide()
+        # 添加短暂延迟后显示主界面操作引导
+        QTimer.singleShot(1000, self._show_main_features_guide)
         
-    def _show_password_update_guide(self):
-        """显示密码更新引导"""
-        show_guide_if_needed("password_update", self)
+    def _show_main_features_guide(self):
+        """显示主界面功能引导"""
+        # 获取关键UI元素
+        target_widgets = {
+            "owners_list": self.layout_manager.owner_list_widget,
+            "password_table": self.layout_manager.password_table,
+            "search_box": self.layout_manager.search_edit,
+            "action_buttons": self.layout_manager.splitter,
+            "menu_bar": self.menuBar()
+        }
+        
+        # 启动步骤引导
+        start_walkthrough("main_features", self, target_widgets)
         
     def _reset_all_guides(self):
         """重置所有引导状态"""
@@ -400,7 +424,11 @@ class PasswordManagerUI(QMainWindow):
         Args:
             guide_type (str): 引导类型
         """
-        show_guide_if_needed(guide_type, self, force=True)
+        if guide_type == "main_features":
+            # 设置强制显示标志
+            self.force_walkthrough = True
+            self._show_main_features_guide()
+            self.force_walkthrough = False
 
     def _open_mysql_config(self):
         """打开MySQL配置对话框"""

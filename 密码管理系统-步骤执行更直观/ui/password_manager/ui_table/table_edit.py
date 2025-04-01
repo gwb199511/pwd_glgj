@@ -24,7 +24,7 @@ from ui.password_manager.ui_utils import (
     highlight_required_fields, confirm_delete,
     show_message, show_confirmation
 )
-from ui.password_manager.ui_guide import show_guide_if_needed
+from ui.password_manager.ui_guide import start_walkthrough
 from encrypt import encryptor
 
 # 配置日志

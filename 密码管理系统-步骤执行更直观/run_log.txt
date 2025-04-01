@@ -1396,3 +1396,102 @@
 2025-04-01 16:58:02,300 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
 2025-04-01 16:58:02,301 - __main__ - INFO - 正在启动应用程序...
 2025-04-01 16:59:29,088 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-01 16:59:44,451 - __main__ - INFO - 找到Qt插件路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\Lib/site-packages/PyQt5/Qt5/plugins
+2025-04-01 16:59:44,451 - __main__ - INFO - Python解释器路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\python.exe
+2025-04-01 16:59:44,452 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-04-01 16:59:44,452 - __main__ - INFO - 正在启动应用程序...
+2025-04-01 17:14:43,308 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-01 17:14:44,874 - __main__ - INFO - 找到Qt插件路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\Lib/site-packages/PyQt5/Qt5/plugins
+2025-04-01 17:14:44,875 - __main__ - INFO - Python解释器路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\python.exe
+2025-04-01 17:14:44,875 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-04-01 17:14:44,875 - __main__ - INFO - 正在启动应用程序...
+2025-04-01 17:14:47,609 - __main__ - INFO - 应用程序退出，返回代码: 3221226505
+2025-04-01 17:16:14,159 - __main__ - INFO - 找到Qt插件路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\Lib/site-packages/PyQt5/Qt5/plugins
+2025-04-01 17:16:14,160 - __main__ - INFO - Python解释器路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\python.exe
+2025-04-01 17:16:14,160 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-04-01 17:16:14,161 - __main__ - INFO - 正在启动应用程序...
+2025-04-01 17:16:24,033 - __main__ - INFO - 应用程序退出，返回代码: 3221226505
+2025-04-01 17:17:21,404 - __main__ - INFO - 找到Qt插件路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\Lib/site-packages/PyQt5/Qt5/plugins
+2025-04-01 17:17:21,405 - __main__ - INFO - Python解释器路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\python.exe
+2025-04-01 17:17:21,405 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-04-01 17:17:21,405 - __main__ - INFO - 正在启动应用程序...
+2025-04-01 17:17:27,815 - __main__ - INFO - 应用程序退出，返回代码: 3221226505
+2025-04-01 17:18:17,968 - __main__ - INFO - 找到Qt插件路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\Lib/site-packages/PyQt5/Qt5/plugins
+2025-04-01 17:18:17,969 - __main__ - INFO - Python解释器路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\python.exe
+2025-04-01 17:18:17,969 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-04-01 17:18:17,970 - __main__ - INFO - 正在启动应用程序...
+2025-04-01 17:19:15,013 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-01 17:19:24,691 - __main__ - INFO - 找到Qt插件路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\Lib/site-packages/PyQt5/Qt5/plugins
+2025-04-01 17:19:24,692 - __main__ - INFO - Python解释器路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\python.exe
+2025-04-01 17:19:24,693 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-04-01 17:19:24,693 - __main__ - INFO - 正在启动应用程序...
+2025-04-01 17:20:21,187 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-01 17:25:09,941 - __main__ - INFO - 找到Qt插件路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\Lib/site-packages/PyQt5/Qt5/plugins
+2025-04-01 17:25:09,942 - __main__ - INFO - Python解释器路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\python.exe
+2025-04-01 17:25:09,942 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-04-01 17:25:09,942 - __main__ - INFO - 正在启动应用程序...
+2025-04-01 17:25:10,530 - __main__ - INFO - 应用程序退出，返回代码: 1
+2025-04-01 17:25:16,593 - __main__ - INFO - 找到Qt插件路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\Lib/site-packages/PyQt5/Qt5/plugins
+2025-04-01 17:25:16,593 - __main__ - INFO - Python解释器路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\python.exe
+2025-04-01 17:25:16,593 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-04-01 17:25:16,594 - __main__ - INFO - 正在启动应用程序...
+2025-04-01 17:25:17,203 - __main__ - INFO - 应用程序退出，返回代码: 1
+2025-04-01 17:25:21,423 - __main__ - INFO - 找到Qt插件路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\Lib/site-packages/PyQt5/Qt5/plugins
+2025-04-01 17:25:21,424 - __main__ - INFO - Python解释器路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\python.exe
+2025-04-01 17:25:21,424 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-04-01 17:25:21,425 - __main__ - INFO - 正在启动应用程序...
+2025-04-01 17:25:21,981 - __main__ - INFO - 应用程序退出，返回代码: 1
+2025-04-01 17:28:09,407 - __main__ - INFO - 找到Qt插件路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\Lib/site-packages/PyQt5/Qt5/plugins
+2025-04-01 17:28:09,407 - __main__ - INFO - Python解释器路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\python.exe
+2025-04-01 17:28:09,408 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-04-01 17:28:09,408 - __main__ - INFO - 正在启动应用程序...
+2025-04-01 17:28:45,369 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-01 17:30:41,718 - __main__ - INFO - 找到Qt插件路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\Lib/site-packages/PyQt5/Qt5/plugins
+2025-04-01 17:30:41,719 - __main__ - INFO - Python解释器路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\python.exe
+2025-04-01 17:30:41,719 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-04-01 17:30:41,719 - __main__ - INFO - 正在启动应用程序...
+2025-04-01 17:31:37,314 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-01 17:31:50,247 - __main__ - INFO - 找到Qt插件路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\Lib/site-packages/PyQt5/Qt5/plugins
+2025-04-01 17:31:50,249 - __main__ - INFO - Python解释器路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\python.exe
+2025-04-01 17:31:50,249 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-04-01 17:31:50,250 - __main__ - INFO - 正在启动应用程序...
+2025-04-01 17:32:23,121 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-01 17:32:56,111 - __main__ - INFO - 找到Qt插件路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\Lib/site-packages/PyQt5/Qt5/plugins
+2025-04-01 17:32:56,111 - __main__ - INFO - Python解释器路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\python.exe
+2025-04-01 17:32:56,112 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-04-01 17:32:56,112 - __main__ - INFO - 正在启动应用程序...
+2025-04-01 17:33:09,897 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-01 17:34:21,418 - __main__ - INFO - 找到Qt插件路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\Lib/site-packages/PyQt5/Qt5/plugins
+2025-04-01 17:34:21,419 - __main__ - INFO - Python解释器路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\python.exe
+2025-04-01 17:34:21,419 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-04-01 17:34:21,419 - __main__ - INFO - 正在启动应用程序...
+2025-04-01 17:34:39,062 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-01 17:37:32,910 - __main__ - INFO - 找到Qt插件路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\Lib/site-packages/PyQt5/Qt5/plugins
+2025-04-01 17:37:32,911 - __main__ - INFO - Python解释器路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\python.exe
+2025-04-01 17:37:32,911 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-04-01 17:37:32,911 - __main__ - INFO - 正在启动应用程序...
+2025-04-01 17:37:51,949 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-01 17:38:13,507 - __main__ - INFO - 找到Qt插件路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\Lib/site-packages/PyQt5/Qt5/plugins
+2025-04-01 17:38:13,507 - __main__ - INFO - Python解释器路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\python.exe
+2025-04-01 17:38:13,508 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-04-01 17:38:13,508 - __main__ - INFO - 正在启动应用程序...
+2025-04-01 17:48:57,028 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-01 17:49:06,534 - __main__ - INFO - 找到Qt插件路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\Lib/site-packages/PyQt5/Qt5/plugins
+2025-04-01 17:49:06,535 - __main__ - INFO - Python解释器路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\python.exe
+2025-04-01 17:49:06,535 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-04-01 17:49:06,535 - __main__ - INFO - 正在启动应用程序...
+2025-04-01 17:56:55,520 - __main__ - INFO - 找到Qt插件路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\Lib/site-packages/PyQt5/Qt5/plugins
+2025-04-01 17:56:55,520 - __main__ - INFO - Python解释器路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\python.exe
+2025-04-01 17:56:55,521 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-04-01 17:56:55,521 - __main__ - INFO - 正在启动应用程序...
+2025-04-01 17:57:33,700 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-01 18:00:07,091 - __main__ - INFO - 找到Qt插件路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\Lib/site-packages/PyQt5/Qt5/plugins
+2025-04-01 18:00:07,091 - __main__ - INFO - Python解释器路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\python.exe
+2025-04-01 18:00:07,091 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-04-01 18:00:07,092 - __main__ - INFO - 正在启动应用程序...
+2025-04-01 18:00:14,191 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-01 18:00:47,899 - __main__ - INFO - 找到Qt插件路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\Lib/site-packages/PyQt5/Qt5/plugins
+2025-04-01 18:00:47,900 - __main__ - INFO - Python解释器路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\python.exe
+2025-04-01 18:00:47,900 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\密码管理系统-步骤执行更直观\main.py
+2025-04-01 18:00:47,900 - __main__ - INFO - 正在启动应用程序...
+2025-04-01 18:01:41,021 - __main__ - INFO - 应用程序退出，返回代码: 0

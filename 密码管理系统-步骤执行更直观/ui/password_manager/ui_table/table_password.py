@@ -21,7 +21,7 @@ from PyQt5.QtGui import QColor, QBrush
 
 from password import password_manager
 from ssh_password_updater import ssh_password_updater
-from ui.password_manager.ui_guide import show_guide_if_needed
+from ui.password_manager.ui_guide import start_walkthrough
 from audit_log import audit_logger, OP_TYPE_GENERATE, OP_TYPE_UPDATE, OP_TYPE_SSH_UPDATE, OP_RESULT_SUCCESS, OP_RESULT_FAIL, OP_RESULT_WARNING, OP_RESULT_INFO, LOG_TYPE_SSH
 from encrypt import encryptor
 

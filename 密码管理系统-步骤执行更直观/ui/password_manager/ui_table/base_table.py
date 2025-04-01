@@ -43,6 +43,9 @@ class BasePasswordTable:
         self.search_mode = False
         self.editing_row = -1  # 当前正在编辑的行，-1表示没有正在编辑的行
         
+        # 设置表格的table_manager属性，方便引导功能直接访问
+        self.table.setProperty("table_manager", self)
+        
         self._setup_table()
         self._setup_custom_delegates()  # 设置自定义委托
         self._setup_context_menu()  # 设置右键菜单

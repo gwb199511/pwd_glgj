@@ -827,36 +827,33 @@ class TableEditMixin:
     
     def _setup_data_validation(self, row: int):
         """
-        为新增行添加数据验证
+        设置数据验证
+        
+        为必填字段添加验证，并显示相应提示
         
         Args:
             row (int): 行索引
         """
-        # 高亮显示必填字段
-        highlight_required_fields(self.table, row)
-        
-        # 设置单元格变化监听，保持必填字段的高亮状态
+        for col in REQUIRED_FIELDS:
+            item = self.table.item(row, col)
+            if item:
+                # 设置必填字段的标志
+                item.setData(Qt.UserRole + 2, "required")
+
+        # 连接编辑事件，用于更新字段状态
         self.table.itemChanged.connect(self._refresh_required_field_highlight)
-        
-        # 添加字段编辑监听，用于触发相应的引导
-        if hasattr(self, '_setup_field_guides'):
-            self._setup_field_guides(row)
     
     def _refresh_required_field_highlight(self, item):
         """
         刷新必填字段高亮
         
-        当单元格内容变化时，确保必填字段保持高亮状态
+        当必填字段的内容变化时更新高亮状态
         
         Args:
-            item (QTableWidgetItem): 变化的单元格项
+            item (QTableWidgetItem): 变化的表格项
         """
-        # 如果不在编辑状态，忽略
-        if self.editing_row < 0:
-            return
-            
-        # 仅处理编辑行的单元格变化
-        if item.row() != self.editing_row:
+        # 仅处理编辑状态下的变化
+        if not item or self.editing_row < 0:
             return
             
         # 仅对必填字段进行处理
@@ -881,51 +878,6 @@ class TableEditMixin:
             except:
                 # 忽略任何出错
                 pass
-
-    def _setup_field_guides(self, row: int):
-        """
-        设置字段编辑引导
-        
-        当用户编辑特定字段时，显示相应的引导
-        
-        Args:
-            row (int): 行索引
-        """
-        # 首先显示首次编辑引导
-        show_guide_if_needed("first_edit", self.table.window())
-        
-        # 监听密码和IP地址字段的编辑
-        # 要实现这个功能，我们需要在单元格激活时检查它的列
-        # 这部分在itemActivated信号中处理
-        
-        # 连接单元格变化信号
-        self.table.itemDoubleClicked.connect(
-            lambda item: self._show_field_guide_for_item(item)
-        )
-    
-    def _show_field_guide_for_item(self, item):
-        """
-        根据单元格类型显示相应的引导
-        
-        Args:
-            item (QTableWidgetItem): 表格单元格项
-        """
-        if not item:
-            return
-            
-        # 如果不是在编辑状态，忽略
-        if self.editing_row < 0:
-            return
-            
-        column = item.column()
-        
-        # 密码字段 (列索引4)
-        if column == 4:
-            show_guide_if_needed("password_field", self.table.window())
-            
-        # IP地址字段 (列索引2)
-        elif column == 2:
-            show_guide_if_needed("ip_field", self.table.window())
     
     def check_ssh_password_updates(self) -> bool:
         """

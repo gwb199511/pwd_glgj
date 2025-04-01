@@ -46,7 +46,15 @@ class PasswordManager:
         """
         初始化密码管理器
         """
-        self.db = Database(PASSWORD_DATA_FILE)
+        # 导入存储接口
+        import sys
+        import os.path
+        # 添加项目根目录到Python路径
+        sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        from data_storage import get_password_storage
+        
+        # 使用存储接口
+        self.db = get_password_storage()
 
     def get_all_owners(self) -> List[str]:
         """

@@ -315,3 +315,20 @@
 2025-03-28 15:51:27,506 - ui.password_manager.password_manager_ui - INFO - 使用内嵌方式打开审计日志查看器
 2025-03-28 15:51:27,514 - audit_log_viewer - INFO - 界面初始化完成
 2025-03-28 15:51:27,517 - audit_log_viewer - INFO - AuditLogViewer初始化成功
+2025-03-28 16:40:50,042 - user - INFO - 用户已登出
+2025-03-28 16:51:41,742 - root - INFO - 密码管理系统启动
+2025-03-28 16:51:41,742 - root - INFO - 初始化用户设置模块...
+2025-03-28 16:51:41,742 - root - INFO - 用户设置模块已初始化
+2025-03-28 16:51:44,552 - user - INFO - 用户 admin 登录成功
+2025-03-28 16:51:44,554 - login_ui - INFO - 用户 admin 登录成功
+2025-03-28 16:51:44,555 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-03-28 16:51:44,621 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-03-28 16:51:44,702 - ui.password_manager.ui_guide - INFO - 用户已完成引导: password_update，跳过显示
+2025-03-28 16:51:45,985 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 9, 当前列: 5, 选中行数: 1, 选中行: [9]
+2025-03-28 16:51:45,985 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-03-28 16:51:45,986 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-03-28 16:51:45,986 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-03-28 16:51:45,987 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-03-28 16:51:46,747 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 8 的真实索引，将使用表格行索引作为备选
+2025-03-28 16:51:46,747 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 8 作为真实索引
+2025-03-28 16:54:32,405 - ui.password_manager.ui_table.table_password - INFO - 密码更新对话框返回确认结果，刷新表格显示更新后的密码

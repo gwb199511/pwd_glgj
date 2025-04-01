@@ -6,6 +6,7 @@
 """
 
 import sys
+import os
 import logging
 from typing import Dict, Any, Callable, Optional
 
@@ -22,6 +23,12 @@ from ui.password_manager.ui_table import PasswordTable
 from ui.password_manager.ui_operations import PasswordOperations
 from ui_components import show_message
 from ui.password_manager.ui_guide import show_guide_if_needed, PASSWORD_UPDATE_GUIDE
+
+# 为了解决导入问题，添加项目根目录到Python路径
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+
+# 导入MySQL配置对话框
+from mysql_config_dialog import MySQLConfigDialog
 
 # 配置日志
 logger = logging.getLogger(__name__)
@@ -84,6 +91,14 @@ class PasswordManagerUI(QMainWindow):
         # 文件菜单
         file_menu = menubar.addMenu('选项')
         
+        # 配置MySQL连接
+        mysql_config_action = QAction('配置MySQL连接', self)
+        mysql_config_action.triggered.connect(self._open_mysql_config)
+        file_menu.addAction(mysql_config_action)
+        
+        # 添加分隔线
+        file_menu.addSeparator()
+        
         # 退出动作
         exit_action = QAction('退出', self)
         exit_action.setShortcut('Ctrl+Q')
@@ -113,21 +128,6 @@ class PasswordManagerUI(QMainWindow):
         password_update_guide_action = QAction('密码更新引导', self)
         password_update_guide_action.triggered.connect(lambda: self._show_specific_guide("password_update"))
         guide_submenu.addAction(password_update_guide_action)
-        
-        # 编辑功能引导
-        first_edit_guide_action = QAction('表格编辑功能引导', self)
-        first_edit_guide_action.triggered.connect(lambda: self._show_specific_guide("first_edit"))
-        guide_submenu.addAction(first_edit_guide_action)
-        
-        # 密码字段引导
-        password_field_guide_action = QAction('密码字段引导', self)
-        password_field_guide_action.triggered.connect(lambda: self._show_specific_guide("password_field"))
-        guide_submenu.addAction(password_field_guide_action)
-        
-        # IP地址字段引导
-        ip_field_guide_action = QAction('IP地址字段引导', self)
-        ip_field_guide_action.triggered.connect(lambda: self._show_specific_guide("ip_field"))
-        guide_submenu.addAction(ip_field_guide_action)
         
         # 重置所有引导动作
         reset_guides_action = QAction('重置所有引导', self)
@@ -401,6 +401,35 @@ class PasswordManagerUI(QMainWindow):
             guide_type (str): 引导类型
         """
         show_guide_if_needed(guide_type, self, force=True)
+
+    def _open_mysql_config(self):
+        """打开MySQL配置对话框"""
+        try:
+            dialog = MySQLConfigDialog(self)
+            
+            # 连接存储模式变更信号
+            dialog.storage_mode_changed.connect(self._handle_storage_mode_changed)
+            
+            result = dialog.exec_()
+            
+            if result:
+                self.statusBar().showMessage("MySQL配置已更新", 5000)
+        except Exception as e:
+            logger.error(f"打开MySQL配置对话框时出错: {str(e)}")
+            show_message(self, "错误", f"打开MySQL配置对话框时出错: {str(e)}", QMessageBox.Critical)
+
+    def _handle_storage_mode_changed(self, mode: str):
+        """
+        处理存储模式变更
+        
+        Args:
+            mode (str): 新的存储模式，"local"或"mysql"
+        """
+        message = f"存储模式已切换到: {'MySQL数据库' if mode == 'mysql' else '本地文件'}"
+        self.statusBar().showMessage(message, 5000)
+        
+        # 如果需要，可以在这里添加其他处理逻辑
+        # 例如重新加载数据等
 
 
 def main():

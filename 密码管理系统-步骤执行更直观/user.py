@@ -54,8 +54,16 @@ class UserManager:
         """
         初始化用户管理器
         """
-        self.db = Database(USER_DATA_FILE)
-        self.remember_db = Database(REMEMBER_FILE)
+        # 导入存储接口
+        import sys
+        import os.path
+        # 添加项目根目录到Python路径
+        sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        from data_storage import get_user_storage, get_remember_storage
+        
+        # 使用存储接口
+        self.db = get_user_storage()
+        self.remember_db = get_remember_storage()
         self.current_user = None
 
     def register(self, username: str, password: str) -> Tuple[bool, str]:
@@ -170,15 +178,39 @@ class UserManager:
             # 加密密码
             encrypted_password = encryptor.encrypt(password)
             
-            # 保存凭证
-            credentials = {
-                "username": username,
-                "password": encrypted_password
-            }
+            # 直接操作数据库保存凭证，避免使用字典参数
+            # 先删除旧记录
+            from db_manager import db_manager
             
-            return self.remember_db.set("credentials", credentials)
+            # 确保数据库连接
+            if not db_manager.is_connected():
+                success, message = db_manager.connect()
+                if not success:
+                    logger.error(f"保存凭证时连接数据库失败: {message}")
+                    return False
+            
+            # 清除旧记录
+            db_manager.execute_update("DELETE FROM remember WHERE username = %s", (username,))
+            
+            # 添加过期时间
+            from datetime import datetime, timedelta
+            from config import REMEMBER_EXPIRE_DAYS
+            expire_at = datetime.now() + timedelta(days=REMEMBER_EXPIRE_DAYS)
+            
+            # 插入新记录
+            sql = "INSERT INTO remember (username, password, expire_at) VALUES (%s, %s, %s)"
+            result = db_manager.execute_insert(sql, (username, encrypted_password, expire_at))
+            
+            if result > 0:
+                logger.info(f"成功保存用户 {username} 的登录凭证")
+                return True
+            else:
+                logger.error("保存凭证失败，数据库操作未返回有效ID")
+                return False
         except Exception as e:
             logger.error(f"保存登录凭证时出错: {str(e)}")
+            import traceback
+            logger.debug(traceback.format_exc())
             return False
 
     def clear_saved_credentials(self) -> bool:
@@ -188,7 +220,30 @@ class UserManager:
         Returns:
             bool: 操作成功返回True，否则返回False
         """
-        return self.remember_db.delete("credentials")
+        try:
+            # 从数据库删除所有凭证记录
+            from db_manager import db_manager
+            
+            # 确保数据库连接
+            if not db_manager.is_connected():
+                success, message = db_manager.connect()
+                if not success:
+                    logger.error(f"清除凭证时连接数据库失败: {message}")
+                    return False
+            
+            result = db_manager.execute_update("DELETE FROM remember", ())
+            
+            if result >= 0:
+                logger.info("已清除所有保存的登录凭证")
+                return True
+            else:
+                logger.error("清除凭证失败，数据库操作返回错误")
+                return False
+        except Exception as e:
+            logger.error(f"清除登录凭证时出错: {str(e)}")
+            import traceback
+            logger.debug(traceback.format_exc())
+            return False
 
     def load_saved_credentials(self) -> Optional[Dict[str, str]]:
         """
@@ -198,26 +253,51 @@ class UserManager:
             Optional[Dict[str, str]]: 包含用户名和密码的字典，如果没有保存的凭证则返回None
         """
         try:
-            credentials = self.remember_db.get("credentials")
+            # 从数据库获取最新的凭证
+            from db_manager import db_manager
+            db_manager.connect()
             
-            if not credentials:
+            # 获取未过期的记录
+            from datetime import datetime
+            current_time = datetime.now()
+            
+            # 直接通过列名获取结果
+            sql = "SELECT username, password FROM remember WHERE expire_at > %s ORDER BY expire_at DESC LIMIT 1"
+            results = db_manager.execute_query(sql, (current_time,))
+            
+            if not results or len(results) == 0:
+                logger.warning("未找到有效的登录凭证")
                 return None
                 
-            # 解密密码
-            username = credentials.get("username")
-            encrypted_password = credentials.get("password")
-            
-            if not username or not encrypted_password:
-                return None
+            # 遍历结果，确保正确获取值
+            for row in results:
+                # 检查行数据类型
+                if isinstance(row, dict):
+                    # 如果返回的是字典，直接通过键获取值
+                    username = row.get('username')
+                    encrypted_password = row.get('password')
+                else:
+                    # 如果返回的是元组或列表，通过索引获取值
+                    username = row[0] if len(row) > 0 else None
+                    encrypted_password = row[1] if len(row) > 1 else None
                 
-            password = encryptor.decrypt(encrypted_password)
+                # 找到第一条有效记录即可
+                if username and encrypted_password:
+                    # 解密密码
+                    password = encryptor.decrypt(encrypted_password)
+                    
+                    logger.info(f"成功加载用户 {username} 的登录凭证")
+                    return {
+                        "username": username,
+                        "password": password
+                    }
             
-            return {
-                "username": username,
-                "password": password
-            }
+            logger.warning("找到记录但用户名或密码为空")
+            return None
         except Exception as e:
             logger.error(f"加载登录凭证时出错: {str(e)}")
+            import traceback
+            logger.debug(traceback.format_exc())
             return None
 
     def logout(self) -> None:

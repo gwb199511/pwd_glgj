@@ -10,7 +10,12 @@ import json
 import logging
 from typing import Dict, Any, Optional
 
-from config import DATA_DIR
+# 导入存储接口
+import sys
+import os.path
+# 添加项目根目录到Python路径
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from data_storage import get_user_settings_storage
 
 # 配置日志
 logger = logging.getLogger(__name__)
@@ -39,18 +44,18 @@ class UserSettings:
     def __init__(self):
         """初始化用户设置管理器"""
         if not self._initialized:
-            self._settings_file = os.path.join(DATA_DIR, 'user_settings.json')
+            # 使用存储接口
+            self._storage = get_user_settings_storage()
             self._settings = {}
             self._load_settings()
             self._initialized = True
             
     def _load_settings(self):
-        """从文件加载设置"""
+        """从存储加载设置"""
         try:
-            if os.path.exists(self._settings_file):
-                with open(self._settings_file, 'r', encoding='utf-8') as f:
-                    self._settings = json.load(f)
-            else:
+            # 从存储接口加载数据
+            self._settings = self._storage.get_all()
+            if not self._settings:
                 self._settings = self._get_default_settings()
                 self._save_settings()
         except Exception as e:
@@ -58,13 +63,10 @@ class UserSettings:
             self._settings = self._get_default_settings()
             
     def _save_settings(self):
-        """保存设置到文件"""
+        """保存设置到存储"""
         try:
-            # 确保目录存在
-            os.makedirs(os.path.dirname(self._settings_file), exist_ok=True)
-            
-            with open(self._settings_file, 'w', encoding='utf-8') as f:
-                json.dump(self._settings, f, ensure_ascii=False, indent=4)
+            # 使用存储接口保存数据
+            self._storage.save(self._settings)
         except Exception as e:
             logger.error(f"保存用户设置时出错: {str(e)}")
             
@@ -74,9 +76,6 @@ class UserSettings:
             # 引导设置
             "guides": {
                 "password_update_guided": False,  # 密码更新引导是否已完成
-                "first_edit_guided": False,       # 首次编辑引导是否已完成
-                "password_field_guided": False,   # 密码字段引导是否已完成
-                "ip_field_guided": False,         # IP地址字段引导是否已完成
             },
             # 界面设置
             "ui": {

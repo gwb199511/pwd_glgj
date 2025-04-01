@@ -15,10 +15,7 @@ DATA_DIR = os.path.join(BASE_DIR, 'data')
 LOG_DIR = os.path.join(BASE_DIR, 'logs')
 
 # 数据文件路径
-USER_DATA_FILE = os.path.join(DATA_DIR, 'users.json')
-PASSWORD_DATA_FILE = os.path.join(DATA_DIR, 'passwords.json')
 ENCRYPTION_KEY_FILE = os.path.join(DATA_DIR, 'encryption.key')
-REMEMBER_FILE = os.path.join(DATA_DIR, 'remember.json')
 DB_CONFIG_FILE = os.path.join(DATA_DIR, 'db_config.json')
 
 # 确保目录存在
@@ -63,8 +60,6 @@ ENCRYPTION_ENCODING = 'utf-8'
 ENCRYPTION_PREFIX = 'gAAAAAB'  # Fernet加密数据的前缀
 
 # 数据库配置
-# 默认为本地存储方式，当切换到MySQL时使用
-STORAGE_TYPE = "mysql"  # "local" 或 "mysql"
 DEFAULT_MYSQL_CONFIG = {
     "host": "localhost",
     "port": 3306,

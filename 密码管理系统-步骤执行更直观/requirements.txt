@@ -1,3 +1,4 @@
-PyQt5==5.15.9
-cryptography==41.0.3
-paramiko==3.3.1  # Python SSH库，提供远程服务器密码同步功能 
+PyQt5==5.15.6
+cryptography==38.0.1
+paramiko==2.11.0
+pymysql==1.1.0 

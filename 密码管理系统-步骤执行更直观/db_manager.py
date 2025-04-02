@@ -29,13 +29,13 @@ class ConnectionPool:
     提供连接的创建、获取、释放和维护功能。
     """
     
-    def __init__(self, config, max_connections=10, connection_timeout=60):
+    def __init__(self, config, max_connections=20, connection_timeout=60):
         """
         初始化连接池
         
         Args:
             config (Dict): 数据库配置
-            max_connections (int): 最大连接数
+            max_connections (int): 最大连接数，默认为20个连接(原为10)
             connection_timeout (int): 连接超时时间（秒）
         """
         self.config = config
@@ -45,19 +45,19 @@ class ConnectionPool:
         self.in_use = {}
         self.lock = threading.Lock()
         self.last_connection_time = 0  # 上次创建连接的时间
-        self.connection_interval = 0.1  # 连接创建的最小间隔时间（秒）
+        self.connection_interval = 0.05  # 连接创建的最小间隔时间（秒），减少为0.05秒(原为0.1)
         self.last_log_time = 0  # 上次日志记录时间
-        self.log_interval = 3.0  # 日志输出的最小间隔（秒）
+        self.log_interval = 5.0  # 日志输出的最小间隔（秒），增加为5秒(原为3.0)
         
         # 预创建连接
         self._create_initial_connections()
     
-    def _create_initial_connections(self, initial_count=2):
+    def _create_initial_connections(self, initial_count=5):
         """
         预创建一些连接以提高初始性能
         
         Args:
-            initial_count (int): 初始连接数
+            initial_count (int): 初始连接数，默认为5个连接(原为2)
         """
         try:
             for _ in range(min(initial_count, self.max_connections)):
@@ -65,6 +65,7 @@ class ConnectionPool:
                 if conn:
                     self.connections.append(conn)
                     self.last_connection_time = time.time()
+                    logger.info(f"预创建连接成功，当前连接池大小: {len(self.connections)}")
         except Exception as e:
             logger.error(f"预创建连接失败: {str(e)}")
     
@@ -276,25 +277,32 @@ class ConnectionPool:
             self.connections = []
             self.in_use = {}
     
-    def cleanup_idle_connections(self, idle_timeout=300):
+    def cleanup_idle_connections(self, idle_timeout=600):
         """
         清理空闲连接
         
         Args:
-            idle_timeout (int): 空闲超时时间（秒）
+            idle_timeout (int): 空闲超时时间（秒），默认为600秒(原为300)
         """
         with self.lock:
             current_time = time.time()
             to_remove = []
             
-            for conn in self.connections:
-                # 检查连接是否空闲
-                if conn not in self.in_use or current_time - self.in_use.get(conn, 0) > idle_timeout:
-                    to_remove.append(conn)
+            # 确保连接池中至少保留3个连接
+            min_pool_size = 3
+            idle_connections = [conn for conn in self.connections if conn not in self.in_use]
+            
+            # 只有当空闲连接数大于最小池大小时才进行清理
+            if len(idle_connections) > min_pool_size:
+                for conn in idle_connections[min_pool_size:]:
+                    # 检查连接是否空闲及超时
+                    if current_time - self.in_use.get(conn, 0) > idle_timeout:
+                        to_remove.append(conn)
             
             # 关闭并移除空闲连接
             for conn in to_remove:
                 self._close_connection(conn)
+                logger.debug(f"已清理一个空闲连接，当前连接池大小: {len(self.connections)}")
 
 
 class DBManager:

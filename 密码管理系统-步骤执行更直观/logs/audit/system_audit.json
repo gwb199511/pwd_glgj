@@ -2086,5 +2086,167 @@
     "target": "石帆/批量操作",
     "details": "批量生成随机密码并更新服务器全部成功，共1个服务器，IP地址：192.168.8.87",
     "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T15:10:56.813208",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T15:11:03.426711",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "石帆/批量操作",
+    "details": "开始为1个服务器生成16位随机密码，ip地址为：192.168.8.87",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T15:11:17.044303",
+    "user": "admin",
+    "operation": "update",
+    "result": "success",
+    "target": "石帆/test",
+    "details": "仅更新本地密码记录成功（跳过服务器同步），项目：test",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T15:11:17.096165",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "石帆/批量操作",
+    "details": "批量生成随机密码并更新服务器全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T15:39:28.052125",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T15:39:39.602406",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "石帆/批量操作",
+    "details": "开始为1个服务器生成16位随机密码，ip地址为：192.168.8.87",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T15:39:58.438222",
+    "user": "admin",
+    "operation": "update",
+    "result": "success",
+    "target": "石帆/test",
+    "details": "仅更新本地密码记录成功（跳过服务器同步），项目：test",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T15:40:00.178540",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "石帆/批量操作",
+    "details": "批量生成随机密码并更新服务器全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T15:41:00.672723",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T15:42:14.285725",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T15:42:19.875398",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "石帆/批量操作",
+    "details": "开始为1个服务器生成16位随机密码，ip地址为：192.168.8.87",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T15:42:34.215696",
+    "user": "admin",
+    "operation": "update",
+    "result": "success",
+    "target": "石帆/test",
+    "details": "仅更新本地密码记录成功（跳过服务器同步），项目：test",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T15:42:38.188426",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "石帆/批量操作",
+    "details": "批量生成随机密码并更新服务器全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T15:42:40.666946",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "石帆/批量操作",
+    "details": "开始为1个服务器生成16位随机密码，ip地址为：192.168.8.87",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T15:43:01.105439",
+    "user": "admin",
+    "operation": "update",
+    "result": "success",
+    "target": "石帆/test",
+    "details": "仅更新本地密码记录成功（跳过服务器同步），项目：test",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T15:43:05.919200",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "石帆/批量操作",
+    "details": "批量生成随机密码并更新服务器全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T15:43:12.010036",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "石帆/批量操作",
+    "details": "开始为1个服务器生成16位随机密码，ip地址为：192.168.8.87",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T15:43:16.047102",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "石帆/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
   }
 ]

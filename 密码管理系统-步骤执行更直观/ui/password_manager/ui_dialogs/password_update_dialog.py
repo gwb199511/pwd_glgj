@@ -212,6 +212,62 @@ class PasswordUpdateWorker(QThread):
         """中断工作线程"""
         self.interrupted = True
 
+class BackgroundSaveWorker(QThread):
+    """后台保存线程，避免UI阻塞"""
+    
+    # 定义信号
+    save_finished = pyqtSignal(bool, str)  # 保存结果，消息
+    
+    def __init__(self, results, owner):
+        """
+        初始化后台保存线程
+        
+        Args:
+            results (Dict): 更新结果字典
+            owner (str): 所有者
+        """
+        super().__init__()
+        self.results = results
+        self.owner = owner
+        
+    def run(self):
+        """执行保存工作"""
+        try:
+            success_count = 0
+            
+            for row_idx, result in self.results.items():
+                if result.get('success', False):
+                    server = result.get('server', {})
+                    real_index = server.get('real_index')
+                    new_password = server.get('new_password')
+                    ip = server.get('ip')
+                    
+                    if real_index is not None and new_password and self.owner:
+                        # 获取原始记录
+                        passwords = password_manager.get_passwords_by_owner(self.owner)
+                        
+                        if 0 <= real_index < len(passwords):
+                            # 更新密码字段
+                            passwords[real_index][4] = new_password
+                            
+                            # 保存到数据库，跳过服务器同步
+                            db_success, _ = password_manager.update_password(
+                                self.owner, real_index, passwords[real_index], skip_server_sync=True
+                            )
+                            
+                            if db_success:
+                                success_count += 1
+                                logger.info(f"成功保存密码到数据库 - 服务器: {ip}, 索引: {real_index}")
+                            else:
+                                logger.error(f"保存密码到数据库失败 - 服务器: {ip}, 索引: {real_index}")
+            
+            # 发送完成信号
+            self.save_finished.emit(success_count > 0, f"{success_count} 个密码已保存到数据库")
+            
+        except Exception as e:
+            logger.error(f"后台保存密码时出错: {str(e)}")
+            self.save_finished.emit(False, f"保存失败: {str(e)}")
+
 class PasswordUpdateDialog(QDialog):
     """密码更新对话框，显示更新进度并确保成功后永久保存"""
     
@@ -792,11 +848,48 @@ class PasswordUpdateDialog(QDialog):
     
     def save_and_close(self):
         """完成并关闭对话框"""
-        # 再次保存，以防有未保存的更新
-        self.save_successful_updates()
+        # 创建进度对话框
+        progress_dialog = QDialog(self)
+        progress_dialog.setWindowTitle("保存中")
+        progress_dialog.setFixedSize(300, 100)
+        progress_dialog.setWindowFlags(progress_dialog.windowFlags() & ~Qt.WindowContextHelpButtonHint)
+        progress_dialog.setModal(True)
         
-        # 关闭对话框并返回成功
-        self.accept()
+        # 添加进度布局
+        layout = QVBoxLayout(progress_dialog)
+        
+        # 进度提示
+        progress_label = QLabel("正在后台保存更新的密码，请稍候...")
+        progress_label.setAlignment(Qt.AlignCenter)
+        layout.addWidget(progress_label)
+        
+        # 进度条
+        progress_bar = QProgressBar()
+        progress_bar.setRange(0, 0)  # 设置为不确定进度
+        layout.addWidget(progress_bar)
+        
+        # 创建后台工作线程
+        self.save_worker = BackgroundSaveWorker(self.results, self.owner)
+        
+        # 连接完成信号
+        def on_save_finished(success, message):
+            progress_dialog.accept()
+            
+            if success:
+                # 成功后关闭主对话框
+                QMessageBox.information(self, "保存完成", message)
+                self.accept()
+            else:
+                # 失败提示，但不关闭主对话框
+                QMessageBox.warning(self, "保存出错", message)
+        
+        self.save_worker.save_finished.connect(on_save_finished)
+        
+        # 启动后台线程
+        self.save_worker.start()
+        
+        # 显示进度对话框
+        progress_dialog.exec_()
 
     def event(self, event):
         """处理事件，包括帮助事件"""

@@ -25,5 +25,41 @@
     "target": "石帆/批量更新",
     "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
     "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-02T15:11:10.778651",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-02T15:39:46.981738",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-02T15:42:26.659565",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-02T15:42:54.058861",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "ssh"
   }
 ]

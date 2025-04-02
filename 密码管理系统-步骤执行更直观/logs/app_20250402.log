@@ -3679,3 +3679,293 @@ NameError: name 'step' is not defined
 2025-04-02 14:22:42,376 - password - INFO - 更新所有者 石帆 的密码记录成功 (跳过服务器同步)
 2025-04-02 14:22:42,380 - ui.password_manager.ui_dialogs.password_update_dialog - INFO - 成功保存密码到数据库 - 服务器: 192.168.8.87, 索引: 12
 2025-04-02 14:22:42,397 - ui.password_manager.ui_table.table_password - INFO - 密码更新对话框返回确认结果，刷新表格显示更新后的密码
+2025-04-02 15:10:55,270 - root - INFO - 密码管理系统启动
+2025-04-02 15:10:55,271 - root - INFO - 初始化用户设置模块...
+2025-04-02 15:10:55,271 - root - INFO - 用户设置模块已初始化
+2025-04-02 15:10:55,530 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:10:55,551 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-02 15:10:56,792 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:10:56,812 - user - INFO - 用户 admin 登录成功
+2025-04-02 15:10:56,816 - login_ui - INFO - 用户 admin 登录成功
+2025-04-02 15:10:57,191 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:10:57,281 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:10:57,320 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-02 15:10:57,320 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-02 15:10:57,375 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-02 15:10:57,543 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:10:58,720 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-02 15:11:00,485 - user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-02 15:11:00,485 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-02 15:11:01,424 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:01,672 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:01,833 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:02,021 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:02,220 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:02,424 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:02,610 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 13, 当前列: 5, 选中行数: 1, 选中行: [13]
+2025-04-02 15:11:02,610 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-02 15:11:02,611 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-02 15:11:02,611 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-02 15:11:02,611 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-02 15:11:02,612 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:02,794 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:02,910 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:03,080 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:03,310 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:03,426 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 12 的真实索引，将使用表格行索引作为备选
+2025-04-02 15:11:03,426 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 12 作为真实索引
+2025-04-02 15:11:03,500 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:03,700 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:03,880 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:04,084 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:04,341 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:04,508 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:04,730 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:04,878 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-02 15:11:04,920 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:04,987 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-02 15:11:05,031 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-02 15:11:05,140 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-02 15:11:10,401 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-02 15:11:10,561 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-02 15:11:11,882 - password - INFO - 调试信息 - update_password被调用，skip_server_sync参数值为: True，类型: <class 'bool'>
+2025-04-02 15:11:11,883 - password - INFO - 更新密码记录 - 所有者: 石帆, 索引: 12, 项目: test, 跳过服务器同步: 是
+2025-04-02 15:11:11,883 - password - INFO - 明确跳过SSH密码更新步骤 - 项目: test, skip_server_sync=True
+2025-04-02 15:11:12,010 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:12,206 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:12,426 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:12,611 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:12,840 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:13,021 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:13,230 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:13,430 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:13,691 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:13,923 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:14,050 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:14,231 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:14,432 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:14,612 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:14,802 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:14,993 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:15,161 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:15,361 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:15,590 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:15,811 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:16,896 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:16,962 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:17,035 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:11:17,043 - password - INFO - 更新所有者 石帆 的密码记录成功 (跳过服务器同步)
+2025-04-02 15:11:17,047 - ui.password_manager.ui_dialogs.password_update_dialog - INFO - 成功保存密码到数据库 - 服务器: 192.168.8.87, 索引: 12
+2025-04-02 15:11:17,052 - ui.password_manager.ui_table.table_password - INFO - 密码更新对话框返回确认结果，刷新表格显示更新后的密码
+2025-04-02 15:39:26,432 - root - INFO - 密码管理系统启动
+2025-04-02 15:39:26,432 - root - INFO - 初始化用户设置模块...
+2025-04-02 15:39:26,432 - root - INFO - 用户设置模块已初始化
+2025-04-02 15:39:26,657 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:26,692 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-02 15:39:28,014 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:28,051 - user - INFO - 用户 admin 登录成功
+2025-04-02 15:39:28,057 - login_ui - INFO - 用户 admin 登录成功
+2025-04-02 15:39:28,238 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:28,419 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:28,436 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-02 15:39:28,436 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-02 15:39:28,489 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-02 15:39:28,789 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:29,959 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-02 15:39:31,350 - user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-02 15:39:31,350 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-02 15:39:31,555 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:31,757 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:32,143 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:32,383 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:32,622 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:32,931 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:33,144 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 13, 当前列: 5, 选中行数: 1, 选中行: [13]
+2025-04-02 15:39:33,145 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-02 15:39:33,145 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-02 15:39:33,146 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-02 15:39:33,146 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-02 15:39:33,239 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:33,492 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:33,742 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:33,986 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:34,222 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:34,427 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:34,683 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:34,948 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:35,206 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:35,425 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:35,636 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:35,856 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:36,135 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:38,994 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 13, 当前列: 5, 选中行数: 1, 选中行: [13]
+2025-04-02 15:39:38,994 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-02 15:39:38,995 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-02 15:39:38,995 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-02 15:39:38,996 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-02 15:39:39,601 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 12 的真实索引，将使用表格行索引作为备选
+2025-04-02 15:39:39,601 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 12 作为真实索引
+2025-04-02 15:39:41,018 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-02 15:39:41,184 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-02 15:39:41,236 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-02 15:39:41,345 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-02 15:39:46,654 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-02 15:39:46,786 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-02 15:39:48,034 - password - INFO - 调试信息 - update_password被调用，skip_server_sync参数值为: True，类型: <class 'bool'>
+2025-04-02 15:39:48,034 - password - INFO - 更新密码记录 - 所有者: 石帆, 索引: 12, 项目: test, 跳过服务器同步: 是
+2025-04-02 15:39:48,035 - password - INFO - 明确跳过SSH密码更新步骤 - 项目: test, skip_server_sync=True
+2025-04-02 15:39:48,476 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:48,957 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:49,532 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:49,959 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:50,345 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:50,599 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:50,817 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:51,344 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:51,564 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:51,764 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:51,964 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:52,268 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:52,586 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:52,994 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:53,434 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:53,643 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:53,805 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:54,572 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:55,362 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:56,400 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:56,934 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:57,611 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:58,370 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:39:58,438 - password - INFO - 更新所有者 石帆 的密码记录成功 (跳过服务器同步)
+2025-04-02 15:39:58,442 - ui.password_manager.ui_dialogs.password_update_dialog - INFO - 成功保存密码到数据库 - 服务器: 192.168.8.87, 索引: 12
+2025-04-02 15:40:00,134 - ui.password_manager.ui_table.table_password - INFO - 密码更新对话框返回确认结果，刷新表格显示更新后的密码
+2025-04-02 15:41:00,672 - user - INFO - 用户已登出
+2025-04-02 15:42:12,914 - root - INFO - 密码管理系统启动
+2025-04-02 15:42:12,914 - root - INFO - 初始化用户设置模块...
+2025-04-02 15:42:12,915 - root - INFO - 用户设置模块已初始化
+2025-04-02 15:42:13,174 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:13,195 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-02 15:42:14,264 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:14,284 - user - INFO - 用户 admin 登录成功
+2025-04-02 15:42:14,289 - login_ui - INFO - 用户 admin 登录成功
+2025-04-02 15:42:14,417 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:14,574 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:14,620 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-02 15:42:14,621 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-02 15:42:14,673 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-02 15:42:14,875 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:16,041 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-02 15:42:17,164 - user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-02 15:42:17,165 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-02 15:42:18,105 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:18,324 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:18,525 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:18,644 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:18,884 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:19,104 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 13, 当前列: 5, 选中行数: 1, 选中行: [13]
+2025-04-02 15:42:19,104 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-02 15:42:19,105 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-02 15:42:19,105 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-02 15:42:19,106 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-02 15:42:19,115 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:19,334 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:19,538 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:19,675 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:19,874 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 12 的真实索引，将使用表格行索引作为备选
+2025-04-02 15:42:19,874 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 12 作为真实索引
+2025-04-02 15:42:19,927 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:20,144 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:20,374 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:20,554 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:20,732 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:20,842 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-02 15:42:20,904 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:20,960 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-02 15:42:20,984 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-02 15:42:21,082 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:21,103 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-02 15:42:21,264 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:21,734 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:22,125 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:26,365 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-02 15:42:26,474 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-02 15:42:29,257 - password - INFO - 调试信息 - update_password被调用，skip_server_sync参数值为: True，类型: <class 'bool'>
+2025-04-02 15:42:29,258 - password - INFO - 更新密码记录 - 所有者: 石帆, 索引: 12, 项目: test, 跳过服务器同步: 是
+2025-04-02 15:42:29,258 - password - INFO - 明确跳过SSH密码更新步骤 - 项目: test, skip_server_sync=True
+2025-04-02 15:42:29,414 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:29,635 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:29,824 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:29,965 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:30,184 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:30,412 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:30,669 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:30,897 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:31,101 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:31,408 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:31,682 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:31,976 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:32,195 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:32,412 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:32,617 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:32,767 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:32,972 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:33,185 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:33,404 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:33,614 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:33,764 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:33,975 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:34,176 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:34,214 - password - INFO - 更新所有者 石帆 的密码记录成功 (跳过服务器同步)
+2025-04-02 15:42:34,218 - ui.password_manager.ui_dialogs.password_update_dialog - INFO - 成功保存密码到数据库 - 服务器: 192.168.8.87, 索引: 12
+2025-04-02 15:42:38,144 - ui.password_manager.ui_table.table_password - INFO - 密码更新对话框返回确认结果，刷新表格显示更新后的密码
+2025-04-02 15:42:39,936 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 13, 当前列: 5, 选中行数: 1, 选中行: [13]
+2025-04-02 15:42:39,936 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-02 15:42:39,937 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-02 15:42:39,937 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-02 15:42:39,938 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-02 15:42:40,665 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 12 的真实索引，将使用表格行索引作为备选
+2025-04-02 15:42:40,665 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 12 作为真实索引
+2025-04-02 15:42:42,158 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-02 15:42:43,183 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-02 15:42:44,030 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-02 15:42:46,879 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-02 15:42:53,775 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-02 15:42:53,885 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-02 15:42:56,496 - password - INFO - 调试信息 - update_password被调用，skip_server_sync参数值为: True，类型: <class 'bool'>
+2025-04-02 15:42:56,497 - password - INFO - 更新密码记录 - 所有者: 石帆, 索引: 12, 项目: test, 跳过服务器同步: 是
+2025-04-02 15:42:56,497 - password - INFO - 明确跳过SSH密码更新步骤 - 项目: test, skip_server_sync=True
+2025-04-02 15:42:56,615 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:56,815 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:57,015 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:57,234 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:57,455 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:57,617 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:57,824 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:58,054 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:58,265 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:58,475 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:58,629 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:58,854 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:59,055 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:59,255 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:59,475 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:59,675 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:42:59,885 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:43:00,114 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:43:00,295 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:43:00,515 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:43:00,665 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:43:00,889 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:43:01,065 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:43:01,105 - password - INFO - 更新所有者 石帆 的密码记录成功 (跳过服务器同步)
+2025-04-02 15:43:01,108 - ui.password_manager.ui_dialogs.password_update_dialog - INFO - 成功保存密码到数据库 - 服务器: 192.168.8.87, 索引: 12
+2025-04-02 15:43:05,876 - ui.password_manager.ui_table.table_password - INFO - 密码更新对话框返回确认结果，刷新表格显示更新后的密码
+2025-04-02 15:43:09,169 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 13, 当前列: 5, 选中行数: 1, 选中行: [13]
+2025-04-02 15:43:09,170 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-02 15:43:09,170 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-02 15:43:09,171 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-02 15:43:09,171 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-02 15:43:12,009 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 12 的真实索引，将使用表格行索引作为备选
+2025-04-02 15:43:12,009 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 12 作为真实索引
+2025-04-02 15:43:16,047 - ui.password_manager.ui_table.table_password - INFO - 用户取消了密码更新操作

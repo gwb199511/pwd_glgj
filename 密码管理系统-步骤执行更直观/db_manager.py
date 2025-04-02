@@ -29,13 +29,13 @@ class ConnectionPool:
     提供连接的创建、获取、释放和维护功能。
     """
     
-    def __init__(self, config, max_connections=20, connection_timeout=60):
+    def __init__(self, config, max_connections=30, connection_timeout=60):
         """
         初始化连接池
         
         Args:
             config (Dict): 数据库配置
-            max_connections (int): 最大连接数，默认为20个连接(原为10)
+            max_connections (int): 最大连接数，默认为30个连接(原为20)
             connection_timeout (int): 连接超时时间（秒）
         """
         self.config = config
@@ -52,12 +52,12 @@ class ConnectionPool:
         # 预创建连接
         self._create_initial_connections()
     
-    def _create_initial_connections(self, initial_count=5):
+    def _create_initial_connections(self, initial_count=8):
         """
         预创建一些连接以提高初始性能
         
         Args:
-            initial_count (int): 初始连接数，默认为5个连接(原为2)
+            initial_count (int): 初始连接数，默认为8个连接(原为5)
         """
         try:
             for _ in range(min(initial_count, self.max_connections)):
@@ -277,19 +277,19 @@ class ConnectionPool:
             self.connections = []
             self.in_use = {}
     
-    def cleanup_idle_connections(self, idle_timeout=600):
+    def cleanup_idle_connections(self, idle_timeout=900):
         """
         清理空闲连接
         
         Args:
-            idle_timeout (int): 空闲超时时间（秒），默认为600秒(原为300)
+            idle_timeout (int): 空闲超时时间（秒），默认为900秒(原为600)
         """
         with self.lock:
             current_time = time.time()
             to_remove = []
             
-            # 确保连接池中至少保留3个连接
-            min_pool_size = 3
+            # 确保连接池中至少保留5个连接
+            min_pool_size = 5
             idle_connections = [conn for conn in self.connections if conn not in self.in_use]
             
             # 只有当空闲连接数大于最小池大小时才进行清理

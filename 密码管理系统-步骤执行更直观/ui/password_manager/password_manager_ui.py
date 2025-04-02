@@ -88,26 +88,13 @@ class PasswordManagerUI(QMainWindow):
         # 创建菜单栏
         menubar = self.menuBar()
         
-        # 文件菜单
-        file_menu = menubar.addMenu('文件')
-        
-        # 导出动作
-        export_action = QAction('导出数据', self)
-        export_action.triggered.connect(self.operations_manager.export_data)
-        file_menu.addAction(export_action)
-        
-        # 导入动作
-        import_action = QAction('导入数据', self)
-        import_action.triggered.connect(self.operations_manager.import_data)
-        file_menu.addAction(import_action)
-        
-        # 分隔线
-        file_menu.addSeparator()
+        # 选项菜单（原为文件菜单）
+        options_menu = menubar.addMenu('选项')
         
         # 退出动作
         exit_action = QAction('退出', self)
         exit_action.triggered.connect(self.close)
-        file_menu.addAction(exit_action)
+        options_menu.addAction(exit_action)
         
         # 工具菜单
         tools_menu = menubar.addMenu('工具')

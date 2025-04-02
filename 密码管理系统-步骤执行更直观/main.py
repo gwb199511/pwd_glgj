@@ -73,7 +73,7 @@ def main():
     # 检查是否有重置引导记录的命令行参数
     if len(sys.argv) > 1 and sys.argv[1] == "--reset-guides":
         user_settings.reset_guides()
-        logging.info("已重置所有引导记录")
+        logging.info("已重置引导记录")
 
     # 创建应用程序
     app = QApplication(sys.argv)

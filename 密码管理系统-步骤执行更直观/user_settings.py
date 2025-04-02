@@ -345,7 +345,7 @@ class UserSettings:
         logger.info(f"已批量标记引导为已完成: {', '.join(guide_keys)}")
         
     def reset_guides(self) -> None:
-        """重置所有引导状态为未完成"""
+        """重置引导状态为未完成"""
         guides = self.get("guides", {})
         settings = {}
         

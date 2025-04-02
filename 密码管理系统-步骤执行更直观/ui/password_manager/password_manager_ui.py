@@ -143,8 +143,8 @@ class PasswordManagerUI(QMainWindow):
         main_features_guide_action.triggered.connect(self._show_main_features_guide)
         guide_submenu.addAction(main_features_guide_action)
         
-        # 重置所有引导动作
-        reset_guides_action = QAction('重置所有引导', self)
+        # 重置引导动作
+        reset_guides_action = QAction('重置引导', self)
         reset_guides_action.triggered.connect(self._reset_all_guides)
         help_menu.addAction(reset_guides_action)
         
@@ -286,12 +286,12 @@ class PasswordManagerUI(QMainWindow):
         start_walkthrough("main_features", self, target_widgets)
         
     def _reset_all_guides(self):
-        """重置所有引导状态"""
+        """重置引导状态"""
         # 确认重置
         result = QMessageBox.question(
             self,
             "重置引导",
-            "确定要重置所有引导状态吗？\n\n这将使所有引导对话框在相应操作时再次显示。",
+            "确定要重置引导状态吗？\n\n这将使所有引导对话框在相应操作时再次显示。",
             QMessageBox.Yes | QMessageBox.No,
             QMessageBox.No
         )
@@ -301,7 +301,7 @@ class PasswordManagerUI(QMainWindow):
             QMessageBox.information(
                 self,
                 "重置完成",
-                "所有引导状态已重置。\n\n在执行相应操作时，引导对话框将再次显示。",
+                "引导状态已重置。\n\n在执行相应操作时，引导对话框将再次显示。",
                 QMessageBox.Ok
             )
 

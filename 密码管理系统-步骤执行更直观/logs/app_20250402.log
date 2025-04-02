@@ -3969,3 +3969,64 @@ NameError: name 'step' is not defined
 2025-04-02 15:43:12,009 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 12 的真实索引，将使用表格行索引作为备选
 2025-04-02 15:43:12,009 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 12 作为真实索引
 2025-04-02 15:43:16,047 - ui.password_manager.ui_table.table_password - INFO - 用户取消了密码更新操作
+2025-04-02 15:44:19,751 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 13, 当前列: 5, 选中行数: 1, 选中行: [13]
+2025-04-02 15:44:19,752 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-02 15:44:19,753 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-02 15:44:19,753 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-02 15:44:19,753 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-02 15:44:20,763 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 12 的真实索引，将使用表格行索引作为备选
+2025-04-02 15:44:20,763 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 12 作为真实索引
+2025-04-02 15:44:22,465 - ui.password_manager.ui_table.table_password - INFO - 用户取消了密码更新操作
+2025-04-02 15:44:24,327 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 13, 当前列: 5, 选中行数: 1, 选中行: [13]
+2025-04-02 15:44:24,327 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-02 15:44:24,328 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-02 15:44:24,328 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-02 15:44:24,329 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-02 15:44:25,057 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 12 的真实索引，将使用表格行索引作为备选
+2025-04-02 15:44:25,058 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 12 作为真实索引
+2025-04-02 15:44:26,773 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-02 15:44:26,985 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-02 15:44:27,039 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-02 15:44:27,245 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-02 15:44:32,773 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-02 15:44:33,058 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-02 15:44:35,531 - password - INFO - 调试信息 - update_password被调用，skip_server_sync参数值为: True，类型: <class 'bool'>
+2025-04-02 15:44:35,531 - password - INFO - 更新密码记录 - 所有者: 石帆, 索引: 12, 项目: test, 跳过服务器同步: 是
+2025-04-02 15:44:35,532 - password - INFO - 明确跳过SSH密码更新步骤 - 项目: test, skip_server_sync=True
+2025-04-02 15:44:35,986 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:44:36,497 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:44:36,830 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:44:37,237 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:44:37,706 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:44:38,179 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:44:38,501 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:44:38,879 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:44:39,226 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:44:39,765 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:44:40,400 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:44:40,948 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:44:41,386 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:44:42,141 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:44:42,660 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:44:43,148 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:44:43,731 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:44:44,214 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:44:44,745 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:44:45,113 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:44:45,835 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:44:46,579 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:44:47,333 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-02 15:44:47,542 - password - INFO - 更新所有者 石帆 的密码记录成功 (跳过服务器同步)
+2025-04-02 15:44:47,546 - ui.password_manager.ui_dialogs.password_update_dialog - INFO - 成功保存密码到数据库 - 服务器: 192.168.8.87, 索引: 12
+2025-04-02 15:44:50,418 - ui.password_manager.ui_table.table_password - INFO - 密码更新对话框返回确认结果，刷新表格显示更新后的密码
+2025-04-02 15:46:31,097 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 13, 当前列: 5, 选中行数: 1, 选中行: [13]
+2025-04-02 15:46:31,100 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-02 15:46:31,101 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-02 15:46:31,101 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-02 15:46:31,102 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-02 15:46:32,923 - ui.password_manager.ui_table.table_events - INFO - 已复制1个单元格内容到剪贴板（表格格式）
+2025-04-02 15:46:35,497 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 13, 当前列: 5, 选中行数: 1, 选中行: [13]
+2025-04-02 15:46:35,497 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-02 15:46:35,498 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-02 15:46:35,498 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-02 15:46:35,499 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项

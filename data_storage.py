@@ -266,15 +266,91 @@ class MySQLStorage(StorageBase):
                 value = data.get(key, {})
                 return self.set(key, value)
             else:
-                # 处理整个数据集
-                success = True
-                for k, v in data.items():
-                    if not self.set(k, v):
-                        success = False
-                return success
+                # 处理整个数据集 - 批量处理减少数据库连接次数
+                # 为不同表类型准备批量操作
+                if self.table_name == "user_settings":
+                    return self._batch_save_settings(data)
+                else:
+                    # 处理整个数据集
+                    success = True
+                    for k, v in data.items():
+                        if not self.set(k, v):
+                            success = False
+                    return success
                 
         except Exception as e:
             logger.error(f"MySQL保存数据时出错: {str(e)}")
+            logger.debug(traceback.format_exc())
+            return False
+    
+    def _batch_save_settings(self, settings_data: Dict[str, Any]) -> bool:
+        """
+        批量保存用户设置数据（特殊处理减少数据库操作）
+        
+        Args:
+            settings_data (Dict[str, Any]): 设置数据
+            
+        Returns:
+            bool: 操作是否成功
+        """
+        try:
+            # 获取所有设置项及其嵌套结构
+            flattened_settings = {}
+            
+            # 递归展平嵌套字典
+            def flatten_dict(prefix, obj):
+                for k, v in obj.items():
+                    key = f"{prefix}.{k}" if prefix else k
+                    if isinstance(v, dict):
+                        flatten_dict(key, v)
+                    else:
+                        flattened_settings[key] = v
+            
+            # 处理所有用户
+            for username, user_settings in settings_data.items():
+                # 展平该用户的所有设置
+                flatten_dict("", user_settings)
+                
+                # 准备批量插入的参数
+                batch_values = []
+                for setting_key, setting_value in flattened_settings.items():
+                    # 将值转换为JSON字符串
+                    value_json = json.dumps(setting_value, ensure_ascii=False)
+                    batch_values.append((username, setting_key, value_json))
+                
+                if not batch_values:
+                    continue
+                
+                # 获取数据库连接
+                conn = None
+                try:
+                    from db_manager import db_manager
+                    
+                    # 删除该用户的所有设置
+                    db_manager.execute_update(
+                        f"DELETE FROM {self.table_name} WHERE username = %s", 
+                        (username,)
+                    )
+                    
+                    # 批量插入新设置
+                    # 使用REPLACE INTO来处理唯一键冲突
+                    for username, setting_key, value_json in batch_values:
+                        sql = """
+                            REPLACE INTO user_settings (username, setting_key, setting_value)
+                            VALUES (%s, %s, %s)
+                        """
+                        db_manager.execute_insert(sql, (username, setting_key, value_json))
+                        
+                except Exception as e:
+                    logger.error(f"批量保存设置时出错: {str(e)}")
+                    return False
+            
+            # 更新内存数据
+            self.data = settings_data
+            return True
+            
+        except Exception as e:
+            logger.error(f"批量处理设置数据时出错: {str(e)}")
             logger.debug(traceback.format_exc())
             return False
     

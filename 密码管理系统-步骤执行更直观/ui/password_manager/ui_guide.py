@@ -729,7 +729,7 @@ MAIN_FEATURES_WALKTHROUGH = [
     },
     {
         "title": "右键菜操作（密码列）",
-        "description": "在密码列上右击可显示操作菜单，包括复制密码和生成随机密码等功能。也可进行添加、编辑和删除记录操作。复制、生成随机密码、删除支持多选操作。",
+        "description": "在密码列上右击可显示操作菜单，包括复制和生成随机密码等功能。\n也可进行添加、编辑和删除记录操作。\n复制、生成随机密码、删除支持多选操作。",
         "position": "bottom",
         "show_context_menu": True,  # 标记需要显示右键菜单
         "widget_id": "password_table",  # 指定要在哪个控件上显示右键菜单
@@ -818,8 +818,8 @@ def start_walkthrough(guide_key: str, parent, target_widgets: Dict[str, QWidget]
         if hasattr(parent, '_original_resize_event'):
             parent.resizeEvent = parent._original_resize_event
         
-        # 标记引导已完成
-        user_settings.user_settings.mark_guide_completed(guide_key)
+        # 标记引导已完成（使用延迟保存）
+        user_settings.user_settings.mark_guide_completed(guide_key, immediate=False)
         logger.info(f"用户已完成步骤引导: {guide_key}")
     
     overlay.finished.connect(on_walkthrough_finished)

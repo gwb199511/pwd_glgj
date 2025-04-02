@@ -179,17 +179,10 @@ class UserManager:
             encrypted_password = encryptor.encrypt(password)
             
             # 直接操作数据库保存凭证，避免使用字典参数
-            # 先删除旧记录
+            # 使用数据库连接池
             from db_manager import db_manager
             
-            # 确保数据库连接
-            if not db_manager.is_connected():
-                success, message = db_manager.connect()
-                if not success:
-                    logger.error(f"保存凭证时连接数据库失败: {message}")
-                    return False
-            
-            # 清除旧记录
+            # 清除旧记录 - 不再需要手动连接，连接池会处理
             db_manager.execute_update("DELETE FROM remember WHERE username = %s", (username,))
             
             # 添加过期时间
@@ -221,16 +214,10 @@ class UserManager:
             bool: 操作成功返回True，否则返回False
         """
         try:
-            # 从数据库删除所有凭证记录
+            # 从数据库删除所有凭证记录 - 使用连接池
             from db_manager import db_manager
             
-            # 确保数据库连接
-            if not db_manager.is_connected():
-                success, message = db_manager.connect()
-                if not success:
-                    logger.error(f"清除凭证时连接数据库失败: {message}")
-                    return False
-            
+            # 执行更新，连接池会处理连接
             result = db_manager.execute_update("DELETE FROM remember", ())
             
             if result >= 0:
@@ -253,9 +240,8 @@ class UserManager:
             Optional[Dict[str, str]]: 包含用户名和密码的字典，如果没有保存的凭证则返回None
         """
         try:
-            # 从数据库获取最新的凭证
+            # 从数据库获取最新的凭证 - 使用连接池，不再需要手动连接
             from db_manager import db_manager
-            db_manager.connect()
             
             # 获取未过期的记录
             from datetime import datetime

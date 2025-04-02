@@ -1951,5 +1951,140 @@
     "target": "用户登录",
     "details": "用户登录成功",
     "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T11:31:01.707879",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T11:31:04.588366",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T11:31:11.725237",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T11:32:20.761674",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T11:32:35.660268",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T11:34:20.871137",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T11:34:31.173026",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T14:05:07.283791",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T14:05:55.813810",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T14:07:20.775068",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T14:08:58.828661",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T14:09:05.344965",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T14:22:21.822185",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "石帆/批量操作",
+    "details": "开始为1个服务器生成16位随机密码，ip地址为：192.168.8.87",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T14:22:42.377685",
+    "user": "admin",
+    "operation": "update",
+    "result": "success",
+    "target": "石帆/test",
+    "details": "仅更新本地密码记录成功（跳过服务器同步），项目：test",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-02T14:22:42.453485",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "石帆/批量操作",
+    "details": "批量生成随机密码并更新服务器全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "system"
   }
 ]

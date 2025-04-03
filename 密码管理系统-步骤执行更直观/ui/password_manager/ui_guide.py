@@ -16,7 +16,7 @@ from PyQt5.QtWidgets import (
     QCheckBox, QPushButton, QGraphicsDropShadowEffect,
     QSizePolicy, QApplication, QMenu, QAction
 )
-from PyQt5.QtCore import Qt, QPropertyAnimation, QRect, QEasingCurve, QTimer, pyqtSignal, QObject
+from PyQt5.QtCore import Qt, QPropertyAnimation, QRect, QEasingCurve, QTimer, pyqtSignal, QObject, QPoint
 from PyQt5.QtGui import QPixmap, QFont, QIcon, QColor, QPalette, QBrush, QPainter, QPen, QPainterPath
 
 # 添加项目根目录到系统路径
@@ -35,12 +35,16 @@ logger = logging.getLogger(__name__)
 
 class WalkthroughOverlay(QWidget):
     """
-    步骤引导浮层
+    交互式步骤引导浮层
     
-    创建透明浮层覆盖在应用程序上，引导用户完成特定操作
+    提供半透明浮层，高亮显示当前步骤的目标区域，并通过提示框引导用户操作
     """
     
-    finished = pyqtSignal()  # 引导完成信号
+    # 引导完成信号
+    finished = pyqtSignal()
+    
+    # 图片缓存
+    _image_cache = {}
     
     def __init__(self, parent=None):
         """
@@ -64,7 +68,7 @@ class WalkthroughOverlay(QWidget):
         # 遮罩层颜色 - 半透明黑色
         self.mask_color = QColor(0, 0, 0, 160)
         
-        # 当前高亮的区域
+        # 当前高亮的区域，确保初始化为一个空的QRect
         self.highlight_rect = QRect()
         
         # 当前步骤
@@ -80,6 +84,9 @@ class WalkthroughOverlay(QWidget):
         
         # 创建按钮控制布局
         self._setup_ui()
+        
+        # 预加载菜单图片
+        self._preload_menu_images()
         
     def _setup_ui(self):
         """设置用户界面元素"""
@@ -206,301 +213,329 @@ class WalkthroughOverlay(QWidget):
         """
         self.target_widgets = widgets or {}
     
-    def _show_context_menu(self, widget, step):
+    def _preload_menu_images(self):
+        """预加载菜单图片以加快显示速度"""
+        try:
+            # 要加载的文件名
+            image_files = ["account_menu.png", "password_menu.png"]
+            
+            # 图片基础路径
+            base_paths = [
+                os.path.abspath(os.path.join(os.getcwd(), "images")),
+                os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), "images")),
+                r"C:\Users\gwb\Desktop\pwd_glgj\images"
+            ]
+            
+            logger.info("开始预加载菜单图片...")
+            
+            # 尝试每个文件和路径的组合
+            for filename in image_files:
+                # 找到图片并加载到缓存
+                for base_path in base_paths:
+                    path = os.path.join(base_path, filename)
+                    if os.path.exists(path):
+                        logger.info(f"预加载图片: {path}")
+                        pixmap = QPixmap(path)
+                        if not pixmap.isNull():
+                            # 存入缓存
+                            self._image_cache[filename] = pixmap
+                            logger.info(f"成功预加载图片: {filename}")
+                            break
+            
+            logger.info(f"预加载完成，共加载 {len(self._image_cache)} 张图片")
+        except Exception as e:
+            logger.error(f"预加载图片时出错: {str(e)}")
+    
+    def _show_menu_image(self, step):
         """
-        显示指定控件的上下文菜单
+        显示菜单图片而非触发真实菜单
         
         Args:
-            widget (QWidget): 要显示上下文菜单的控件
-            step (dict): 当前步骤信息
+            step (dict): 步骤信息，包含列索引等
         """
-        if not widget:
-            logger.warning("无法显示上下文菜单：未提供控件")
+        # 清理已有的菜单图片（如果存在）
+        self._clear_menu_image()
+        
+        # 获取列类型
+        column_index = step.get("column_index", 4)  # 默认密码列
+        
+        # 选择对应图片文件名
+        base_name = "account_menu.png" if column_index == 3 else "password_menu.png"
+        
+        # 从缓存获取图片
+        pixmap = self._image_cache.get(base_name)
+        
+        # 如果缓存中没有，尝试即时加载
+        if pixmap is None:
+            logger.info(f"缓存中未找到图片 {base_name}，尝试加载...")
+            # 尝试不同格式的路径
+            image_paths = []
+            
+            # 添加可能的路径
+            image_paths.append(os.path.abspath(os.path.join(os.getcwd(), "images", base_name)))
+            image_paths.append(os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), "images", base_name)))
+            image_paths.append(r"C:\Users\gwb\Desktop\pwd_glgj\images\{}".format(base_name))
+            
+            # 记录尝试加载的路径
+            logger.info(f"尝试加载菜单图片，列索引: {column_index}, 文件名: {base_name}")
+            
+            # 尝试加载图片
+            loaded_path = None
+            
+            for image_path in image_paths:
+                try:
+                    # 检查文件是否存在
+                    if os.path.exists(image_path):
+                        logger.info(f"文件存在: {image_path}")
+                        temp_pixmap = QPixmap(image_path)
+                        if not temp_pixmap.isNull():
+                            pixmap = temp_pixmap
+                            # 添加到缓存
+                            self._image_cache[base_name] = pixmap
+                            loaded_path = image_path
+                            logger.info(f"成功加载图片并添加到缓存: {image_path}")
+                            break
+                except Exception as e:
+                    logger.error(f"加载路径 {image_path} 时出错: {str(e)}")
+        else:
+            logger.info(f"从缓存中获取图片: {base_name}")
+        
+        # 如果仍然无法加载图片，使用文本标签作为备选
+        if pixmap is None or pixmap.isNull():
+            logger.warning("无法加载图片，使用文本标签作为备选")
+            
+            # 创建文本标签
+            menu_image = QLabel(self)
+            menu_image.setObjectName("menu_image")
+            
+            # 设置样式
+            menu_image.setStyleSheet("""
+                background-color: white;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                padding: 8px;
+            """)
+            
+            # 设置内容
+            if column_index == 3:  # 账号列
+                menu_text = "账号列右键菜单：\n\n· 复制\n————————————\n· 添加行\n· 编辑行\n· 删除行"
+            else:  # 密码列
+                menu_text = "密码列右键菜单：\n\n· 复制\n· 生成16位随机密码\n  并更新到服务器\n————————————\n· 添加行\n· 编辑行\n· 删除行"
+            
+            menu_image.setText(menu_text)
+            menu_image.setFixedSize(180, 200)  # 设置固定大小
+            
+            # 根据步骤中设置的位置或默认位置计算显示位置
+            target = None
+            if "widget_id" in step and step["widget_id"] in self.target_widgets:
+                target = self.target_widgets[step["widget_id"]]
+            
+            if target and hasattr(target, "viewport"):
+                # 表格控件
+                visible_rect = target.viewport().rect()
+                
+                # 根据列索引区分位置
+                if column_index == 3:  # 账号列
+                    # 靠近表格左边
+                    menu_x = visible_rect.left() + 50
+                else:  # 密码列
+                    # 靠近表格中间偏右位置，不要靠近表格边缘
+                    menu_x = visible_rect.center().x() + 50  # 从中心向右偏移50像素
+                
+                menu_y = visible_rect.top() + 150  # 固定位置
+                
+                # 获取全局位置并调整
+                global_pos = target.mapToGlobal(QPoint(menu_x, menu_y))
+                parent_pos = self.mapFromGlobal(global_pos)
+                
+                menu_x = parent_pos.x()
+                menu_y = parent_pos.y()
+            else:
+                # 默认中心位置
+                menu_x = (self.width() - menu_image.width()) // 2
+                menu_y = (self.height() - menu_image.height()) // 2
+            
+            # 显示文本菜单
+            menu_image.move(menu_x, menu_y)
+            menu_image.raise_()  # 确保菜单在顶层
+            menu_image.show()
+            
+            # 记录到当前步骤中
+            step["menu_image_widget"] = menu_image
+            
+            # 设置高亮区域
+            self.highlight_rect = QRect(menu_x, menu_y, menu_image.width(), menu_image.height())
+            self.update()
+            
+            # 确保提示框在菜单下方
+            step["position"] = "menu_bottom"  
+            
+            # 延迟更新提示框位置，确保菜单先显示
+            QTimer.singleShot(50, lambda: self._position_tooltip(step))
+            QTimer.singleShot(60, lambda: self.tooltip_widget.raise_())  # 确保提示框在顶层
+            
+            logger.info(f"已创建文本菜单替代图片，位置: ({menu_x}, {menu_y})")
             return
             
         try:
-            # 在显示菜单前，先清除高亮区域
-            if step.get("highlight_menu", False):
-                self.highlight_rect = QRect()
-                self.update()  # 强制重绘
+            # 创建QLabel显示图片
+            menu_image = QLabel(self)
+            menu_image.setObjectName("menu_image")
+            menu_image.setPixmap(pixmap)
+            
+            # 根据步骤中设置的位置或默认位置计算显示位置
+            target = None
+            if "widget_id" in step and step["widget_id"] in self.target_widgets:
+                target = self.target_widgets[step["widget_id"]]
+            
+            if target and hasattr(target, "viewport"):
+                # 表格控件
+                visible_rect = target.viewport().rect()
                 
-            # 尝试获取表格控件
-            table = None
-            if hasattr(widget, "currentItem") and hasattr(widget, "itemAt"):
-                # 这是一个QTableWidget
-                table = widget
-            elif hasattr(widget, "table"):
-                # 这可能是一个包含table属性的对象
-                table = widget.table
+                # 根据列索引区分位置
+                if column_index == 3:  # 账号列
+                    # 靠近表格左边
+                    menu_x = visible_rect.left() + 50
+                else:  # 密码列
+                    # 靠近表格中间偏右位置，不要靠近表格边缘
+                    menu_x = visible_rect.center().x() + 50  # 从中心向右偏移50像素
+                
+                menu_y = visible_rect.top() + 150  # 固定位置
+                
+                # 获取全局位置并调整
+                global_pos = target.mapToGlobal(QPoint(menu_x, menu_y))
+                parent_pos = self.mapFromGlobal(global_pos)
+                
+                menu_x = parent_pos.x()
+                menu_y = parent_pos.y()
             else:
-                logger.warning(f"未找到表格控件，无法显示上下文菜单")
-                return
-                
-            # 确保表格有数据
-            if table.rowCount() == 0:
-                logger.warning("表格没有数据，无法显示上下文菜单")
-                return
-                
-            # 选择一行（优先选择中间的行）
-            row = min(table.rowCount() // 2, table.rowCount() - 1)
-            table.selectRow(row)
+                # 默认中心位置
+                menu_x = (self.width() - pixmap.width()) // 2
+                menu_y = (self.height() - pixmap.height()) // 2
             
-            # 获取指定列的单元格中心点
-            column_index = step.get("column_index", 4)  # 默认是密码列(索引4)，可以通过参数指定其他列
-            if table.columnCount() > column_index:
-                cell_rect = table.visualItemRect(table.item(row, column_index))
-                point = cell_rect.center()
-            else:
-                # 如果没有指定列，则使用第一列
-                cell_rect = table.visualItemRect(table.item(row, 0))
-                point = cell_rect.center()
+            # 显示图片
+            menu_image.move(menu_x, menu_y)
+            menu_image.raise_()  # 确保菜单在顶层
+            menu_image.show()
             
-            # 使用发射自定义上下文菜单信号的方式显示菜单
-            self._emit_context_menu_signal(table, point, step)
+            # 记录到当前步骤中
+            step["menu_image_widget"] = menu_image
             
-            column_name = "账号列" if column_index == 3 else "密码列" if column_index == 4 else f"列{column_index+1}"
-            logger.info(f"已请求通过发射信号显示上下文菜单在{column_name}")
+            # 设置高亮区域
+            self.highlight_rect = QRect(menu_x, menu_y, pixmap.width(), pixmap.height())
+            self.update()
+            
+            # 确保提示框在菜单下方
+            step["position"] = "menu_bottom"  
+            
+            # 延迟更新提示框位置，确保菜单先显示
+            QTimer.singleShot(50, lambda: self._position_tooltip(step))
+            QTimer.singleShot(60, lambda: self.tooltip_widget.raise_())  # 确保提示框在顶层
+            
+            logger.info(f"成功显示菜单图片，位置: ({menu_x}, {menu_y})")
             
         except Exception as e:
-            logger.error(f"显示上下文菜单时出错: {str(e)}")
-            import traceback
-            logger.error(traceback.format_exc())
-
-    def _emit_context_menu_signal(self, widget, point, step):
-        """
-        发射自定义上下文菜单请求信号
-        
-        Args:
-            widget (QWidget): 控件
-            point (QPoint): 本地坐标中的点
-            step (dict): 当前步骤信息
-        """
-        try:
-            logger.info("已发射自定义上下文菜单信号")
-            
-            # 记录列信息
-            column_index = step.get("column_index", 4)
-            column_name = "账号列" if column_index == 3 else "密码列" if column_index == 4 else f"列{column_index}"
-            logger.info(f"已请求通过发射信号显示上下文菜单在{column_name}")
-            
-            # 停止并销毁之前的菜单观察器
-            if hasattr(self, 'menu_watcher') and self.menu_watcher:
-                if hasattr(self.menu_watcher, 'timer') and self.menu_watcher.timer.isActive():
-                    self.menu_watcher.timer.stop()
-                self.menu_watcher.deleteLater()
-                self.menu_watcher = None
-            
-            # 为了捕获菜单显示并设置高亮区域，我们需要拦截菜单
-            # 添加全局事件过滤器来监控菜单的出现
-            if step.get("highlight_menu", False):
-                # 创建菜单观察器
-                class MenuWatcher(QObject):
-                    def __init__(self, parent, overlay, step):
-                        super().__init__(parent)
-                        self.overlay = overlay
-                        self.step = step
-                        self.timer = QTimer(self)
-                        self.timer.timeout.connect(self.check_menu)
-                        self.timer.start(50)  # 每50毫秒检查一次
-                        self.menu_found = False  # 标记是否已找到菜单
-                        self.logged_status = False  # 标记是否已输出状态日志
-                        
-                    def check_menu(self):
-                        """检查是否有活动的菜单并高亮显示"""
-                        # 查找所有顶级窗口中的QMenu
-                        menu_found = False
-                        for widget in QApplication.topLevelWidgets():
-                            if isinstance(widget, QMenu) and widget.isVisible():
-                                menu_found = True
-                                # 找到菜单，更新高亮区域
-                                self.update_highlight_rect(widget)
-                                
-                                # 检查并移除指定菜单项
-                                if not self.logged_status:
-                                    self.remove_unwanted_menu_items(widget)
-                                    self.logged_status = True
-                                
-                                # 已找到菜单
-                                if not self.menu_found:
-                                    self.menu_found = True
-                                return
-                        
-                        # 如果之前找到过菜单，但现在没有了，可能是菜单已关闭
-                        if self.menu_found and not menu_found:
-                            self.timer.stop()  # 停止定时器
-                
-                    def remove_unwanted_menu_items(self, menu):
-                        """移除不需要的菜单项"""
-                        # 只在账号列上右击时移除"生成16位随机密码"选项
-                        column_index = self.step.get("column_index", 4)
-                        logger.info(f"当前列索引: {column_index}, 是否应该移除菜单项: {'是' if column_index == 3 else '否'}")
-                        
-                        if column_index == 3:  # 只在账号列右击时移除
-                            for action in menu.actions():
-                                # 移除"生成16位随机密码\n并更新到服务器"选项
-                                if action.text() and "生成16位随机密码" in action.text() and "更新到服务器" in action.text():
-                                    menu.removeAction(action)
-                                    logger.info("已从账号列右键菜单中移除'生成16位随机密码 并更新到服务器'选项")
-                
-                    def update_highlight_rect(self, menu):
-                        """更新高亮区域为菜单区域"""
-                        # 获取菜单的全局位置和大小
-                        menu_rect = menu.rect()
-                        menu_global_pos = menu.mapToGlobal(menu_rect.topLeft())
-                        parent_pos = self.overlay.parent().mapFromGlobal(menu_global_pos)
-                        
-                        # 确保菜单在屏幕范围内
-                        menu_width = max(menu_rect.width(), 150)
-                        menu_height = menu_rect.height()
-                        
-                        # 计算新的高亮区域
-                        padding = 5
-                        new_highlight_rect = QRect(
-                            parent_pos.x() - padding, 
-                            parent_pos.y() - padding,
-                            menu_width + padding * 2,
-                            menu_height + padding * 2
-                        )
-                        
-                        # 只有当高亮区域发生变化时才更新
-                        if not hasattr(self, 'last_highlight_rect') or self.last_highlight_rect != new_highlight_rect:
-                            self.last_highlight_rect = new_highlight_rect
-                            # 更新高亮区域
-                            self.overlay.highlight_rect = new_highlight_rect
-                            self.overlay.update()  # 强制重绘
-                
-                # 创建并安装菜单观察器
-                self.menu_watcher = MenuWatcher(self, self, step)
-            
-            # 发射自定义右键菜单信号
-            widget.customContextMenuRequested.emit(point)
-        except Exception as e:
-            logger.error(f"发射上下文菜单信号时出错: {str(e)}")
+            logger.error(f"显示菜单图片时出错: {str(e)}")
             import traceback
             logger.error(traceback.format_exc())
             
-            # 退回到直接显示菜单
-            self._direct_show_menu(widget, point, step.get("column_index", 4))
-    
-    def _direct_show_menu(self, widget, point, custom_column_index=None):
-        """直接调用表格的_show_context_menu方法显示右键菜单"""
+    def _clear_menu_image(self):
+        """清理当前显示的菜单图片"""
         try:
-            # 尝试查找表格管理器
-            table_manager = None
+            # 查找所有menu_image控件并删除
+            for widget in self.findChildren(QLabel, "menu_image"):
+                widget.deleteLater()
             
-            # 1. 检查widget是否有table_manager属性
-            if hasattr(widget, "property") and callable(widget.property):
-                table_manager = widget.property("table_manager")
-            
-            # 2. 或者检查parent是否有table_manager属性
-            if table_manager is None and hasattr(widget, "parent") and callable(widget.parent):
-                parent = widget.parent()
-                if parent and hasattr(parent, "property") and callable(parent.property):
-                    table_manager = parent.property("table_manager")
-            
-            # 找到table_manager，直接调用其_show_context_menu方法
-            if table_manager and hasattr(table_manager, "_show_context_menu"):
-                self.debug_log("找到table_manager，直接调用_show_context_menu方法")
-                table_manager._show_context_menu(point)
-                return
-            
-            # 尝试查找事件过滤器
-            if hasattr(widget, "installEventFilter"):
-                for child in widget.children():
-                    if hasattr(child, "_show_context_menu") and callable(child._show_context_menu):
-                        self.debug_log("找到事件过滤器，调用_show_context_menu方法")
-                        child._show_context_menu(point)
-                        return
-            
-            # 如果没有找到合适的方法，创建一个简单的右键菜单
-            self.debug_log("未找到_show_context_menu方法，创建临时菜单")
-            context_menu = QMenu(widget)
-            
-            # 根据当前显示的列创建不同的菜单
-            if custom_column_index is not None:
-                if custom_column_index == 3:  # 账号列
-                    self.debug_log("为账号列创建右键菜单")
-                    copy_action = context_menu.addAction("复制")
-                    context_menu.addSeparator()
-                elif custom_column_index == 4:  # 密码列
-                    self.debug_log("为密码列创建右键菜单")
-                    copy_action = context_menu.addAction("复制")
-                    gen_pwd_action = context_menu.addAction("生成随机密码")
-                    context_menu.addSeparator()
-            
-            # 添加通用操作
-            add_action = context_menu.addAction("添加行")
-            edit_action = context_menu.addAction("编辑行")
-            del_action = context_menu.addAction("删除行")
-            
-            # 显示菜单
-            global_pos = widget.mapToGlobal(point)
-            context_menu.exec_(global_pos)
-            
+            # 如果当前步骤中有菜单图片引用，也清除
+            if self.current_step < len(self.steps):
+                current_step = self.steps[self.current_step]
+                if "menu_image_widget" in current_step:
+                    if current_step["menu_image_widget"] is not None:
+                        try:
+                            current_step["menu_image_widget"].deleteLater()
+                        except:
+                            pass
+                    current_step["menu_image_widget"] = None
+                    
+            logger.info("已清理菜单图片")
         except Exception as e:
-            self.debug_log(f"显示右键菜单时发生错误: {str(e)}")
+            logger.error(f"清理菜单图片时出错: {str(e)}")
     
     def _calculate_highlight_rect(self, step):
         """
-        计算高亮区域的矩形
+        计算当前步骤的高亮区域
         
         Args:
-            step (dict): 当前步骤信息
+            step (dict): 步骤信息
+            
+        Returns:
+            QRect: 高亮区域矩形
         """
-        # 获取目标区域
-        target = step.get("target")
-        if isinstance(target, (list, tuple)) and len(target) == 4:
-            # 如果是矩形坐标
-            self.highlight_rect = QRect(*target)
-        elif isinstance(target, QWidget):
-            # 如果是控件
+        # 获取目标控件
+        target = None
+        if "target" in step:
+            # 直接使用步骤中保存的目标控件
+            target = step["target"]
+        elif "widget_id" in step and step["widget_id"] in self.target_widgets:
+            # 使用控件ID从目标控件字典中获取控件
+            target = self.target_widgets[step["widget_id"]]
+        
+        # 如果有目标控件，计算其位置和尺寸
+        if target and hasattr(target, "rect"):
+            # 获取控件全局位置并转换为父窗口坐标
             global_pos = target.mapToGlobal(target.rect().topLeft())
             parent_pos = self.parent().mapFromGlobal(global_pos)
             self.highlight_rect = QRect(parent_pos, target.size())
         else:
-            # 默认不高亮任何区域
+            # 默认不高亮任何区域，但确保是一个有效的空QRect
             self.highlight_rect = QRect()
         
         # 设置提示框位置
         self.tooltip_position = step.get("position", "bottom")
         
-        # 检查是否需要显示上下文菜单
-        if step.get("show_context_menu", False):
-            widget_id = step.get("widget_id")
-            if widget_id and widget_id in self.target_widgets:
-                # 使用延时，确保引导界面已经完全显示
-                QTimer.singleShot(300, lambda: self._show_context_menu(self.target_widgets[widget_id], step))
-            elif "target_widget" in step:
-                # 使用直接保存的控件引用
-                QTimer.singleShot(300, lambda: self._show_context_menu(step["target_widget"], step))
+        # 检查是否需要显示菜单图片
+        if step.get("show_menu_image", False) and not step.get("menu_image_shown", False):
+            # 标记菜单图片已显示
+            step["menu_image_shown"] = True
+            # 延迟显示图片菜单
+            QTimer.singleShot(300, lambda: self._show_menu_image(step))
+            
+        # 返回计算后的高亮区域
+        return self.highlight_rect
 
     def _show_current_step(self):
-        """显示当前步骤"""
-        if not self.steps or self.current_step >= len(self.steps):
+        """显示当前步骤的高亮区域和提示"""
+        if self.current_step >= len(self.steps):
             self._finish_guide()
             return
         
-        step = self.steps[self.current_step]
+        # 获取当前步骤（创建一个深拷贝，避免共享状态）
+        step = self.steps[self.current_step].copy()
+        
+        # 重置高亮区域
+        self.highlight_rect = QRect()
         
         # 设置标题和描述
         self.title_label.setText(step.get("title", ""))
         self.description_label.setText(step.get("description", ""))
         
-        # 更新步骤指示器
-        self._update_step_indicators()
+        # 计算高亮区域并更新
+        highlight_rect = self._calculate_highlight_rect(step)
+        if highlight_rect is not None:
+            self.highlight_rect = highlight_rect
+        else:
+            self.highlight_rect = QRect()  # 确保不为None
         
-        # 计算高亮区域
-        self._calculate_highlight_rect(step)
+        # 更新浮层
+        self.update()
         
-        # 更新按钮状态
-        self._update_buttons()
-        
-        # 显示提示框
+        # 定位并显示提示框
         self._position_tooltip(step)
         self.tooltip_widget.show()
         
-        # 更新界面
-        self.update()
+        # 更新步骤指示器和按钮状态
+        self._update_step_indicators()
+        self._update_buttons()
     
     def _update_step_indicators(self):
         """更新步骤指示器，高亮显示当前步骤"""
@@ -536,60 +571,106 @@ class WalkthroughOverlay(QWidget):
             self.next_button.setText("下一步")
             
     def _position_tooltip(self, step):
-        """根据目标区域和设置的位置放置提示框"""
-        if not self.highlight_rect.isValid():
-            # 如果没有有效的高亮区域，居中显示
-            self.tooltip_widget.setGeometry(
-                (self.width() - 400) // 2,
-                (self.height() - 200) // 2,
-                400,
-                200
+        """
+        定位提示框
+        
+        Args:
+            step (dict): 步骤信息
+        """
+        # 如果step为None，使用默认居中位置
+        if step is None:
+            self.tooltip_widget.move(
+                (self.width() - self.tooltip_widget.width()) // 2,
+                (self.height() - self.tooltip_widget.height()) // 2
             )
             return
         
-        # 提示框默认大小
-        tooltip_width = 300
-        tooltip_height = self.tooltip_widget.sizeHint().height()
+        # 确保提示框尺寸合适
+        self.tooltip_widget.adjustSize()
         
-        # 根据位置计算提示框坐标
-        if self.tooltip_position == "bottom":
-            x = self.highlight_rect.x() + (self.highlight_rect.width() - tooltip_width) // 2
-            y = self.highlight_rect.bottom() + 10
-        elif self.tooltip_position == "top":
-            x = self.highlight_rect.x() + (self.highlight_rect.width() - tooltip_width) // 2
-            y = self.highlight_rect.top() - tooltip_height - 10
-        elif self.tooltip_position == "left":
-            # 增加左侧位置的偏移距离
-            offset = 20
-            x = self.highlight_rect.left() - tooltip_width - offset
-            y = self.highlight_rect.y() + (self.highlight_rect.height() - tooltip_height) // 2
-        elif self.tooltip_position == "right":
-            # 增加右侧位置的偏移距离
-            offset = 20
-            x = self.highlight_rect.right() + offset
-            y = self.highlight_rect.y() + (self.highlight_rect.height() - tooltip_height) // 2
-        else:  # 默认底部
-            x = self.highlight_rect.x() + (self.highlight_rect.width() - tooltip_width) // 2
-            y = self.highlight_rect.bottom() + 10
+        # 获取高亮区域
+        rect = self.highlight_rect
         
-        # 确保提示框在可见区域内
-        if x < 10:
-            x = 10
-        elif x + tooltip_width > self.width() - 10:
-            x = self.width() - tooltip_width - 10
+        # 如果没有高亮区域或rect无效，居中显示
+        if rect is None or rect.isEmpty():
+            self.tooltip_widget.move(
+                (self.width() - self.tooltip_widget.width()) // 2,
+                (self.height() - self.tooltip_widget.height()) // 2
+            )
+            return
             
-        if y < 10:
-            y = 10
-        elif y + tooltip_height > self.height() - 10:
-            y = self.height() - tooltip_height - 10
+        # 检查是否是菜单相关步骤
+        is_menu_step = step.get("show_menu_image", False)
+        position = step.get("position", "bottom")
         
-        # 设置提示框位置和大小
-        self.tooltip_widget.setGeometry(x, y, tooltip_width, tooltip_height)
+        # 如果是菜单相关步骤，特殊处理位置
+        if is_menu_step and position == "menu_bottom":
+            # 对于菜单步骤，将提示框放在菜单下方
+            
+            # 获取列类型，根据列类型调整水平对齐方式
+            column_index = step.get("column_index", 4)  # 默认密码列
+            
+            if column_index == 3:  # 账号列（左侧显示）
+                # 与菜单左对齐
+                tooltip_x = rect.x()
+            else:  # 密码列（右侧显示）
+                # 与菜单右对齐
+                tooltip_x = rect.x() + rect.width() - self.tooltip_widget.width()
+            
+            # 在菜单下方留出15像素空间，确保上下相邻但间距合适
+            tooltip_y = rect.y() + rect.height() + 15
+            
+            # 验证位置合理性，防止越界
+            if tooltip_y < 0 or tooltip_y > self.height() - 50:
+                # 位置不合理，重置为中间位置
+                tooltip_y = self.height() // 3
+                
+            if tooltip_x < 0 or tooltip_x > self.width() - self.tooltip_widget.width():
+                # 水平位置不合理，重置为中间
+                tooltip_x = (self.width() - self.tooltip_widget.width()) // 2
+            
+            # 记录日志
+            logger.info(f"将提示框放在菜单下方，位置: ({tooltip_x}, {tooltip_y})")
+            
+            # 设置提示框位置
+            self.tooltip_widget.move(tooltip_x, tooltip_y)
+            self.tooltip_widget.show()  # 确保提示框显示
+        elif position == "bottom":
+            self.tooltip_widget.move(
+                rect.x() + (rect.width() - self.tooltip_widget.width()) // 2,
+                rect.y() + rect.height() + 10
+            )
+        elif position == "top":
+            self.tooltip_widget.move(
+                rect.x() + (rect.width() - self.tooltip_widget.width()) // 2,
+                rect.y() - self.tooltip_widget.height() - 10
+            )
+        elif position == "left":
+            self.tooltip_widget.move(
+                rect.x() - self.tooltip_widget.width() - 10,
+                rect.y() + (rect.height() - self.tooltip_widget.height()) // 2
+            )
+        elif position == "right":
+            # 标准右侧位置
+            self.tooltip_widget.move(
+                rect.x() + rect.width() + 10,
+                rect.y() + (rect.height() - self.tooltip_widget.height()) // 2
+            )
+        
+        # 调整位置，确保提示框在视图范围内
+        self._adjust_tooltip_position()
     
     def _next_step(self):
         """前进到下一步"""
         if self.current_step < len(self.steps) - 1:
+            # 清理当前步骤的菜单图片
+            self._clear_menu_image()
+            
+            # 步骤递增
             self.current_step += 1
+            logger.info(f"已递增步骤索引到: {self.current_step}")
+            
+            # 显示新步骤
             self._show_current_step()
         else:
             self._finish_guide()
@@ -597,7 +678,14 @@ class WalkthroughOverlay(QWidget):
     def _prev_step(self):
         """返回上一步"""
         if self.current_step > 0:
+            # 清理当前步骤的菜单图片
+            self._clear_menu_image()
+            
+            # 步骤递减
             self.current_step -= 1
+            logger.info(f"已递减步骤索引到: {self.current_step}")
+            
+            # 显示新步骤
             self._show_current_step()
     
     def _skip_guide(self):
@@ -642,7 +730,7 @@ class WalkthroughOverlay(QWidget):
         fullScreenPath.addRect(float(x), float(y), float(w), float(h))
         
         # 如果有高亮区域，从全屏路径中减去高亮区域
-        if self.highlight_rect.isValid():
+        if self.highlight_rect is not None and self.highlight_rect.isValid():
             # 获取高亮区域坐标和尺寸
             hx = float(self.highlight_rect.x())
             hy = float(self.highlight_rect.y())
@@ -659,34 +747,9 @@ class WalkthroughOverlay(QWidget):
             # 绘制半透明遮罩（只在遮罩区域内）
             painter.fillPath(maskPath, QColor(0, 0, 0, 160))  # 黑色半透明
             
-            # 当前步骤
-            current_step = self.steps[self.current_step] if self.steps and self.current_step < len(self.steps) else None
-            
-            # 如果是右键菜单引导步骤，使用特殊样式
-            if current_step and current_step.get("highlight_menu", False):
-                # 为菜单区域绘制特殊的高亮效果
-                # 1. 绘制半透明背景
-                menu_bg_color = QColor(COLORS["primary"])
-                menu_bg_color.setAlpha(15)  # 很淡的背景
-                painter.fillPath(highlightPath, menu_bg_color)
-                
-                # 2. 绘制发光边框
-                painter.setPen(QPen(QColor(COLORS["primary"]), 2))  # 主色调边框
-                painter.drawRect(self.highlight_rect)
-                
-                # 3. 添加外发光效果
-                glow_color = QColor(COLORS["primary"])
-                glow_color.setAlpha(80)
-                for i in range(3):
-                    pen_width = 1 + i*2
-                    painter.setPen(QPen(glow_color, pen_width))
-                    painter.drawRect(
-                        self.highlight_rect.adjusted(-pen_width, -pen_width, pen_width, pen_width)
-                    )
-            else:
-                # 普通高亮区域样式
-                painter.setPen(QPen(QColor(COLORS["primary"]), 3))  # 加粗边框
-                painter.drawRect(self.highlight_rect)
+            # 普通高亮区域样式 - 修复缩进错误
+            painter.setPen(QPen(QColor(COLORS["primary"]), 3))  # 加粗边框
+            painter.drawRect(self.highlight_rect)
         else:
             # 如果没有高亮区域，整个屏幕都是半透明遮罩
             painter.fillPath(fullScreenPath, QColor(0, 0, 0, 160))  # 黑色半透明
@@ -699,6 +762,29 @@ class WalkthroughOverlay(QWidget):
             message (str): 日志消息
         """
         logger.info(f"引导调试: {message}")
+
+    def _adjust_tooltip_position(self):
+        """
+        调整提示框位置，确保它在视图范围内
+        """
+        # 获取当前位置
+        pos = self.tooltip_widget.pos()
+        size = self.tooltip_widget.size()
+        
+        # 调整X坐标确保不超出屏幕左右边界
+        if pos.x() < 10:
+            pos.setX(10)
+        elif pos.x() + size.width() > self.width() - 10:
+            pos.setX(self.width() - size.width() - 10)
+        
+        # 调整Y坐标确保不超出屏幕上下边界
+        if pos.y() < 10:
+            pos.setY(10)
+        elif pos.y() + size.height() > self.height() - 10:
+            pos.setY(self.height() - size.height() - 10)
+        
+        # 应用调整后的位置
+        self.tooltip_widget.move(pos)
 
 
 # 主界面操作步骤引导信息
@@ -720,26 +806,25 @@ MAIN_FEATURES_WALKTHROUGH = [
     },
     {
         "title": "右键操作（除密码列）",
-        "description": "在除了密码列以外的列上右击可显示操作菜单，支持复制账号内容以及添加、编辑和删除记录功能。",
-        "position": "bottom",
-        "show_context_menu": True,  # 标记需要显示右键菜单
-        "widget_id": "password_table",  # 指定要在哪个控件上显示右键菜单
-        "highlight_menu": True,  # 标记需要高亮显示菜单
+        "description": "在账号列上右击可显示操作菜单，支持复制账号内容以及添加、编辑和删除记录功能。\n\n注意：实际使用时可在任意（除了密码列）的单元格右击。",
+        "position": "menu_bottom",
+        "show_menu_image": True,  # 使用图片显示菜单
+        "widget_id": "password_table", 
         "column_index": 3  # 指定账号列的索引
     },
     {
-        "title": "右键菜操作（密码列）",
-        "description": "在密码列上右击可显示操作菜单，包括复制和生成随机密码等功能。\n也可进行添加、编辑和删除记录操作。\n复制、生成随机密码、删除支持多选操作。",
-        "position": "bottom",
-        "show_context_menu": True,  # 标记需要显示右键菜单
-        "widget_id": "password_table",  # 指定要在哪个控件上显示右键菜单
-        "highlight_menu": True  # 标记需要高亮显示菜单
+        "title": "右键操作（密码列）",
+        "description": "在密码列上右击可显示操作菜单，包括复制密码和生成随机密码等功能。\n也可进行添加、编辑和删除记录操作。\n\n支持多选操作，且可以批量更新服务器密码。",
+        "position": "menu_bottom",
+        "show_menu_image": True,  # 使用图片显示菜单
+        "widget_id": "password_table",
+        "column_index": 4  # 指定密码列的索引
     },
     {
         "title": "功能菜单",
         "description": "在菜单栏可以访问更多高级功能，如密码生成器、审计日志查看等。",
         "position": "bottom",
-        "widget_id": "menu_bar"  # 指定菜单栏的ID
+        "widget_id": "menu_bar"
     }
 ]
 

@@ -4850,3 +4850,900 @@ TypeError: object of type 'NoneType' has no len()
 2025-04-03 16:25:45,873 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
 2025-04-03 16:25:45,874 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
 2025-04-03 16:25:45,924 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 16:35:41,611 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:35:41,612 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 16:35:41,613 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (986, 266)
+2025-04-03 16:35:41,614 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 16:35:41,913 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:35:41,913 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 16:35:41,914 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 16:35:41,965 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 16:35:43,610 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:35:43,610 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 3
+2025-04-03 16:35:43,611 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (167, 266)
+2025-04-03 16:35:43,612 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 16:35:43,912 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:35:43,912 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 16:35:43,913 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 16:35:43,964 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 16:35:44,754 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:35:44,754 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 16:35:44,755 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (986, 266)
+2025-04-03 16:35:44,756 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 16:35:45,055 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:35:45,055 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 16:35:45,056 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 16:35:45,108 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 16:35:48,658 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:35:48,659 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 5
+2025-04-03 16:35:48,660 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 6/6
+2025-04-03 16:35:50,433 - user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-03 16:35:50,434 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-03 16:35:51,375 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:35:51,671 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:35:51,847 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:35:52,098 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:35:52,297 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:35:52,621 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:35:52,837 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:35:53,058 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:35:53,257 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:35:53,572 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:35:53,778 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:35:53,985 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:35:54,527 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:35:54,747 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:35:58,112 - user - INFO - 用户已登出
+2025-04-03 16:36:00,841 - root - INFO - 密码管理系统启动
+2025-04-03 16:36:00,842 - root - INFO - 初始化用户设置模块...
+2025-04-03 16:36:00,842 - root - INFO - 用户设置模块已初始化
+2025-04-03 16:36:01,097 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:36:01,118 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-03 16:36:02,659 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:36:02,690 - user - INFO - 用户 admin 登录成功
+2025-04-03 16:36:02,696 - login_ui - INFO - 用户 admin 登录成功
+2025-04-03 16:36:02,937 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:36:03,207 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:36:03,247 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-03 16:36:03,247 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-03 16:36:03,300 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-03 16:36:03,858 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-03 16:36:04,027 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:36:05,111 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-03 16:36:05,112 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-03 16:36:05,113 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-03 16:36:05,113 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-03 16:36:05,114 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-03 16:36:05,114 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-03 16:36:05,217 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-03 16:36:05,827 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:36:05,827 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 1
+2025-04-03 16:36:05,829 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 2/6
+2025-04-03 16:36:06,658 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:36:06,659 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 2
+2025-04-03 16:36:06,661 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 3/6
+2025-04-03 16:36:07,440 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:36:07,441 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 3
+2025-04-03 16:36:07,443 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (167, 266)
+2025-04-03 16:36:07,444 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 16:36:07,744 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:36:07,745 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 16:36:07,746 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 16:36:07,796 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 16:36:08,658 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:36:08,658 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 16:36:08,660 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (986, 266)
+2025-04-03 16:36:08,661 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 16:36:08,960 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:36:08,960 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 16:36:08,960 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 16:36:09,010 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 16:36:11,602 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:36:11,603 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 3
+2025-04-03 16:36:11,604 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (167, 266)
+2025-04-03 16:36:11,604 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 16:36:11,905 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:36:11,905 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 16:36:11,906 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 16:36:11,956 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 16:36:13,161 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:36:13,161 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 16:36:13,162 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (986, 266)
+2025-04-03 16:36:13,163 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 16:36:13,462 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:36:13,462 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 16:36:13,463 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 16:36:13,514 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 16:36:16,105 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:36:16,105 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 3
+2025-04-03 16:36:16,106 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (167, 266)
+2025-04-03 16:36:16,107 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 16:36:16,409 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:36:16,409 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 16:36:16,410 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 16:36:16,461 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 16:36:17,521 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:36:17,521 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 16:36:17,522 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (986, 266)
+2025-04-03 16:36:17,523 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 16:36:17,821 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:36:17,821 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 16:36:17,822 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 16:36:17,873 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 16:36:36,002 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:36:36,003 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 3
+2025-04-03 16:36:36,004 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (167, 266)
+2025-04-03 16:36:36,004 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 16:36:36,303 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:36:36,303 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 16:36:36,304 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 16:36:36,355 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 16:36:42,849 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:36:42,849 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 16:36:42,850 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (986, 266)
+2025-04-03 16:36:42,851 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 16:36:43,150 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:36:43,150 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 16:36:43,150 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 16:36:43,201 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 16:52:59,913 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:52:59,913 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 3
+2025-04-03 16:52:59,915 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (167, 266)
+2025-04-03 16:52:59,915 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 16:53:00,215 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:53:00,215 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 16:53:00,216 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 16:53:00,267 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 16:53:01,361 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:53:01,361 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 16:53:01,362 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (986, 266)
+2025-04-03 16:53:01,363 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 16:53:01,663 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:53:01,663 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 16:53:01,664 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 16:53:01,716 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 16:53:04,026 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:53:04,026 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 3
+2025-04-03 16:53:04,028 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (167, 266)
+2025-04-03 16:53:04,028 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 16:53:04,328 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:53:04,328 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 16:53:04,329 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 16:53:04,380 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 16:53:05,056 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:53:05,056 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 16:53:05,057 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (986, 266)
+2025-04-03 16:53:05,058 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 16:53:05,357 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:53:05,357 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 16:53:05,358 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 16:53:05,408 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 16:53:06,696 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:53:06,696 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 3
+2025-04-03 16:53:06,697 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (167, 266)
+2025-04-03 16:53:06,698 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 16:53:06,997 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:53:06,997 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 16:53:06,998 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 16:53:07,049 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 16:53:08,023 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:53:08,024 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 16:53:08,025 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (986, 266)
+2025-04-03 16:53:08,025 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 16:53:08,325 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:53:08,325 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 16:53:08,326 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 16:53:08,378 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 16:53:25,480 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:53:25,480 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 3
+2025-04-03 16:53:25,481 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (167, 266)
+2025-04-03 16:53:25,482 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 16:53:25,781 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:53:25,781 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 16:53:25,782 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 16:53:25,832 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 16:53:32,256 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:53:32,256 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 16:53:32,258 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (986, 266)
+2025-04-03 16:53:32,258 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 16:53:32,559 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:53:32,559 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 16:53:32,560 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 16:53:32,611 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 16:55:23,945 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:55:23,945 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 3
+2025-04-03 16:55:23,946 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (167, 266)
+2025-04-03 16:55:23,947 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 16:55:24,246 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:55:24,246 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 16:55:24,247 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 16:55:24,298 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 16:55:25,001 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:55:25,001 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 16:55:25,002 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (986, 266)
+2025-04-03 16:55:25,003 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 16:55:25,301 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:55:25,302 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 16:55:25,302 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 16:55:25,352 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 16:55:27,321 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:55:27,321 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 3
+2025-04-03 16:55:27,322 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (167, 266)
+2025-04-03 16:55:27,323 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 16:55:27,622 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:55:27,622 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 16:55:27,623 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 16:55:27,673 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 16:55:28,583 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:55:28,584 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 16:55:28,585 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (986, 266)
+2025-04-03 16:55:28,585 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 16:55:28,885 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:55:28,885 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 16:55:28,886 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 16:55:28,938 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 16:56:53,059 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:56:53,059 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 3
+2025-04-03 16:56:53,060 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (167, 266)
+2025-04-03 16:56:53,061 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 16:56:53,359 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:56:53,360 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 16:56:53,360 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 16:56:53,411 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 16:57:13,493 - user - INFO - 用户已登出
+2025-04-03 16:57:16,954 - root - INFO - 密码管理系统启动
+2025-04-03 16:57:16,954 - root - INFO - 初始化用户设置模块...
+2025-04-03 16:57:16,954 - root - INFO - 用户设置模块已初始化
+2025-04-03 16:57:17,199 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:57:17,210 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-03 16:57:18,359 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:57:18,379 - user - INFO - 用户 admin 登录成功
+2025-04-03 16:57:18,386 - login_ui - INFO - 用户 admin 登录成功
+2025-04-03 16:57:18,558 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:57:18,759 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:57:18,799 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-03 16:57:18,800 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-03 16:57:18,853 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-03 16:57:19,408 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-03 16:57:19,579 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:57:20,636 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-03 16:57:20,636 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-03 16:57:20,637 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-03 16:57:20,638 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-03 16:57:20,639 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-03 16:57:20,639 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-03 16:57:20,742 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-03 16:57:21,457 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:57:21,458 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 1
+2025-04-03 16:57:21,460 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 2/6
+2025-04-03 16:57:22,231 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:57:22,232 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 2
+2025-04-03 16:57:22,234 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 3/6
+2025-04-03 16:57:23,067 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:57:23,067 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 3
+2025-04-03 16:57:23,068 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 16:57:23,368 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:57:23,368 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 16:57:23,369 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 16:57:23,421 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 16:57:24,663 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:57:24,664 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 16:57:24,664 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 16:57:24,965 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:57:24,965 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 16:57:24,966 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 16:57:25,017 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 16:57:26,161 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:57:26,162 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 3
+2025-04-03 16:57:26,163 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 16:57:26,463 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:57:26,463 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 16:57:26,464 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 16:57:26,516 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 16:57:27,871 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:57:27,871 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 16:57:27,872 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 16:57:28,173 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:57:28,173 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 16:57:28,174 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 16:57:28,225 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 16:57:29,345 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:57:29,346 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 3
+2025-04-03 16:57:29,346 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 16:57:29,646 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:57:29,646 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 16:57:29,647 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 16:57:29,698 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 16:57:30,960 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:57:30,960 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 16:57:30,961 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 16:57:31,262 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:57:31,262 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 16:57:31,263 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 16:57:31,313 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 16:57:34,160 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:57:34,161 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 3
+2025-04-03 16:57:34,161 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 16:57:34,461 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:57:34,461 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 16:57:34,462 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 16:57:34,513 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 16:57:38,705 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:57:38,705 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 16:57:38,706 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 16:57:39,005 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:57:39,005 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 16:57:39,006 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 16:57:39,057 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 16:57:42,618 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:57:42,618 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 3
+2025-04-03 16:57:42,619 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 16:57:42,920 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:57:42,920 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 16:57:42,921 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 16:57:42,971 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 16:57:44,784 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:57:44,784 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 16:57:44,785 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 16:57:45,086 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:57:45,086 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 16:57:45,087 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 16:57:45,138 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 16:57:47,081 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:57:47,081 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 3
+2025-04-03 16:57:47,082 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 16:57:47,382 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:57:47,384 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 16:57:47,387 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 16:57:47,438 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 16:57:49,721 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:57:49,721 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 16:57:49,722 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 16:57:50,021 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:57:50,021 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 16:57:50,022 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 16:57:50,073 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 16:57:53,303 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:57:53,303 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 3
+2025-04-03 16:57:53,304 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 16:57:53,604 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:57:53,604 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 16:57:53,605 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 16:57:53,656 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 16:58:49,590 - user - INFO - 用户已登出
+2025-04-03 16:58:51,765 - root - INFO - 密码管理系统启动
+2025-04-03 16:58:51,765 - root - INFO - 初始化用户设置模块...
+2025-04-03 16:58:51,766 - root - INFO - 用户设置模块已初始化
+2025-04-03 16:58:51,989 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:58:52,011 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-03 16:58:53,225 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:58:53,300 - user - INFO - 用户 admin 登录成功
+2025-04-03 16:58:53,306 - login_ui - INFO - 用户 admin 登录成功
+2025-04-03 16:58:53,456 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:58:53,731 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:58:53,774 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-03 16:58:53,775 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-03 16:58:53,827 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-03 16:58:54,378 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-03 16:58:54,569 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:58:55,619 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-03 16:58:55,620 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-03 16:58:55,621 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-03 16:58:55,622 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-03 16:58:55,623 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-03 16:58:55,623 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-03 16:58:55,727 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-03 16:58:57,048 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:58:57,048 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 1
+2025-04-03 16:58:57,049 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 2/6
+2025-04-03 16:58:57,720 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:58:57,720 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 2
+2025-04-03 16:58:57,721 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 3/6
+2025-04-03 16:58:58,599 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:58:58,600 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 3
+2025-04-03 16:58:58,600 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 16:58:58,901 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:58:58,902 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 16:58:58,902 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 16:58:58,952 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 16:59:00,248 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:59:00,248 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 16:59:00,249 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 16:59:00,548 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:59:00,549 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 16:59:00,549 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 16:59:00,599 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (677, 343)
+2025-04-03 16:59:03,831 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:59:03,832 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 3
+2025-04-03 16:59:03,833 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 16:59:04,134 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:59:04,134 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 16:59:04,135 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 16:59:04,187 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 16:59:05,720 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:59:05,721 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 2
+2025-04-03 16:59:05,721 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 3/6
+2025-04-03 16:59:12,527 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:59:12,527 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 1
+2025-04-03 16:59:12,528 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 2/6
+2025-04-03 16:59:14,032 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:59:14,032 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 0
+2025-04-03 16:59:14,033 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-03 16:59:20,158 - user - INFO - 用户已登出
+2025-04-03 16:59:52,855 - root - INFO - 密码管理系统启动
+2025-04-03 16:59:52,855 - root - INFO - 初始化用户设置模块...
+2025-04-03 16:59:52,856 - root - INFO - 用户设置模块已初始化
+2025-04-03 16:59:53,092 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:59:53,101 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-03 16:59:54,409 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:59:54,432 - user - INFO - 用户 admin 登录成功
+2025-04-03 16:59:54,438 - login_ui - INFO - 用户 admin 登录成功
+2025-04-03 16:59:54,609 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:59:54,829 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:59:54,869 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-03 16:59:54,870 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-03 16:59:54,923 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-03 16:59:55,480 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-03 16:59:55,670 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 16:59:56,723 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-03 16:59:56,724 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-03 16:59:56,724 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-03 16:59:56,725 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-03 16:59:56,726 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-03 16:59:56,726 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-03 16:59:56,832 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-03 16:59:57,887 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 16:59:57,888 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 1
+2025-04-03 16:59:57,888 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 2/6
+2025-04-03 16:59:59,285 - user - INFO - 用户已登出
+2025-04-03 17:00:06,974 - root - INFO - 密码管理系统启动
+2025-04-03 17:00:06,974 - root - INFO - 初始化用户设置模块...
+2025-04-03 17:00:06,974 - root - INFO - 用户设置模块已初始化
+2025-04-03 17:00:07,169 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:00:07,189 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-03 17:00:08,519 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:00:08,540 - user - INFO - 用户 admin 登录成功
+2025-04-03 17:00:08,547 - login_ui - INFO - 用户 admin 登录成功
+2025-04-03 17:00:08,749 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:00:08,969 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:00:09,019 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-03 17:00:09,020 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-03 17:00:09,069 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-03 17:00:09,604 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-03 17:00:09,779 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:00:10,832 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-03 17:00:10,832 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-03 17:00:10,833 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-03 17:00:10,834 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-03 17:00:10,835 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-03 17:00:10,835 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-03 17:00:10,939 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-03 17:00:11,551 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:00:11,551 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 1
+2025-04-03 17:00:11,553 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 2/6
+2025-04-03 17:00:12,399 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:00:12,399 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 2
+2025-04-03 17:00:12,401 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 3/6
+2025-04-03 17:00:13,360 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:00:13,361 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 3
+2025-04-03 17:00:13,361 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 17:00:13,661 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:00:13,661 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 17:00:13,662 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 17:00:13,713 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 17:00:14,768 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:00:14,769 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 17:00:14,769 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 17:00:15,069 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:00:15,069 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 17:00:15,070 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 17:00:15,121 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 17:00:29,039 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:00:29,040 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 3
+2025-04-03 17:00:29,040 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 17:00:29,341 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:00:29,342 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 17:00:29,343 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 17:00:29,392 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 17:00:33,207 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:00:33,208 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 17:00:33,208 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 17:00:33,508 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:00:33,508 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 17:00:33,509 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 17:00:33,559 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 17:00:56,319 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:00:56,320 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 3
+2025-04-03 17:00:56,320 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 17:00:56,620 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:00:56,621 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 17:00:56,621 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 17:00:56,672 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 17:03:29,837 - user - INFO - 用户已登出
+2025-04-03 17:28:49,207 - root - INFO - 密码管理系统启动
+2025-04-03 17:28:49,207 - root - INFO - 初始化用户设置模块...
+2025-04-03 17:28:49,207 - root - INFO - 用户设置模块已初始化
+2025-04-03 17:28:49,423 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:28:49,442 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-03 17:28:50,833 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:28:50,838 - user - INFO - 用户 admin 登录成功
+2025-04-03 17:28:50,846 - login_ui - INFO - 用户 admin 登录成功
+2025-04-03 17:28:51,021 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:28:51,202 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:28:51,242 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-03 17:28:51,242 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-03 17:28:51,296 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-03 17:28:51,882 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-03 17:28:52,052 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:28:53,112 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-03 17:28:53,113 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-03 17:28:53,114 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-03 17:28:53,114 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-03 17:28:53,115 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-03 17:28:53,115 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-03 17:28:53,219 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-03 17:28:54,445 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:28:54,445 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 1
+2025-04-03 17:28:54,446 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 2/6
+2025-04-03 17:28:55,327 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:28:55,327 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 2
+2025-04-03 17:28:55,328 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 3/6
+2025-04-03 17:28:56,439 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:28:56,440 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 3
+2025-04-03 17:28:56,441 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 17:28:56,742 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:28:56,742 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 17:28:56,743 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 17:28:56,794 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 17:29:00,470 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:29:00,471 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 17:29:00,471 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 17:29:00,771 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:29:00,771 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 17:29:00,772 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 17:29:00,823 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (657, 343)
+2025-04-03 17:29:03,542 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:29:03,542 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 5
+2025-04-03 17:29:03,543 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 6/6
+2025-04-03 17:29:04,663 - user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-03 17:29:04,663 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-03 17:29:05,392 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:29:05,592 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:29:05,792 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:29:06,013 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:29:06,232 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:29:06,452 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:29:06,668 - user - INFO - 用户已登出
+2025-04-03 17:29:06,682 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:29:40,958 - root - INFO - 密码管理系统启动
+2025-04-03 17:29:40,958 - root - INFO - 初始化用户设置模块...
+2025-04-03 17:29:40,959 - root - INFO - 用户设置模块已初始化
+2025-04-03 17:29:41,220 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:29:41,233 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-03 17:29:42,350 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:29:42,456 - user - INFO - 用户 admin 登录成功
+2025-04-03 17:29:42,462 - login_ui - INFO - 用户 admin 登录成功
+2025-04-03 17:29:42,694 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:29:42,892 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:29:42,932 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-03 17:29:42,932 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-03 17:29:42,980 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-03 17:29:43,513 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-03 17:29:43,755 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:29:44,807 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-03 17:29:44,807 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-03 17:29:44,808 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-03 17:29:44,808 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-03 17:29:44,809 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-03 17:29:44,810 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-03 17:29:44,913 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-03 17:29:46,572 - user - INFO - 用户已登出
+2025-04-03 17:30:15,268 - root - INFO - 密码管理系统启动
+2025-04-03 17:30:15,269 - root - INFO - 初始化用户设置模块...
+2025-04-03 17:30:15,269 - root - INFO - 用户设置模块已初始化
+2025-04-03 17:30:15,512 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:30:15,532 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-03 17:30:16,797 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:30:16,813 - user - INFO - 用户 admin 登录成功
+2025-04-03 17:30:16,819 - login_ui - INFO - 用户 admin 登录成功
+2025-04-03 17:30:16,982 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:30:17,196 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:30:17,222 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-03 17:30:17,222 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-03 17:30:17,276 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-03 17:30:17,815 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-03 17:30:17,992 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:30:19,047 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-03 17:30:19,048 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-03 17:30:19,049 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-03 17:30:19,049 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-03 17:30:19,050 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-03 17:30:19,050 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-03 17:30:19,155 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-03 17:30:20,487 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:30:20,487 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 1
+2025-04-03 17:30:20,489 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 2/6
+2025-04-03 17:30:21,317 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:30:21,317 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 2
+2025-04-03 17:30:21,319 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 3/6
+2025-04-03 17:30:21,984 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:30:21,984 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 3
+2025-04-03 17:30:21,985 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 17:30:22,286 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:30:22,286 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 17:30:22,286 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 17:30:22,337 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 17:30:23,519 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:30:23,519 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 17:30:23,520 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 17:30:23,820 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:30:23,820 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 17:30:23,821 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 17:30:23,872 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 17:30:31,197 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:30:31,197 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 5
+2025-04-03 17:30:31,199 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 6/6
+2025-04-03 17:30:32,701 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:30:32,702 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 4
+2025-04-03 17:30:32,702 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 17:30:33,002 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:30:33,002 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 17:30:33,003 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 17:30:33,053 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 17:30:34,229 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:30:34,229 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 3
+2025-04-03 17:30:34,230 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 17:30:34,531 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:30:34,531 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 17:30:34,532 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 17:30:34,582 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 17:30:36,102 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:30:36,102 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 17:30:36,103 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 17:30:36,404 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:30:36,404 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 17:30:36,405 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 17:30:36,456 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 17:30:40,111 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:30:40,111 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 5
+2025-04-03 17:30:40,113 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 6/6
+2025-04-03 17:30:41,621 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:30:41,621 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 4
+2025-04-03 17:30:41,622 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 17:30:41,921 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:30:41,921 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 17:30:41,922 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 17:30:41,974 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 17:30:44,333 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:30:44,334 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 3
+2025-04-03 17:30:44,335 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 17:30:44,634 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:30:44,634 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 17:30:44,635 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 17:30:44,687 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 17:31:27,500 - user - INFO - 用户已登出
+2025-04-03 17:31:29,478 - root - INFO - 密码管理系统启动
+2025-04-03 17:31:29,479 - root - INFO - 初始化用户设置模块...
+2025-04-03 17:31:29,479 - root - INFO - 用户设置模块已初始化
+2025-04-03 17:31:29,702 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:31:29,722 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-03 17:31:30,763 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:31:30,785 - user - INFO - 用户 admin 登录成功
+2025-04-03 17:31:30,791 - login_ui - INFO - 用户 admin 登录成功
+2025-04-03 17:31:30,972 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:31:31,194 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:31:31,232 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-03 17:31:31,233 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-03 17:31:31,285 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-03 17:31:31,837 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-03 17:31:32,013 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:31:33,065 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-03 17:31:33,065 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-03 17:31:33,066 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-03 17:31:33,067 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-03 17:31:33,068 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-03 17:31:33,068 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-03 17:31:33,173 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-03 17:31:33,749 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:31:33,750 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 1
+2025-04-03 17:31:33,752 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 2/6
+2025-04-03 17:31:34,453 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:31:34,453 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 2
+2025-04-03 17:31:34,455 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 3/6
+2025-04-03 17:31:35,125 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:31:35,125 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 3
+2025-04-03 17:31:35,126 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 17:31:35,426 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:31:35,426 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 17:31:35,427 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 17:31:35,477 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 17:31:36,478 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:31:36,479 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 17:31:36,480 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 17:31:36,780 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:31:36,780 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 17:31:36,781 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 17:31:36,832 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 17:31:38,109 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:31:38,109 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 5
+2025-04-03 17:31:38,111 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 6/6
+2025-04-03 17:31:39,375 - user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-03 17:31:39,376 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-03 17:31:39,652 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:31:39,872 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:31:40,092 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:31:40,312 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:31:40,491 - user - INFO - 用户已登出
+2025-04-03 17:34:22,388 - root - INFO - 密码管理系统启动
+2025-04-03 17:34:22,388 - root - INFO - 初始化用户设置模块...
+2025-04-03 17:34:22,389 - root - INFO - 用户设置模块已初始化
+2025-04-03 17:34:22,635 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:34:22,652 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-03 17:34:24,032 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:34:24,052 - user - INFO - 用户 admin 登录成功
+2025-04-03 17:34:24,058 - login_ui - INFO - 用户 admin 登录成功
+2025-04-03 17:34:24,213 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:34:24,454 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:34:24,486 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-03 17:34:24,487 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-03 17:34:24,540 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-03 17:34:25,158 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-03 17:34:25,342 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:34:26,399 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-03 17:34:26,399 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-03 17:34:26,400 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-03 17:34:26,401 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-03 17:34:26,402 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-03 17:34:26,402 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-03 17:34:26,506 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-03 17:34:27,295 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:34:27,295 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 1
+2025-04-03 17:34:27,298 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 2/6
+2025-04-03 17:34:28,351 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:34:28,352 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 2
+2025-04-03 17:34:28,353 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 3/6
+2025-04-03 17:34:29,190 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:34:29,191 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 3
+2025-04-03 17:34:29,191 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 17:34:29,492 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:34:29,492 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 17:34:29,493 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 17:34:29,544 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 17:35:57,024 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:35:57,025 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 17:35:57,025 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 17:35:57,338 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:35:57,338 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 17:35:57,338 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 17:35:57,399 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 17:35:59,901 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:35:59,902 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 3
+2025-04-03 17:35:59,902 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 17:36:00,217 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:36:00,217 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 17:36:00,218 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 17:36:00,278 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 17:36:01,606 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:36:01,606 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 17:36:01,607 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 17:36:01,906 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:36:01,907 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 17:36:01,907 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 17:36:01,958 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 17:36:04,253 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:36:04,253 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 3
+2025-04-03 17:36:04,254 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 17:36:04,554 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:36:04,554 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 17:36:04,555 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 17:36:04,606 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 17:36:23,301 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:36:23,301 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 17:36:23,302 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 17:36:23,602 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:36:23,602 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 17:36:23,603 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 17:36:23,655 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 17:36:24,820 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:36:24,821 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 5
+2025-04-03 17:36:24,822 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 6/6
+2025-04-03 17:38:06,092 - user - INFO - 用户已登出
+2025-04-03 17:38:08,191 - root - INFO - 密码管理系统启动
+2025-04-03 17:38:08,192 - root - INFO - 初始化用户设置模块...
+2025-04-03 17:38:08,192 - root - INFO - 用户设置模块已初始化
+2025-04-03 17:38:08,433 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:38:08,453 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-03 17:38:09,873 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:38:09,893 - user - INFO - 用户 admin 登录成功
+2025-04-03 17:38:09,899 - login_ui - INFO - 用户 admin 登录成功
+2025-04-03 17:38:10,074 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:38:10,323 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:38:10,363 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-03 17:38:10,363 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-03 17:38:10,418 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-03 17:38:10,972 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-03 17:38:11,143 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:38:12,201 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-03 17:38:12,201 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-03 17:38:12,202 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-03 17:38:12,202 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-03 17:38:12,203 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-03 17:38:12,204 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-03 17:38:12,308 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-03 17:38:13,070 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:38:13,070 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 1
+2025-04-03 17:38:13,072 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 2/6
+2025-04-03 17:38:14,037 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:38:14,038 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 2
+2025-04-03 17:38:14,040 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 3/6
+2025-04-03 17:38:15,021 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:38:15,021 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 3
+2025-04-03 17:38:15,022 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 17:38:15,322 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:38:15,322 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 17:38:15,323 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 17:38:15,373 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 17:38:16,644 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:38:16,645 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 17:38:16,645 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 17:38:16,946 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:38:16,946 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 17:38:16,947 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 17:38:16,998 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 17:38:18,326 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:38:18,326 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 3
+2025-04-03 17:38:18,327 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 17:38:18,628 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:38:18,628 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 17:38:18,629 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 17:38:18,679 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 17:41:26,958 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:41:26,958 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 17:41:26,959 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 17:41:27,258 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:41:27,258 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 17:41:27,259 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 17:41:27,311 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 17:41:28,628 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:41:28,628 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 3
+2025-04-03 17:41:28,629 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 17:41:28,930 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:41:28,930 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 17:41:28,931 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 17:41:28,982 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 17:41:31,094 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:41:31,094 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 2
+2025-04-03 17:41:31,095 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 3/6
+2025-04-03 17:41:32,364 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:41:32,365 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 3
+2025-04-03 17:41:32,366 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-03 17:41:32,666 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:41:32,667 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-03 17:41:32,669 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (217, 185)
+2025-04-03 17:41:32,720 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (217, 312)
+2025-04-03 17:41:33,740 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:41:33,740 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-03 17:41:33,741 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-03 17:41:34,042 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:41:34,042 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-03 17:41:34,043 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (811, 185)
+2025-04-03 17:41:34,093 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (643, 343)
+2025-04-03 17:41:35,342 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-03 17:41:35,342 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 5
+2025-04-03 17:41:35,344 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 6/6
+2025-04-03 17:41:40,438 - user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-03 17:41:40,439 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-03 17:41:41,483 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:41:41,703 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:41:41,923 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:41:42,143 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:41:42,343 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:41:42,564 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:41:42,783 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:41:43,003 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:41:43,233 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:41:43,453 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:41:43,673 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:41:43,893 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:41:44,099 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:41:44,308 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager

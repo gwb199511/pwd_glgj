@@ -529,9 +529,12 @@ class WalkthroughOverlay(QWidget):
         # 更新浮层
         self.update()
         
-        # 定位并显示提示框
-        self._position_tooltip(step)
-        self.tooltip_widget.show()
+        # 检查是否显示菜单图片
+        if not step.get("show_menu_image", False):
+            # 如果不显示菜单图片，立即定位并显示提示框
+            self._position_tooltip(step)
+            self.tooltip_widget.show()
+        # 否则，提示框位置将在_show_menu_image中通过定时器设置
         
         # 更新步骤指示器和按钮状态
         self._update_step_indicators()
@@ -824,7 +827,7 @@ MAIN_FEATURES_WALKTHROUGH = [
         "title": "功能菜单",
         "description": "在菜单栏可以访问更多高级功能，如密码生成器、审计日志查看等。",
         "position": "bottom",
-        "widget_id": "menu_bar"
+        "widget_id": "toolbar"
     }
 ]
 

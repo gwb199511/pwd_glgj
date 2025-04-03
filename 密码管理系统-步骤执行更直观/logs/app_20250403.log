@@ -5747,3 +5747,134 @@ TypeError: object of type 'NoneType' has no len()
 2025-04-03 17:41:43,893 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
 2025-04-03 17:41:44,099 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
 2025-04-03 17:41:44,308 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:43:42,323 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 12, 当前列: 4, 选中行数: 1, 选中行: [12]
+2025-04-03 17:43:42,323 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-03 17:43:42,324 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-03 17:43:42,324 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-03 17:43:42,324 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-03 17:43:43,387 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 14, 当前列: 4, 选中行数: 1, 选中行: [14]
+2025-04-03 17:43:43,387 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-03 17:43:43,388 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-03 17:43:43,388 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-03 17:43:43,389 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-03 17:43:44,586 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 15, 当前列: 4, 选中行数: 1, 选中行: [15]
+2025-04-03 17:43:44,587 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-03 17:43:44,587 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-03 17:43:44,588 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-03 17:43:44,588 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-03 17:49:33,402 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 13, 当前列: 5, 选中行数: 1, 选中行: [13]
+2025-04-03 17:49:33,403 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-03 17:49:33,404 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-03 17:49:33,404 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-03 17:49:33,404 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-03 17:49:34,203 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 12 的真实索引，将使用表格行索引作为备选
+2025-04-03 17:49:34,204 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 12 作为真实索引
+2025-04-03 17:49:35,235 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-03 17:49:35,364 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-03 17:49:35,403 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-03 17:49:35,514 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-03 17:49:40,804 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-03 17:49:40,924 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-03 17:49:43,027 - password - INFO - 调试信息 - update_password被调用，skip_server_sync参数值为: True，类型: <class 'bool'>
+2025-04-03 17:49:43,027 - password - INFO - 更新密码记录 - 所有者: 石帆, 索引: 12, 项目: test, 跳过服务器同步: 是
+2025-04-03 17:49:43,028 - password - INFO - 明确跳过SSH密码更新步骤 - 项目: test, skip_server_sync=True
+2025-04-03 17:49:43,194 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:49:43,424 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:49:43,654 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:49:43,874 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:49:44,093 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:49:44,314 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:49:44,534 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:49:44,784 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:49:45,004 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:49:45,224 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:49:45,445 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:49:45,664 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:49:45,884 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:49:46,114 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:49:46,334 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:49:46,555 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:49:46,764 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:49:46,984 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:49:47,164 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:49:47,384 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:49:47,584 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:49:47,794 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:49:47,994 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:49:48,035 - password - INFO - 更新所有者 石帆 的密码记录成功 (跳过服务器同步)
+2025-04-03 17:49:48,041 - ui.password_manager.ui_dialogs.password_update_dialog - INFO - 成功保存密码到数据库 - 服务器: 192.168.8.87, 索引: 12
+2025-04-03 17:49:49,299 - ui.password_manager.ui_table.table_password - INFO - 密码更新对话框返回确认结果，刷新表格显示更新后的密码
+2025-04-03 17:51:20,627 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 13, 当前列: 5, 选中行数: 1, 选中行: [13]
+2025-04-03 17:51:20,627 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-03 17:51:20,628 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-03 17:51:20,628 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-03 17:51:20,628 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-03 17:51:21,964 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 13
+2025-04-03 17:51:21,971 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 13 的编辑模式
+2025-04-03 17:51:26,306 - ui.password_manager.ui_table.table_edit - INFO - 确认编辑 - 第13行
+2025-04-03 17:51:26,306 - ui.password_manager.ui_table.table_edit - INFO - 确认编辑现有行 12
+2025-04-03 17:51:26,307 - ui.password_manager.ui_table.table_edit - WARNING - 通过_get_real_row_index获取真实索引失败，尝试替代方法
+2025-04-03 17:51:26,307 - ui.password_manager.ui_table.table_edit - INFO - 通过原始数据比较找到匹配记录，真实索引: 12
+2025-04-03 17:51:26,307 - ui.password_manager.ui_table.table_edit - INFO - 更新记录：所有者=石帆, 真实索引=12
+2025-04-03 17:51:26,307 - password - INFO - 调试信息 - update_password被调用，skip_server_sync参数值为: True，类型: <class 'bool'>
+2025-04-03 17:51:26,308 - password - INFO - 更新密码记录 - 所有者: 石帆, 索引: 12, 项目: test, 跳过服务器同步: 是
+2025-04-03 17:51:26,308 - password - INFO - 明确跳过SSH密码更新步骤 - 项目: test, skip_server_sync=True
+2025-04-03 17:51:26,484 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:51:26,714 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:51:26,934 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:51:27,155 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:51:27,375 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:51:27,604 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:51:27,824 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:51:28,045 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:51:28,263 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:51:28,484 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:51:28,715 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:51:28,934 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:51:29,154 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:51:29,374 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:51:29,604 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:51:29,804 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:51:30,025 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:51:30,244 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:51:30,464 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:51:30,824 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:51:31,046 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:51:31,264 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:51:31,484 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-03 17:51:31,524 - password - INFO - 更新所有者 石帆 的密码记录成功 (跳过服务器同步)
+2025-04-03 17:51:31,540 - ui.password_manager.ui_table.table_edit - INFO - 重新加载所有密码数据
+2025-04-03 17:51:31,569 - ui.password_manager.ui_table.table_edit - INFO - 编辑操作完成，已恢复表格选择模式
+2025-04-03 17:51:31,570 - ui.password_manager.ui_table.table_edit - INFO - 编辑成功：更新成功 (跳过服务器同步)
+2025-04-03 17:51:36,298 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 13, 当前列: 7, 选中行数: 1, 选中行: [13]
+2025-04-03 17:51:36,299 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-03 17:51:36,300 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-03 17:51:36,300 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-03 17:51:36,300 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-03 17:51:42,018 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 13, 当前列: 1, 选中行数: 1, 选中行: [13]
+2025-04-03 17:51:42,018 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-03 17:51:42,019 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-03 17:51:42,019 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-03 17:51:42,019 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-03 17:51:43,266 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 14, 当前列: 3, 选中行数: 1, 选中行: [14]
+2025-04-03 17:51:43,266 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-03 17:51:43,267 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-03 17:51:43,267 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-03 17:51:43,268 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-03 17:51:43,809 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 13, 当前列: 4, 选中行数: 1, 选中行: [13]
+2025-04-03 17:51:43,810 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-03 17:51:43,810 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-03 17:51:43,811 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-03 17:51:43,811 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-03 17:51:44,660 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 13, 当前列: 5, 选中行数: 1, 选中行: [13]
+2025-04-03 17:51:44,660 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-03 17:51:44,661 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-03 17:51:44,661 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-03 17:51:44,661 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-03 17:51:45,939 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 12, 当前列: 5, 选中行数: 1, 选中行: [12]
+2025-04-03 17:51:45,939 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-03 17:51:45,940 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-03 17:51:45,940 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-03 17:51:45,941 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-03 17:51:48,370 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 13, 当前列: 4, 选中行数: 4, 选中行: [11, 12, 13, 14]
+2025-04-03 17:51:48,370 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0

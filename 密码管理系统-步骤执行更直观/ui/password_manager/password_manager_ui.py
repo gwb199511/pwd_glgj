@@ -437,7 +437,7 @@ class PasswordManagerUI(QMainWindow):
         
         # 文件菜单
         # Excel导入导出子菜单
-        excel_menu = QMenu("Excel管理", self)
+        excel_menu = QMenu("导入/导出", self)
         
         # 导入Excel
         import_action = QAction("从Excel导入", self)

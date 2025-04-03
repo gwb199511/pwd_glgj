@@ -12,7 +12,8 @@ from PyQt5.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QSplitter, 
     QListWidget, QListWidgetItem, QLabel, QLineEdit,
     QToolBar, QAction, QMainWindow, QStatusBar,
-    QTableWidget, QAbstractItemView, QFrame, QSizePolicy
+    QTableWidget, QAbstractItemView, QFrame, QSizePolicy,
+    QToolButton, QMenu
 )
 from PyQt5.QtCore import Qt, QSize
 from PyQt5.QtGui import QFont, QIcon
@@ -50,47 +51,106 @@ class PasswordManagerLayout:
         """
         创建工具栏和搜索框
         
-        注意：搜索框现在位于菜单栏，工具栏仅作为预留位置保留
+        将菜单按钮和搜索框放置在工具栏中
         """
-        # 创建一个新的工具栏，但暂时不显示
-        # 仅保留这段代码以备将来需要在工具栏上添加其他工具
+        # 创建工具栏
         self.toolbar = self.parent.addToolBar("工具栏")
         self.toolbar.setMovable(False)
         self.toolbar.setIconSize(QSize(20, 20))
         self.toolbar.setFont(QFont(FONT_FAMILY, 9))
-        # 隐藏工具栏，因为现在搜索框已移至菜单栏
-        self.toolbar.setVisible(False)
         
-        # 将搜索框添加到菜单栏
-        menubar = self.parent.menuBar()
+        # 创建菜单按钮
+        # 文件菜单按钮
+        self.file_button = QToolButton(self.parent)
+        self.file_button.setText("文件")
+        self.file_button.setPopupMode(QToolButton.InstantPopup)
+        self.file_button.setToolButtonStyle(Qt.ToolButtonTextOnly)
+        self.file_menu = QMenu(self.parent)
+        self.file_button.setMenu(self.file_menu)
         
-        # 添加搜索框
+        # 工具菜单按钮
+        self.tools_button = QToolButton(self.parent)
+        self.tools_button.setText("工具")
+        self.tools_button.setPopupMode(QToolButton.InstantPopup)
+        self.tools_button.setToolButtonStyle(Qt.ToolButtonTextOnly)
+        self.tools_menu = QMenu(self.parent)
+        self.tools_button.setMenu(self.tools_menu)
+        
+        # 帮助菜单按钮
+        self.help_button = QToolButton(self.parent)
+        self.help_button.setText("帮助")
+        self.help_button.setPopupMode(QToolButton.InstantPopup)
+        self.help_button.setToolButtonStyle(Qt.ToolButtonTextOnly)
+        self.help_menu = QMenu(self.parent)
+        self.help_button.setMenu(self.help_menu)
+        
+        # 添加默认菜单项，稍后会被替换
+        self.file_menu.addAction("默认文件菜单项")
+        self.tools_menu.addAction("默认工具菜单项")
+        self.help_menu.addAction("默认帮助菜单项")
+        
+        # 添加按钮到工具栏
+        self.toolbar.addWidget(self.file_button)
+        self.toolbar.addWidget(self.tools_button)
+        self.toolbar.addWidget(self.help_button)
+        
+        # 设置菜单按钮的样式
+        menu_button_style = """
+            QToolButton {
+                background-color: transparent;
+                border: none;
+                padding: 4px 8px;
+                font-weight: normal;
+            }
+            QToolButton:hover {
+                background-color: #f0f0f0;
+                border-radius: 3px;
+            }
+            QToolButton:pressed, QToolButton:checked {
+                background-color: #e0e0e0;
+            }
+            QToolButton::menu-indicator {
+                image: none;
+            }
+        """
+        
+        self.file_button.setStyleSheet(menu_button_style)
+        self.tools_button.setStyleSheet(menu_button_style)
+        self.help_button.setStyleSheet(menu_button_style)
+        
+        # 添加一个伸缩器，将搜索框推到右侧
+        spacer = QWidget()
+        spacer.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+        self.toolbar.addWidget(spacer)
+        
+        # 添加搜索标签
+        search_label = QLabel("搜索:")
+        search_label.setFont(QFont(FONT_FAMILY, 9))
+        self.toolbar.addWidget(search_label)
+        
+        # 创建搜索框
         self.search_edit = ModernLineEdit(placeholder="输入关键词搜索...")
-        self.search_edit.setFixedWidth(180)
-        # 调整搜索框的高度以匹配菜单栏高度
-        self.search_edit.setFixedHeight(22)
+        self.search_edit.setFixedWidth(200)
         self.search_edit.setFont(QFont(FONT_FAMILY, 9))
         self.search_edit.setClearButtonEnabled(True)
-        # 设置样式使其与菜单栏更协调
         self.search_edit.setStyleSheet("""
             QLineEdit {
                 border: 1px solid #c0c0c0;
-                border-radius: 3px;
+                border-radius: 4px;
                 background-color: #ffffff;
-                padding: 1px 18px 1px 3px;
-                margin-top: 1px;
+                padding: 2px 18px 2px 5px;
+                margin: 3px 10px 3px 5px;
+            }
+            QLineEdit:focus {
+                border-color: #4a6fa5;
             }
         """)
         
-        # 创建一个包含搜索框的容器部件
-        search_container = QWidget()
-        search_layout = QHBoxLayout(search_container)
-        search_layout.setContentsMargins(0, 0, 10, 0)  # 右侧留一点间距
-        search_layout.setSpacing(0)
-        search_layout.addWidget(self.search_edit)
+        # 添加搜索框到工具栏
+        self.toolbar.addWidget(self.search_edit)
         
-        # 将搜索框容器设置为右上角部件
-        menubar.setCornerWidget(search_container, Qt.TopRightCorner)
+        # 确保工具栏可见
+        self.toolbar.setVisible(True)
         
     def _create_status_bar(self):
         """

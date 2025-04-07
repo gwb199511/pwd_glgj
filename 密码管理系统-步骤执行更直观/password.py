@@ -6,7 +6,7 @@
 """
 
 import logging
-from typing import List, Dict, Any, Tuple, Optional
+from typing import List, Dict, Any, Tuple, Optional, Callable
 import os
 import traceback
 
@@ -14,7 +14,7 @@ from config import PASSWORD_DATA_FILE
 from database import Database
 from encrypt import encryptor
 from ssh_password_updater import ssh_password_updater
-from audit_log import audit_logger, OP_TYPE_ADD, OP_TYPE_UPDATE, OP_TYPE_DELETE, OP_TYPE_GENERATE, OP_TYPE_SSH_UPDATE, OP_RESULT_SUCCESS, OP_RESULT_FAIL, OP_RESULT_WARNING, OP_RESULT_INFO, LOG_TYPE_SSH
+from audit_log import audit_logger, OP_TYPE_ADD, OP_TYPE_UPDATE, OP_TYPE_DELETE, OP_TYPE_GENERATE, OP_TYPE_SSH_UPDATE, OP_RESULT_SUCCESS, OP_RESULT_FAIL, OP_RESULT_WARNING, OP_RESULT_INFO, LOG_TYPE_SSH, LOG_TYPE_LOGIN
 
 # 配置日志
 logger = logging.getLogger(__name__)
@@ -65,6 +65,43 @@ class PasswordManager:
         """
         return list(self.db.get_all().keys())
 
+    def _log_operation(self, operation_type: str, result: str, details: str,
+                      target: str, log_type: str = None):
+        """
+        封装审计日志记录操作
+        
+        Args:
+            operation_type: 操作类型
+            result: 操作结果
+            details: 详细信息
+            target: 操作目标
+            log_type: 日志类型，默认为None则使用系统日志
+        """
+        audit_logger.log_operation(
+            operation_type=operation_type,
+            result=result,
+            details=details,
+            target=target,
+            log_type=log_type
+        )
+    
+    def _decrypt_password(self, password_record: List[str]) -> List[str]:
+        """
+        解密密码记录中的密码字段
+        
+        Args:
+            password_record: 密码记录
+            
+        Returns:
+            解密后的密码记录副本
+        """
+        if not password_record or len(password_record) <= 4:
+            return password_record
+            
+        result = password_record.copy()
+        result[4] = encryptor.decrypt(result[4])
+        return result
+
     def add_password(self, owner: str, site_info: List[str], position: Optional[int] = None) -> Tuple[bool, str]:
         """
         添加密码记录
@@ -86,7 +123,7 @@ class PasswordManager:
                 return False, "密码信息不完整"
                 
             # 提取项目名称用于日志记录
-            project_name = site_info[0] if len(site_info) > 0 else "未知"
+            project_name = site_info[0] if site_info else "未知"
                 
             # 加密密码字段（索引为4）
             site_info[4] = encryptor.encrypt(site_info[4])
@@ -104,7 +141,7 @@ class PasswordManager:
                 logger.info(f"为所有者 {owner} 添加密码记录成功")
                 
                 # 记录审计日志
-                audit_logger.log_operation(
+                self._log_operation(
                     operation_type=OP_TYPE_ADD,
                     result=OP_RESULT_SUCCESS,
                     details=f"添加密码记录成功，项目：{project_name}",
@@ -116,7 +153,7 @@ class PasswordManager:
                 logger.error(f"为所有者 {owner} 添加密码记录失败")
                 
                 # 记录审计日志
-                audit_logger.log_operation(
+                self._log_operation(
                     operation_type=OP_TYPE_ADD,
                     result=OP_RESULT_FAIL,
                     details=f"添加密码记录失败，项目：{project_name}",
@@ -128,7 +165,8 @@ class PasswordManager:
             logger.error(f"添加密码时出错: {str(e)}")
             
             # 记录审计日志
-            audit_logger.log_operation(
+            project_name = site_info[0] if site_info and len(site_info) > 0 else "未知"
+            self._log_operation(
                 operation_type=OP_TYPE_ADD,
                 result=OP_RESULT_FAIL,
                 details=f"添加密码记录出错：{str(e)}，项目：{project_name}",
@@ -152,11 +190,7 @@ class PasswordManager:
             passwords = self.db.get(owner, [])
             
             # 解密密码字段
-            for password in passwords:
-                if len(password) > 4:  # 确保记录至少有5个字段
-                    password[4] = encryptor.decrypt(password[4])
-                    
-            return passwords
+            return [self._decrypt_password(password) for password in passwords]
         except Exception as e:
             logger.error(f"获取所有者 {owner} 的密码时出错: {str(e)}")
             return []
@@ -175,14 +209,8 @@ class PasswordManager:
             Tuple[bool, str]: (成功状态, 消息)
         """
         try:
-            # 强制转换skip_server_sync为布尔值，防止参数传递问题
-            skip_server_sync = bool(skip_server_sync)
-            
-            # 调试信息：记录传入的skip_server_sync参数
-            logger.info(f"调试信息 - update_password被调用，skip_server_sync参数值为: {skip_server_sync}，类型: {type(skip_server_sync)}")
-            
             # 记录详细的操作信息
-            project_name = new_site_info[0] if len(new_site_info) > 0 else "未知"
+            project_name = new_site_info[0] if new_site_info else "未知"
             logger.info(f"更新密码记录 - 所有者: {owner}, 索引: {index}, 项目: {project_name}, 跳过服务器同步: {'是' if skip_server_sync else '否'}")
             
             # 获取所有者的密码列表
@@ -197,7 +225,7 @@ class PasswordManager:
                     # 对于新记录，直接添加到列表末尾
                     if len(new_site_info) < 5:  # 至少需要项目名称、功能、IP地址、账户、密码
                         # 记录审计日志
-                        audit_logger.log_operation(
+                        self._log_operation(
                             operation_type=OP_TYPE_ADD,
                             result=OP_RESULT_FAIL,
                             details=f"添加新密码记录失败：密码信息不完整，项目：{project_name}",
@@ -216,7 +244,7 @@ class PasswordManager:
                         logger.info(f"为所有者 {owner} 添加新记录成功")
                         
                         # 记录审计日志
-                        audit_logger.log_operation(
+                        self._log_operation(
                             operation_type=OP_TYPE_ADD,
                             result=OP_RESULT_SUCCESS,
                             details=f"添加新密码记录成功，项目：{project_name}",
@@ -228,7 +256,7 @@ class PasswordManager:
                         logger.error(f"为所有者 {owner} 添加新记录失败")
                         
                         # 记录审计日志
-                        audit_logger.log_operation(
+                        self._log_operation(
                             operation_type=OP_TYPE_ADD,
                             result=OP_RESULT_FAIL,
                             details=f"添加新密码记录失败：数据库保存失败，项目：{project_name}",
@@ -240,7 +268,7 @@ class PasswordManager:
                     logger.error(f"无效的记录索引: {index}, 可用记录数: {len(passwords)}")
                     
                     # 记录审计日志
-                    audit_logger.log_operation(
+                    self._log_operation(
                         operation_type=OP_TYPE_UPDATE,
                         result=OP_RESULT_FAIL,
                         details=f"更新密码记录失败：无效的记录索引 {index}，项目：{project_name}",
@@ -252,7 +280,7 @@ class PasswordManager:
             # 确保new_site_info长度正确
             if len(new_site_info) < 5:  # 至少需要项目名称、功能、IP地址、账户、密码
                 # 记录审计日志
-                audit_logger.log_operation(
+                self._log_operation(
                     operation_type=OP_TYPE_UPDATE,
                     result=OP_RESULT_FAIL,
                     details=f"更新密码记录失败：密码信息不完整，项目：{project_name}",
@@ -268,7 +296,7 @@ class PasswordManager:
             
             # 如果要求跳过服务器同步，则直接更新本地数据库
             if skip_server_sync:
-                logger.info(f"明确跳过SSH密码更新步骤 - 项目: {project_name}, skip_server_sync={skip_server_sync}")
+                logger.info(f"跳过SSH密码更新步骤 - 项目: {project_name}")
                 
                 # 加密密码字段
                 new_site_info[4] = encryptor.encrypt(new_site_info[4])
@@ -281,7 +309,7 @@ class PasswordManager:
                     logger.info(f"更新所有者 {owner} 的密码记录成功 (跳过服务器同步)")
                     
                     # 记录审计日志
-                    audit_logger.log_operation(
+                    self._log_operation(
                         operation_type=OP_TYPE_UPDATE,
                         result=OP_RESULT_SUCCESS,
                         details=f"仅更新本地密码记录成功（跳过服务器同步），项目：{project_name}",
@@ -293,7 +321,7 @@ class PasswordManager:
                     logger.error(f"更新所有者 {owner} 的密码记录失败")
                     
                     # 记录审计日志
-                    audit_logger.log_operation(
+                    self._log_operation(
                         operation_type=OP_TYPE_UPDATE,
                         result=OP_RESULT_FAIL,
                         details=f"更新本地密码记录失败：数据库保存失败，项目：{project_name}",
@@ -303,27 +331,20 @@ class PasswordManager:
                     return False, "更新失败，请稍后重试"
             
             # 以下是不跳过服务器同步的正常流程
-            # 尝试同步更改到服务器（如果有IP地址和账户）
-            server_sync_needed = False
+            # 检查是否需要同步到服务器 (有IP地址、账号，且密码已更改)
+            ip_address = new_site_info[2] if len(new_site_info) > 2 else ""
+            username = new_site_info[3] if len(new_site_info) > 3 else ""
+            
+            server_sync_needed = bool(ip_address and username and old_decrypted_password != new_decrypted_password)
             server_sync_success = True
             server_sync_message = ""
             
-            if (len(new_site_info) > 2 and new_site_info[2] and 
-                len(new_site_info) > 3 and new_site_info[3] and 
-                old_decrypted_password != new_decrypted_password):
-                
-                server_sync_needed = True
-                ip_address = new_site_info[2]
-                username = new_site_info[3]
-                
+            if server_sync_needed:
                 logger.info(f"需要SSH更新密码 - 项目: {project_name}, IP: {ip_address}, 用户: {username}")
                 
                 try:
-                    # 记录密码更新操作到主应用日志
-                    logger.info(f"尝试更新服务器密码 - 项目: {project_name}, IP: {ip_address}, 用户: {username}")
-                    
-                    # 记录审计日志 - SSH更新开始
-                    audit_logger.log_operation(
+                    # 记录SSH更新开始
+                    self._log_operation(
                         operation_type=OP_TYPE_SSH_UPDATE,
                         result=OP_RESULT_INFO,
                         details=f"开始SSH密码更新，项目：{project_name}，IP：{ip_address}，用户：{username}",
@@ -339,8 +360,8 @@ class PasswordManager:
                         new_password=new_decrypted_password
                     )
                     
-                    # 记录审计日志 - SSH更新结果
-                    audit_logger.log_operation(
+                    # 记录SSH更新结果
+                    self._log_operation(
                         operation_type=OP_TYPE_SSH_UPDATE,
                         result=OP_RESULT_SUCCESS if server_sync_success else OP_RESULT_FAIL,
                         details=f"SSH密码更新{'成功' if server_sync_success else '失败'}：{server_sync_message}，项目：{project_name}，IP：{ip_address}，用户：{username}",
@@ -348,7 +369,7 @@ class PasswordManager:
                         log_type=LOG_TYPE_SSH
                     )
                     
-                    # 获取SSH操作日志文件路径并告知用户
+                    # 记录日志文件路径
                     ssh_log_file = ssh_password_updater.get_log_file_path()
                     logger.info(f"SSH密码更新操作已记录到日志文件: {ssh_log_file}")
                 except ImportError as e:
@@ -356,8 +377,8 @@ class PasswordManager:
                     server_sync_message = f"导入SSH密码更新模块失败: {str(e)}"
                     logger.error(f"导入SSH密码更新模块失败: {str(e)}")
                     
-                    # 记录审计日志 - SSH模块导入失败
-                    audit_logger.log_operation(
+                    # 记录SSH模块导入失败
+                    self._log_operation(
                         operation_type=OP_TYPE_SSH_UPDATE,
                         result=OP_RESULT_FAIL,
                         details=f"SSH密码更新失败：导入SSH模块失败 - {str(e)}，项目：{project_name}",
@@ -376,65 +397,59 @@ class PasswordManager:
             if self.db.set(owner, passwords):
                 logger.info(f"更新所有者 {owner} 的密码记录成功")
                 
+                # 根据服务器同步需求和结果，选择不同的日志记录和返回信息
                 if server_sync_needed:
                     if server_sync_success:
-                        # 记录审计日志 - 本地和服务器都更新成功
-                        audit_logger.log_operation(
+                        # 本地和服务器都更新成功
+                        self._log_operation(
                             operation_type=OP_TYPE_UPDATE,
                             result=OP_RESULT_SUCCESS,
                             details=f"更新密码记录成功（本地和服务器都已更新），项目：{project_name}",
                             target=f"{owner}/{project_name}"
                         )
-                        
                         return True, "更新成功（本地和服务器都已更新）"
                     else:
                         # SSH同步失败，但本地数据库已更新
                         logger.warning(f"服务器密码更新失败，但本地密码已更新：{server_sync_message}")
-                        
-                        # 记录审计日志 - 仅本地更新成功
-                        audit_logger.log_operation(
+                        self._log_operation(
                             operation_type=OP_TYPE_UPDATE,
                             result=OP_RESULT_WARNING,
                             details=f"本地密码已更新，但服务器密码更新失败：{server_sync_message}，项目：{project_name}",
                             target=f"{owner}/{project_name}"
                         )
-                        
                         return True, f"本地密码已更新，但服务器密码更新失败：{server_sync_message}"
                 else:
-                    # 记录审计日志 - 本地更新成功
-                    audit_logger.log_operation(
+                    # 仅本地更新成功
+                    self._log_operation(
                         operation_type=OP_TYPE_UPDATE,
                         result=OP_RESULT_SUCCESS,
                         details=f"更新密码记录成功，项目：{project_name}",
                         target=f"{owner}/{project_name}"
                     )
-                    
                     return True, "更新成功"
             else:
                 logger.error(f"更新所有者 {owner} 的密码记录失败")
                 
-                # 记录审计日志 - 本地更新失败
-                audit_logger.log_operation(
+                # 本地更新失败
+                self._log_operation(
                     operation_type=OP_TYPE_UPDATE,
                     result=OP_RESULT_FAIL,
                     details=f"更新本地密码记录失败：数据库保存失败，项目：{project_name}",
                     target=f"{owner}/{project_name}"
                 )
-                
                 return False, "更新失败，请稍后重试"
                 
         except Exception as e:
             logger.error(f"更新密码时出错: {str(e)}")
             
-            # 记录审计日志 - 更新出错
-            project_name = new_site_info[0] if len(new_site_info) > 0 else "未知"
-            audit_logger.log_operation(
+            # 更新出错
+            project_name = new_site_info[0] if new_site_info and len(new_site_info) > 0 else "未知"
+            self._log_operation(
                 operation_type=OP_TYPE_UPDATE,
                 result=OP_RESULT_FAIL,
                 details=f"更新密码记录出错：{str(e)}，项目：{project_name}",
                 target=f"{owner}/{project_name}"
             )
-            
             return False, f"更新失败: {str(e)}"
 
     def delete_password(self, owner: str, index: int) -> Tuple[bool, str]:
@@ -455,17 +470,16 @@ class PasswordManager:
             # 检查索引是否有效
             if not passwords or index < 0 or index >= len(passwords):
                 # 记录审计日志 - 无效索引
-                audit_logger.log_operation(
+                self._log_operation(
                     operation_type=OP_TYPE_DELETE,
                     result=OP_RESULT_FAIL,
                     details=f"删除密码记录失败：无效的记录索引 {index}",
                     target=f"{owner}/未知记录"
                 )
-                
                 return False, "无效的记录索引"
                 
             # 获取项目名称用于日志记录
-            project_name = passwords[index][0] if len(passwords[index]) > 0 else "未知"
+            project_name = passwords[index][0] if passwords[index] and len(passwords[index]) > 0 else "未知"
                 
             # 删除记录
             del passwords[index]
@@ -475,37 +489,34 @@ class PasswordManager:
                 logger.info(f"删除所有者 {owner} 的密码记录成功")
                 
                 # 记录审计日志 - 删除成功
-                audit_logger.log_operation(
+                self._log_operation(
                     operation_type=OP_TYPE_DELETE,
                     result=OP_RESULT_SUCCESS,
                     details=f"删除密码记录成功，项目：{project_name}",
                     target=f"{owner}/{project_name}"
                 )
-                
                 return True, "删除成功"
             else:
                 logger.error(f"删除所有者 {owner} 的密码记录失败")
                 
                 # 记录审计日志 - 删除失败
-                audit_logger.log_operation(
+                self._log_operation(
                     operation_type=OP_TYPE_DELETE,
                     result=OP_RESULT_FAIL,
                     details=f"删除密码记录失败：数据库保存失败，项目：{project_name}",
                     target=f"{owner}/{project_name}"
                 )
-                
                 return False, "删除失败，请稍后重试"
         except Exception as e:
             logger.error(f"删除密码时出错: {str(e)}")
             
             # 记录审计日志 - 删除出错
-            audit_logger.log_operation(
+            self._log_operation(
                 operation_type=OP_TYPE_DELETE,
                 result=OP_RESULT_FAIL,
                 details=f"删除密码记录出错：{str(e)}",
                 target=f"{owner}/未知记录"
             )
-            
             return False, f"删除失败: {str(e)}"
 
     def search_passwords(self, keyword: str, owner: Optional[str] = None) -> List[Tuple[str, List[str]]]:
@@ -523,32 +534,20 @@ class PasswordManager:
         keyword = keyword.lower()  # 转换为小写以进行不区分大小写的搜索
         
         try:
-            if owner:
-                # 搜索指定所有者的密码
-                owners = [owner]
-            else:
-                # 搜索所有所有者的密码
-                owners = self.get_all_owners()
+            # 确定要搜索的所有者列表
+            owners = [owner] if owner else self.get_all_owners()
                 
             for current_owner in owners:
                 passwords = self.db.get(current_owner, [])
                 
                 for password in passwords:
-                    # 解密密码字段以便搜索
-                    if len(password) > 4:
-                        decrypted_password = encryptor.decrypt(password[4])
-                        password_for_search = password.copy()
-                        password_for_search[4] = decrypted_password
-                    else:
-                        password_for_search = password
+                    # 解密密码进行搜索
+                    password_for_search = self._decrypt_password(password)
                     
                     # 在所有字段中搜索关键词
                     if any(keyword in str(field).lower() for field in password_for_search):
                         # 将解密后的密码记录添加到结果中
-                        result_password = password.copy()
-                        if len(result_password) > 4:
-                            result_password[4] = decrypted_password
-                        results.append((current_owner, result_password))
+                        results.append((current_owner, password_for_search))
                         
             return results
         except Exception as e:

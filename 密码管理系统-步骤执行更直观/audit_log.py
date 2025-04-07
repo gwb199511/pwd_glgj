@@ -21,6 +21,7 @@ logger = logging.getLogger(__name__)
 # 审计日志类型
 LOG_TYPE_SYSTEM = "system"  # 系统操作日志
 LOG_TYPE_SSH = "ssh"        # SSH更新日志
+LOG_TYPE_LOGIN = "login"    # 登录记录日志
 LOG_TYPE_ALL = "all"        # 所有日志
 
 # 操作类型
@@ -177,6 +178,7 @@ class AuditLogger:
                 logs = []
                 logs.extend(self._read_logs(self._get_log_file(LOG_TYPE_SYSTEM)))
                 logs.extend(self._read_logs(self._get_log_file(LOG_TYPE_SSH)))
+                logs.extend(self._read_logs(self._get_log_file(LOG_TYPE_LOGIN)))
             else:
                 # 读取特定类型的日志
                 logs = self._read_logs(self._get_log_file(log_type))
@@ -477,6 +479,8 @@ class AuditLogger:
         """
         if log_type == LOG_TYPE_SSH:
             return os.path.join(self.log_dir, 'ssh_audit.json')
+        elif log_type == LOG_TYPE_LOGIN:
+            return os.path.join(self.log_dir, 'login_audit.json')
         return self.system_log_file
     
     def _read_logs(self, log_file: str) -> List[Dict[str, Any]]:

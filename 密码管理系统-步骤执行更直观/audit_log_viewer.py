@@ -33,7 +33,7 @@ try:
     # 导入项目模块
     from config import FONT_FAMILY, COLORS
     from audit_log import (
-        audit_logger, LOG_TYPE_SYSTEM, LOG_TYPE_SSH, LOG_TYPE_ALL,
+        audit_logger, LOG_TYPE_SYSTEM, LOG_TYPE_SSH, LOG_TYPE_LOGIN, LOG_TYPE_ALL,
         OP_TYPE_LOGIN, OP_TYPE_LOGOUT, OP_TYPE_QUERY, OP_TYPE_ADD,
         OP_TYPE_UPDATE, OP_TYPE_DELETE, OP_TYPE_GENERATE, OP_TYPE_SSH_UPDATE,
         OP_TYPE_EXPORT, OP_TYPE_IMPORT, 
@@ -189,6 +189,7 @@ class AuditLogViewer(QMainWindow):
         self.log_type_combo.setFont(QFont(FONT_FAMILY, 9))
         self.log_type_combo.addItem("系统操作日志", LOG_TYPE_SYSTEM)
         self.log_type_combo.addItem("SSH更新日志", LOG_TYPE_SSH)
+        self.log_type_combo.addItem("登录记录日志", LOG_TYPE_LOGIN)
         self.log_type_combo.addItem("全部日志", LOG_TYPE_ALL)
         self.log_type_combo.currentIndexChanged.connect(self.on_log_type_changed)
         log_type_layout.addWidget(log_type_label)

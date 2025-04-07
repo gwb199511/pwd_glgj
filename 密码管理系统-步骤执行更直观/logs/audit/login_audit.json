@@ -1,0 +1,11 @@
+[
+  {
+    "timestamp": "2025-04-07T14:17:50.483631",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "login"
+  }
+]

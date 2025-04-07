@@ -17,7 +17,7 @@ from typing import Tuple, Dict, Any, Optional, List, Union
 from config import DATA_DIR
 from database import Database
 from encrypt import encryptor
-from audit_log import AuditLogger, OP_TYPE_LOGIN, OP_TYPE_LOGOUT, OP_RESULT_SUCCESS, OP_RESULT_FAIL
+from audit_log import AuditLogger, OP_TYPE_LOGIN, OP_TYPE_LOGOUT, OP_RESULT_SUCCESS, OP_RESULT_FAIL, LOG_TYPE_LOGIN
 
 # 配置日志
 logger = logging.getLogger(__name__)
@@ -113,7 +113,8 @@ class UserManager:
                 result=OP_RESULT_FAIL,
                 details="登录失败：用户名和密码不能为空",
                 user=username if username else "未知用户",
-                target="用户登录"
+                target="用户登录",
+                log_type=LOG_TYPE_LOGIN
             )
             return False, "用户名和密码不能为空"
             
@@ -127,7 +128,8 @@ class UserManager:
                 result=OP_RESULT_FAIL,
                 details="登录失败：用户名不存在",
                 user=username,
-                target="用户登录"
+                target="用户登录",
+                log_type=LOG_TYPE_LOGIN
             )
             return False, "用户名或密码错误"
             
@@ -145,7 +147,8 @@ class UserManager:
                 result=OP_RESULT_SUCCESS,
                 details="用户登录成功",
                 user=username,
-                target="用户登录"
+                target="用户登录",
+                log_type=LOG_TYPE_LOGIN
             )
             
             return True, "登录成功"
@@ -158,7 +161,8 @@ class UserManager:
                 result=OP_RESULT_FAIL,
                 details="登录失败：密码错误",
                 user=username,
-                target="用户登录"
+                target="用户登录",
+                log_type=LOG_TYPE_LOGIN
             )
             
             return False, "用户名或密码错误"
@@ -303,7 +307,8 @@ class UserManager:
             result=OP_RESULT_SUCCESS,
             details="用户登出系统",
             user=username,
-            target="用户登出"
+            target="用户登出",
+            log_type=LOG_TYPE_LOGIN
         )
 
     def get_current_user(self) -> Optional[str]:

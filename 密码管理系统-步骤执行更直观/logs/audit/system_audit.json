@@ -25,5 +25,158 @@
     "target": "石帆/批量操作",
     "details": "批量生成随机密码并更新服务器全部成功，共1个服务器，IP地址：192.168.8.87",
     "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-07T14:36:36.855991",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "石帆/批量操作",
+    "details": "开始为2个服务器生成16位随机密码，ip地址为：242.173.48.95; 192.168.8.87",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-07T14:36:59.615841",
+    "user": "admin",
+    "operation": "update",
+    "result": "success",
+    "target": "石帆/test",
+    "details": "更新密码记录成功，项目：test",
+    "log_type": null
+  },
+  {
+    "timestamp": "2025-04-07T14:37:01.047982",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "石帆/批量操作",
+    "details": "批量生成随机密码并更新服务器部分成功: 1成功, 1失败。成功IP：192.168.8.87，失败IP：242.173.48.95",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-07T14:39:56.249907",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "石帆/批量操作",
+    "details": "开始为3个服务器生成16位随机密码，ip地址为：177.159.31.14; 242.173.48.95; 192.168.8.87",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-07T14:40:41.660942",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "石帆/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-07T14:40:44.168130",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "石帆/批量操作",
+    "details": "开始为1个服务器生成16位随机密码，ip地址为：192.168.8.87",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-07T14:40:57.948299",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "石帆/批量操作",
+    "details": "批量生成随机密码并更新服务器全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-07T14:41:01.071342",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "石帆/批量操作",
+    "details": "开始为1个服务器生成16位随机密码，ip地址为：31.110.40.229",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-07T14:41:40.530473",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "石帆/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-07T14:44:42.453087",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "石帆/批量操作",
+    "details": "开始为1个服务器生成16位随机密码，ip地址为：31.110.40.229",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-07T14:54:27.129576",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "石帆/批量操作",
+    "details": "完成随机密码生成和更新操作",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-07T15:01:08.371496",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "石帆/批量操作",
+    "details": "开始为1个服务器生成16位随机密码，ip地址为：108.95.192.171",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-07T15:01:21.740435",
+    "user": "admin",
+    "operation": "generate",
+    "result": "fail",
+    "target": "石帆/批量操作",
+    "details": "批量生成随机密码并更新服务器全部失败，共1个服务器。失败IP: 108.95.192.171",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-07T15:01:27.703063",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "石帆/批量操作",
+    "details": "开始为1个服务器生成16位随机密码，ip地址为：107.136.159.158",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-07T15:01:45.269512",
+    "user": "admin",
+    "operation": "generate",
+    "result": "fail",
+    "target": "石帆/批量操作",
+    "details": "批量生成随机密码并更新服务器全部失败，共1个服务器。失败IP: 107.136.159.158",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-07T15:01:47.435996",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "石帆/批量操作",
+    "details": "开始为1个服务器生成16位随机密码，ip地址为：192.168.8.87",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-07T15:02:05.662926",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "石帆/批量操作",
+    "details": "批量生成随机密码并更新服务器全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "system"
   }
 ]

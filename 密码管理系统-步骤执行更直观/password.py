@@ -308,13 +308,7 @@ class PasswordManager:
                 if self.db.set(owner, passwords):
                     logger.info(f"更新所有者 {owner} 的密码记录成功 (跳过服务器同步)")
                     
-                    # 记录审计日志
-                    self._log_operation(
-                        operation_type=OP_TYPE_UPDATE,
-                        result=OP_RESULT_SUCCESS,
-                        details=f"仅更新本地密码记录成功（跳过服务器同步），项目：{project_name}",
-                        target=f"{owner}/{project_name}"
-                    )
+                    # 不再记录审计日志
                     
                     return True, "更新成功 (跳过服务器同步)"
                 else:
@@ -324,7 +318,7 @@ class PasswordManager:
                     self._log_operation(
                         operation_type=OP_TYPE_UPDATE,
                         result=OP_RESULT_FAIL,
-                        details=f"更新本地密码记录失败：数据库保存失败，项目：{project_name}",
+                        details=f"更新密码记录失败，项目：{project_name}",
                         target=f"{owner}/{project_name}"
                     )
                     
@@ -347,7 +341,7 @@ class PasswordManager:
                     self._log_operation(
                         operation_type=OP_TYPE_SSH_UPDATE,
                         result=OP_RESULT_INFO,
-                        details=f"开始SSH密码更新，项目：{project_name}，IP：{ip_address}，用户：{username}",
+                        details=f"开始SSH密码更新，项目：{project_name}",
                         target=f"{owner}/{project_name}",
                         log_type=LOG_TYPE_SSH
                     )
@@ -364,7 +358,7 @@ class PasswordManager:
                     self._log_operation(
                         operation_type=OP_TYPE_SSH_UPDATE,
                         result=OP_RESULT_SUCCESS if server_sync_success else OP_RESULT_FAIL,
-                        details=f"SSH密码更新{'成功' if server_sync_success else '失败'}：{server_sync_message}，项目：{project_name}，IP：{ip_address}，用户：{username}",
+                        details=f"SSH密码更新{'成功' if server_sync_success else '失败'}，项目：{project_name}",
                         target=f"{owner}/{project_name}",
                         log_type=LOG_TYPE_SSH
                     )
@@ -381,7 +375,7 @@ class PasswordManager:
                     self._log_operation(
                         operation_type=OP_TYPE_SSH_UPDATE,
                         result=OP_RESULT_FAIL,
-                        details=f"SSH密码更新失败：导入SSH模块失败 - {str(e)}，项目：{project_name}",
+                        details=f"SSH密码更新失败，项目：{project_name}",
                         target=f"{owner}/{project_name}",
                         log_type=LOG_TYPE_SSH
                     )
@@ -401,31 +395,19 @@ class PasswordManager:
                 if server_sync_needed:
                     if server_sync_success:
                         # 本地和服务器都更新成功
-                        self._log_operation(
-                            operation_type=OP_TYPE_UPDATE,
-                            result=OP_RESULT_SUCCESS,
-                            details=f"更新密码记录成功（本地和服务器都已更新），项目：{project_name}",
-                            target=f"{owner}/{project_name}"
-                        )
+                        # 不再记录审计日志
+                        
                         return True, "更新成功（本地和服务器都已更新）"
                     else:
                         # SSH同步失败，但本地数据库已更新
                         logger.warning(f"服务器密码更新失败，但本地密码已更新：{server_sync_message}")
-                        self._log_operation(
-                            operation_type=OP_TYPE_UPDATE,
-                            result=OP_RESULT_WARNING,
-                            details=f"本地密码已更新，但服务器密码更新失败：{server_sync_message}，项目：{project_name}",
-                            target=f"{owner}/{project_name}"
-                        )
+                        # 不再记录审计日志
+                        
                         return True, f"本地密码已更新，但服务器密码更新失败：{server_sync_message}"
                 else:
                     # 仅本地更新成功
-                    self._log_operation(
-                        operation_type=OP_TYPE_UPDATE,
-                        result=OP_RESULT_SUCCESS,
-                        details=f"更新密码记录成功，项目：{project_name}",
-                        target=f"{owner}/{project_name}"
-                    )
+                    # 不再记录审计日志
+                    
                     return True, "更新成功"
             else:
                 logger.error(f"更新所有者 {owner} 的密码记录失败")
@@ -434,7 +416,7 @@ class PasswordManager:
                 self._log_operation(
                     operation_type=OP_TYPE_UPDATE,
                     result=OP_RESULT_FAIL,
-                    details=f"更新本地密码记录失败：数据库保存失败，项目：{project_name}",
+                    details=f"更新密码记录失败，项目：{project_name}",
                     target=f"{owner}/{project_name}"
                 )
                 return False, "更新失败，请稍后重试"

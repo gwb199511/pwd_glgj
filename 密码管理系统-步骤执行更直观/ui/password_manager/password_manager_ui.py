@@ -467,20 +467,10 @@ class PasswordManagerUI(QMainWindow):
         password_generator_action.triggered.connect(self._open_password_generator)
         tools_menu.addAction(password_generator_action)
         
-        # 日志查看
-        logs_menu = QMenu("日志查看", self)
-        
-        # SSH日志查看
-        ssh_log_action = QAction("SSH日志查看", self)
-        ssh_log_action.triggered.connect(self._open_ssh_log_viewer)
-        logs_menu.addAction(ssh_log_action)
-        
         # 审计日志查看
-        audit_log_action = QAction("审计日志查看", self)
+        audit_log_action = QAction("审计日志", self)
         audit_log_action.triggered.connect(self._open_audit_log_viewer)
-        logs_menu.addAction(audit_log_action)
-        
-        tools_menu.addMenu(logs_menu)
+        tools_menu.addAction(audit_log_action)
         
         # 添加重置引导选项
         tools_menu.addSeparator()

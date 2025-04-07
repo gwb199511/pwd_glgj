@@ -843,11 +843,19 @@ class PasswordUpdateDialog(QDialog):
                         else:
                             logger.error(f"保存密码到数据库失败 - 服务器: {ip}, 索引: {real_index}")
         
-        current_status = self.status_label.text()
-        self.status_label.setText(f"{current_status} | {success_count} 个密码已保存到数据库")
+        # 不再显示保存数量的提示信息
     
     def save_and_close(self):
         """完成并关闭对话框"""
+        # 检查是否有成功的更新
+        success_count = sum(1 for result in self.results.values() if result.get('success', False))
+        
+        if success_count == 0:
+            # 如果没有成功的更新，直接显示提示并关闭
+            QMessageBox.warning(self, "更新失败", "更新失败，不做任何操作")
+            self.accept()
+            return
+            
         # 创建进度对话框
         progress_dialog = QDialog(self)
         progress_dialog.setWindowTitle("保存中")

@@ -7,5 +7,77 @@
     "target": "石帆/批量更新",
     "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
     "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-07T14:36:43.886599",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新部分完成: 1成功, 1失败。成功IP：192.168.8.87，失败IP：242.173.48.95",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-07T14:40:17.339372",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新全部失败，共3个服务器。失败IP: 177.159.31.14; 242.173.48.95; 192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-07T14:40:50.864721",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-07T14:41:11.925667",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新全部失败，共1个服务器。失败IP: 31.110.40.229",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-07T14:44:54.100770",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新全部失败，共1个服务器。失败IP: 31.110.40.229",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-07T15:01:19.288335",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新全部失败，共1个服务器。失败IP: 108.95.192.171",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-07T15:01:38.710567",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新全部失败，共1个服务器。失败IP: 107.136.159.158",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-07T15:01:54.844132",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "ssh"
   }
 ]

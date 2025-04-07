@@ -5878,3 +5878,4 @@ TypeError: object of type 'NoneType' has no len()
 2025-04-03 17:51:45,941 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
 2025-04-03 17:51:48,370 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 13, 当前列: 4, 选中行数: 4, 选中行: [11, 12, 13, 14]
 2025-04-03 17:51:48,370 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-03 17:54:32,531 - user - INFO - 用户已登出

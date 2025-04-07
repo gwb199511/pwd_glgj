@@ -817,7 +817,7 @@ MAIN_FEATURES_WALKTHROUGH = [
     },
     {
         "title": "右键操作（密码列）",
-        "description": "在密码列上右击可显示操作菜单，包括复制密码和生成随机密码等功能。\n也可进行添加、编辑和删除记录操作。\n\n支持多选操作，且可以批量更新服务器密码。",
+        "description": "在密码列上右击可显示操作菜单，包括复制密码和生成随机密码等功能。\n也可进行添加、编辑和删除记录操作。\n\n支持多选操作，批量更新服务器密码。",
         "position": "menu_bottom",
         "show_menu_image": True,  # 使用图片显示菜单
         "widget_id": "password_table",

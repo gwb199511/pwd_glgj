@@ -9,7 +9,7 @@ import logging
 from typing import List, Dict, Any, Optional
 from datetime import datetime
 
-from PyQt5.QtWidgets import QMessageBox, QTableWidget, QTableWidgetItem
+from PyQt5.QtWidgets import QMessageBox, QTableWidget, QTableWidgetItem, QPushButton
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QFont, QColor, QBrush
 
@@ -183,4 +183,44 @@ def get_formatted_date() -> str:
     Returns:
         str: 格式化的日期时间字符串
     """
-    return datetime.now().strftime("%Y-%m-%d %H:%M:%S") 
+    return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+
+def create_modern_button(text: str, width: int = 100, height: int = 30) -> 'QPushButton':
+    """
+    创建现代风格按钮
+    
+    Args:
+        text (str): 按钮文本
+        width (int, optional): 按钮宽度。默认为100。
+        height (int, optional): 按钮高度。默认为30。
+        
+    Returns:
+        QPushButton: 创建的按钮
+    """
+    from PyQt5.QtWidgets import QPushButton
+    
+    button = QPushButton(text)
+    button.setMinimumSize(width, height)
+    button.setStyleSheet("""
+        QPushButton {
+            background-color: #4a6fa5;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            font-weight: bold;
+        }
+        QPushButton:hover {
+            background-color: #5580b9;
+        }
+        QPushButton:pressed {
+            background-color: #3a5a8c;
+        }
+        QPushButton:disabled {
+            background-color: #cccccc;
+            color: #666666;
+        }
+    """)
+    
+    return button 

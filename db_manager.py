@@ -269,17 +269,18 @@ class DBManager:
                         id INT AUTO_INCREMENT PRIMARY KEY,
                         username VARCHAR(50) NOT NULL UNIQUE,
                         password VARCHAR(255) NOT NULL,
+                        is_admin BOOLEAN DEFAULT FALSE,
                         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
                 """,
                 "passwords": """
                     CREATE TABLE IF NOT EXISTS passwords (
-                        id INT AUTO_INCREMENT PRIMARY KEY,
+                        id BIGINT AUTO_INCREMENT PRIMARY KEY,
                         owner VARCHAR(50) NOT NULL,
                         project_name VARCHAR(100) NOT NULL,
-                        func_desc VARCHAR(100),
-                        ip_address VARCHAR(50) NOT NULL,
-                        account VARCHAR(50) NOT NULL,
+                        func_desc VARCHAR(255),
+                        ip_address VARCHAR(50),
+                        account VARCHAR(50),
                         password VARCHAR(255) NOT NULL,
                         area VARCHAR(50),
                         network_type VARCHAR(50),
@@ -292,10 +293,10 @@ class DBManager:
                 "remember": """
                     CREATE TABLE IF NOT EXISTS remember (
                         id INT AUTO_INCREMENT PRIMARY KEY,
-                        username VARCHAR(50) NOT NULL,
+                        username VARCHAR(50) NOT NULL UNIQUE,
                         password VARCHAR(255) NOT NULL,
-                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                        expire_at TIMESTAMP
+                        expire_at TIMESTAMP NULL,
+                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
                 """,
                 "audit_logs": """
@@ -330,6 +331,20 @@ class DBManager:
                         database_name VARCHAR(50) NOT NULL,
                         is_active BOOLEAN DEFAULT TRUE,
                         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+                """,
+                "password_history": """
+                    CREATE TABLE IF NOT EXISTS password_history (
+                        id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                        password_id BIGINT NOT NULL,
+                        old_password VARCHAR(255) NOT NULL,
+                        new_password VARCHAR(255) NOT NULL,
+                        ip_address VARCHAR(50),
+                        modify_reason VARCHAR(255),
+                        modify_user VARCHAR(50) NOT NULL,
+                        modify_time DATETIME NOT NULL,
+                        INDEX idx_password_id (password_id),
+                        INDEX idx_modify_time (modify_time)
                     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
                 """
             }

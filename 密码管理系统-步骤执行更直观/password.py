@@ -15,6 +15,7 @@ from database import Database
 from encrypt import encryptor
 from ssh_password_updater import ssh_password_updater
 from audit_log import audit_logger, OP_TYPE_ADD, OP_TYPE_UPDATE, OP_TYPE_DELETE, OP_TYPE_GENERATE, OP_TYPE_SSH_UPDATE, OP_RESULT_SUCCESS, OP_RESULT_FAIL, OP_RESULT_WARNING, OP_RESULT_INFO, LOG_TYPE_SSH, LOG_TYPE_LOGIN
+from db_manager import db_manager
 
 # 配置日志
 logger = logging.getLogger(__name__)
@@ -51,10 +52,11 @@ class PasswordManager:
         import os.path
         # 添加项目根目录到Python路径
         sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-        from data_storage import get_password_storage
+        from data_storage import get_password_storage, get_password_history_storage
         
         # 使用存储接口
         self.db = get_password_storage()
+        self.password_history = get_password_history_storage()
 
     def get_all_owners(self) -> List[str]:
         """
@@ -294,9 +296,40 @@ class PasswordManager:
             old_decrypted_password = encryptor.decrypt(old_site_info[4]) if len(old_site_info) > 4 else ""
             new_decrypted_password = new_site_info[4]  # 新密码还未加密
             
+            # 记录IP地址（用于历史记录）
+            ip_address = new_site_info[2] if len(new_site_info) > 2 else ""
+            
+            # 如果密码没有变化，则不记录历史
+            password_changed = old_decrypted_password != new_decrypted_password
+            
             # 如果要求跳过服务器同步，则直接更新本地数据库
             if skip_server_sync:
                 logger.info(f"跳过SSH密码更新步骤 - 项目: {project_name}")
+                
+                # 记录历史（如果密码已更改）
+                if password_changed:
+                    # 从audit_logger获取当前用户
+                    modify_user = "未知用户"
+                    # 尝试从审计日志模块获取登录的用户
+                    try:
+                        from user import current_user
+                        if current_user and current_user.username:
+                            modify_user = current_user.username
+                    except Exception:
+                        pass
+                        
+                    # 从数据库查询该记录的ID
+                    password_id = self._get_password_id(owner, index)
+                    
+                    if password_id > 0:
+                        # 添加历史记录
+                        self.password_history.add_history(
+                            password_id=password_id,
+                            old_password=old_decrypted_password,
+                            new_password=new_decrypted_password,
+                            ip_address=ip_address,
+                            modify_user=modify_user
+                        )
                 
                 # 加密密码字段
                 new_site_info[4] = encryptor.encrypt(new_site_info[4])
@@ -326,10 +359,9 @@ class PasswordManager:
             
             # 以下是不跳过服务器同步的正常流程
             # 检查是否需要同步到服务器 (有IP地址、账号，且密码已更改)
-            ip_address = new_site_info[2] if len(new_site_info) > 2 else ""
             username = new_site_info[3] if len(new_site_info) > 3 else ""
             
-            server_sync_needed = bool(ip_address and username and old_decrypted_password != new_decrypted_password)
+            server_sync_needed = bool(ip_address and username and password_changed)
             server_sync_success = True
             server_sync_message = ""
             
@@ -378,6 +410,32 @@ class PasswordManager:
                         details=f"SSH密码更新失败，项目：{project_name}",
                         target=f"{owner}/{project_name}",
                         log_type=LOG_TYPE_SSH
+                    )
+            
+            # 记录密码修改历史（如果密码已更改）
+            if password_changed:
+                # 从audit_logger获取当前用户
+                modify_user = "未知用户"
+                # 尝试从审计日志模块获取登录的用户
+                try:
+                    from user import current_user
+                    if current_user and current_user.username:
+                        modify_user = current_user.username
+                except Exception:
+                    pass
+                        
+                # 从数据库查询该记录的ID
+                password_id = self._get_password_id(owner, index)
+                
+                if password_id > 0:
+                    # 添加历史记录
+                    self.password_history.add_history(
+                        password_id=password_id,
+                        old_password=old_decrypted_password,
+                        new_password=new_decrypted_password,
+                        ip_address=ip_address,
+                        modify_user=modify_user,
+                        modify_reason="SSH同步" if server_sync_needed else ""
                     )
             
             # 无论SSH同步是否成功，都更新本地数据库
@@ -561,6 +619,187 @@ class PasswordManager:
         except Exception as e:
             logger.error(f"获取SSH操作日志失败: {str(e)}")
             return [f"获取日志失败: {str(e)}"]
+
+    def _get_password_id(self, owner: str, index: int) -> int:
+        """
+        获取密码记录在数据库中的ID
+        
+        Args:
+            owner (str): 所有者
+            index (int): 记录索引
+            
+        Returns:
+            int: 密码记录ID，如果记录不存在则返回-1
+        """
+        try:
+            # 获取所有者的密码列表
+            passwords = self.db.get(owner, [])
+            
+            # 记录调试信息
+            logger.info(f"_get_password_id - 所有者: {owner}, 索引: {index}, 可用记录数: {len(passwords)}")
+            
+            # 检查索引是否有效
+            if not passwords or index < 0 or index >= len(passwords):
+                logger.error(f"无效的密码索引 - 所有者: {owner}, 索引: {index}, 可用记录数: {len(passwords)}")
+                return -1
+                
+            # 获取记录信息
+            password_record = passwords[index]
+            
+            # 确保记录格式正确
+            if len(password_record) < 5:
+                logger.error(f"密码记录格式不正确 - 所有者: {owner}, 索引: {index}, 字段数: {len(password_record)}")
+                return -1
+                
+            # 提取关键字段值
+            project_name = password_record[0]
+            ip_address = password_record[2] if len(password_record) > 2 else ""
+            account = password_record[3] if len(password_record) > 3 else ""
+            
+            logger.info(f"查询密码ID - 项目: {project_name}, IP: {ip_address}, 账号: {account}")
+            
+            # 查询策略1：使用所有关键字段精确查询
+            sql1 = """
+                SELECT id FROM passwords 
+                WHERE owner = %s AND project_name = %s AND ip_address = %s AND account = %s
+                ORDER BY id DESC LIMIT 1
+            """
+            params1 = (owner, project_name, ip_address, account)
+            results1 = db_manager.execute_query(sql1, params1)
+            
+            if results1 and len(results1) > 0:
+                password_id = results1[0]['id']
+                logger.info(f"通过精确匹配找到密码ID: {password_id}")
+                return password_id
+            
+            # 查询策略2：如果有IP地址和账号，使用这两个字段查询
+            if ip_address and account:
+                logger.info(f"精确查询未找到结果，尝试使用IP地址和账号查询")
+                sql2 = """
+                    SELECT id FROM passwords 
+                    WHERE ip_address = %s AND account = %s
+                    ORDER BY id DESC LIMIT 1
+                """
+                params2 = (ip_address, account)
+                results2 = db_manager.execute_query(sql2, params2)
+                
+                if results2 and len(results2) > 0:
+                    password_id = results2[0]['id']
+                    logger.info(f"通过IP和账号找到密码ID: {password_id}")
+                    return password_id
+            
+            # 查询策略3：如果有IP地址，仅使用IP地址查询
+            if ip_address:
+                logger.info(f"IP和账号查询未找到结果，仅使用IP地址查询")
+                sql3 = """
+                    SELECT id FROM passwords 
+                    WHERE ip_address = %s
+                    ORDER BY id DESC LIMIT 1
+                """
+                params3 = (ip_address,)
+                results3 = db_manager.execute_query(sql3, params3)
+                
+                if results3 and len(results3) > 0:
+                    password_id = results3[0]['id']
+                    logger.info(f"仅通过IP地址找到密码ID: {password_id}")
+                    return password_id
+            
+            # 查询策略4：使用所有者和项目名称查询
+            logger.info(f"IP地址查询未找到结果，使用所有者和项目名称查询")
+            sql4 = """
+                SELECT id FROM passwords 
+                WHERE owner = %s AND project_name = %s
+                ORDER BY id DESC LIMIT 1
+            """
+            params4 = (owner, project_name)
+            results4 = db_manager.execute_query(sql4, params4)
+            
+            if results4 and len(results4) > 0:
+                password_id = results4[0]['id']
+                logger.info(f"通过所有者和项目名称找到密码ID: {password_id}")
+                return password_id
+                
+            logger.error(f"未找到密码ID - 所有者: {owner}, 项目: {project_name}")
+            return -1
+            
+        except Exception as e:
+            logger.error(f"获取密码记录ID时出错: {str(e)}")
+            logger.error(traceback.format_exc())
+            return -1
+
+    def get_password_history(self, owner: str, index: int, page: int = 1, page_size: int = 10,
+                         start_time: Optional[str] = None, end_time: Optional[str] = None) -> Dict[str, Any]:
+        """
+        获取密码修改历史记录
+        
+        Args:
+            owner (str): 所有者
+            index (int): 记录索引
+            page (int, optional): 页码，从1开始。默认为1。
+            page_size (int, optional): 每页记录数。默认为10。
+            start_time (Optional[str], optional): 开始时间，格式为'YYYY-MM-DD HH:MM:SS'。默认为None。
+            end_time (Optional[str], optional): 结束时间，格式为'YYYY-MM-DD HH:MM:SS'。默认为None。
+            
+        Returns:
+            Dict[str, Any]: 历史记录信息
+        """
+        try:
+            # 获取密码记录信息
+            passwords = self.db.get(owner, [])
+            
+            # 检查索引是否有效
+            if not passwords or index < 0 or index >= len(passwords):
+                logger.error(f"获取密码历史记录失败: 无效的记录索引 (所有者={owner}, 索引={index})")
+                return {
+                    'total': 0,
+                    'page': page,
+                    'page_size': page_size,
+                    'records': []
+                }
+            
+            # 获取当前密码记录以便提取IP地址
+            password_record = passwords[index]
+            ip_address = password_record[2] if len(password_record) > 2 else ""
+            account = password_record[3] if len(password_record) > 3 else ""
+            
+            logger.info(f"查询密码历史记录 - 所有者: {owner}, IP地址: {ip_address}")
+            
+            # 获取密码记录ID
+            password_id = self._get_password_id(owner, index)
+            
+            if password_id <= 0:
+                logger.warning(f"获取密码历史记录: 找不到记录ID，尝试使用IP地址查询 (所有者={owner}, 索引={index}, IP={ip_address})")
+                
+                # 如果没有找到有效的ID，但有IP地址，可以使用IP地址查询
+                if not ip_address:
+                    logger.error("获取密码历史记录失败: 无法获取有效的密码ID或IP地址")
+                    return {
+                        'total': 0,
+                        'page': page,
+                        'page_size': page_size,
+                        'records': []
+                    }
+            
+            # 查询历史记录，同时传递IP地址作为备选查询条件
+            return self.password_history.get_history(
+                password_id=password_id,
+                page=page,
+                page_size=page_size,
+                start_time=start_time,
+                end_time=end_time,
+                ip_address=ip_address,
+                account=account
+            )
+            
+        except Exception as e:
+            logger.error(f"获取密码历史记录时出错: {str(e)}")
+            return {
+                'total': 0,
+                'page': page,
+                'page_size': page_size,
+                'records': [],
+                'error': str(e)
+            }
 
 
 # 创建密码管理器实例

@@ -114,6 +114,12 @@ class TableEventsMixin:
                 menu.addAction(edit_action)
                 logger.info(f"已添加'编辑行'选项")
                 
+                # 添加查看历史记录选项
+                history_action = QAction(QIcon(""), "查看历史密码修改记录", self.table)
+                history_action.triggered.connect(lambda: self._view_password_history(row))
+                menu.addAction(history_action)
+                logger.info(f"已添加'查看历史密码修改记录'选项")
+                
             # 删除行(们)
             if selected_count > 0:
                 delete_text = "删除选中的行" if selected_count > 1 else "删除行"
@@ -355,6 +361,47 @@ class TableEventsMixin:
         
         # 不再显示旧的引导对话框
         # 主界面引导中已经包含了整体功能的说明
+
+    def _view_password_history(self, row):
+        """
+        查看密码历史记录
+        
+        Args:
+            row (int): 行索引
+        """
+        try:
+            # 检查是否有效的行
+            if row < 0 or row >= self.table.rowCount():
+                logger.warning(f"查看历史记录失败：无效的行索引 {row}")
+                return
+                
+            # 获取当前所有者
+            if not hasattr(self, 'current_owner') or not self.current_owner:
+                logger.warning(f"查看历史记录失败：无法获取当前所有者")
+                # 尝试从父对象获取
+                if hasattr(self.table, 'parent') and hasattr(self.table.parent(), 'current_owner'):
+                    owner = self.table.parent().current_owner
+                else:
+                    # 从窗口层次结构中查找
+                    from PyQt5.QtWidgets import QApplication
+                    main_window = QApplication.activeWindow()
+                    if hasattr(main_window, 'layout_manager') and hasattr(main_window.layout_manager, 'get_selected_owner'):
+                        owner = main_window.layout_manager.get_selected_owner()
+                    else:
+                        logger.error("查看历史记录失败：无法获取当前所有者")
+                        return
+            else:
+                owner = self.current_owner
+                
+            # 导入历史记录对话框
+            from ui.password_manager.ui_dialogs import PasswordHistoryDialog
+            
+            # 创建并显示对话框
+            logger.info(f"查看密码历史记录 - 所有者: {owner}, 行索引: {row}")
+            dialog = PasswordHistoryDialog(self.table, owner, row)
+            dialog.exec_()
+        except Exception as e:
+            logger.error(f"查看密码历史记录时出错: {str(e)}")
 
 class TableEventFilter(QObject):
     """

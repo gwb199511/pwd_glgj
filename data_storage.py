@@ -611,12 +611,249 @@ class StorageFactory:
         return "mysql"
 
 
+class PasswordHistoryStorage:
+    """
+    密码历史记录存储类，管理密码修改历史记录
+    
+    提供添加和查询密码历史记录的功能。
+    """
+    
+    _instance = None
+    
+    def __new__(cls):
+        """
+        单例模式，确保密码历史记录存储只有一个实例
+        
+        Returns:
+            PasswordHistoryStorage: 密码历史记录存储实例
+        """
+        if cls._instance is None:
+            cls._instance = super(PasswordHistoryStorage, cls).__new__(cls)
+        return cls._instance
+    
+    def add_history(self, password_id: int, old_password: str, new_password: str, 
+                   ip_address: str, modify_user: str, modify_reason: str = "") -> bool:
+        """
+        添加密码修改历史记录
+        
+        Args:
+            password_id (int): 密码ID
+            old_password (str): 修改前的密码
+            new_password (str): 修改后的密码
+            ip_address (str): IP地址
+            modify_user (str): 修改人
+            modify_reason (str, optional): 修改原因，默认为空字符串
+            
+        Returns:
+            bool: 操作是否成功
+        """
+        try:
+            from datetime import datetime
+            
+            # 验证密码ID是否存在
+            verify_sql = "SELECT id FROM passwords WHERE id = %s"
+            id_exists = db_manager.execute_query(verify_sql, [password_id])
+            
+            # 如果ID不存在，尝试通过IP地址查找正确的ID
+            if not id_exists and ip_address:
+                logger.warning(f"历史记录使用的密码ID {password_id} 不存在，尝试通过IP地址 {ip_address} 查找")
+                find_id_sql = "SELECT id FROM passwords WHERE ip_address = %s ORDER BY id DESC LIMIT 1"
+                ip_results = db_manager.execute_query(find_id_sql, [ip_address])
+                
+                if ip_results and len(ip_results) > 0:
+                    new_id = ip_results[0]['id']
+                    logger.info(f"找到新的密码ID: {new_id}，原ID: {password_id}")
+                    password_id = new_id
+                else:
+                    logger.error(f"无法找到IP地址 {ip_address} 对应的密码记录")
+            
+            # 插入历史记录
+            sql = """
+                INSERT INTO password_history 
+                (password_id, old_password, new_password, ip_address, modify_user, modify_reason, modify_time)
+                VALUES (%s, %s, %s, %s, %s, %s, %s)
+            """
+            params = (
+                password_id,
+                old_password,
+                new_password,
+                ip_address,
+                modify_user,
+                modify_reason,
+                datetime.now()
+            )
+            
+            result = db_manager.execute_insert(sql, params)
+            return result > 0
+            
+        except Exception as e:
+            logger.error(f"添加密码历史记录失败: {str(e)}")
+            logger.debug(traceback.format_exc())
+            return False
+    
+    def get_history(self, password_id: int, page: int = 1, page_size: int = 10, 
+                   start_time: Optional[str] = None, end_time: Optional[str] = None,
+                   ip_address: Optional[str] = None, account: Optional[str] = None) -> Dict[str, Any]:
+        """
+        获取密码修改历史记录
+        
+        Args:
+            password_id (int): 密码ID
+            page (int, optional): 页码，从1开始。默认为1。
+            page_size (int, optional): 每页记录数。默认为10。
+            start_time (Optional[str], optional): 开始时间，格式为'YYYY-MM-DD HH:MM:SS'。默认为None。
+            end_time (Optional[str], optional): 结束时间，格式为'YYYY-MM-DD HH:MM:SS'。默认为None。
+            ip_address (Optional[str], optional): IP地址(用于备选查询)。默认为None。
+            account (Optional[str], optional): 账号(用于日志)。默认为None。
+            
+        Returns:
+            Dict[str, Any]: 包含历史记录的字典
+        """
+        try:
+            # 记录查询参数
+            logger.info(f"查询密码历史记录 - 密码ID: {password_id}, 页码: {page}, 每页记录数: {page_size}")
+            if start_time:
+                logger.info(f"开始时间: {start_time}")
+            if end_time:
+                logger.info(f"结束时间: {end_time}")
+            if ip_address:
+                logger.info(f"IP地址: {ip_address}")
+            
+            # 检查password_history表是否存在
+            check_table_sql = "SHOW TABLES LIKE 'password_history'"
+            table_exists = db_manager.execute_query(check_table_sql)
+            
+            if not table_exists:
+                logger.error("password_history表不存在")
+                return {'total': 0, 'page': page, 'page_size': page_size, 'records': [], 'error': 'password_history表不存在'}
+            
+            # 检查是否有历史记录
+            # 先获取所有历史记录的数量
+            all_count_sql = "SELECT COUNT(*) as count FROM password_history"
+            all_count_result = db_manager.execute_query(all_count_sql)
+            total_history = all_count_result[0]['count'] if all_count_result else 0
+            
+            if total_history == 0:
+                logger.warning("密码历史记录表中没有任何记录")
+                return {'total': 0, 'page': page, 'page_size': page_size, 'records': [], 'warning': '密码历史记录表中没有任何记录'}
+            
+            # 构建查询条件 - 使用更灵活的方法
+            where_conditions = []
+            params = []
+            
+            # 检查ID是否存在于历史记录表中
+            check_id_sql = "SELECT COUNT(*) as count FROM password_history WHERE password_id = %s"
+            id_exists_result = db_manager.execute_query(check_id_sql, [password_id])
+            id_exists = id_exists_result[0]['count'] > 0 if id_exists_result else False
+            
+            if id_exists:
+                # ID存在，使用ID查询
+                where_conditions.append("password_id = %s")
+                params.append(password_id)
+            elif ip_address:
+                # ID不存在但有IP地址，尝试通过IP地址查询
+                logger.warning(f"密码ID {password_id} 在历史记录中不存在，尝试使用IP地址 {ip_address} 查询")
+                
+                # 首先检查这个IP地址是否存在于历史记录中
+                check_ip_sql = "SELECT DISTINCT password_id FROM password_history WHERE ip_address = %s"
+                ip_ids_result = db_manager.execute_query(check_ip_sql, [ip_address])
+                
+                if ip_ids_result and len(ip_ids_result) > 0:
+                    # 找到了IP地址对应的历史记录
+                    history_ids = [row['password_id'] for row in ip_ids_result]
+                    id_list_str = ", ".join(str(id) for id in history_ids)
+                    
+                    logger.info(f"发现IP地址 {ip_address} 对应的历史密码ID: {id_list_str}")
+                    
+                    # 使用IP地址查询
+                    where_conditions.append("ip_address = %s")
+                    params.append(ip_address)
+                    
+                    # 尝试更新当前密码记录在数据库中的ID关联
+                    if len(history_ids) == 1:
+                        logger.info(f"自动将当前密码ID {password_id} 更新为历史记录ID {history_ids[0]}")
+                        password_id = history_ids[0]
+                else:
+                    # IP地址在历史记录中不存在
+                    logger.warning(f"IP地址 {ip_address} 在历史记录中不存在")
+                    where_conditions.append("password_id = %s")  # 使用一个不会匹配的条件
+                    params.append(-1)
+            else:
+                # 没有可用的条件，返回警告
+                logger.warning("无法查询历史记录：ID不存在且未提供IP地址")
+                return {
+                    'total': 0, 
+                    'page': page, 
+                    'page_size': page_size, 
+                    'records': [],
+                    'warning': '当前密码没有关联的历史记录。可能是新添加的密码，或者由于数据库变更导致历史关联丢失。'
+                }
+            
+            # 添加时间范围条件
+            if start_time:
+                where_conditions.append("modify_time >= %s")
+                params.append(start_time)
+                
+            if end_time:
+                where_conditions.append("modify_time <= %s")
+                params.append(end_time)
+            
+            # 构建WHERE子句
+            where_clause = "WHERE " + " AND ".join(where_conditions) if where_conditions else ""
+            
+            # 计算总记录数
+            count_sql = f"SELECT COUNT(*) as count FROM password_history {where_clause}"
+            count_result = db_manager.execute_query(count_sql, params)
+            total = count_result[0]['count'] if count_result else 0
+            
+            logger.info(f"符合条件的总记录数: {total}")
+            
+            # 如果没有记录，提前返回
+            if total == 0:
+                logger.warning("未找到符合条件的历史记录")
+                return {'total': 0, 'page': page, 'page_size': page_size, 'records': [], 
+                       'warning': '未找到符合条件的历史记录'}
+            
+            # 分页查询
+            offset = (page - 1) * page_size
+            query_sql = f"""
+                SELECT * FROM password_history 
+                {where_clause}
+                ORDER BY modify_time DESC
+                LIMIT %s, %s
+            """
+            params.extend([offset, page_size])
+            
+            results = db_manager.execute_query(query_sql, params)
+            
+            # 记录查询结果
+            logger.info(f"查询到 {len(results)} 条历史记录")
+            if results and len(results) > 0:
+                logger.info(f"第一条记录: {results[0]}")
+            
+            return {
+                'total': total,
+                'page': page,
+                'page_size': page_size,
+                'records': results
+            }
+            
+        except Exception as e:
+            logger.error(f"查询密码历史记录失败: {str(e)}")
+            logger.debug(traceback.format_exc())
+            return {'total': 0, 'page': page, 'page_size': page_size, 'records': [], 'error': str(e)}
+
+
+# 创建全局实例
+password_history_storage = PasswordHistoryStorage()
+
+
 def get_user_storage() -> StorageBase:
     """
     获取用户存储实例
     
     Returns:
-        StorageBase: 用户MySQL存储实例
+        StorageBase: 用户存储实例
     """
     return StorageFactory.create_storage("mysql", table_name="users")
 
@@ -626,7 +863,7 @@ def get_password_storage() -> StorageBase:
     获取密码存储实例
     
     Returns:
-        StorageBase: 密码MySQL存储实例
+        StorageBase: 密码存储实例
     """
     return StorageFactory.create_storage("mysql", table_name="passwords")
 
@@ -636,16 +873,26 @@ def get_user_settings_storage() -> StorageBase:
     获取用户设置存储实例
     
     Returns:
-        StorageBase: 用户设置MySQL存储实例
+        StorageBase: 用户设置存储实例
     """
     return StorageFactory.create_storage("mysql", table_name="user_settings")
 
 
 def get_remember_storage() -> StorageBase:
     """
-    获取记住登录信息的存储实例
+    获取记住登录信息存储实例
     
     Returns:
-        StorageBase: 记住登录信息的MySQL存储实例
+        StorageBase: 记住登录信息存储实例
     """
-    return StorageFactory.create_storage("mysql", table_name="remember") 
+    return StorageFactory.create_storage("mysql", table_name="remember")
+
+
+def get_password_history_storage() -> PasswordHistoryStorage:
+    """
+    获取密码历史记录存储实例
+    
+    Returns:
+        PasswordHistoryStorage: 密码历史记录存储实例
+    """
+    return password_history_storage 

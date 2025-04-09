@@ -1006,5 +1006,59 @@
     "target": "多人员/Excel导出",
     "details": "导出多人员密码记录到Excel文件: 密码记录汇总.xlsx，总记录数: 90，人员: 徐国明, 高文彬, 石帆",
     "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-09T10:39:40.975126",
+    "user": "admin",
+    "operation": "export",
+    "result": "success",
+    "target": "多人员/Excel导出",
+    "details": "导出多人员密码记录到Excel文件: 密码记录汇总.xlsx，总记录数: 30，人员: 徐国明",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-09T10:40:28.326339",
+    "user": "admin",
+    "operation": "export",
+    "result": "success",
+    "target": "多人员/Excel导出",
+    "details": "导出多人员密码记录到Excel文件: 密码记录汇总.xlsx，总记录数: 90，人员: 徐国明, 高文彬, 石帆",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-09T10:43:30.512494",
+    "user": "admin",
+    "operation": "export",
+    "result": "success",
+    "target": "多人员/Excel导出",
+    "details": "导出多人员密码记录到Excel文件: 密码记录汇总.xlsx，总记录数: 90，人员: 徐国明, 高文彬, 石帆",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-09T10:44:55.506466",
+    "user": "admin",
+    "operation": "export",
+    "result": "success",
+    "target": "多人员/Excel导出",
+    "details": "导出多人员密码记录到Excel文件: 密码记录汇总.xlsx，总记录数: 90，人员: 徐国明, 高文彬, 石帆",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-09T10:48:03.978703",
+    "user": "admin",
+    "operation": "export",
+    "result": "success",
+    "target": "多人员/Excel导出",
+    "details": "导出多人员密码记录到Excel文件: 密码记录汇总.xlsx，总记录数: 90，人员: 徐国明, 高文彬, 石帆",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-09T10:48:24.419691",
+    "user": "admin",
+    "operation": "export",
+    "result": "success",
+    "target": "多人员/Excel导出",
+    "details": "导出多人员密码记录到Excel文件: 密码记录汇总.xlsx，总记录数: 30，人员: 徐国明",
+    "log_type": "system"
   }
 ]

@@ -43,8 +43,7 @@ class ExcelExporter:
         """初始化Excel导出工具"""
         pass
         
-    def export_to_excel(self, passwords: List[List[str]], owner: str, file_path: str, 
-                        hide_passwords: bool = False) -> Tuple[bool, str]:
+    def export_to_excel(self, passwords: List[List[str]], owner: str, file_path: str) -> Tuple[bool, str]:
         """
         导出密码记录到Excel文件
         
@@ -52,7 +51,6 @@ class ExcelExporter:
             passwords: 密码记录列表
             owner: 所有者
             file_path: 导出文件路径
-            hide_passwords: 是否隐藏密码
             
         Returns:
             成功标志和消息
@@ -60,10 +58,6 @@ class ExcelExporter:
         try:
             # 创建DataFrame
             df = pd.DataFrame(passwords, columns=PASSWORD_COLUMNS)
-            
-            # 如果需要隐藏密码，将密码列替换为*
-            if hide_passwords:
-                df["密码"] = ["******" for _ in range(len(df))]
             
             # 创建Excel写入器
             with pd.ExcelWriter(file_path, engine='xlsxwriter') as writer:
@@ -97,7 +91,14 @@ class ExcelExporter:
                     worksheet.write(0, col_num, value, header_format)
                 
                 # 设置列宽
-                worksheet.set_column('A:H', 20)
+                worksheet.set_column('A:A', 20)  # 项目名称
+                worksheet.set_column('B:B', 20)  # IP地址
+                worksheet.set_column('C:C', 20)  # 所在区域
+                worksheet.set_column('D:D', 20)  # 网络类型
+                worksheet.set_column('E:E', 25)  # 账户
+                worksheet.set_column('F:F', 25)  # 密码
+                worksheet.set_column('G:G', 30)  # 其他账号
+                worksheet.set_column('H:H', 20)  # 功能
                 
                 # 应用单元格格式
                 for row_num in range(1, len(df) + 1):
@@ -122,9 +123,6 @@ class ExcelExporter:
                 worksheet.write(row_count, 0, f"导出时间: {export_time}", info_format)
                 worksheet.write(row_count + 1, 0, f"所有者: {owner}", info_format)
                 worksheet.write(row_count + 2, 0, f"记录数: {len(df)}", info_format)
-                
-                if hide_passwords:
-                    worksheet.write(row_count + 3, 0, "注意: 密码已隐藏", info_format)
             
             # 记录审计日志
             try:
@@ -134,8 +132,6 @@ class ExcelExporter:
                 
                 audit_logger = AuditLogger()
                 details = f"导出Excel文件 '{os.path.basename(file_path)}' 包含 {owner} 的 {len(passwords)} 条密码记录"
-                if hide_passwords:
-                    details += "（密码已隐藏）"
                     
                 audit_logger.log_operation(
                     operation_type="export",
@@ -171,15 +167,13 @@ class ExcelExporter:
                 
             return False, error_message
             
-    def export_multiple_to_excel(self, owners_data: Dict[str, List[List[str]]], file_path: str, 
-                                hide_passwords: bool = False) -> Tuple[bool, str]:
+    def export_multiple_to_excel(self, owners_data: Dict[str, List[List[str]]], file_path: str) -> Tuple[bool, str]:
         """
         将多个人员的密码记录导出到同一个Excel文件的不同工作表中
         
         Args:
             owners_data (Dict[str, List[List[str]]]): 人员名称与密码记录的字典
             file_path (str): 保存路径
-            hide_passwords (bool): 是否隐藏密码
             
         Returns:
             Tuple[bool, str]: (成功状态, 消息)
@@ -233,10 +227,6 @@ class ExcelExporter:
                 # 创建DataFrame
                 df = pd.DataFrame(passwords, columns=PASSWORD_COLUMNS)
                 
-                # 如果需要隐藏密码
-                if hide_passwords:
-                    df['密码'] = ['******' for _ in range(len(df))]
-                
                 # 写入标题行
                 for col_idx, col_name in enumerate(PASSWORD_COLUMNS, start=1):
                     cell = ws.cell(row=1, column=col_idx, value=col_name)
@@ -246,13 +236,15 @@ class ExcelExporter:
                     cell.alignment = Alignment(horizontal="center", vertical="center")
                     
                     # 设置列宽
-                    col_width = max(len(col_name) * 2, 15) 
+                    col_width = max(len(col_name) * 2, 15)
                     if col_name == "项目名称" or col_name == "功能":
-                        col_width = 25  # 这些列可能包含较长的内容
+                        col_width = 20
                     elif col_name == "IP地址" or col_name == "所在区域" or col_name == "网络类型":
                         col_width = 20
+                    elif col_name == "密码" or col_name == "账户":
+                        col_width = 25  # 设置密码和账户列宽度为25
                     elif col_name == "其他账号":
-                        col_width = 30  # 其他账号列可能包含较长的内容
+                        col_width = 30
                     
                     ws.column_dimensions[get_column_letter(col_idx)].width = col_width
                 
@@ -267,10 +259,6 @@ class ExcelExporter:
                 # 写入数据行
                 for row_idx, row in enumerate(passwords, start=2):
                     for col_idx, value in enumerate(row, start=1):
-                        # 隐藏密码
-                        if hide_passwords and col_idx == 5:  # 密码列
-                            value = "******"
-                        
                         cell = ws.cell(row=row_idx, column=col_idx, value=value)
                         cell.border = thin_border
                         cell.alignment = Alignment(vertical="center", wrap_text=True)
@@ -336,10 +324,6 @@ class ExcelExporter:
             row += 1
             summary_sheet.cell(row=row, column=1, value="总记录数:").font = Font(bold=True)
             summary_sheet.cell(row=row, column=2, value=total_exported)
-            
-            row += 1
-            summary_sheet.cell(row=row, column=1, value="密码显示方式:").font = Font(bold=True)
-            summary_sheet.cell(row=row, column=2, value="隐藏密码" if hide_passwords else "显示密码")
             
             row += 2
             summary_sheet.cell(row=row, column=1, value="导出人员详情:").font = Font(bold=True)
@@ -411,9 +395,11 @@ class ExcelExporter:
                 # 设置列宽
                 col_width = max(len(col_name) * 2, 15)
                 if col_name == "项目名称" or col_name == "功能":
-                    col_width = 25
+                    col_width = 20
                 elif col_name == "IP地址" or col_name == "所在区域" or col_name == "网络类型":
                     col_width = 20
+                elif col_name == "密码" or col_name == "账户":
+                    col_width = 25  # 设置密码和账户列宽度为25
                 elif col_name == "其他账号":
                     col_width = 30
                 

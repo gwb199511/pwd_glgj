@@ -52,7 +52,6 @@ class ExcelWorkerThread(QThread):
         self.file_path = None
         self.owner = None
         self.owners_data = {}
-        self.hide_passwords = False
         
     def run(self):
         """执行操作"""
@@ -156,7 +155,7 @@ class ExcelWorkerThread(QThread):
             
             # 导出数据
             success, message = exporter.export_to_excel(
-                self.passwords, self.owner, self.file_path, self.hide_passwords
+                self.passwords, self.owner, self.file_path
             )
             
             # 处理结果
@@ -182,7 +181,7 @@ class ExcelWorkerThread(QThread):
             
             # 导出数据
             success, message = exporter.export_multiple_to_excel(
-                self.owners_data, self.file_path, self.hide_passwords
+                self.owners_data, self.file_path
             )
             
             # 处理结果
@@ -264,10 +263,11 @@ class ExportDialog(QDialog):
         options_group = QGroupBox("导出选项")
         options_layout = QVBoxLayout()
         
-        # 密码处理选项
-        self.hide_password_cb = QCheckBox("隐藏密码（导出为 ******** 形式）")
-        self.hide_password_cb.setChecked(True)  # 默认隐藏密码
-        options_layout.addWidget(self.hide_password_cb)
+        # 待开发选项
+        future_options_label = ModernLabel("待开发...", font_size=10)
+        future_options_label.setAlignment(Qt.AlignCenter)
+        future_options_label.setStyleSheet("font-style: italic; color: #888888;")
+        options_layout.addWidget(future_options_label)
         
         options_group.setLayout(options_layout)
         layout.addWidget(options_group)
@@ -311,7 +311,6 @@ class ExportDialog(QDialog):
             file_path += '.xlsx'
             
         self.file_path = file_path
-        self.hide_passwords = self.hide_password_cb.isChecked()
         
         # 更新界面状态
         self.export_btn.setEnabled(False)
@@ -325,7 +324,6 @@ class ExportDialog(QDialog):
         self.worker_thread.file_path = self.file_path
         self.worker_thread.owner = self.owner
         self.worker_thread.passwords = self.passwords
-        self.worker_thread.hide_passwords = self.hide_passwords
         
         # 连接信号
         self.worker_thread.progress_signal.connect(self.update_progress)
@@ -784,7 +782,6 @@ class MultiExportDialog(QDialog):
         self.setModal(True)
         
         self.file_path = ""
-        self.hide_passwords = False
         self.owners_data = {}
         self.owner_checkboxes = {}  # 用于存储人员复选框
         
@@ -825,8 +822,9 @@ class MultiExportDialog(QDialog):
         owner_layout.addLayout(select_all_layout)
         
         # 人员复选框列表
-        self.checkbox_layout = QVBoxLayout()
-        self.checkbox_layout.setSpacing(8)  # 增加复选框之间的间距
+        self.checkbox_layout = QHBoxLayout()
+        self.checkbox_layout.setSpacing(15)  # 增加复选框之间的间距
+        self.checkbox_layout.setAlignment(Qt.AlignCenter)  # 居中对齐
         owner_layout.addLayout(self.checkbox_layout)
         
         owner_group.setLayout(owner_layout)
@@ -836,10 +834,11 @@ class MultiExportDialog(QDialog):
         options_group = QGroupBox("导出选项")
         options_layout = QVBoxLayout()
         
-        # 隐藏密码选项
-        self.hide_password_cb = QCheckBox("隐藏密码（导出为 ******** 形式）")
-        self.hide_password_cb.setChecked(True)
-        options_layout.addWidget(self.hide_password_cb)
+        # 待开发选项
+        future_options_label = ModernLabel("待开发...", font_size=10)
+        future_options_label.setAlignment(Qt.AlignCenter)
+        future_options_label.setStyleSheet("font-style: italic; color: #888888;")
+        options_layout.addWidget(future_options_label)
         
         options_group.setLayout(options_layout)
         layout.addWidget(options_group)
@@ -880,7 +879,7 @@ class MultiExportDialog(QDialog):
             # 创建人员复选框
             for owner in fixed_owners:
                 checkbox = QCheckBox(owner)
-                checkbox.setStyleSheet("QCheckBox { font-size: 11pt; }")  # 设置字体大小
+                checkbox.setStyleSheet("QCheckBox { font-size: 11pt; margin: 0 10px; }")  # 设置字体大小和水平边距
                 
                 # 如果需要预选当前用户
                 if self.preselect_current and self.parent:
@@ -937,16 +936,15 @@ class MultiExportDialog(QDialog):
             file_path += '.xlsx'
             
         self.file_path = file_path
-        self.hide_passwords = self.hide_password_cb.isChecked()
         
         # 更新界面状态
         self.export_btn.setEnabled(False)
         self.cancel_btn.setEnabled(False)
         self.progress_bar.setVisible(True)
-        self.progress_bar.setValue(10)
+        self.progress_bar.setValue(20)
         
         # 获取每个人员的密码记录
-        self.progress_bar.setValue(20)
+        self.progress_bar.setValue(40)
         self.owners_data = {}
         
         # 确保能访问密码管理器
@@ -1004,7 +1002,6 @@ class MultiExportDialog(QDialog):
         self.worker_thread.operation = 'export_multiple'
         self.worker_thread.file_path = self.file_path
         self.worker_thread.owners_data = self.owners_data
-        self.worker_thread.hide_passwords = self.hide_passwords
         
         # 连接信号
         self.worker_thread.progress_signal.connect(self.update_progress)

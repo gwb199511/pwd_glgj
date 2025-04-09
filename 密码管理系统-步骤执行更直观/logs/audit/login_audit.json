@@ -934,5 +934,32 @@
     "target": "用户登录",
     "details": "用户登录成功",
     "log_type": "login"
+  },
+  {
+    "timestamp": "2025-04-09T11:11:37.204450",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "login"
+  },
+  {
+    "timestamp": "2025-04-09T11:11:41.212568",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "login"
+  },
+  {
+    "timestamp": "2025-04-09T11:12:23.292023",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "login"
   }
 ]

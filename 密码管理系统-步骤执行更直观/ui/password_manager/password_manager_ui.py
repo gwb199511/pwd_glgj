@@ -17,7 +17,7 @@ from PyQt5.QtWidgets import (
     QDialog, QFileDialog, QShortcut
 )
 from PyQt5.QtCore import Qt, QModelIndex, QEvent, pyqtSignal, QTimer
-from PyQt5.QtGui import QCloseEvent, QKeySequence, QFont
+from PyQt5.QtGui import QCloseEvent, QKeySequence, QFont, QPixmap
 
 from ui.password_manager.ui_layout import PasswordManagerLayout
 from ui.password_manager.ui_table import PasswordTable
@@ -27,7 +27,7 @@ from password import password_manager
 from user import user_manager
 from config import WINDOW_WIDTH, WINDOW_HEIGHT, VERSION, COLORS
 from user_settings import user_settings
-from ui_components import show_message, show_confirmation
+from ui_components import show_message, show_confirmation, ModernLabel, HorizontalLine
 
 # 为了解决导入问题，添加项目根目录到Python路径
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
@@ -255,14 +255,108 @@ class PasswordManagerUI(QMainWindow):
     def _show_about_dialog(self):
         """显示关于对话框"""
         from config import VERSION, BUILD_DATE
-        QMessageBox.about(
-            self,
-            "关于密码管理系统",
-            f"<h3>密码管理系统</h3>"
-            f"<p>版本: {VERSION}</p>"
-            f"<p>构建日期: {BUILD_DATE}</p>"
-            f"<p>一个安全、易用的密码管理工具</p>"
+        from PyQt5.QtWidgets import QDialog, QVBoxLayout, QHBoxLayout, QLabel, QPushButton
+        from PyQt5.QtGui import QPixmap, QFont
+        from PyQt5.QtCore import Qt
+        from ui_components import ModernLabel, HorizontalLine
+        
+        # 创建自定义关于对话框
+        about_dialog = QDialog(self)
+        about_dialog.setWindowTitle("关于密码管理系统")
+        about_dialog.setMinimumWidth(480)
+        about_dialog.setMinimumHeight(360)
+        about_dialog.setWindowFlags(about_dialog.windowFlags() & ~Qt.WindowContextHelpButtonHint)
+        
+        # 主布局
+        layout = QVBoxLayout(about_dialog)
+        layout.setContentsMargins(20, 20, 20, 20)
+        layout.setSpacing(15)
+        
+        # 标题部分
+        title_layout = QHBoxLayout()
+        
+        # Logo (可以替换为实际的应用logo)
+        try:
+            # 尝试加载logo
+            logo_path = "resources/logo.png"  # 假设有这个路径
+            logo_label = QLabel()
+            pixmap = QPixmap(logo_path)
+            if not pixmap.isNull():
+                logo_label.setPixmap(pixmap.scaled(64, 64, Qt.KeepAspectRatio, Qt.SmoothTransformation))
+                title_layout.addWidget(logo_label)
+            else:
+                # 如果没有logo，使用大图标文字
+                icon_label = QLabel("🔐")
+                icon_label.setFont(QFont("Arial", 36))
+                title_layout.addWidget(icon_label)
+        except:
+            # 使用大图标文字作为后备
+            icon_label = QLabel("🔐")
+            icon_label.setFont(QFont("Arial", 36))
+            title_layout.addWidget(icon_label)
+        
+        # 标题文字
+        title_text = QVBoxLayout()
+        title = ModernLabel("密码管理系统", font_size=16, bold=True)
+        subtitle = ModernLabel(f"版本 {VERSION}", font_size=10)
+        
+        title_text.addWidget(title)
+        title_text.addWidget(subtitle)
+        title_layout.addLayout(title_text)
+        title_layout.addStretch()
+        
+        layout.addLayout(title_layout)
+        layout.addWidget(HorizontalLine())
+        
+        # 信息部分
+        info_layout = QVBoxLayout()
+        
+        build_info = QLabel(f"<b>构建日期:</b> {BUILD_DATE}")
+        build_info.setTextFormat(Qt.RichText)
+        info_layout.addWidget(build_info)
+        
+        description = QLabel(
+            "密码管理系统是一个安全、高效的密码存储与管理工具，"
+            "专为组织内部使用设计，提供便捷的密码记录、搜索和导出功能。"
         )
+        description.setWordWrap(True)
+        description.setTextFormat(Qt.RichText)
+        info_layout.addWidget(description)
+        
+        features = QLabel(
+            "<b>主要功能:</b><br>"
+            "• 多人员密码管理<br>"
+            "• 强大的搜索功能<br>"
+            "• Excel导入导出<br>"
+            "• 安全的数据存储<br>"
+            "• 操作审计日志<br>"
+            "• 密码生成器"
+        )
+        features.setTextFormat(Qt.RichText)
+        info_layout.addWidget(features)
+        
+        # 版权信息
+        copyright_info = QLabel("© 2023 公司名称，保留所有权利。")
+        copyright_info.setAlignment(Qt.AlignCenter)
+        
+        layout.addLayout(info_layout)
+        layout.addStretch()
+        layout.addWidget(HorizontalLine())
+        layout.addWidget(copyright_info)
+        
+        # 添加确定按钮
+        button_layout = QHBoxLayout()
+        ok_button = QPushButton("确定")
+        ok_button.setFixedWidth(100)
+        ok_button.clicked.connect(about_dialog.accept)
+        button_layout.addStretch()
+        button_layout.addWidget(ok_button)
+        button_layout.addStretch()
+        
+        layout.addLayout(button_layout)
+        
+        # 显示对话框
+        about_dialog.exec_()
 
     def _open_password_generator(self):
         """打开密码生成器"""

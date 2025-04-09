@@ -59,12 +59,17 @@ class PasswordManagerLayout:
         self.toolbar.setIconSize(QSize(20, 20))
         self.toolbar.setFont(QFont(FONT_FAMILY, 9))
         
+        # 创建菜单按钮字体 - 更大的字体
+        menu_button_font = QFont(FONT_FAMILY, 11)
+        menu_button_font.setBold(True)
+        
         # 创建菜单按钮
         # 文件菜单按钮
         self.file_button = QToolButton(self.parent)
         self.file_button.setText("文件")
         self.file_button.setPopupMode(QToolButton.InstantPopup)
         self.file_button.setToolButtonStyle(Qt.ToolButtonTextOnly)
+        self.file_button.setFont(menu_button_font)
         self.file_menu = QMenu(self.parent)
         self.file_button.setMenu(self.file_menu)
         
@@ -73,6 +78,7 @@ class PasswordManagerLayout:
         self.tools_button.setText("工具")
         self.tools_button.setPopupMode(QToolButton.InstantPopup)
         self.tools_button.setToolButtonStyle(Qt.ToolButtonTextOnly)
+        self.tools_button.setFont(menu_button_font)
         self.tools_menu = QMenu(self.parent)
         self.tools_button.setMenu(self.tools_menu)
         
@@ -81,6 +87,7 @@ class PasswordManagerLayout:
         self.help_button.setText("帮助")
         self.help_button.setPopupMode(QToolButton.InstantPopup)
         self.help_button.setToolButtonStyle(Qt.ToolButtonTextOnly)
+        self.help_button.setFont(menu_button_font)
         self.help_menu = QMenu(self.parent)
         self.help_button.setMenu(self.help_menu)
         
@@ -88,6 +95,12 @@ class PasswordManagerLayout:
         self.file_menu.addAction("默认文件菜单项")
         self.tools_menu.addAction("默认工具菜单项")
         self.help_menu.addAction("默认帮助菜单项")
+        
+        # 设置下拉菜单的字体
+        menu_font = QFont(FONT_FAMILY, 10)
+        self.file_menu.setFont(menu_font)
+        self.tools_menu.setFont(menu_font)
+        self.help_menu.setFont(menu_font)
         
         # 添加按钮到工具栏
         self.toolbar.addWidget(self.file_button)
@@ -99,8 +112,8 @@ class PasswordManagerLayout:
             QToolButton {
                 background-color: transparent;
                 border: none;
-                padding: 4px 8px;
-                font-weight: normal;
+                padding: 6px 12px;
+                font-weight: bold;
             }
             QToolButton:hover {
                 background-color: #f0f0f0;

@@ -559,6 +559,131 @@ class PasswordManager:
             )
             return False, f"删除失败: {str(e)}"
 
+    def batch_delete_passwords(self, owner: str, indices: List[int]) -> Tuple[bool, str, int]:
+        """
+        批量删除密码记录
+        
+        Args:
+            owner (str): 所有者
+            indices (List[int]): 记录索引列表，必须是有序的
+            
+        Returns:
+            Tuple[bool, str, int]: (成功状态, 消息, 成功删除的记录数)
+        """
+        if not indices:
+            return True, "无记录需要删除", 0
+        
+        try:
+            # 获取所有者的密码列表
+            passwords = self.db.get(owner, [])
+            
+            # 检查索引有效性
+            if not passwords:
+                self._log_operation(
+                    operation_type=OP_TYPE_DELETE,
+                    result=OP_RESULT_FAIL,
+                    details=f"批量删除密码记录失败：所有者 {owner} 无密码记录",
+                    target=f"{owner}/批量删除"
+                )
+                return False, "无密码记录", 0
+            
+            # 排序并验证索引
+            valid_indices = []
+            for index in sorted(indices, reverse=True):  # 从大到小排序，避免删除时索引变化
+                if 0 <= index < len(passwords):
+                    valid_indices.append(index)
+                else:
+                    logger.warning(f"跳过无效的索引 {index}")
+            
+            if not valid_indices:
+                self._log_operation(
+                    operation_type=OP_TYPE_DELETE,
+                    result=OP_RESULT_FAIL,
+                    details=f"批量删除密码记录失败：所有索引均无效",
+                    target=f"{owner}/批量删除"
+                )
+                return False, "所有索引均无效", 0
+            
+            # 收集项目名称用于日志
+            project_names = []
+            for index in valid_indices:
+                if passwords[index] and len(passwords[index]) > 0:
+                    project_names.append(passwords[index][0])
+            
+            # 尝试使用批量SQL删除（如果支持）
+            try:
+                # 获取对应的数据库ID
+                password_ids = []
+                for index in valid_indices:
+                    project_name = passwords[index][0] if passwords[index] and len(passwords[index]) > 0 else ""
+                    password_id = self._get_password_id(owner, index)
+                    if password_id > 0:
+                        password_ids.append(password_id)
+                
+                if password_ids:
+                    # 批量删除
+                    placeholders = ", ".join(["%s"] * len(password_ids))
+                    sql = f"DELETE FROM passwords WHERE id IN ({placeholders})"
+                    result = db_manager.execute_update(sql, password_ids)
+                    
+                    if result >= 0:
+                        # 记录审计日志 - 删除成功
+                        self._log_operation(
+                            operation_type=OP_TYPE_DELETE,
+                            result=OP_RESULT_SUCCESS,
+                            details=f"批量删除密码记录成功，共删除 {len(password_ids)} 条记录",
+                            target=f"{owner}/批量删除"
+                        )
+                        
+                        # 更新内存中的密码列表
+                        for index in valid_indices:
+                            passwords.pop(index)
+                        
+                        return True, f"成功删除 {len(password_ids)} 条记录", len(password_ids)
+            except Exception as e:
+                logger.warning(f"使用批量SQL删除失败，将使用标准方式: {str(e)}")
+            
+            # 标准删除方式（适用于所有存储模式）
+            # 从后向前删除
+            for index in valid_indices:
+                del passwords[index]
+            
+            # 保存到数据库
+            if self.db.set(owner, passwords):
+                logger.info(f"批量删除所有者 {owner} 的密码记录成功，共删除 {len(valid_indices)} 条记录")
+                
+                # 记录审计日志 - 删除成功
+                self._log_operation(
+                    operation_type=OP_TYPE_DELETE,
+                    result=OP_RESULT_SUCCESS,
+                    details=f"批量删除密码记录成功，共删除 {len(valid_indices)} 条记录，项目：{', '.join(project_names)}",
+                    target=f"{owner}/批量删除"
+                )
+                return True, f"成功删除 {len(valid_indices)} 条记录", len(valid_indices)
+            else:
+                logger.error(f"批量删除所有者 {owner} 的密码记录失败")
+                
+                # 记录审计日志 - 删除失败
+                self._log_operation(
+                    operation_type=OP_TYPE_DELETE,
+                    result=OP_RESULT_FAIL,
+                    details=f"批量删除密码记录失败：数据库保存失败，项目：{', '.join(project_names)}",
+                    target=f"{owner}/批量删除"
+                )
+                return False, "删除失败，请稍后重试", 0
+                
+        except Exception as e:
+            logger.error(f"批量删除密码时出错: {str(e)}")
+            
+            # 记录审计日志 - 删除出错
+            self._log_operation(
+                operation_type=OP_TYPE_DELETE,
+                result=OP_RESULT_FAIL,
+                details=f"批量删除密码记录出错：{str(e)}",
+                target=f"{owner}/批量删除"
+            )
+            return False, f"删除失败: {str(e)}", 0
+
     def search_passwords(self, keyword: str, owner: Optional[str] = None) -> List[Tuple[str, List[str]]]:
         """
         搜索密码记录

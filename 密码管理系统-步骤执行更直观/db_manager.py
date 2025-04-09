@@ -805,6 +805,93 @@ class DBManager:
             # 如果是新获取的连接，释放它
             if conn and conn != self.connection:
                 self.connection_pool.release_connection(conn)
+    
+    def execute_batch(self, sql: str, params_list: List[Any]) -> bool:
+        """
+        批量执行SQL语句（适用于插入、更新、删除）
+        
+        Args:
+            sql (str): SQL语句
+            params_list (List[Any]): 参数列表，每个元素是一组参数
+            
+        Returns:
+            bool: 操作是否成功
+        """
+        conn = None
+        try:
+            # 获取连接
+            if not self.is_connected():
+                conn = self.connection_pool.get_connection()
+            else:
+                conn = self.connection
+            
+            if not conn:
+                logger.error("批量执行SQL时无法获取数据库连接")
+                return False
+            
+            # 开始事务
+            conn.begin()
+            
+            with conn.cursor() as cursor:
+                for params in params_list:
+                    cursor.execute(sql, params)
+            
+            # 提交事务
+            conn.commit()
+            logger.info(f"批量执行SQL成功，共执行 {len(params_list)} 条命令")
+            return True
+        except Exception as e:
+            logger.error(f"批量执行SQL时出错: {str(e)}")
+            if conn:
+                conn.rollback()
+            return False
+        finally:
+            # 如果是新获取的连接，释放它
+            if conn and conn != self.connection:
+                self.connection_pool.release_connection(conn)
+    
+    def execute_transaction(self, operations: List[Tuple[str, Any]]) -> bool:
+        """
+        在一个事务中执行多个SQL操作
+        
+        Args:
+            operations (List[Tuple[str, Any]]): 操作列表，每个元素是(sql, params)元组
+            
+        Returns:
+            bool: 操作是否成功
+        """
+        conn = None
+        try:
+            # 获取连接
+            if not self.is_connected():
+                conn = self.connection_pool.get_connection()
+            else:
+                conn = self.connection
+            
+            if not conn:
+                logger.error("执行事务时无法获取数据库连接")
+                return False
+            
+            # 开始事务
+            conn.begin()
+            
+            with conn.cursor() as cursor:
+                for sql, params in operations:
+                    cursor.execute(sql, params)
+            
+            # 提交事务
+            conn.commit()
+            logger.info(f"事务执行成功，共执行 {len(operations)} 个操作")
+            return True
+        except Exception as e:
+            logger.error(f"执行事务时出错: {str(e)}")
+            if conn:
+                conn.rollback()
+            return False
+        finally:
+            # 如果是新获取的连接，释放它
+            if conn and conn != self.connection:
+                self.connection_pool.release_connection(conn)
 
 
 # 创建全局实例

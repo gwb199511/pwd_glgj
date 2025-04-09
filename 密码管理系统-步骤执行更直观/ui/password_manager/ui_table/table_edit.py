@@ -1004,29 +1004,37 @@ class TableEditMixin:
             if not real_rows:
                 logger.error("无法获取真实行索引")
                 return False
-                
-            # 从后向前删除，以避免索引变化的问题
-            real_rows.reverse()
             
-            for displayed_row, real_row in real_rows:
-                success, message = password_manager.delete_password(self.current_owner, real_row)
-                if not success:
-                    logger.error(f"删除密码失败: {message}")
-                    return False
-                    
-                # 如果在搜索模式下，更新搜索结果
-                if self.search_mode and displayed_row < len(self.search_results):
-                    self.search_results.pop(displayed_row)
-                    
-            # 重新加载数据
-            if self.search_mode:
-                self._refresh_search_results()
-            else:
-                self._load_passwords_internal(self.current_owner)
+            # 从UI层面来看，需要从后向前删除显示行，以避免索引变化
+            real_rows.sort(key=lambda x: x[0], reverse=True)
+            
+            # 提取真实行索引
+            indices_to_delete = [r[1] for r in real_rows]
+            
+            # 使用批量删除功能
+            success, message, count = password_manager.batch_delete_passwords(self.current_owner, indices_to_delete)
+            
+            if success:
+                logger.info(f"批量删除成功: {message}")
                 
-            return True
+                # 如果在搜索模式下，需要更新搜索结果
+                if self.search_mode:
+                    # 从后向前删除搜索结果中的行
+                    for displayed_row, _ in real_rows:
+                        if displayed_row < len(self.search_results):
+                            self.search_results.pop(displayed_row)
+                    self._refresh_search_results()
+                else:
+                    # 重新加载所有密码
+                    self._load_passwords_internal(self.current_owner)
+                
+                return True
+            else:
+                logger.error(f"批量删除失败: {message}")
+                return False
+                
         except Exception as e:
-            logger.error(f"删除多行时出错: {str(e)}")
+            logger.error(f"删除选中行时出错: {str(e)}")
             return False
             
     def add_row_at(self, position: int = None) -> int:

@@ -10,6 +10,7 @@ import json
 import logging
 import threading
 import time
+import queue
 from datetime import datetime, timedelta
 from typing import List, Dict, Any, Optional, Tuple, Union
 
@@ -80,8 +81,82 @@ class AuditLogger:
                 self.cache_time = {}
                 self.cache_expiry = 60  # 缓存有效期(秒)
                 
+                # 初始化日志队列和工作线程
+                self.log_queue = queue.Queue()
+                self.batch_size = 10  # 批量处理的日志数量
+                self.flush_interval = 5  # 强制刷新间隔（秒）
+                self.last_flush_time = time.time()
+                self.worker_thread = threading.Thread(target=self._log_worker, daemon=True)
+                self.worker_thread.start()
+                
                 self._initialized = True
     
+    def _log_worker(self):
+        """
+        日志工作线程，异步处理日志队列
+        """
+        while True:
+            try:
+                # 收集批量日志
+                logs_batch = {}
+                current_time = time.time()
+                flush_timeout = current_time - self.last_flush_time >= self.flush_interval
+                
+                # 从队列中获取尽可能多的日志条目，直到达到批量大小或队列为空
+                while (not flush_timeout and 
+                      sum(len(entries) for entries in logs_batch.values()) < self.batch_size):
+                    try:
+                        log_entry, log_type = self.log_queue.get(block=not logs_batch, timeout=0.1)
+                        if log_type not in logs_batch:
+                            logs_batch[log_type] = []
+                        logs_batch[log_type].append(log_entry)
+                        self.log_queue.task_done()
+                    except queue.Empty:
+                        # 队列为空，跳出循环
+                        break
+                
+                # 如果收集到了日志或者到了强制刷新时间
+                if logs_batch or flush_timeout:
+                    for log_type, entries in logs_batch.items():
+                        if entries:
+                            self._batch_write_logs(log_type, entries)
+                    self.last_flush_time = time.time()
+                
+                # 如果队列为空，稍微等待一下再继续
+                if self.log_queue.empty():
+                    time.sleep(0.1)
+                    
+            except Exception as e:
+                logger.error(f"日志工作线程出错: {str(e)}")
+                time.sleep(1)  # 出错后等待1秒再继续
+    
+    def _batch_write_logs(self, log_type, log_entries):
+        """
+        批量写入日志
+        
+        Args:
+            log_type (str): 日志类型
+            log_entries (List[Dict]): 日志条目列表
+            
+        Returns:
+            bool: 写入成功返回True，否则返回False
+        """
+        try:
+            # 确定日志文件
+            log_file = self._get_log_file(log_type)
+            
+            # 读取现有日志
+            logs = self._read_logs(log_file)
+            
+            # 添加新日志条目
+            logs.extend(log_entries)
+            
+            # 保存日志
+            return self._write_logs(log_file, logs)
+        except Exception as e:
+            logger.error(f"批量写入日志时出错: {str(e)}")
+            return False
+            
     def log_operation(self, 
                       operation_type: str, 
                       result: str, 
@@ -121,17 +196,10 @@ class AuditLogger:
                 "log_type": log_type
             }
             
-            # 确定日志文件
-            log_file = self._get_log_file(log_type)
+            # 将日志条目添加到队列中异步处理
+            self.log_queue.put((log_entry, log_type))
             
-            # 读取现有日志
-            logs = self._read_logs(log_file)
-            
-            # 添加新日志条目
-            logs.append(log_entry)
-            
-            # 保存日志
-            return self._write_logs(log_file, logs)
+            return True
         
         except Exception as e:
             logger.error(f"记录审计日志时出错: {str(e)}")

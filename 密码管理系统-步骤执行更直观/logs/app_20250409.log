@@ -2497,3 +2497,48 @@ TypeError: ModernLabel.__init__() got an unexpected keyword argument 'italic'
 2025-04-09 11:03:48,650 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
 2025-04-09 11:03:48,871 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
 2025-04-09 11:03:49,047 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-09 11:06:18,103 - user - INFO - 用户已登出
+2025-04-09 11:06:23,812 - root - INFO - 密码管理系统启动
+2025-04-09 11:06:23,812 - root - INFO - 初始化用户设置模块...
+2025-04-09 11:06:23,813 - root - INFO - 用户设置模块已初始化
+2025-04-09 11:06:24,061 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-09 11:06:24,084 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-09 11:06:25,181 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-09 11:06:25,189 - user - INFO - 用户 admin 登录成功
+2025-04-09 11:06:25,190 - login_ui - INFO - 用户 admin 登录成功
+2025-04-09 11:06:25,361 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-09 11:06:25,582 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-09 11:06:25,622 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-09 11:06:25,622 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-09 11:06:25,674 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-09 11:06:26,241 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-09 11:06:26,431 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-09 11:06:27,488 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-09 11:06:27,488 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-09 11:06:27,489 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-09 11:06:27,490 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-09 11:06:27,491 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-09 11:06:27,491 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-09 11:06:27,596 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-09 11:06:28,982 - user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-09 11:06:28,983 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-09 11:06:29,941 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-09 11:06:30,161 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-09 11:06:30,383 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-09 11:06:30,612 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-09 11:06:30,831 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-09 11:06:30,991 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-09 11:06:31,211 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-09 11:06:31,442 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-09 11:06:31,681 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-09 11:06:31,891 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-09 11:06:32,082 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-09 11:06:32,302 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-09 11:06:32,534 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-09 11:06:32,761 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-09 11:06:32,942 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-09 11:06:33,162 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-09 11:06:33,382 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-09 11:06:33,612 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-09 11:06:33,831 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-09 11:06:33,972 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager

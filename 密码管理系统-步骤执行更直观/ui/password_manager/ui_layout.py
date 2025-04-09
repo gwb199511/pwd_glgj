@@ -186,8 +186,8 @@ class PasswordManagerLayout:
         # 左侧人员列表
         self.owner_list_widget = QListWidget()
         self.owner_list_widget.setFont(QFont(FONT_FAMILY, 9))
-        self.owner_list_widget.setMinimumWidth(100)  # 减小最小宽度
-        self.owner_list_widget.setMaximumWidth(150)  # 减小最大宽度
+        self.owner_list_widget.setMinimumWidth(80)  # 减小最小宽度
+        self.owner_list_widget.setMaximumWidth(100)  # 减小最大宽度
         
         # 创建标题标签
         owner_title = ModernLabel("人员列表", font_size=10, bold=True)
@@ -225,7 +225,7 @@ class PasswordManagerLayout:
         self.splitter.addWidget(left_panel)
         self.splitter.addWidget(self.password_table)
         self.splitter.setStretchFactor(0, 1)  # 左侧列表占更少空间
-        self.splitter.setStretchFactor(1, 5)  # 右侧表格占更多空间
+        self.splitter.setStretchFactor(1, 8)  # 右侧表格占更多空间
         
         main_layout.addWidget(self.splitter)
         self.widget.setLayout(main_layout)

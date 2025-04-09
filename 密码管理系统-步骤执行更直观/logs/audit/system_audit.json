@@ -907,5 +907,104 @@
     "target": "徐国明/批量操作",
     "details": "批量生成随机密码并更新服务器全部成功，共1个服务器，IP地址：192.168.8.87",
     "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-09T09:39:00.939812",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为2个服务器生成16位随机密码，ip地址为：192.168.8.87; 68.16.140.228",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-09T09:39:30.282611",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "批量生成随机密码并更新服务器部分成功: 1成功, 1失败。成功IP：192.168.8.87，失败IP：68.16.140.228",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-09T09:40:06.310769",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为1个服务器生成16位随机密码，ip地址为：192.168.8.87",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-09T09:43:05.932148",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "批量生成随机密码并更新服务器全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-09T10:12:58.914629",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为1个服务器生成16位随机密码，ip地址为：192.168.8.87",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-09T10:13:16.766927",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "批量生成随机密码并更新服务器全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-09T10:17:45.530413",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为1个服务器生成16位随机密码，ip地址为：192.168.8.87",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-09T10:19:31.515433",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "批量生成随机密码并更新服务器全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-09T10:25:31.568448",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为1个服务器生成16位随机密码，ip地址为：192.168.8.87",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-09T10:25:56.353526",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "批量生成随机密码并更新服务器全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-09T10:28:47.854232",
+    "user": "admin",
+    "operation": "export",
+    "result": "success",
+    "target": "多人员/Excel导出",
+    "details": "导出多人员密码记录到Excel文件: 密码记录汇总.xlsx，总记录数: 90，人员: 徐国明, 高文彬, 石帆",
+    "log_type": "system"
   }
 ]

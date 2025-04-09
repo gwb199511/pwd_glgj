@@ -8,12 +8,13 @@
 
 import logging
 from typing import List, Tuple, Optional, Dict, Any
+import time
 
 from PyQt5.QtWidgets import (
     QTableWidgetItem, QPushButton, QHBoxLayout, 
-    QWidget, QAbstractItemView, QMessageBox, QApplication
+    QWidget, QAbstractItemView, QMessageBox, QApplication, QDialog, QVBoxLayout, QLabel, QProgressBar
 )
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QTimer, QThread, pyqtSignal, QObject
 from PyQt5.QtGui import QColor, QBrush
 
 from config import PASSWORD_COLUMNS, REQUIRED_FIELDS
@@ -262,7 +263,7 @@ class TableEditMixin:
         try:
             logger.info(f"确认编辑 - 第{row+1}行")
             
-            # 获取行数据
+            # 1. 获取行数据
             new_data = []
             
             # 检查每个单元格是否有效
@@ -277,7 +278,7 @@ class TableEditMixin:
                     # 如果表格列数少于PASSWORD_COLUMNS，添加空字符串
                     new_data.append("")
                     
-            # 检查必填字段
+            # 2. 检查必填字段
             invalid_fields = []
             for field_index in REQUIRED_FIELDS:
                 if field_index < len(new_data) and not new_data[field_index]:
@@ -288,110 +289,58 @@ class TableEditMixin:
                 QMessageBox.warning(self.table.window(), "验证失败", message)
                 return False
                 
-            # 区分添加模式和编辑模式
-            if self.original_row_data and any(self.original_row_data):
-                # 编辑现有条目
-                # 查找真实的行索引（考虑搜索模式）
-                logger.info(f"确认编辑现有行 {row}")
-                real_index = self._get_real_row_index(row)
-                
-                if real_index is None:
-                    logger.warning(f"通过_get_real_row_index获取真实索引失败，尝试替代方法")
-                    
-                    # 尝试通过表格中的数据找到匹配的记录
-                    try:
-                        # 获取当前所有者的所有密码
-                        all_passwords = password_manager.get_passwords_by_owner(self.current_owner)
-                        
-                        # 通过比较原始数据找到匹配记录
-                        for i, p in enumerate(all_passwords):
-                            # 提取原始记录中非密码字段进行比较
-                            match = True
-                            for j in range(min(len(p), len(self.original_row_data))):
-                                # 跳过密码字段(索引4)比较，因为它可能被解密
-                                if j != 4 and j < len(self.original_row_data) and str(p[j]) != str(self.original_row_data[j]):
-                                    match = False
-                                    break
-                                    
-                            if match:
-                                logger.info(f"通过原始数据比较找到匹配记录，真实索引: {i}")
-                                real_index = i
-                                break
-                        
-                        # 如果仍未找到匹配，记录详细信息以便调试
-                        if real_index is None:
-                            logger.error("通过所有替代方法依然无法找到匹配记录")
-                            logger.error(f"原始数据: {self.original_row_data}")
-                            logger.error(f"所有密码数量: {len(all_passwords)}")
-                            # 记录所有密码的前两个字段用于调试(不包含敏感信息)
-                            for i, p in enumerate(all_passwords):
-                                field1 = p[0] if len(p) > 0 else "空"
-                                field2 = p[1] if len(p) > 1 else "空"
-                                logger.error(f"记录 {i}: {field1}, {field2}")
-                    except Exception as e:
-                        logger.error(f"尝试替代方法找真实索引时出错: {str(e)}")
-                
-                if real_index is not None:
-                    logger.info(f"更新记录：所有者={self.current_owner}, 真实索引={real_index}")
-                    success, message = password_manager.update_password(
-                        self.current_owner, real_index, new_data, skip_server_sync=True
-                    )
-                else:
-                    error_msg = f"无法确定行 {row} 的真实索引"
-                    logger.error(error_msg)
-                    # 记录当前状态以便诊断
-                    logger.error(f"当前状态: 搜索模式={self.search_mode if hasattr(self, 'search_mode') else '未定义'}, 编辑行={self.editing_row}, 表格行数={self.table.rowCount()}")
-                    if hasattr(self, 'search_results') and self.search_results:
-                        logger.error(f"搜索结果数量: {len(self.search_results)}")
-                    
-                    # 向用户提供更有用的错误消息
-                    QMessageBox.critical(self.table.window(), "保存失败", 
-                                      "无法保存您的更改，系统无法确定正在编辑的行。\n\n"
-                                      "建议操作：\n"
-                                      "1. 取消编辑\n"
-                                      "2. 刷新页面\n"
-                                      "3. 重新尝试编辑")
-                    
-                    success, message = False, error_msg
-                    
-                action_desc = "编辑"
-                
-            else:
-                # 添加新条目
-                logger.info(f"添加新记录")
-                
-                # 检查是否有保存的插入位置
-                position = None
-                if hasattr(self, 'insert_position') and self.is_new_row:
-                    position = self.insert_position
-                    logger.info(f"使用保存的插入位置: {position}")
-                
-                # 将position参数传递给add_password方法
-                success, message = password_manager.add_password(
-                    self.current_owner, new_data, position
-                )
-                action_desc = "添加"
-                
-            if success:
-                # 清除编辑状态
-                self._clear_editing_state()
-                
-                # 更新UI状态
-                self._update_ui_after_edit(action_desc)
-                
-                logger.info(f"{action_desc}成功：{message}")
-                return True
-            else:
-                QMessageBox.warning(
-                    self.table.window(),
-                    f"{action_desc}失败",
-                    f"{message}"
-                )
-                logger.error(f"{action_desc}失败：{message}")
-                return False
-                
+            # 3. 先立即移除确认和取消按钮
+            self._remove_confirm_cancel_buttons(row)
+            
+            # 4. 显示保存对话框，确保UI立即响应
+            saving_dialog = self._create_saving_dialog()
+            saving_dialog.show()
+            
+            # 立即处理事件，确保对话框显示在其他操作之前
+            for _ in range(5):  # 多次处理事件，确保界面更新
+                QApplication.processEvents()
+            
+            # 5. 准备后台保存所需数据
+            is_new = not (self.original_row_data and any(self.original_row_data))
+            insert_position = None
+            if is_new and hasattr(self, 'insert_position') and self.is_new_row:
+                insert_position = self.insert_position
+                logger.info(f"使用保存的插入位置: {insert_position}")
+            
+            # 6. 创建工作线程
+            self.save_thread = QThread()
+            self.save_worker = BackgroundSaveWorker(
+                self.current_owner,
+                row,
+                new_data,
+                self.original_row_data,
+                is_new,
+                insert_position
+            )
+            
+            # 7. 移动到线程并设置信号连接
+            self.save_worker.moveToThread(self.save_thread)
+            self.save_thread.started.connect(self.save_worker.run)
+            self.save_worker.saveCompleted.connect(self._handle_save_completed)
+            self.save_worker.saveCompleted.connect(self.save_thread.quit)
+            self.save_thread.finished.connect(self.save_thread.deleteLater)
+            
+            # 8. 保存当前编辑状态，用于线程完成后处理
+            self._save_current_state(row, new_data, saving_dialog)
+            
+            # 9. 部分清理编辑状态（但保留足够信息以便异步完成后处理）
+            # 保留self.original_row_data和self.editing_row供后续处理使用
+            # 通知委托退出编辑模式
+            if hasattr(self, 'required_field_delegate'):
+                self.required_field_delegate.set_editing_mode(False)
+            
+            # 10. 启动线程
+            self.save_thread.start()
+            
+            return True
         except Exception as e:
-            error_msg = f"密码记录{row+1}{action_desc if 'action_desc' in locals() else '操作'}失败: {str(e)}"
+            action_desc = "操作" if 'action_desc' not in locals() else action_desc
+            error_msg = f"密码记录{row+1}{action_desc}失败: {str(e)}"
             QMessageBox.critical(
                 self.table.window(),
                 "操作失败", 
@@ -401,7 +350,308 @@ class TableEditMixin:
             import traceback
             logger.error(traceback.format_exc())
             return False
+    
+    def _save_current_state(self, row, new_data, dialog):
+        """
+        保存当前编辑状态，用于线程完成后处理
+        
+        Args:
+            row (int): 行索引
+            new_data (list): 新数据
+            dialog (QDialog): 保存对话框
+        """
+        self.async_edit_state = {
+            'row': row,
+            'new_data': new_data,
+            'dialog': dialog,
+            'dialog_start_time': dialog.start_time if hasattr(dialog, 'start_time') else time.time(),
+            'is_new': not (self.original_row_data and any(self.original_row_data)),
+            'action_desc': "添加" if not (self.original_row_data and any(self.original_row_data)) else "编辑"
+        }
+    
+    def _handle_save_completed(self, success, message):
+        """
+        处理保存完成信号
+        
+        Args:
+            success (bool): 是否成功
+            message (str): 消息
+        """
+        try:
+            if not hasattr(self, 'async_edit_state'):
+                logger.error("异步保存状态已丢失")
+                return
             
+            state = self.async_edit_state
+            row = state['row']
+            action_desc = state['action_desc']
+            dialog = state['dialog']
+            dialog_start_time = state.get('dialog_start_time', 0)
+            
+            # 计算对话框已显示时间
+            current_time = time.time()
+            dialog_display_time = current_time - dialog_start_time
+            
+            # 最短显示时间（单位：秒）
+            MIN_DISPLAY_TIME = 1.0  # 设置最短显示1秒，可根据需求调整
+            
+            # 确保对话框显示至少MIN_DISPLAY_TIME秒
+            if dialog and dialog.isVisible():
+                if dialog_display_time < MIN_DISPLAY_TIME:
+                    # 需要延迟关闭
+                    remain_time = int((MIN_DISPLAY_TIME - dialog_display_time) * 1000)
+                    logger.info(f"对话框已显示 {dialog_display_time:.2f} 秒，延迟 {remain_time} 毫秒后关闭")
+                    
+                    # 使用定时器延迟关闭
+                    close_timer = QTimer()
+                    close_timer.setSingleShot(True)
+                    close_timer.timeout.connect(lambda: self._close_dialog_and_update(dialog, success, row, action_desc))
+                    close_timer.start(remain_time)
+                else:
+                    # 已经显示足够时间，直接关闭
+                    logger.info(f"对话框已显示 {dialog_display_time:.2f} 秒，立即关闭")
+                    self._close_dialog_and_update(dialog, success, row, action_desc)
+            else:
+                # 对话框不存在或已关闭，直接更新状态
+                self._update_after_save(success, row, action_desc)
+            
+            # 清除异步状态（延迟到关闭对话框后清除）
+            if dialog_display_time >= MIN_DISPLAY_TIME:
+                if hasattr(self, 'async_edit_state'):
+                    delattr(self, 'async_edit_state')
+            
+        except Exception as e:
+            logger.error(f"处理保存完成信号时出错: {str(e)}")
+            import traceback
+            logger.error(traceback.format_exc())
+            
+            # 确保对话框关闭，即使发生错误
+            if 'dialog' in locals() and dialog and dialog.isVisible():
+                dialog.accept()
+    
+    def _create_saving_dialog(self):
+        """
+        创建保存对话框
+        
+        Returns:
+            QDialog: 保存对话框
+        """
+        try:
+            # 记录对话框显示时间
+            dialog_start_time = time.time()
+            
+            # 创建进度对话框
+            progress_dialog = QDialog(self.table.window())
+            progress_dialog.setWindowTitle("保存中")
+            progress_dialog.setFixedSize(300, 120)
+            progress_dialog.setWindowFlags(progress_dialog.windowFlags() & ~Qt.WindowContextHelpButtonHint)
+            progress_dialog.setModal(True)
+            
+            # 添加进度布局
+            layout = QVBoxLayout(progress_dialog)
+            layout.setContentsMargins(15, 15, 15, 15)
+            layout.setSpacing(10)
+            
+            # 进度提示
+            progress_label = QLabel("正在后台保存更新的数据，请稍候...")
+            progress_label.setAlignment(Qt.AlignCenter)
+            progress_label.setStyleSheet("font-size: 12px; color: #2a2a2a;")
+            layout.addWidget(progress_label)
+            
+            # 进度条
+            progress_bar = QProgressBar()
+            progress_bar.setRange(0, 0)  # 设置为不确定进度
+            progress_bar.setMinimumHeight(20)
+            progress_bar.setStyleSheet("""
+                QProgressBar {
+                    border: 1px solid #ddd;
+                    border-radius: 4px;
+                    background-color: #f5f5f5;
+                    text-align: center;
+                }
+                QProgressBar::chunk {
+                    background-color: #4a6fa5;
+                    border-radius: 3px;
+                }
+            """)
+            layout.addWidget(progress_bar)
+            
+            # 保存开始时间为对话框属性，用于判断最小显示时间
+            progress_dialog.start_time = dialog_start_time
+            
+            # 不设置自动关闭定时器，将由保存完成后的回调函数控制关闭
+            
+            return progress_dialog
+            
+        except Exception as e:
+            logger.error(f"创建保存对话框时出错: {str(e)}")
+            # 出错时返回None
+            return None
+    
+    def _close_dialog_and_update(self, dialog, success, row, action_desc):
+        """
+        关闭对话框并更新状态
+        
+        Args:
+            dialog (QDialog): 对话框
+            success (bool): 保存是否成功
+            row (int): 行索引
+            action_desc (str): 操作描述
+        """
+        try:
+            # 关闭对话框
+            if dialog and dialog.isVisible():
+                dialog.accept()
+            
+            # 更新状态
+            self._update_after_save(success, row, action_desc)
+            
+            # 清除异步状态
+            if hasattr(self, 'async_edit_state'):
+                delattr(self, 'async_edit_state')
+            
+        except Exception as e:
+            logger.error(f"关闭对话框并更新状态时出错: {str(e)}")
+    
+    def _update_after_save(self, success, row, action_desc):
+        """
+        保存完成后更新UI和状态
+        
+        Args:
+            success (bool): 保存是否成功
+            row (int): 行索引
+            action_desc (str): 操作描述
+        """
+        if success:
+            logger.info(f"{action_desc}成功")
+            
+            # 完成剩余的编辑状态清理
+            self._finish_edit_cleanup(row, action_desc)
+            
+            # 显示保存成功提示窗口，使用与"个密码已保存到数据库"相同的样式
+            success_box = QMessageBox(self.table.window())
+            success_box.setWindowTitle("保存完成")
+            success_box.setText("保存到数据库 成功！")
+            success_box.setIcon(QMessageBox.Information)
+            success_box.setStandardButtons(QMessageBox.Ok)
+            
+            # 设置相同的窗口样式
+            success_box.setStyleSheet("""
+                QMessageBox {
+                    background-color: #f5f5f7;
+                }
+                QLabel {
+                    color: #333333;
+                    font-family: "Microsoft YaHei", "SimHei", sans-serif;
+                }
+                QPushButton {
+                    background-color: #4a86e8;
+                    color: white;
+                    border: none;
+                    padding: 8px 16px;
+                    border-radius: 4px;
+                    font-weight: bold;
+                    min-height: 24px;
+                    min-width: 60px;
+                }
+                QPushButton:hover {
+                    background-color: #3a76d8;
+                }
+                QPushButton:pressed {
+                    background-color: #2a66c8;
+                }
+            """)
+            
+            success_box.exec_()
+        else:
+            logger.error(f"{action_desc}失败")
+            
+            # 如果保存失败，需要将编辑控件还原
+            self.cancel_editing()
+    
+    def _finish_edit_cleanup(self, row, action_desc):
+        """
+        完成编辑操作的最终清理
+        
+        Args:
+            row (int): 编辑的行
+            action_desc (str): 操作描述
+        """
+        try:
+            # 完全清除编辑状态
+            # 按钮已经在确认编辑时被移除，此处不需要再移除
+            
+            # 清理编辑状态
+            self.editing_row = -1
+            self.original_row_data = None
+            
+            # 更新UI状态
+            self._update_ui_after_edit(action_desc)
+            
+            logger.info(f"已完成 {action_desc} 操作的清理")
+        except Exception as e:
+            logger.error(f"完成编辑清理时出错: {str(e)}")
+    
+    def _show_saving_dialog_immediate(self, action_desc="保存"):
+        """
+        立即显示正在后台保存的提示对话框
+        
+        Args:
+            action_desc (str): 操作描述
+        """
+        try:
+            # 创建进度对话框
+            progress_dialog = QDialog(self.table.window())
+            progress_dialog.setWindowTitle("保存中")
+            progress_dialog.setFixedSize(300, 120)
+            progress_dialog.setWindowFlags(progress_dialog.windowFlags() & ~Qt.WindowContextHelpButtonHint)
+            progress_dialog.setModal(True)
+            
+            # 添加进度布局
+            layout = QVBoxLayout(progress_dialog)
+            layout.setContentsMargins(15, 15, 15, 15)
+            layout.setSpacing(10)
+            
+            # 进度提示
+            progress_label = QLabel("正在后台保存更新的数据，请稍候...")
+            progress_label.setAlignment(Qt.AlignCenter)
+            progress_label.setStyleSheet("font-size: 12px; color: #2a2a2a;")
+            layout.addWidget(progress_label)
+            
+            # 进度条
+            progress_bar = QProgressBar()
+            progress_bar.setRange(0, 0)  # 设置为不确定进度
+            progress_bar.setMinimumHeight(20)
+            progress_bar.setStyleSheet("""
+                QProgressBar {
+                    border: 1px solid #ddd;
+                    border-radius: 4px;
+                    background-color: #f5f5f5;
+                    text-align: center;
+                }
+                QProgressBar::chunk {
+                    background-color: #4a6fa5;
+                    border-radius: 3px;
+                }
+            """)
+            layout.addWidget(progress_bar)
+            
+            # 使用定时器自动关闭对话框
+            timer = QTimer(progress_dialog)
+            timer.setSingleShot(True)
+            timer.timeout.connect(progress_dialog.accept)
+            timer.start(1500)  # 1.5秒后自动关闭
+            
+            # 显示对话框
+            progress_dialog.show()
+            
+            # 立即处理事件，确保对话框显示
+            QApplication.processEvents()
+            
+        except Exception as e:
+            logger.error(f"显示保存对话框时出错: {str(e)}")
+            # 出错时不显示对话框，但不影响正常功能
+    
     def _clear_editing_state(self):
         """清除编辑状态"""
         # 移除编辑按钮
@@ -1247,3 +1497,106 @@ class TableEditMixin:
             self.table.setItem(row_count, col, QTableWidgetItem(""))
         
         return row_count 
+
+class BackgroundSaveWorker(QObject):
+    """
+    后台保存工作线程
+    
+    用于异步保存密码数据
+    """
+    # 定义信号
+    saveCompleted = pyqtSignal(bool, str)  # 成功标志，消息
+    
+    def __init__(self, owner, row, new_data, original_data, is_new, insert_position=None):
+        """
+        初始化工作线程
+        
+        Args:
+            owner (str): 所有者
+            row (int): 表格行号
+            new_data (list): 新数据
+            original_data (list): 原数据
+            is_new (bool): 是否是新增数据
+            insert_position (int, optional): 插入位置
+        """
+        super().__init__()
+        self.owner = owner
+        self.row = row
+        self.new_data = new_data
+        self.original_data = original_data
+        self.is_new = is_new
+        self.insert_position = insert_position
+        
+    def run(self):
+        """执行保存操作"""
+        try:
+            start_time = time.time()  # 记录开始时间
+            
+            if self.is_new:
+                # 添加新记录
+                logger.info(f"后台线程：添加新记录")
+                success, message = password_manager.add_password(
+                    self.owner, self.new_data, self.insert_position
+                )
+                action_desc = "添加"
+            else:
+                # 编辑现有记录
+                logger.info(f"后台线程：编辑现有记录 {self.row}")
+                real_index = self._get_real_row_index()
+                
+                if real_index is not None:
+                    logger.info(f"后台线程：更新记录：所有者={self.owner}, 真实索引={real_index}")
+                    success, message = password_manager.update_password(
+                        self.owner, real_index, self.new_data, skip_server_sync=True
+                    )
+                else:
+                    error_msg = f"无法确定行 {self.row} 的真实索引"
+                    logger.error(error_msg)
+                    success, message = False, error_msg
+                
+                action_desc = "编辑"
+            
+            # 计算操作耗时
+            elapsed_time = time.time() - start_time
+            logger.info(f"后台保存操作耗时: {elapsed_time:.3f}秒")
+            
+            # 发送完成信号，附带操作耗时信息
+            self.saveCompleted.emit(success, message)
+            
+        except Exception as e:
+            logger.error(f"后台保存线程执行出错: {str(e)}")
+            import traceback
+            logger.error(traceback.format_exc())
+            self.saveCompleted.emit(False, str(e))
+            
+    def _get_real_row_index(self):
+        """
+        获取真实行索引
+        
+        Returns:
+            int: 真实行索引
+        """
+        try:
+            # 尝试通过原始数据找到匹配的记录
+            all_passwords = password_manager.get_passwords_by_owner(self.owner)
+            
+            # 通过比较原始数据找到匹配记录
+            for i, p in enumerate(all_passwords):
+                # 提取原始记录中非密码字段进行比较
+                match = True
+                for j in range(min(len(p), len(self.original_data))):
+                    # 跳过密码字段(索引4)比较，因为它可能被解密
+                    if j != 4 and j < len(self.original_data) and str(p[j]) != str(self.original_data[j]):
+                        match = False
+                        break
+                        
+                if match:
+                    logger.info(f"通过原始数据比较找到匹配记录，真实索引: {i}")
+                    return i
+            
+            # 如果找不到匹配，返回None
+            return None
+            
+        except Exception as e:
+            logger.error(f"获取真实索引时出错: {str(e)}")
+            return None 

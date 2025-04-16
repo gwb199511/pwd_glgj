@@ -1,0 +1,714 @@
+2025-04-16 09:48:29,094 - root - INFO - 密码管理系统启动
+2025-04-16 09:48:29,095 - root - INFO - 初始化用户设置模块...
+2025-04-16 09:48:29,095 - root - INFO - 用户设置模块已初始化
+2025-04-16 09:48:29,933 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 09:48:29,955 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 09:50:36,685 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 09:50:36,704 - user - INFO - 用户 admin 登录成功
+2025-04-16 09:50:36,704 - login_ui - INFO - 用户 admin 登录成功
+2025-04-16 09:50:36,957 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 09:50:37,235 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 09:50:37,294 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-16 09:50:37,295 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-16 09:50:37,372 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-16 09:50:38,373 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-16 09:50:38,625 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 09:50:39,724 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-16 09:50:39,724 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-16 09:50:39,727 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-16 09:50:39,727 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-16 09:50:39,728 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-16 09:50:39,728 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-16 09:50:39,834 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-16 09:50:42,144 - user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-16 09:50:42,144 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-16 09:50:42,605 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 09:50:42,915 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 09:50:43,145 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 09:50:43,394 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 15:40:28,174 - root - INFO - 密码管理系统启动
+2025-04-16 15:40:28,174 - root - INFO - 初始化用户设置模块...
+2025-04-16 15:40:28,174 - root - INFO - 用户设置模块已初始化
+2025-04-16 15:40:28,517 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 15:41:34,469 - root - INFO - 密码管理系统启动
+2025-04-16 15:41:34,470 - root - INFO - 初始化用户设置模块...
+2025-04-16 15:41:34,470 - root - INFO - 用户设置模块已初始化
+2025-04-16 15:41:34,777 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 15:41:38,027 - core.user - INFO - 用户 admin 登录成功
+2025-04-16 15:41:38,027 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-16 15:41:38,467 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-16 15:41:38,467 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-16 15:51:59,609 - root - INFO - 密码管理系统启动
+2025-04-16 15:51:59,610 - root - INFO - 初始化用户设置模块...
+2025-04-16 15:51:59,610 - root - INFO - 用户设置模块已初始化
+2025-04-16 15:51:59,907 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 15:52:01,390 - core.user - INFO - 用户 admin 登录成功
+2025-04-16 15:52:01,391 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-16 15:52:01,887 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-16 15:52:01,888 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-16 15:52:01,945 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-16 15:52:02,658 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-16 15:52:03,864 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-16 15:52:03,865 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-16 15:52:03,866 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-16 15:52:03,866 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-16 15:52:03,867 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-16 15:52:03,868 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-16 15:52:03,973 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-16 15:59:13,719 - root - INFO - 密码管理系统启动
+2025-04-16 15:59:13,720 - root - INFO - 初始化用户设置模块...
+2025-04-16 15:59:13,720 - root - INFO - 用户设置模块已初始化
+2025-04-16 15:59:14,056 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 15:59:22,318 - core.db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 15:59:22,338 - core.user - INFO - 用户 admin 登录成功
+2025-04-16 15:59:22,339 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-16 15:59:22,788 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-16 15:59:22,789 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-16 15:59:22,839 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-16 15:59:23,555 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-16 15:59:24,781 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-16 15:59:24,782 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-16 15:59:24,783 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-16 15:59:24,783 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-16 15:59:24,784 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-16 15:59:24,785 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-16 15:59:24,890 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-16 16:00:06,344 - root - INFO - 密码管理系统启动
+2025-04-16 16:00:06,345 - root - INFO - 初始化用户设置模块...
+2025-04-16 16:00:06,345 - root - INFO - 用户设置模块已初始化
+2025-04-16 16:00:06,598 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 16:00:07,999 - core.user - INFO - 用户 admin 登录成功
+2025-04-16 16:00:07,999 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-16 16:00:08,418 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-16 16:00:08,419 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-16 16:00:08,466 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-16 16:00:09,171 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-16 16:00:10,300 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-16 16:00:10,301 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-16 16:00:10,301 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-16 16:00:10,302 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-16 16:00:10,303 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-16 16:00:10,303 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-16 16:00:10,407 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-16 16:00:11,503 - core.user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-16 16:00:11,504 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-16 16:00:12,343 - core.data_storage - ERROR - 批量保存设置时出错: No module named 'db_manager'
+2025-04-16 16:00:15,934 - core.user - INFO - 用户已登出
+2025-04-16 16:04:47,798 - root - INFO - 密码管理系统启动
+2025-04-16 16:04:47,798 - root - INFO - 初始化用户设置模块...
+2025-04-16 16:04:47,799 - root - INFO - 用户设置模块已初始化
+2025-04-16 16:04:48,089 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 16:05:40,528 - root - INFO - 密码管理系统启动
+2025-04-16 16:05:40,528 - root - INFO - 初始化用户设置模块...
+2025-04-16 16:05:40,529 - root - INFO - 用户设置模块已初始化
+2025-04-16 16:05:40,829 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 16:06:16,940 - root - INFO - 密码管理系统启动
+2025-04-16 16:06:16,940 - root - INFO - 初始化用户设置模块...
+2025-04-16 16:06:16,941 - root - INFO - 用户设置模块已初始化
+2025-04-16 16:06:17,219 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 16:06:52,511 - root - INFO - 密码管理系统启动
+2025-04-16 16:06:52,511 - root - INFO - 初始化用户设置模块...
+2025-04-16 16:06:52,511 - root - INFO - 用户设置模块已初始化
+2025-04-16 16:06:52,809 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 16:07:32,805 - root - INFO - 密码管理系统启动
+2025-04-16 16:07:32,805 - root - INFO - 初始化用户设置模块...
+2025-04-16 16:07:32,806 - root - INFO - 用户设置模块已初始化
+2025-04-16 16:07:33,119 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 16:08:19,559 - root - INFO - 密码管理系统启动
+2025-04-16 16:08:19,559 - root - INFO - 初始化用户设置模块...
+2025-04-16 16:08:19,559 - root - INFO - 用户设置模块已初始化
+2025-04-16 16:08:19,859 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 16:12:02,661 - root - INFO - 密码管理系统启动
+2025-04-16 16:12:02,661 - root - INFO - 初始化用户设置模块...
+2025-04-16 16:12:02,662 - root - INFO - 用户设置模块已初始化
+2025-04-16 16:12:02,960 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 16:12:51,270 - root - INFO - 密码管理系统启动
+2025-04-16 16:12:51,270 - root - INFO - 初始化用户设置模块...
+2025-04-16 16:12:51,271 - root - INFO - 用户设置模块已初始化
+2025-04-16 16:12:51,519 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 16:13:42,003 - root - INFO - 密码管理系统启动
+2025-04-16 16:13:42,003 - root - INFO - 初始化用户设置模块...
+2025-04-16 16:13:42,003 - root - INFO - 用户设置模块已初始化
+2025-04-16 16:13:42,310 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 16:14:37,854 - root - INFO - 密码管理系统启动
+2025-04-16 16:14:37,854 - root - INFO - 初始化用户设置模块...
+2025-04-16 16:14:37,855 - root - INFO - 用户设置模块已初始化
+2025-04-16 16:14:38,160 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 16:15:34,800 - root - INFO - 密码管理系统启动
+2025-04-16 16:15:34,800 - root - INFO - 初始化用户设置模块...
+2025-04-16 16:15:34,800 - root - INFO - 用户设置模块已初始化
+2025-04-16 16:15:35,100 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 16:18:24,119 - root - INFO - 密码管理系统启动
+2025-04-16 16:18:24,119 - root - INFO - 初始化用户设置模块...
+2025-04-16 16:18:24,120 - root - INFO - 用户设置模块已初始化
+2025-04-16 16:18:24,390 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 16:19:19,417 - root - INFO - 密码管理系统启动
+2025-04-16 16:19:19,418 - root - INFO - 初始化用户设置模块...
+2025-04-16 16:19:19,418 - root - INFO - 用户设置模块已初始化
+2025-04-16 16:19:19,750 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 16:19:58,519 - root - INFO - 密码管理系统启动
+2025-04-16 16:19:58,519 - root - INFO - 初始化用户设置模块...
+2025-04-16 16:19:58,520 - root - INFO - 用户设置模块已初始化
+2025-04-16 16:19:58,902 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 16:20:00,650 - core.user - INFO - 用户 admin 登录成功
+2025-04-16 16:20:00,651 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-16 16:20:01,161 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-16 16:20:01,162 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-16 16:20:01,219 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-16 16:20:01,941 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-16 16:20:03,160 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-16 16:20:03,160 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-16 16:20:03,162 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-16 16:20:03,163 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-16 16:20:03,165 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-16 16:20:03,166 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-16 16:20:03,270 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-16 16:20:04,084 - core.user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-16 16:20:04,085 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-16 16:20:04,530 - core.data_storage - ERROR - 批量保存设置时出错: No module named 'db_manager'
+2025-04-16 16:20:06,131 - core.user - INFO - 用户已登出
+2025-04-16 16:21:27,398 - root - INFO - 密码管理系统启动
+2025-04-16 16:21:27,398 - root - INFO - 初始化用户设置模块...
+2025-04-16 16:21:27,399 - root - INFO - 用户设置模块已初始化
+2025-04-16 16:21:27,691 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 16:21:29,080 - core.user - INFO - 用户 admin 登录成功
+2025-04-16 16:21:29,081 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-16 16:21:29,520 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-16 16:21:29,520 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-16 16:21:29,571 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-16 16:21:30,266 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-16 16:21:31,458 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-16 16:21:31,460 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-16 16:21:31,461 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-16 16:21:31,461 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-16 16:21:31,462 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-16 16:21:31,463 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-16 16:21:31,567 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-16 16:21:33,148 - core.user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-16 16:21:33,149 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-16 16:21:33,549 - core.db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 16:21:37,930 - core.user - INFO - 用户已登出
+2025-04-16 16:21:54,221 - root - INFO - 密码管理系统启动
+2025-04-16 16:21:54,222 - root - INFO - 初始化用户设置模块...
+2025-04-16 16:21:54,222 - root - INFO - 用户设置模块已初始化
+2025-04-16 16:21:54,481 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 16:24:29,384 - root - INFO - 密码管理系统启动
+2025-04-16 16:24:29,385 - root - INFO - 初始化用户设置模块...
+2025-04-16 16:24:29,385 - root - INFO - 用户设置模块已初始化
+2025-04-16 16:24:29,691 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 16:24:36,131 - core.db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 16:24:36,150 - core.user - INFO - 用户 admin 登录成功
+2025-04-16 16:24:36,151 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-16 16:24:36,560 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-16 16:24:36,560 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-16 16:24:36,613 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-16 16:24:37,420 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-16 16:24:38,670 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-16 16:24:38,671 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-16 16:24:38,672 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-16 16:24:38,672 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-16 16:24:38,673 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-16 16:24:38,673 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-16 16:24:38,780 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-16 16:24:39,757 - core.user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-16 16:24:39,757 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-16 16:24:41,161 - core.db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 16:25:18,270 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-04-16 16:25:18,410 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-04-16 16:25:18,601 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-04-16 16:25:18,761 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-04-16 16:25:18,923 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-04-16 16:25:19,081 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-04-16 16:25:19,201 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-04-16 16:25:19,340 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-04-16 16:26:32,288 - root - INFO - 密码管理系统启动
+2025-04-16 16:26:32,288 - root - INFO - 初始化用户设置模块...
+2025-04-16 16:26:32,288 - root - INFO - 用户设置模块已初始化
+2025-04-16 16:26:32,550 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 16:26:35,061 - core.user - INFO - 用户 admin 登录成功
+2025-04-16 16:26:35,061 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-16 16:26:35,511 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-16 16:26:35,511 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-16 16:26:35,565 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-16 16:26:36,198 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-16 16:26:37,403 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-16 16:26:37,404 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-16 16:26:37,405 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-16 16:26:37,405 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-16 16:26:37,406 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-16 16:26:37,407 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-16 16:26:37,512 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-16 16:26:38,580 - core.user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-16 16:26:38,581 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-16 16:26:39,471 - core.db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 16:26:44,050 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-04-16 16:26:44,192 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-04-16 16:26:44,310 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-04-16 16:26:44,461 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-04-16 16:26:44,620 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-04-16 16:26:44,760 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-04-16 16:26:44,881 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-04-16 16:26:45,021 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-04-16 16:31:50,363 - root - INFO - 密码管理系统启动
+2025-04-16 16:31:50,364 - root - INFO - 初始化用户设置模块...
+2025-04-16 16:31:50,364 - root - INFO - 用户设置模块已初始化
+2025-04-16 16:31:50,681 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 16:31:56,591 - core.db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 16:31:56,611 - core.user - INFO - 用户 admin 登录成功
+2025-04-16 16:31:56,612 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-16 16:31:57,011 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-16 16:31:57,012 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-16 16:31:57,062 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-16 16:31:57,738 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-16 16:31:58,959 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-16 16:31:58,960 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-16 16:31:58,961 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-16 16:31:58,961 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-16 16:31:58,962 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-16 16:31:58,963 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-16 16:31:59,067 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-16 16:32:00,245 - core.user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-16 16:32:00,245 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-16 16:32:10,751 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-04-16 16:32:10,910 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-04-16 16:32:11,051 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-04-16 16:32:11,190 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-04-16 16:32:11,333 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-04-16 16:32:11,501 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-04-16 16:32:11,661 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-04-16 16:32:11,781 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-04-16 16:32:25,213 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 7, 当前列: 3, 选中行数: 1, 选中行: [7]
+2025-04-16 16:32:25,214 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-16 16:32:25,215 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-16 16:32:25,216 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-16 16:32:25,216 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-16 16:32:25,217 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-16 16:32:27,666 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 4, 当前列: 4, 选中行数: 1, 选中行: [4]
+2025-04-16 16:32:27,666 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-16 16:32:27,668 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-16 16:32:27,668 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-16 16:32:27,669 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-16 16:32:27,669 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-16 16:33:13,178 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 2, 当前列: 2, 选中行数: 1, 选中行: [2]
+2025-04-16 16:33:13,178 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-16 16:33:13,179 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-16 16:33:13,180 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-16 16:33:13,180 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-16 16:33:13,180 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-16 16:33:14,602 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 2, 当前列: 5, 选中行数: 1, 选中行: [2]
+2025-04-16 16:33:14,603 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-16 16:33:14,604 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-16 16:33:14,605 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-16 16:33:14,605 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-16 16:33:14,606 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-16 16:33:16,300 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 2
+2025-04-16 16:33:16,309 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 2 的编辑模式
+2025-04-16 16:33:20,382 - ui.password_manager.ui_table.table_edit - INFO - 确认编辑 - 第2行
+2025-04-16 16:33:20,470 - ui.password_manager.ui_table.table_edit - INFO - 后台线程：编辑现有记录 1
+2025-04-16 16:33:20,471 - ui.password_manager.ui_table.table_edit - INFO - 通过原始数据比较找到匹配记录，真实索引: 1
+2025-04-16 16:33:20,472 - ui.password_manager.ui_table.table_edit - INFO - 后台线程：更新记录：所有者=徐国明, 真实索引=1
+2025-04-16 16:33:20,472 - core.password - INFO - 更新密码记录 - 所有者: 徐国明, 索引: 1, 项目: VPN, 跳过服务器同步: 是
+2025-04-16 16:33:20,473 - core.password - INFO - 跳过SSH密码更新步骤 - 项目: VPN
+2025-04-16 16:36:14,621 - root - INFO - 密码管理系统启动
+2025-04-16 16:36:14,621 - root - INFO - 初始化用户设置模块...
+2025-04-16 16:36:14,622 - root - INFO - 用户设置模块已初始化
+2025-04-16 16:36:14,916 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 16:36:16,403 - core.user - INFO - 用户 admin 登录成功
+2025-04-16 16:36:16,404 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-16 16:36:16,811 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-16 16:36:16,811 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-16 16:36:16,864 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-16 16:36:17,435 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-16 16:36:18,663 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-16 16:36:18,664 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-16 16:36:18,665 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-16 16:36:18,665 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-16 16:36:18,666 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-16 16:36:18,667 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-16 16:36:18,770 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-16 16:36:19,814 - core.user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-16 16:36:19,814 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-16 16:36:20,772 - core.db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 16:36:27,225 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 2, 当前列: 8, 选中行数: 1, 选中行: [2]
+2025-04-16 16:36:27,225 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-16 16:36:27,226 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-16 16:36:27,226 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-16 16:36:27,227 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-16 16:36:27,227 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-16 16:36:28,209 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 2
+2025-04-16 16:36:28,216 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 2 的编辑模式
+2025-04-16 16:36:30,868 - ui.password_manager.ui_table.table_edit - INFO - 确认编辑 - 第2行
+2025-04-16 16:36:30,942 - ui.password_manager.ui_table.table_edit - INFO - 后台线程：编辑现有记录 1
+2025-04-16 16:36:30,943 - ui.password_manager.ui_table.table_edit - INFO - 通过原始数据比较找到匹配记录，真实索引: 1
+2025-04-16 16:36:30,944 - ui.password_manager.ui_table.table_edit - INFO - 后台线程：更新记录：所有者=徐国明, 真实索引=1
+2025-04-16 16:36:30,944 - core.password - INFO - 更新密码记录 - 所有者: 徐国明, 索引: 1, 项目: VPN, 跳过服务器同步: 是
+2025-04-16 16:36:30,945 - core.password - INFO - 跳过SSH密码更新步骤 - 项目: VPN
+2025-04-16 16:36:31,087 - core.db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 16:36:36,203 - core.db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 16:36:37,061 - core.password - INFO - 更新所有者 徐国明 的密码记录成功 (跳过服务器同步)
+2025-04-16 16:36:37,062 - ui.password_manager.ui_table.table_edit - INFO - 后台保存操作耗时: 6.120秒
+2025-04-16 16:36:37,063 - ui.password_manager.ui_table.table_edit - INFO - 对话框已显示 6.19 秒，立即关闭
+2025-04-16 16:36:37,066 - ui.password_manager.ui_table.table_edit - INFO - 编辑成功
+2025-04-16 16:36:37,067 - ui.password_manager.ui_table.table_edit - INFO - 重新加载所有密码数据
+2025-04-16 16:36:37,133 - ui.password_manager.ui_table.table_edit - INFO - 编辑操作完成，已恢复表格选择模式
+2025-04-16 16:36:37,134 - ui.password_manager.ui_table.table_edit - INFO - 已完成 编辑 操作的清理
+2025-04-16 16:36:51,553 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 6, 当前列: 3, 选中行数: 4, 选中行: [5, 6, 7, 8]
+2025-04-16 16:36:51,553 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-16 16:36:53,078 - core.password - INFO - _get_password_id - 所有者: 徐国明, 索引: 7, 可用记录数: 30
+2025-04-16 16:36:53,078 - core.password - INFO - 查询密码ID - 项目: 路由器, IP: 158.249.61.174, 账号: user3
+2025-04-16 16:36:53,272 - core.db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 16:36:53,292 - core.password - INFO - 通过精确匹配找到密码ID: 218
+2025-04-16 16:36:53,293 - core.password - INFO - _get_password_id - 所有者: 徐国明, 索引: 6, 可用记录数: 30
+2025-04-16 16:36:53,293 - core.password - INFO - 查询密码ID - 项目: ERP系统, IP: 136.222.131.171, 账号: user5
+2025-04-16 16:36:53,451 - core.password - INFO - 通过精确匹配找到密码ID: 217
+2025-04-16 16:36:53,451 - core.password - INFO - _get_password_id - 所有者: 徐国明, 索引: 5, 可用记录数: 30
+2025-04-16 16:36:53,453 - core.password - INFO - 查询密码ID - 项目: 文件服务器, IP: 206.98.41.8, 账号: user37
+2025-04-16 16:36:53,632 - core.password - INFO - 通过精确匹配找到密码ID: 216
+2025-04-16 16:36:53,632 - core.password - INFO - _get_password_id - 所有者: 徐国明, 索引: 4, 可用记录数: 30
+2025-04-16 16:36:53,633 - core.password - INFO - 查询密码ID - 项目: 邮件服务器, IP: 151.212.197.102, 账号: user66
+2025-04-16 16:36:53,811 - core.password - INFO - 通过精确匹配找到密码ID: 215
+2025-04-16 16:36:54,031 - ui.password_manager.ui_table.table_edit - INFO - 批量删除成功: 成功删除 4 条记录
+2025-04-16 16:36:59,192 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 4, 当前列: 4, 选中行数: 2, 选中行: [3, 4]
+2025-04-16 16:36:59,193 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-16 16:37:00,877 - core.password - INFO - _get_password_id - 所有者: 徐国明, 索引: 3, 可用记录数: 26
+2025-04-16 16:37:00,878 - core.password - INFO - 查询密码ID - 项目: 数据库服务器, IP: 245.42.100.154, 账号: user82
+2025-04-16 16:37:01,041 - core.db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 16:37:01,063 - core.password - INFO - 通过精确匹配找到密码ID: 214
+2025-04-16 16:37:01,064 - core.password - INFO - _get_password_id - 所有者: 徐国明, 索引: 2, 可用记录数: 26
+2025-04-16 16:37:01,064 - core.password - INFO - 查询密码ID - 项目: 数据库服务器, IP: 1.12.61.19, 账号: user90
+2025-04-16 16:37:01,245 - core.password - INFO - 通过精确匹配找到密码ID: 213
+2025-04-16 16:37:01,425 - ui.password_manager.ui_table.table_edit - INFO - 批量删除成功: 成功删除 2 条记录
+2025-04-16 16:37:02,732 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 4, 当前列: 2, 选中行数: 1, 选中行: [4]
+2025-04-16 16:37:02,733 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-16 16:37:02,734 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-16 16:37:02,734 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-16 16:37:02,735 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-16 16:37:02,735 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-16 16:37:03,785 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 4, 当前列: 5, 选中行数: 1, 选中行: [4]
+2025-04-16 16:37:03,785 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-16 16:37:03,786 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-16 16:37:03,787 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-16 16:37:03,787 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-16 16:37:03,788 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-16 16:37:05,906 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 4, 当前列: 5, 选中行数: 2, 选中行: [3, 4]
+2025-04-16 16:37:05,907 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 2
+2025-04-16 16:37:07,338 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 2 的真实索引，将使用表格行索引作为备选
+2025-04-16 16:37:07,339 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 2 作为真实索引
+2025-04-16 16:37:07,339 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 3 的真实索引，将使用表格行索引作为备选
+2025-04-16 16:37:07,339 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 3 作为真实索引
+2025-04-16 16:37:21,497 - ui.password_manager.ui_table.table_password - INFO - 密码更新对话框返回确认结果，刷新表格显示更新后的密码
+2025-04-16 16:37:31,577 - features.audit.audit_log_viewer - INFO - 所有模块导入成功
+2025-04-16 16:37:31,578 - ui.password_manager.password_manager_ui - INFO - 使用内嵌方式打开审计日志查看器
+2025-04-16 16:37:31,586 - features.audit.audit_log_viewer - INFO - 界面初始化完成
+2025-04-16 16:37:31,589 - features.audit.audit_log_viewer - INFO - AuditLogViewer初始化成功
+2025-04-16 16:37:57,611 - core.user - INFO - 用户已登出
+2025-04-16 16:38:28,769 - root - INFO - 密码管理系统启动
+2025-04-16 16:38:28,769 - root - INFO - 初始化用户设置模块...
+2025-04-16 16:38:28,770 - root - INFO - 用户设置模块已初始化
+2025-04-16 16:38:29,105 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 16:38:30,862 - core.user - INFO - 用户 admin 登录成功
+2025-04-16 16:38:30,862 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-16 16:38:31,271 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-16 16:38:31,272 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-16 16:38:31,323 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-16 16:38:31,897 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-16 16:38:33,123 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-16 16:38:33,124 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-16 16:38:33,125 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-16 16:38:33,125 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-16 16:38:33,127 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-16 16:38:33,127 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-16 16:38:33,232 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-16 16:38:34,611 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-16 16:38:34,612 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 1
+2025-04-16 16:38:34,614 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 2/6
+2025-04-16 16:38:35,526 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-16 16:38:35,527 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 2
+2025-04-16 16:38:35,528 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 3/6
+2025-04-16 16:38:36,469 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-16 16:38:36,470 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 3
+2025-04-16 16:38:36,471 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-16 16:38:36,773 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-16 16:38:36,774 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-16 16:38:36,774 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (153, 188)
+2025-04-16 16:38:36,827 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (153, 315)
+2025-04-16 16:38:38,173 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-16 16:38:38,173 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-16 16:38:38,174 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-16 16:38:38,474 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-16 16:38:38,474 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-16 16:38:38,475 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (779, 188)
+2025-04-16 16:38:38,524 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (611, 346)
+2025-04-16 16:38:39,812 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-16 16:38:39,813 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 5
+2025-04-16 16:38:39,815 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 6/6
+2025-04-16 16:38:41,771 - core.user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-16 16:38:41,772 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-16 16:38:42,951 - core.db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 16:38:47,098 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 8, 当前列: 4, 选中行数: 1, 选中行: [8]
+2025-04-16 16:38:47,098 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-16 16:38:47,099 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-16 16:38:47,099 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-16 16:38:47,100 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-16 16:38:47,100 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-16 16:38:49,098 - ui.password_manager.ui_table.table_events - INFO - 尝试在行8（上方）添加新行 [添加方式: 上方]
+2025-04-16 16:38:49,098 - ui.password_manager.ui_table.table_edit - INFO - 在位置 7 添加新行
+2025-04-16 16:38:49,102 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 8
+2025-04-16 16:38:49,105 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 8 的编辑模式
+2025-04-16 16:38:49,106 - ui.password_manager.ui_table.table_events - INFO - 成功在行8（上方）添加新行，新行索引: 8 [添加方式: 上方]
+2025-04-16 16:38:52,050 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑 - 第8行: 
+2025-04-16 16:38:52,052 - ui.password_manager.ui_table.table_edit - INFO - 删除新添加的空行
+2025-04-16 16:38:52,052 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑完成，已恢复原始数据
+2025-04-16 16:38:54,155 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 2, 当前列: 1, 选中行数: 1, 选中行: [2]
+2025-04-16 16:38:54,156 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-16 16:38:54,156 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-16 16:38:54,157 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-16 16:38:54,157 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-16 16:38:54,157 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-16 16:38:55,594 - ui.password_manager.ui_table.table_events - INFO - 尝试在行2（上方）添加新行 [添加方式: 上方]
+2025-04-16 16:38:55,595 - ui.password_manager.ui_table.table_edit - INFO - 在位置 1 添加新行
+2025-04-16 16:38:55,598 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 2
+2025-04-16 16:38:55,600 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 2 的编辑模式
+2025-04-16 16:38:55,601 - ui.password_manager.ui_table.table_events - INFO - 成功在行2（上方）添加新行，新行索引: 2 [添加方式: 上方]
+2025-04-16 16:39:14,468 - ui.password_manager.ui_table.table_edit - INFO - 确认编辑 - 第2行
+2025-04-16 16:39:14,543 - ui.password_manager.ui_table.table_edit - INFO - 使用保存的插入位置: 1
+2025-04-16 16:39:14,544 - ui.password_manager.ui_table.table_edit - INFO - 后台线程：添加新记录
+2025-04-16 16:39:14,545 - core.password - INFO - 在位置 2 插入新记录
+2025-04-16 16:39:14,693 - core.db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 16:39:19,015 - core.password - INFO - 为所有者 徐国明 添加密码记录成功
+2025-04-16 16:39:19,015 - ui.password_manager.ui_table.table_edit - INFO - 后台保存操作耗时: 4.471秒
+2025-04-16 16:39:19,018 - ui.password_manager.ui_table.table_edit - INFO - 对话框已显示 4.55 秒，立即关闭
+2025-04-16 16:39:19,021 - ui.password_manager.ui_table.table_edit - INFO - 添加成功
+2025-04-16 16:39:19,022 - ui.password_manager.ui_table.table_edit - INFO - 保存插入位置 1 以便在刷新后恢复
+2025-04-16 16:39:19,022 - ui.password_manager.ui_table.table_edit - INFO - 使用保存的位置 1 刷新数据
+2025-04-16 16:39:19,048 - ui.password_manager.ui_table.table_edit - INFO - 添加操作完成，已恢复表格选择模式
+2025-04-16 16:39:19,048 - ui.password_manager.ui_table.table_edit - INFO - 已完成 添加 操作的清理
+2025-04-16 16:39:22,441 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 2, 当前列: 5, 选中行数: 1, 选中行: [2]
+2025-04-16 16:39:22,442 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-16 16:39:22,442 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-16 16:39:22,443 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-16 16:39:22,443 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-16 16:39:22,443 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-16 16:39:23,842 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 1 的真实索引，将使用表格行索引作为备选
+2025-04-16 16:39:23,842 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 1 作为真实索引
+2025-04-16 16:39:24,885 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-16 16:39:34,082 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-16 16:39:34,119 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-16 16:39:43,283 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-16 16:39:48,561 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-16 16:39:50,843 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-16 16:39:53,721 - core.password - INFO - 更新密码记录 - 所有者: 徐国明, 索引: 1, 项目: master, 跳过服务器同步: 是
+2025-04-16 16:39:53,722 - core.password - INFO - 跳过SSH密码更新步骤 - 项目: master
+2025-04-16 16:39:53,722 - core.password - INFO - _get_password_id - 所有者: 徐国明, 索引: 1, 可用记录数: 25
+2025-04-16 16:39:53,723 - core.password - INFO - 查询密码ID - 项目: master, IP: 192.168.8.87, 账号: root
+2025-04-16 16:39:53,902 - core.db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 16:39:53,921 - core.password - INFO - 通过精确匹配找到密码ID: 242
+2025-04-16 16:39:59,000 - core.db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 16:39:59,371 - core.password - INFO - 更新所有者 徐国明 的密码记录成功 (跳过服务器同步)
+2025-04-16 16:39:59,372 - ui.password_manager.ui_dialogs.password_update_dialog - INFO - 成功保存密码到数据库 - 服务器: 192.168.8.87, 索引: 1
+2025-04-16 16:40:01,049 - ui.password_manager.ui_table.table_password - INFO - 密码更新对话框返回确认结果，刷新表格显示更新后的密码
+2025-04-16 16:41:02,730 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 5, 当前列: 4, 选中行数: 1, 选中行: [5]
+2025-04-16 16:41:02,731 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-16 16:41:02,731 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-16 16:41:02,732 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-16 16:41:02,732 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-16 16:41:02,733 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-16 16:41:04,986 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 2, 当前列: 1, 选中行数: 1, 选中行: [2]
+2025-04-16 16:41:04,987 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-16 16:41:04,987 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-16 16:41:04,988 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-16 16:41:04,988 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-16 16:41:04,989 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-16 16:41:06,554 - ui.password_manager.ui_table.table_events - INFO - 尝试在行3（下方）添加新行 [添加方式: 下方]
+2025-04-16 16:41:06,554 - ui.password_manager.ui_table.table_edit - INFO - 在位置 2 添加新行
+2025-04-16 16:41:06,559 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 3
+2025-04-16 16:41:06,562 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 3 的编辑模式
+2025-04-16 16:41:06,563 - ui.password_manager.ui_table.table_events - INFO - 成功在行3（下方）添加新行，新行索引: 3 [添加方式: 下方]
+2025-04-16 16:41:08,813 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑 - 第3行: 
+2025-04-16 16:41:08,814 - ui.password_manager.ui_table.table_edit - INFO - 删除新添加的空行
+2025-04-16 16:41:08,815 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑完成，已恢复原始数据
+2025-04-16 16:43:08,451 - core.user - INFO - 用户已登出
+2025-04-16 16:43:11,798 - root - INFO - 密码管理系统启动
+2025-04-16 16:43:11,799 - root - INFO - 初始化用户设置模块...
+2025-04-16 16:43:11,799 - root - INFO - 用户设置模块已初始化
+2025-04-16 16:43:12,097 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 16:43:13,552 - core.user - INFO - 用户 admin 登录成功
+2025-04-16 16:43:13,553 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-16 16:43:14,004 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-16 16:43:14,004 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-16 16:43:14,050 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-16 16:43:14,615 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-16 16:43:15,822 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-16 16:43:15,823 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 0 张图片
+2025-04-16 16:43:15,927 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-16 16:43:17,532 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-16 16:43:17,532 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 1
+2025-04-16 16:43:17,534 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 2/6
+2025-04-16 16:43:19,931 - core.user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-16 16:43:19,931 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-16 16:43:21,097 - core.db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 16:46:48,609 - core.user - INFO - 用户已登出
+2025-04-16 16:46:52,106 - root - INFO - 密码管理系统启动
+2025-04-16 16:46:52,106 - root - INFO - 初始化用户设置模块...
+2025-04-16 16:46:52,107 - root - INFO - 用户设置模块已初始化
+2025-04-16 16:46:52,682 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 16:46:54,084 - core.user - INFO - 用户 admin 登录成功
+2025-04-16 16:46:54,084 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-16 16:46:54,943 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-16 16:46:54,943 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-16 16:46:54,993 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-16 16:46:55,579 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-16 16:46:57,007 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-16 16:46:57,008 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 0 张图片
+2025-04-16 16:46:57,112 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-16 16:46:58,682 - core.user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-16 16:46:58,683 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-16 16:46:59,336 - core.db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 16:54:50,413 - core.db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 16:54:55,393 - core.password - INFO - 为所有者 徐国明 添加密码记录成功
+2025-04-16 16:54:55,394 - root - INFO - Excel导入成功: 成功导入 1 条记录
+2025-04-16 16:54:55,394 - root - INFO - 导入记录数: 1
+2025-04-16 16:55:06,414 - core.db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 16:55:11,550 - core.db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 16:55:11,562 - core.password - INFO - 为所有者 徐国明 添加密码记录成功
+2025-04-16 16:57:02,432 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 5, 当前列: 3, 选中行数: 3, 选中行: [4, 5, 6]
+2025-04-16 16:57:02,432 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-16 16:57:03,932 - core.password - INFO - _get_password_id - 所有者: 高文彬, 索引: 5, 可用记录数: 30
+2025-04-16 16:57:03,932 - core.password - INFO - 查询密码ID - 项目: VPN, IP: 119.4.77.159, 账号: user83
+2025-04-16 16:57:04,083 - core.db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 16:57:04,103 - core.password - INFO - 通过精确匹配找到密码ID: 127
+2025-04-16 16:57:04,104 - core.password - INFO - _get_password_id - 所有者: 高文彬, 索引: 4, 可用记录数: 30
+2025-04-16 16:57:04,104 - core.password - INFO - 查询密码ID - 项目: 邮件服务器, IP: 224.73.109.207, 账号: user31
+2025-04-16 16:57:04,293 - core.password - INFO - 通过精确匹配找到密码ID: 126
+2025-04-16 16:57:04,293 - core.password - INFO - _get_password_id - 所有者: 高文彬, 索引: 3, 可用记录数: 30
+2025-04-16 16:57:04,294 - core.password - INFO - 查询密码ID - 项目: 邮件服务器, IP: 98.20.239.107, 账号: user88
+2025-04-16 16:57:04,436 - core.password - INFO - 通过精确匹配找到密码ID: 125
+2025-04-16 16:57:04,653 - ui.password_manager.ui_table.table_edit - INFO - 批量删除成功: 成功删除 3 条记录
+2025-04-16 16:57:15,437 - core.user_settings - INFO - 已重置引导状态: password_update_guided
+2025-04-16 16:57:15,438 - core.user_settings - INFO - 已重置引导状态: main_features_guided
+2025-04-16 16:57:15,438 - core.user_settings - INFO - 已重置引导状态: main_features
+2025-04-16 16:57:15,439 - core.user_settings - INFO - 已强制重置引导状态: main_features_guided
+2025-04-16 16:57:15,439 - core.user_settings - INFO - 已强制重置引导状态: password_update_guided
+2025-04-16 16:57:15,439 - core.user_settings - INFO - 已强制重置引导状态: main_features
+2025-04-16 16:57:15,439 - core.user_settings - INFO - 已强制重置引导状态: password_update
+2025-04-16 16:57:15,623 - core.db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 16:57:16,823 - core.user_settings - INFO - 所有引导状态已重置
+2025-04-16 16:57:59,896 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 6, 当前列: 5, 选中行数: 1, 选中行: [6]
+2025-04-16 16:57:59,897 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-16 16:57:59,897 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-16 16:57:59,898 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-16 16:57:59,898 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-16 16:57:59,898 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-16 16:58:02,889 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 5 的真实索引，将使用表格行索引作为备选
+2025-04-16 16:58:02,889 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 5 作为真实索引
+2025-04-16 16:58:03,948 - ui.password_manager.ui_table.table_password - INFO - 用户取消了密码更新操作
+2025-04-16 16:58:05,600 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 3, 当前列: 5, 选中行数: 3, 选中行: [2, 3, 4]
+2025-04-16 16:58:05,601 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 3
+2025-04-16 16:58:07,472 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 1 的真实索引，将使用表格行索引作为备选
+2025-04-16 16:58:07,473 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 1 作为真实索引
+2025-04-16 16:58:07,473 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 2 的真实索引，将使用表格行索引作为备选
+2025-04-16 16:58:07,474 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 2 作为真实索引
+2025-04-16 16:58:07,474 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 3 的真实索引，将使用表格行索引作为备选
+2025-04-16 16:58:07,474 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 3 作为真实索引
+2025-04-16 16:58:09,083 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-16 16:58:09,514 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-16 16:58:09,555 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-16 16:58:18,754 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-16 16:58:24,043 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-16 16:58:24,303 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-16 16:58:43,482 - core.password - INFO - 更新密码记录 - 所有者: 徐国明, 索引: 1, 项目: master, 跳过服务器同步: 是
+2025-04-16 16:58:43,483 - core.password - INFO - 跳过SSH密码更新步骤 - 项目: master
+2025-04-16 16:58:43,483 - core.password - INFO - _get_password_id - 所有者: 徐国明, 索引: 1, 可用记录数: 27
+2025-04-16 16:58:43,483 - core.password - INFO - 查询密码ID - 项目: master, IP: 192.168.8.87, 账号: root
+2025-04-16 16:58:43,768 - core.db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 16:58:43,833 - core.password - INFO - 通过精确匹配找到密码ID: 318
+2025-04-16 16:58:48,764 - core.db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 16:58:52,082 - core.password - INFO - 更新所有者 徐国明 的密码记录成功 (跳过服务器同步)
+2025-04-16 16:58:52,083 - ui.password_manager.ui_dialogs.password_update_dialog - INFO - 成功保存密码到数据库 - 服务器: 192.168.8.87, 索引: 1
+2025-04-16 16:58:56,464 - ui.password_manager.ui_table.table_password - INFO - 密码更新对话框返回确认结果，刷新表格显示更新后的密码
+2025-04-16 17:17:50,889 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 8, 当前列: 3, 选中行数: 1, 选中行: [8]
+2025-04-16 17:17:50,889 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-16 17:17:50,890 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-16 17:17:50,890 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-16 17:17:50,891 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-16 17:17:50,891 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-16 17:17:52,447 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 9, 当前列: 4, 选中行数: 1, 选中行: [9]
+2025-04-16 17:17:52,447 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-16 17:17:52,448 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-16 17:17:52,448 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-16 17:17:52,449 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-16 17:17:52,449 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-16 17:17:59,758 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 2, 当前列: 5, 选中行数: 1, 选中行: [2]
+2025-04-16 17:17:59,759 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-16 17:17:59,759 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-16 17:17:59,760 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-16 17:17:59,760 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-16 17:17:59,760 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-16 17:18:00,663 - ui.password_manager.ui_table.table_events - INFO - 查看密码历史记录 - 所有者: 徐国明, 行索引: 1
+2025-04-16 17:18:00,672 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 开始加载历史数据 - 所有者: 徐国明, 行索引: 1
+2025-04-16 17:18:00,672 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 时间范围: 2025-03-16 17:18:00 至 2025-04-16 17:18:00
+2025-04-16 17:18:00,673 - core.password - INFO - 查询密码历史记录 - 所有者: 徐国明, IP地址: 192.168.8.87
+2025-04-16 17:18:00,673 - core.password - INFO - _get_password_id - 所有者: 徐国明, 索引: 1, 可用记录数: 27
+2025-04-16 17:18:00,673 - core.password - INFO - 查询密码ID - 项目: master, IP: 192.168.8.87, 账号: root
+2025-04-16 17:18:00,815 - core.db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 17:18:00,835 - core.password - INFO - 通过精确匹配找到密码ID: 345
+2025-04-16 17:18:00,836 - core.data_storage - INFO - 查询密码历史记录 - 密码ID: 345, 页码: 1, 每页记录数: 10
+2025-04-16 17:18:00,836 - core.data_storage - INFO - 开始时间: 2025-03-16 17:18:00
+2025-04-16 17:18:00,836 - core.data_storage - INFO - 结束时间: 2025-04-16 17:18:00
+2025-04-16 17:18:00,837 - core.data_storage - INFO - IP地址: 192.168.8.87
+2025-04-16 17:18:01,375 - core.data_storage - WARNING - 密码ID 345 在历史记录中不存在，尝试使用IP地址 192.168.8.87 查询
+2025-04-16 17:18:01,555 - core.data_storage - INFO - 发现IP地址 192.168.8.87 对应的历史密码ID: 5, 9, 11, 13, 131, 242, 318, 521, 611, 731, 910, 972, 1002, 1027, 1052, 1127, 1227, 1381, 1433, 1447, 1479, 1495, 1511, 1527, 1543, 1640, 1690, 1692, 1694
+2025-04-16 17:18:01,715 - core.data_storage - INFO - 符合条件的总记录数: 29
+2025-04-16 17:18:01,880 - core.data_storage - INFO - 查询到 10 条历史记录
+2025-04-16 17:18:01,880 - core.data_storage - INFO - 第一条记录: {'id': 38, 'password_id': 318, 'old_password': 'xUA-ou&gztIx>Kj7', 'new_password': '_je<ufh(O+i2(n?)', 'ip_address': '192.168.8.87', 'modify_reason': '', 'modify_user': '未知用户', 'modify_time': datetime.datetime(2025, 4, 16, 16, 58, 44)}
+2025-04-16 17:18:01,881 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 历史记录查询结果 - 总记录数: 29, 当前页记录数: 10
+2025-04-16 17:18:01,881 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - populate_table开始填充表格，记录数：10
+2025-04-16 17:18:01,882 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 第一条记录内容: {'id': 38, 'password_id': 318, 'old_password': 'xUA-ou&gztIx>Kj7', 'new_password': '_je<ufh(O+i2(n?)', 'ip_address': '192.168.8.87', 'modify_reason': '', 'modify_user': '未知用户', 'modify_time': datetime.datetime(2025, 4, 16, 16, 58, 44)}
+2025-04-16 17:22:46,439 - core.user - INFO - 用户已登出
+2025-04-16 17:28:38,731 - root - INFO - 密码管理系统启动
+2025-04-16 17:28:38,732 - root - INFO - 初始化用户设置模块...
+2025-04-16 17:28:38,732 - root - INFO - 用户设置模块已初始化
+2025-04-16 17:28:38,996 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 17:29:34,185 - core.db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 17:29:34,206 - core.user - INFO - 用户 admin 登录成功
+2025-04-16 17:29:34,206 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-16 17:29:34,637 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-16 17:29:34,637 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-16 17:29:34,686 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-16 17:29:35,304 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-16 17:29:36,531 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-16 17:29:36,532 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 0 张图片
+2025-04-16 17:29:36,635 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-16 17:29:38,618 - core.user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-16 17:29:38,619 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-16 17:29:39,286 - core.db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-16 17:29:57,871 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 3, 当前列: 4, 选中行数: 1, 选中行: [3]
+2025-04-16 17:29:57,872 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-16 17:29:57,872 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-16 17:29:57,873 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-16 17:29:57,873 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-16 17:29:57,873 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-16 17:37:12,093 - root - INFO - 密码管理系统启动
+2025-04-16 17:37:12,093 - root - INFO - 初始化用户设置模块...
+2025-04-16 17:37:12,093 - root - INFO - 用户设置模块已初始化
+2025-04-16 17:37:12,346 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 17:37:36,763 - root - INFO - 密码管理系统启动
+2025-04-16 17:37:36,764 - root - INFO - 初始化用户设置模块...
+2025-04-16 17:37:36,764 - root - INFO - 用户设置模块已初始化
+2025-04-16 17:37:37,012 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 17:38:22,363 - root - INFO - 密码管理系统启动
+2025-04-16 17:38:22,364 - root - INFO - 初始化用户设置模块...
+2025-04-16 17:38:22,364 - root - INFO - 用户设置模块已初始化
+2025-04-16 17:38:22,626 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-16 17:38:24,826 - core.user - INFO - 用户 admin 登录成功
+2025-04-16 17:38:24,827 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-16 17:38:25,186 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-16 17:38:25,187 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-16 17:38:25,251 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-16 17:38:26,009 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-16 17:38:27,267 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-16 17:38:27,268 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 0 张图片
+2025-04-16 17:38:27,373 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-16 17:38:29,144 - core.user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-16 17:38:29,144 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-16 17:38:29,529 - core.db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager

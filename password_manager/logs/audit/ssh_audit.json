@@ -1,0 +1,353 @@
+[
+  {
+    "timestamp": "2025-04-07T14:19:05.661259",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-07T14:36:43.886599",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新部分完成: 1成功, 1失败。成功IP：192.168.8.87，失败IP：242.173.48.95",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-07T14:40:17.339372",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新全部失败，共3个服务器。失败IP: 177.159.31.14; 242.173.48.95; 192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-07T14:40:50.864721",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-07T14:41:11.925667",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新全部失败，共1个服务器。失败IP: 31.110.40.229",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-07T14:44:54.100770",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新全部失败，共1个服务器。失败IP: 31.110.40.229",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-07T15:01:19.288335",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新全部失败，共1个服务器。失败IP: 108.95.192.171",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-07T15:01:38.710567",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新全部失败，共1个服务器。失败IP: 107.136.159.158",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-07T15:01:54.844132",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-07T17:42:09.374451",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新全部失败，共1个服务器。失败IP: 192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-07T17:48:27.765913",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-07T17:49:25.966604",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新全部失败，共1个服务器。失败IP: 192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-07T17:49:37.882541",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新全部失败，共1个服务器。失败IP: 192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-07T17:51:22.311627",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-07T17:58:18.135353",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-08T08:47:23.670878",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-08T08:48:11.777019",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-08T08:49:18.526865",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-08T08:52:53.025373",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-08T09:10:47.580462",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-08T09:34:30.389518",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新全部失败，共1个服务器。失败IP: 192.168.10.100",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-08T09:35:53.070273",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-08T09:58:18.744909",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-08T09:59:04.150107",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-08T10:06:33.412503",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "石帆/批量更新",
+    "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-08T11:11:49.615230",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新全部失败，共1个服务器。失败IP: 192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-08T11:18:16.768052",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-09T09:24:15.462753",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-09T09:39:18.000944",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新部分完成: 1成功, 1失败。成功IP：192.168.8.87，失败IP：68.16.140.228",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-09T09:40:13.619283",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-09T10:13:05.721261",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-09T10:17:52.254937",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-09T10:25:38.828490",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-09T15:08:44.219346",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新全部失败，共1个服务器。失败IP: 192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-09T15:13:59.761407",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-09T15:23:06.160967",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-16T16:37:18.450091",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新全部失败，共2个服务器。失败IP: 238.230.238.100; 121.105.194.242",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-16T16:39:51.059230",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "success",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新完成: 全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "ssh"
+  },
+  {
+    "timestamp": "2025-04-16T16:58:34.488588",
+    "user": "admin",
+    "operation": "ssh_update",
+    "result": "fail",
+    "target": "徐国明/批量更新",
+    "details": "批量SSH密码更新部分完成: 1成功, 2失败。成功IP：192.168.8.87，失败IP：181.184.195.206; 238.230.238.100",
+    "log_type": "ssh"
+  }
+]

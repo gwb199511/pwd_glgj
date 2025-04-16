@@ -1,0 +1,859 @@
+2025-04-15 15:43:50,717 - root - INFO - 密码管理系统启动
+2025-04-15 15:43:50,718 - root - INFO - 初始化用户设置模块...
+2025-04-15 15:43:50,718 - root - INFO - 用户设置模块已初始化
+2025-04-15 15:43:50,839 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:43:50,842 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-15 15:43:51,948 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:43:51,951 - user - INFO - 用户 admin 登录成功
+2025-04-15 15:43:51,952 - login_ui - INFO - 用户 admin 登录成功
+2025-04-15 15:43:51,980 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:43:52,037 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:43:52,052 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-15 15:43:52,052 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-15 15:43:52,135 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-15 15:43:52,734 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-15 15:43:52,765 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:43:52,797 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:43:52,803 - ui.password_manager.password_manager_ui - INFO - 为人员 徐国明 创建了初始数据结构
+2025-04-15 15:43:52,830 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:43:52,835 - ui.password_manager.password_manager_ui - INFO - 为人员 高文彬 创建了初始数据结构
+2025-04-15 15:43:52,864 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:43:52,869 - ui.password_manager.password_manager_ui - INFO - 为人员 石帆 创建了初始数据结构
+2025-04-15 15:43:53,923 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-15 15:43:53,923 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-15 15:43:53,925 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-15 15:43:53,925 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-15 15:43:53,926 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-15 15:43:53,926 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-15 15:43:54,031 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-15 15:43:55,224 - user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-15 15:43:55,224 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-15 15:43:55,741 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:43:55,776 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:43:55,808 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:43:55,843 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:43:58,259 - user - INFO - 用户已登出
+2025-04-15 15:44:05,727 - root - INFO - 密码管理系统启动
+2025-04-15 15:44:05,727 - root - INFO - 初始化用户设置模块...
+2025-04-15 15:44:05,727 - root - INFO - 用户设置模块已初始化
+2025-04-15 15:44:05,897 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:44:05,908 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-15 15:44:41,895 - root - INFO - 密码管理系统启动
+2025-04-15 15:44:41,895 - root - INFO - 初始化用户设置模块...
+2025-04-15 15:44:41,895 - root - INFO - 用户设置模块已初始化
+2025-04-15 15:44:42,159 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:44:42,178 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-15 15:44:47,862 - root - INFO - 密码管理系统启动
+2025-04-15 15:44:47,862 - root - INFO - 初始化用户设置模块...
+2025-04-15 15:44:47,862 - root - INFO - 用户设置模块已初始化
+2025-04-15 15:44:48,103 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:44:48,121 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-15 15:44:49,268 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:44:49,312 - user - INFO - 用户 admin 登录成功
+2025-04-15 15:44:49,312 - login_ui - INFO - 用户 admin 登录成功
+2025-04-15 15:44:49,544 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:44:49,769 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:44:49,812 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-15 15:44:49,813 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-15 15:44:49,913 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-15 15:44:50,460 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-15 15:44:50,624 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:44:50,658 - db_manager - ERROR - 执行查询时出错: invalid literal for int() with base 10: '168.'
+2025-04-15 15:44:50,822 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:44:50,868 - ui.password_manager.password_manager_ui - INFO - 为人员 徐国明 创建了初始数据结构
+2025-04-15 15:44:51,048 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:44:51,099 - ui.password_manager.password_manager_ui - INFO - 为人员 高文彬 创建了初始数据结构
+2025-04-15 15:44:53,390 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:44:53,446 - ui.password_manager.password_manager_ui - INFO - 为人员 石帆 创建了初始数据结构
+2025-04-15 15:44:54,514 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-15 15:44:54,515 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-15 15:44:54,516 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-15 15:44:54,517 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-15 15:44:54,518 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-15 15:44:54,518 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-15 15:44:54,623 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-15 15:45:23,782 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-15 15:45:23,782 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 1
+2025-04-15 15:45:23,784 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 2/6
+2025-04-15 15:45:24,840 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-15 15:45:24,840 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 2
+2025-04-15 15:45:24,842 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 3/6
+2025-04-15 15:45:25,823 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-15 15:45:25,823 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 1
+2025-04-15 15:45:25,825 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 2/6
+2025-04-15 15:45:27,014 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-15 15:45:27,015 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 0
+2025-04-15 15:45:27,016 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-15 15:45:29,485 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-15 15:45:29,485 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 1
+2025-04-15 15:45:29,487 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 2/6
+2025-04-15 15:45:30,405 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-15 15:45:30,405 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 2
+2025-04-15 15:45:30,406 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 3/6
+2025-04-15 15:45:31,744 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-15 15:45:31,745 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 3
+2025-04-15 15:45:31,746 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/6
+2025-04-15 15:45:32,046 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-15 15:45:32,047 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: account_menu.png
+2025-04-15 15:45:32,048 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (153, 188)
+2025-04-15 15:45:32,099 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (153, 315)
+2025-04-15 15:45:33,573 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-15 15:45:33,574 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-15 15:45:33,574 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/6
+2025-04-15 15:45:33,874 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-15 15:45:33,875 - ui.password_manager.ui_guide - INFO - 从缓存中获取图片: password_menu.png
+2025-04-15 15:45:33,875 - ui.password_manager.ui_guide - INFO - 成功显示菜单图片，位置: (792, 188)
+2025-04-15 15:45:33,926 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (624, 346)
+2025-04-15 15:45:36,728 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-15 15:45:36,728 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 5
+2025-04-15 15:45:36,730 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 6/6
+2025-04-15 15:45:39,646 - user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-15 15:45:39,646 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-15 15:45:39,958 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:45:40,001 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:45:40,035 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:45:40,095 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:58:48,187 - user - INFO - 用户已登出
+2025-04-15 15:59:07,665 - root - INFO - 密码管理系统启动
+2025-04-15 15:59:07,665 - root - INFO - 初始化用户设置模块...
+2025-04-15 15:59:07,665 - root - INFO - 用户设置模块已初始化
+2025-04-15 15:59:07,879 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:59:07,900 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-15 15:59:09,480 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:59:09,500 - user - INFO - 用户 admin 登录成功
+2025-04-15 15:59:09,501 - login_ui - INFO - 用户 admin 登录成功
+2025-04-15 15:59:09,679 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:59:09,861 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:59:09,899 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-15 15:59:09,899 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-15 15:59:09,969 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-15 15:59:10,561 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-15 15:59:10,739 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:59:10,899 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:59:10,940 - ui.password_manager.password_manager_ui - INFO - 为人员 徐国明 创建了初始数据结构
+2025-04-15 15:59:11,120 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:59:11,159 - ui.password_manager.password_manager_ui - INFO - 为人员 高文彬 创建了初始数据结构
+2025-04-15 15:59:11,340 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:59:11,381 - ui.password_manager.password_manager_ui - INFO - 为人员 石帆 创建了初始数据结构
+2025-04-15 15:59:12,436 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-15 15:59:12,436 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-15 15:59:12,437 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-15 15:59:12,437 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-15 15:59:12,438 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-15 15:59:12,438 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-15 15:59:12,544 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-15 15:59:14,823 - user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-15 15:59:14,823 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-15 15:59:15,839 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:59:15,999 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:59:16,220 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 15:59:16,430 - user - INFO - 用户已登出
+2025-04-15 15:59:16,449 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:04:12,441 - root - INFO - 密码管理系统启动
+2025-04-15 16:04:12,442 - root - INFO - 初始化用户设置模块...
+2025-04-15 16:04:12,442 - root - INFO - 用户设置模块已初始化
+2025-04-15 16:04:12,680 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:04:12,700 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-15 16:04:15,189 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:04:15,210 - user - INFO - 用户 admin 登录成功
+2025-04-15 16:04:15,211 - login_ui - INFO - 用户 admin 登录成功
+2025-04-15 16:04:15,390 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:04:15,590 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:04:15,630 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-15 16:04:15,631 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-15 16:04:15,713 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-15 16:04:16,294 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-15 16:04:16,470 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:04:16,670 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:04:16,710 - ui.password_manager.password_manager_ui - INFO - 为人员 徐国明 创建了初始数据结构
+2025-04-15 16:04:17,017 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:04:17,050 - ui.password_manager.password_manager_ui - INFO - 为人员 高文彬 创建了初始数据结构
+2025-04-15 16:04:17,189 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:04:17,230 - ui.password_manager.password_manager_ui - INFO - 为人员 石帆 创建了初始数据结构
+2025-04-15 16:04:18,285 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-15 16:04:18,286 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-15 16:04:18,287 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-15 16:04:18,287 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-15 16:04:18,288 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-15 16:04:18,289 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-15 16:04:18,394 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-15 16:04:20,191 - user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-15 16:04:20,191 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-15 16:04:20,572 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:04:20,770 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:04:20,990 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:04:21,210 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:04:21,323 - user - INFO - 用户已登出
+2025-04-15 16:04:44,519 - root - INFO - 密码管理系统启动
+2025-04-15 16:04:44,520 - root - INFO - 初始化用户设置模块...
+2025-04-15 16:04:44,520 - root - INFO - 用户设置模块已初始化
+2025-04-15 16:04:44,760 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:04:44,780 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-15 16:04:46,230 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:04:46,250 - user - INFO - 用户 admin 登录成功
+2025-04-15 16:04:46,250 - login_ui - INFO - 用户 admin 登录成功
+2025-04-15 16:04:46,429 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:04:46,590 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:04:46,630 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-15 16:04:46,631 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-15 16:04:46,751 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-15 16:04:47,344 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-15 16:04:47,500 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:04:48,583 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-15 16:04:48,584 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-15 16:04:48,585 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-15 16:04:48,585 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-15 16:04:48,586 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-15 16:04:48,586 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-15 16:04:48,691 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-15 16:04:50,183 - user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-15 16:04:50,183 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-15 16:04:50,630 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:04:50,851 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:04:51,069 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:04:51,290 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:04:52,124 - user - INFO - 用户已登出
+2025-04-15 16:04:54,840 - root - INFO - 密码管理系统启动
+2025-04-15 16:04:54,840 - root - INFO - 初始化用户设置模块...
+2025-04-15 16:04:54,841 - root - INFO - 用户设置模块已初始化
+2025-04-15 16:04:55,090 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:04:55,110 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-15 16:04:56,740 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:04:56,760 - user - INFO - 用户 admin 登录成功
+2025-04-15 16:04:56,760 - login_ui - INFO - 用户 admin 登录成功
+2025-04-15 16:04:56,940 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:04:57,160 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:04:57,200 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-15 16:04:57,200 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-15 16:04:57,274 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-15 16:04:57,857 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-15 16:04:58,019 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:04:59,101 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-15 16:04:59,102 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-15 16:04:59,103 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-15 16:04:59,103 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-15 16:04:59,104 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-15 16:04:59,105 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-15 16:04:59,212 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-15 16:05:00,566 - user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-15 16:05:00,567 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-15 16:05:01,020 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:05:01,240 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:05:01,460 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:05:01,680 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:07:05,427 - user - INFO - 用户已登出
+2025-04-15 16:07:21,230 - root - INFO - 密码管理系统启动
+2025-04-15 16:07:21,230 - root - INFO - 初始化用户设置模块...
+2025-04-15 16:07:21,230 - root - INFO - 用户设置模块已初始化
+2025-04-15 16:07:21,502 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:07:21,537 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-15 16:07:22,739 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:07:22,758 - user - INFO - 用户 admin 登录成功
+2025-04-15 16:07:22,758 - login_ui - INFO - 用户 admin 登录成功
+2025-04-15 16:07:22,941 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:07:23,192 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:07:23,222 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-15 16:07:23,222 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-15 16:07:23,304 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-15 16:07:23,884 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-15 16:07:24,073 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:07:25,149 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-15 16:07:25,150 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-15 16:07:25,151 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-15 16:07:25,152 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-15 16:07:25,153 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-15 16:07:25,153 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-15 16:07:25,258 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-15 16:07:36,380 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-15 16:07:36,380 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 1
+2025-04-15 16:07:36,382 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 2/6
+2025-04-15 16:07:40,165 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-15 16:07:40,165 - ui.password_manager.ui_guide - INFO - 已递减步骤索引到: 0
+2025-04-15 16:07:40,166 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-15 16:07:44,540 - user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-15 16:07:44,540 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-15 16:07:45,454 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:07:46,102 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:07:46,561 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:07:46,811 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:11:41,276 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 8, 当前列: 3, 选中行数: 1, 选中行: [8]
+2025-04-15 16:11:41,277 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-15 16:11:41,277 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-15 16:11:41,278 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-15 16:11:41,279 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-15 16:11:41,279 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-15 16:11:44,327 - password - INFO - _get_password_id - 所有者: 徐国明, 索引: 7, 可用记录数: 30
+2025-04-15 16:11:44,328 - password - INFO - 查询密码ID - 项目: OA系统, IP: 37.127.183.63, 账号: user16
+2025-04-15 16:11:44,511 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:11:44,531 - password - INFO - 通过精确匹配找到密码ID: 1696
+2025-04-15 16:11:44,711 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:11:44,751 - ui.password_manager.ui_table.table_edit - INFO - 批量删除成功: 成功删除 1 条记录
+2025-04-15 16:11:51,666 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 3, 当前列: 5, 选中行数: 1, 选中行: [3]
+2025-04-15 16:11:51,667 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-15 16:11:51,668 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-15 16:11:51,668 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-15 16:11:51,668 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-15 16:11:51,669 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-15 16:11:53,243 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 3, 当前列: 4, 选中行数: 1, 选中行: [3]
+2025-04-15 16:11:53,244 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-15 16:11:53,244 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-15 16:11:53,245 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-15 16:11:53,245 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-15 16:11:53,246 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-15 16:12:10,659 - user - INFO - 用户已登出
+2025-04-15 16:12:16,876 - root - INFO - 密码管理系统启动
+2025-04-15 16:12:16,876 - root - INFO - 初始化用户设置模块...
+2025-04-15 16:12:16,877 - root - INFO - 用户设置模块已初始化
+2025-04-15 16:12:17,096 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:12:17,101 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-15 16:12:18,637 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:12:18,661 - user - INFO - 用户 admin 登录成功
+2025-04-15 16:12:18,661 - login_ui - INFO - 用户 admin 登录成功
+2025-04-15 16:12:18,821 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:12:19,041 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:12:19,091 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-15 16:12:19,092 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-15 16:12:19,208 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-15 16:12:19,786 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-15 16:12:19,942 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:12:21,023 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-15 16:12:21,024 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-15 16:12:21,025 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-15 16:12:21,026 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-15 16:12:21,027 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-15 16:12:21,027 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-15 16:12:21,134 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-15 16:12:22,845 - user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-15 16:12:22,845 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-15 16:12:23,051 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:12:23,281 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:12:23,501 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:12:23,681 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:12:38,001 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:12:38,191 - db_manager - INFO - 数据库 password_manager 已存在
+2025-04-15 16:12:38,381 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:12:38,401 - db_manager - INFO - 表 passwords 已删除
+2025-04-15 16:12:38,422 - db_manager - INFO - 表 users 已删除
+2025-04-15 16:12:38,441 - db_manager - INFO - 表 remember 已删除
+2025-04-15 16:12:38,462 - db_manager - INFO - 表 audit_logs 已删除
+2025-04-15 16:12:38,491 - db_manager - INFO - 表 user_settings 已删除
+2025-04-15 16:12:38,511 - db_manager - INFO - 表 db_config 已删除
+2025-04-15 16:12:38,602 - db_manager - INFO - 表 users 已初始化
+2025-04-15 16:12:38,641 - db_manager - INFO - 表 passwords 已初始化
+2025-04-15 16:12:38,661 - db_manager - INFO - 表 remember 已初始化
+2025-04-15 16:12:38,676 - db_manager - INFO - 表 audit_logs 已初始化
+2025-04-15 16:12:38,691 - db_manager - INFO - 表 user_settings 已初始化
+2025-04-15 16:12:38,751 - db_manager - INFO - 表 db_config 已初始化
+2025-04-15 16:12:38,771 - db_manager - INFO - 表 password_history 已初始化
+2025-04-15 16:12:38,992 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:12:39,201 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:12:39,241 - mysql_config_dialog - INFO - 创建了默认管理员用户: admin
+2025-04-15 16:12:39,450 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:12:39,661 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:12:39,686 - mysql_config_dialog - INFO - 为人员 徐国明 创建了示例数据
+2025-04-15 16:12:39,841 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:12:40,130 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:12:40,171 - mysql_config_dialog - INFO - 为人员 高文彬 创建了示例数据
+2025-04-15 16:12:40,362 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:12:40,591 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:12:40,631 - mysql_config_dialog - INFO - 为人员 石帆 创建了示例数据
+2025-04-15 16:12:40,632 - mysql_config_dialog - INFO - 默认数据初始化完成
+2025-04-15 16:12:43,241 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:12:43,242 - mysql_config_dialog - INFO - 存储类型已更新为: mysql
+2025-04-15 16:12:45,588 - user - INFO - 用户已登出
+2025-04-15 16:12:51,176 - root - INFO - 密码管理系统启动
+2025-04-15 16:12:51,177 - root - INFO - 初始化用户设置模块...
+2025-04-15 16:12:51,177 - root - INFO - 用户设置模块已初始化
+2025-04-15 16:12:51,442 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:12:51,461 - user - WARNING - 未找到有效的登录凭证
+2025-04-15 16:13:00,601 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:13:00,621 - user - INFO - 用户 admin 登录成功
+2025-04-15 16:13:00,621 - login_ui - INFO - 用户 admin 登录成功
+2025-04-15 16:13:00,881 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:13:01,090 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:13:01,130 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-15 16:13:01,131 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-15 16:13:01,288 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-15 16:13:01,920 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-15 16:13:02,051 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:13:03,128 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-15 16:13:03,129 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-15 16:13:03,130 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-15 16:13:03,131 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-15 16:13:03,132 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-15 16:13:03,132 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-15 16:13:03,238 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-15 16:13:04,299 - user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-15 16:13:04,299 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-15 16:13:05,351 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:13:05,571 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:13:05,801 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:13:06,044 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:13:06,261 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:13:06,491 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:13:06,741 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:13:06,989 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:13:07,360 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:13:07,811 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:13:08,082 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:13:08,461 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:13:08,781 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:13:09,210 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:13:09,434 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:13:09,980 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:13:10,641 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:13:10,941 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:13:11,069 - user - INFO - 用户已登出
+2025-04-15 16:13:57,829 - root - INFO - 密码管理系统启动
+2025-04-15 16:13:57,830 - root - INFO - 初始化用户设置模块...
+2025-04-15 16:13:57,830 - root - INFO - 用户设置模块已初始化
+2025-04-15 16:13:58,112 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:13:58,131 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-15 16:13:59,412 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:13:59,432 - user - INFO - 用户 admin 登录成功
+2025-04-15 16:13:59,432 - login_ui - INFO - 用户 admin 登录成功
+2025-04-15 16:13:59,591 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:13:59,771 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:13:59,811 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-15 16:13:59,812 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-15 16:13:59,896 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-15 16:14:00,606 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-15 16:14:00,731 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:14:00,751 - db_manager - ERROR - 执行查询时出错: invalid literal for int() with base 10: '8.'
+2025-04-15 16:14:00,871 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:14:00,912 - ui.password_manager.password_manager_ui - INFO - 为人员 徐国明 创建了初始数据结构
+2025-04-15 16:14:01,091 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:14:01,131 - ui.password_manager.password_manager_ui - INFO - 为人员 高文彬 创建了初始数据结构
+2025-04-15 16:14:01,312 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:14:01,354 - ui.password_manager.password_manager_ui - INFO - 为人员 石帆 创建了初始数据结构
+2025-04-15 16:14:02,417 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-15 16:14:02,418 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-15 16:14:02,419 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-15 16:14:02,419 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-15 16:14:02,420 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-15 16:14:02,420 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-15 16:14:02,526 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-15 16:14:07,368 - user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-15 16:14:07,368 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-15 16:14:08,021 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:14:08,252 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:14:08,471 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:14:08,690 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:14:08,912 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:14:09,132 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:14:09,371 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:14:09,592 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:14:09,781 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:14:09,982 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:14:10,211 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:14:10,431 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:14:10,644 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:14:10,821 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:14:11,041 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:14:11,261 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:14:11,491 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:14:11,723 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:14:33,092 - user - INFO - 用户已登出
+2025-04-15 16:14:53,416 - root - INFO - 密码管理系统启动
+2025-04-15 16:14:53,417 - root - INFO - 初始化用户设置模块...
+2025-04-15 16:14:53,417 - root - INFO - 用户设置模块已初始化
+2025-04-15 16:14:53,731 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:14:53,751 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-15 16:14:55,031 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:14:55,052 - user - INFO - 用户 admin 登录成功
+2025-04-15 16:14:55,052 - login_ui - INFO - 用户 admin 登录成功
+2025-04-15 16:14:55,271 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:14:55,501 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:14:55,542 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-15 16:14:55,542 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-15 16:14:55,620 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-15 16:14:56,179 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-15 16:14:56,362 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:14:57,439 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-15 16:14:57,440 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-15 16:14:57,440 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-15 16:14:57,441 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-15 16:14:57,442 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-15 16:14:57,442 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-15 16:14:57,545 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-15 16:14:58,934 - user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-15 16:14:58,934 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-15 16:14:59,622 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:14:59,842 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:15:00,076 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:15:00,260 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:15:00,451 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:15:00,659 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:15:00,881 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:15:01,101 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:15:01,279 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:15:01,501 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:15:01,721 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:15:01,944 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:15:02,161 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:15:02,321 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:15:02,526 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:15:02,714 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:15:02,932 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:15:03,252 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:15:21,813 - audit_log_viewer - INFO - 所有模块导入成功
+2025-04-15 16:15:21,813 - ui.password_manager.password_manager_ui - INFO - 使用内嵌方式打开审计日志查看器
+2025-04-15 16:15:21,827 - audit_log_viewer - INFO - 界面初始化完成
+2025-04-15 16:15:21,835 - audit_log_viewer - INFO - AuditLogViewer初始化成功
+2025-04-15 16:15:29,435 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 5, 当前列: 4, 选中行数: 1, 选中行: [5]
+2025-04-15 16:15:29,435 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-15 16:15:29,436 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-15 16:15:29,436 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-15 16:15:29,436 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-15 16:15:29,437 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-15 16:15:51,612 - user - INFO - 用户已登出
+2025-04-15 16:15:54,538 - root - INFO - 密码管理系统启动
+2025-04-15 16:15:54,538 - root - INFO - 初始化用户设置模块...
+2025-04-15 16:15:54,538 - root - INFO - 用户设置模块已初始化
+2025-04-15 16:15:54,781 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:15:54,803 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-15 16:15:56,451 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:15:56,472 - user - INFO - 用户 admin 登录成功
+2025-04-15 16:15:56,472 - login_ui - INFO - 用户 admin 登录成功
+2025-04-15 16:15:56,651 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:15:56,872 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:15:56,906 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-15 16:15:56,906 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-15 16:15:56,976 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-15 16:15:57,534 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-15 16:15:57,701 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:15:58,781 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-15 16:15:58,781 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-15 16:15:58,782 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-15 16:15:58,783 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-15 16:15:58,783 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-15 16:15:58,784 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-15 16:15:58,887 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-15 16:16:00,189 - user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-15 16:16:00,189 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-15 16:16:00,712 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:00,931 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:01,132 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:01,351 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:01,571 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:01,792 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:01,974 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:02,172 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:02,391 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:02,612 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:02,831 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:03,013 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:03,231 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:03,461 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:03,682 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:03,852 - user - INFO - 用户已登出
+2025-04-15 16:16:09,517 - root - INFO - 密码管理系统启动
+2025-04-15 16:16:09,518 - root - INFO - 初始化用户设置模块...
+2025-04-15 16:16:09,518 - root - INFO - 用户设置模块已初始化
+2025-04-15 16:16:09,773 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:09,792 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-15 16:16:11,121 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:11,141 - user - INFO - 用户 admin 登录成功
+2025-04-15 16:16:11,142 - login_ui - INFO - 用户 admin 登录成功
+2025-04-15 16:16:11,342 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:11,581 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:11,628 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-15 16:16:11,629 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-15 16:16:11,699 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-15 16:16:12,256 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-15 16:16:12,441 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:13,517 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-15 16:16:13,517 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-15 16:16:13,518 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-15 16:16:13,519 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-15 16:16:13,520 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-15 16:16:13,520 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-15 16:16:13,624 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-15 16:16:16,511 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:16,692 - db_manager - INFO - 数据库 password_manager 已存在
+2025-04-15 16:16:16,932 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:16,954 - db_manager - INFO - 表 passwords 已删除
+2025-04-15 16:16:16,982 - db_manager - INFO - 表 users 已删除
+2025-04-15 16:16:17,001 - db_manager - INFO - 表 remember 已删除
+2025-04-15 16:16:17,029 - db_manager - INFO - 表 audit_logs 已删除
+2025-04-15 16:16:17,043 - db_manager - INFO - 表 user_settings 已删除
+2025-04-15 16:16:17,064 - db_manager - INFO - 表 db_config 已删除
+2025-04-15 16:16:17,084 - db_manager - INFO - 表 users 已初始化
+2025-04-15 16:16:17,109 - db_manager - INFO - 表 passwords 已初始化
+2025-04-15 16:16:17,132 - db_manager - INFO - 表 remember 已初始化
+2025-04-15 16:16:17,212 - db_manager - INFO - 表 audit_logs 已初始化
+2025-04-15 16:16:17,242 - db_manager - INFO - 表 user_settings 已初始化
+2025-04-15 16:16:17,262 - db_manager - INFO - 表 db_config 已初始化
+2025-04-15 16:16:17,282 - db_manager - INFO - 表 password_history 已初始化
+2025-04-15 16:16:17,502 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:17,708 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:17,745 - mysql_config_dialog - INFO - 创建了默认管理员用户: admin
+2025-04-15 16:16:17,944 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:18,182 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:18,222 - mysql_config_dialog - INFO - 为人员 徐国明 创建了示例数据
+2025-04-15 16:16:18,406 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:18,601 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:18,671 - mysql_config_dialog - INFO - 为人员 高文彬 创建了示例数据
+2025-04-15 16:16:18,918 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:19,121 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:19,161 - mysql_config_dialog - INFO - 为人员 石帆 创建了示例数据
+2025-04-15 16:16:19,162 - mysql_config_dialog - INFO - 默认数据初始化完成
+2025-04-15 16:16:21,452 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:21,452 - mysql_config_dialog - INFO - 存储类型已更新为: mysql
+2025-04-15 16:16:23,188 - user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-15 16:16:23,189 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-15 16:16:23,682 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:23,904 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:24,131 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:24,261 - user - INFO - 用户已登出
+2025-04-15 16:16:24,312 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:42,797 - root - INFO - 密码管理系统启动
+2025-04-15 16:16:42,797 - root - INFO - 初始化用户设置模块...
+2025-04-15 16:16:42,797 - root - INFO - 用户设置模块已初始化
+2025-04-15 16:16:43,343 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:43,371 - user - WARNING - 未找到有效的登录凭证
+2025-04-15 16:16:51,539 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:51,591 - user - INFO - 用户 admin 登录成功
+2025-04-15 16:16:51,591 - login_ui - INFO - 用户 admin 登录成功
+2025-04-15 16:16:51,843 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:52,152 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:52,192 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-15 16:16:52,192 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-15 16:16:52,284 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-15 16:16:52,869 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-15 16:16:53,102 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:54,176 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-15 16:16:54,177 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-15 16:16:54,177 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-15 16:16:54,178 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-15 16:16:54,179 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-15 16:16:54,179 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-15 16:16:54,285 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-15 16:16:55,436 - user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-15 16:16:55,437 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-15 16:16:56,022 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:56,384 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:56,611 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:56,842 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:16:57,083 - user - INFO - 用户已登出
+2025-04-15 16:17:15,840 - root - INFO - 密码管理系统启动
+2025-04-15 16:17:15,841 - root - INFO - 初始化用户设置模块...
+2025-04-15 16:17:15,841 - root - INFO - 用户设置模块已初始化
+2025-04-15 16:17:16,091 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:17:16,112 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-15 16:17:17,481 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:17:17,501 - user - INFO - 用户 admin 登录成功
+2025-04-15 16:17:17,502 - login_ui - INFO - 用户 admin 登录成功
+2025-04-15 16:17:17,682 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:17:17,863 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:17:17,881 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-15 16:17:17,882 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-15 16:17:17,960 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-15 16:17:18,529 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-15 16:17:18,702 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:17:18,722 - db_manager - ERROR - 执行查询时出错: invalid literal for int() with base 10: '8.'
+2025-04-15 16:17:18,862 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:17:18,876 - ui.password_manager.password_manager_ui - INFO - 为人员 徐国明 创建了初始数据结构
+2025-04-15 16:17:19,042 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:17:19,082 - ui.password_manager.password_manager_ui - INFO - 为人员 高文彬 创建了初始数据结构
+2025-04-15 16:17:19,262 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:17:19,302 - ui.password_manager.password_manager_ui - INFO - 为人员 石帆 创建了初始数据结构
+2025-04-15 16:17:20,368 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-15 16:17:20,369 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-15 16:17:20,370 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-15 16:17:20,370 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-15 16:17:20,371 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-15 16:17:20,371 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-15 16:17:20,477 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-15 16:17:23,398 - user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-15 16:17:23,399 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-15 16:17:23,972 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:17:24,192 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:17:24,461 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:17:24,692 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:17:25,770 - user - INFO - 用户已登出
+2025-04-15 16:25:44,430 - root - INFO - 密码管理系统启动
+2025-04-15 16:25:44,430 - root - INFO - 初始化用户设置模块...
+2025-04-15 16:25:44,430 - root - INFO - 用户设置模块已初始化
+2025-04-15 16:25:44,755 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:25:44,773 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-15 16:25:46,064 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:25:46,086 - user - INFO - 用户 admin 登录成功
+2025-04-15 16:25:46,087 - login_ui - INFO - 用户 admin 登录成功
+2025-04-15 16:25:46,293 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:25:47,018 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:25:47,152 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-15 16:25:47,153 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-15 16:25:47,215 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-15 16:25:47,776 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-15 16:25:48,073 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:25:48,553 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:25:48,623 - ui.password_manager.password_manager_ui - INFO - 为人员 徐国明 创建了初始数据结构
+2025-04-15 16:25:49,192 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:25:49,233 - ui.password_manager.password_manager_ui - INFO - 为人员 高文彬 创建了初始数据结构
+2025-04-15 16:25:49,473 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:25:49,513 - ui.password_manager.password_manager_ui - INFO - 为人员 石帆 创建了初始数据结构
+2025-04-15 16:25:50,570 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-15 16:25:50,571 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-15 16:25:50,572 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-15 16:25:50,572 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-15 16:25:50,573 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-15 16:25:50,573 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-15 16:25:50,677 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-15 16:25:51,773 - user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-15 16:25:51,774 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-15 16:25:52,764 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:25:53,022 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:25:53,429 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:25:53,737 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:25:55,163 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:25:55,393 - db_manager - INFO - 数据库 password_manager 已存在
+2025-04-15 16:25:55,563 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:25:55,893 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:25:56,095 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:25:56,293 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:25:56,333 - mysql_config_dialog - INFO - 为人员 徐国明 创建了示例数据
+2025-04-15 16:25:56,466 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:25:56,653 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:25:56,693 - mysql_config_dialog - INFO - 为人员 高文彬 创建了示例数据
+2025-04-15 16:25:56,873 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:25:57,075 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:25:57,112 - mysql_config_dialog - INFO - 为人员 石帆 创建了示例数据
+2025-04-15 16:25:57,113 - mysql_config_dialog - INFO - 默认数据初始化完成
+2025-04-15 16:25:58,892 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:25:58,894 - mysql_config_dialog - INFO - 存储类型已更新为: mysql
+2025-04-15 16:26:00,419 - user - INFO - 用户已登出
+2025-04-15 16:26:22,548 - root - INFO - 密码管理系统启动
+2025-04-15 16:26:22,548 - root - INFO - 初始化用户设置模块...
+2025-04-15 16:26:22,549 - root - INFO - 用户设置模块已初始化
+2025-04-15 16:26:22,803 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:22,823 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-15 16:26:24,373 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:24,393 - user - INFO - 用户 admin 登录成功
+2025-04-15 16:26:24,393 - login_ui - INFO - 用户 admin 登录成功
+2025-04-15 16:26:24,583 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:24,783 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:24,803 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-15 16:26:24,803 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-15 16:26:24,910 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-15 16:26:25,527 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-15 16:26:25,735 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:26,836 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-15 16:26:26,837 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-15 16:26:26,838 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-15 16:26:26,839 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-15 16:26:26,840 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-15 16:26:26,840 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-15 16:26:26,945 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-15 16:26:29,959 - user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-15 16:26:29,959 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-15 16:26:30,849 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:31,159 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:31,383 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:31,643 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:33,554 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 6, 当前列: 5, 选中行数: 1, 选中行: [6]
+2025-04-15 16:26:33,555 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-15 16:26:33,555 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-15 16:26:33,556 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-15 16:26:33,556 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-15 16:26:33,556 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-15 16:26:34,778 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 6, 当前列: 4, 选中行数: 1, 选中行: [6]
+2025-04-15 16:26:34,779 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-15 16:26:34,779 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-15 16:26:34,780 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-15 16:26:34,780 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-15 16:26:34,781 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-15 16:26:35,741 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 6
+2025-04-15 16:26:35,746 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 6 的编辑模式
+2025-04-15 16:26:39,619 - ui.password_manager.ui_table.table_edit - INFO - 确认编辑 - 第6行
+2025-04-15 16:26:39,713 - ui.password_manager.ui_table.table_edit - INFO - 后台线程：编辑现有记录 5
+2025-04-15 16:26:39,714 - ui.password_manager.ui_table.table_edit - INFO - 通过原始数据比较找到匹配记录，真实索引: 5
+2025-04-15 16:26:39,714 - ui.password_manager.ui_table.table_edit - INFO - 后台线程：更新记录：所有者=石帆, 真实索引=5
+2025-04-15 16:26:39,715 - password - INFO - 更新密码记录 - 所有者: 石帆, 索引: 5, 项目: 交换机, 跳过服务器同步: 是
+2025-04-15 16:26:39,715 - password - INFO - 跳过SSH密码更新步骤 - 项目: 交换机
+2025-04-15 16:26:39,882 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:40,063 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:40,294 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:40,493 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:40,712 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:40,934 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:41,193 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:41,414 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:41,634 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:41,833 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:42,001 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:42,244 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:42,473 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:42,703 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:42,923 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:43,084 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:43,303 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:43,523 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:43,743 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:43,993 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:44,223 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:44,443 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:44,598 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:44,743 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:44,973 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:45,192 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:45,413 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:45,643 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:45,874 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:46,052 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:46,322 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:26:46,372 - password - INFO - 更新所有者 石帆 的密码记录成功 (跳过服务器同步)
+2025-04-15 16:26:46,372 - ui.password_manager.ui_table.table_edit - INFO - 后台保存操作耗时: 6.659秒
+2025-04-15 16:26:46,373 - ui.password_manager.ui_table.table_edit - INFO - 对话框已显示 6.75 秒，立即关闭
+2025-04-15 16:26:46,379 - ui.password_manager.ui_table.table_edit - INFO - 编辑成功
+2025-04-15 16:26:46,380 - ui.password_manager.ui_table.table_edit - INFO - 重新加载所有密码数据
+2025-04-15 16:26:46,451 - ui.password_manager.ui_table.table_edit - INFO - 编辑操作完成，已恢复表格选择模式
+2025-04-15 16:26:46,452 - ui.password_manager.ui_table.table_edit - INFO - 已完成 编辑 操作的清理
+2025-04-15 16:28:35,354 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 4, 当前列: 1, 选中行数: 1, 选中行: [4]
+2025-04-15 16:28:35,355 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-15 16:28:35,355 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-15 16:28:35,355 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-15 16:28:35,356 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-15 16:28:35,356 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-15 16:29:06,862 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 3, 当前列: 4, 选中行数: 1, 选中行: [3]
+2025-04-15 16:29:06,863 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-15 16:29:06,863 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-15 16:29:06,864 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-15 16:29:06,864 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-15 16:29:06,865 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-15 16:29:45,218 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 3, 当前列: 1, 选中行数: 1, 选中行: [3]
+2025-04-15 16:29:45,218 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-15 16:29:45,219 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-15 16:29:45,220 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-15 16:29:45,220 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-15 16:29:45,220 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-15 16:29:47,836 - user - INFO - 用户已登出
+2025-04-15 16:29:50,600 - root - INFO - 密码管理系统启动
+2025-04-15 16:29:50,600 - root - INFO - 初始化用户设置模块...
+2025-04-15 16:29:50,601 - root - INFO - 用户设置模块已初始化
+2025-04-15 16:29:50,844 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:29:50,864 - user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-15 16:29:52,224 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:29:52,274 - user - INFO - 用户 admin 登录成功
+2025-04-15 16:29:52,275 - login_ui - INFO - 用户 admin 登录成功
+2025-04-15 16:29:52,573 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:29:53,064 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:29:53,105 - user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-15 16:29:53,106 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-15 16:29:53,172 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-15 16:29:53,737 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-15 16:29:53,924 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:29:55,013 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-15 16:29:55,013 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\account_menu.png
+2025-04-15 16:29:55,014 - ui.password_manager.ui_guide - INFO - 成功预加载图片: account_menu.png
+2025-04-15 16:29:55,015 - ui.password_manager.ui_guide - INFO - 预加载图片: C:\Users\gwb\Desktop\pwd_glgj\images\password_menu.png
+2025-04-15 16:29:55,015 - ui.password_manager.ui_guide - INFO - 成功预加载图片: password_menu.png
+2025-04-15 16:29:55,016 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 2 张图片
+2025-04-15 16:29:55,120 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/6
+2025-04-15 16:30:03,253 - user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-15 16:30:03,253 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-15 16:30:03,881 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:30:04,106 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:30:04,343 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:30:04,574 - db_manager - INFO - 已连接到MySQL数据库: 192.168.8.82:3306/password_manager
+2025-04-15 16:30:05,885 - user - INFO - 用户已登出

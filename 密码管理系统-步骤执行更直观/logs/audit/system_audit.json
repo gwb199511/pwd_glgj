@@ -1177,5 +1177,14 @@
     "target": "徐国明/批量操作",
     "details": "批量生成随机密码并更新服务器全部成功，共1个服务器，IP地址：192.168.8.87",
     "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-15T16:11:44.751381",
+    "user": "admin",
+    "operation": "delete",
+    "result": "success",
+    "target": "徐国明/批量删除",
+    "details": "批量删除密码记录成功，共删除 1 条记录",
+    "log_type": null
   }
 ]

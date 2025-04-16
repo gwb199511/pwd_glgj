@@ -794,7 +794,7 @@ class WalkthroughOverlay(QWidget):
 MAIN_FEATURES_WALKTHROUGH = [
     {
         "title": "人员列表",
-        "description": "点击此处可以切换不同人员的密码记录。系统按人员对密码进行分类管理。",
+        "description": "点击对应姓名可切换至该人员的密码记录，其下方将显示自己对应的主机台账信息。",
         "position": "right"
     },
     {

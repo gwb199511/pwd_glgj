@@ -549,96 +549,99 @@ class DBManager:
                 if not success:
                     return False, message
             
-            # 定义表结构SQL
-            tables_sql = {
-                "users": """
-                    CREATE TABLE IF NOT EXISTS users (
-                        id INT AUTO_INCREMENT PRIMARY KEY,
-                        username VARCHAR(50) NOT NULL UNIQUE,
-                        password VARCHAR(255) NOT NULL,
-                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-                """,
-                "passwords": """
-                    CREATE TABLE IF NOT EXISTS passwords (
-                        id INT AUTO_INCREMENT PRIMARY KEY,
-                        owner VARCHAR(50) NOT NULL,
-                        project_name VARCHAR(100) NOT NULL,
-                        func_desc VARCHAR(100),
-                        ip_address VARCHAR(50) NOT NULL,
-                        account VARCHAR(50) NOT NULL,
-                        password VARCHAR(255) NOT NULL,
-                        area VARCHAR(50),
-                        network_type VARCHAR(50),
-                        other_info TEXT,
-                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-                        INDEX (owner)
-                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-                """,
-                "remember": """
-                    CREATE TABLE IF NOT EXISTS remember (
-                        id INT AUTO_INCREMENT PRIMARY KEY,
-                        username VARCHAR(50) NOT NULL,
-                        password VARCHAR(255) NOT NULL,
-                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                        expire_at TIMESTAMP
-                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-                """,
-                "audit_logs": """
-                    CREATE TABLE IF NOT EXISTS audit_logs (
-                        id INT AUTO_INCREMENT PRIMARY KEY,
-                        log_type VARCHAR(20) NOT NULL,
-                        operation_type VARCHAR(20) NOT NULL,
-                        result VARCHAR(10) NOT NULL,
-                        details TEXT,
-                        user VARCHAR(50),
-                        target VARCHAR(100),
-                        ip_address VARCHAR(50),
-                        timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                        INDEX (log_type, operation_type, result)
-                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-                """,
-                "user_settings": """
-                    CREATE TABLE IF NOT EXISTS user_settings (
-                        id INT AUTO_INCREMENT PRIMARY KEY,
-                        username VARCHAR(50) NOT NULL,
-                        setting_key VARCHAR(100) NOT NULL,
-                        setting_value TEXT,
-                        UNIQUE KEY (username, setting_key)
-                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-                """,
-                "db_config": """
-                    CREATE TABLE IF NOT EXISTS db_config (
-                        id INT AUTO_INCREMENT PRIMARY KEY,
-                        host VARCHAR(100) NOT NULL,
-                        port INT NOT NULL DEFAULT 3306,
-                        user VARCHAR(50) NOT NULL,
-                        password VARCHAR(255) NOT NULL,
-                        database_name VARCHAR(50) NOT NULL,
-                        is_active BOOLEAN DEFAULT TRUE,
-                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-                """
-            }
-            
-            # 创建表
+            # 检查表是否存在
+            table_names = ["passwords", "users", "remember", "audit_logs", "user_settings", "db_config"]
             with self.connection.cursor() as cursor:
-                for table_name, sql in tables_sql.items():
-                    cursor.execute(sql)
-                    logger.info(f"表 {table_name} 已初始化")
+                for table_name in table_names:
+                    try:
+                        # 检查表是否存在
+                        cursor.execute(f"SHOW TABLES LIKE '{table_name}'")
+                        if not cursor.fetchone():
+                            # 表不存在，创建表
+                            if table_name == "users":
+                                cursor.execute("""
+                                    CREATE TABLE users (
+                                        id INT AUTO_INCREMENT PRIMARY KEY,
+                                        username VARCHAR(50) NOT NULL UNIQUE,
+                                        password VARCHAR(255) NOT NULL,
+                                        is_admin BOOLEAN DEFAULT FALSE,
+                                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+                                """)
+                            elif table_name == "passwords":
+                                cursor.execute("""
+                                    CREATE TABLE passwords (
+                                        id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                                        owner VARCHAR(50) NOT NULL,
+                                        project_name VARCHAR(100) NOT NULL,
+                                        func_desc VARCHAR(255),
+                                        ip_address VARCHAR(50),
+                                        account VARCHAR(50),
+                                        password VARCHAR(255) NOT NULL,
+                                        area VARCHAR(50),
+                                        network_type VARCHAR(50),
+                                        other_info TEXT,
+                                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                                        INDEX (owner)
+                                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+                                """)
+                            elif table_name == "remember":
+                                cursor.execute("""
+                                    CREATE TABLE remember (
+                                        id INT AUTO_INCREMENT PRIMARY KEY,
+                                        username VARCHAR(50) NOT NULL UNIQUE,
+                                        password VARCHAR(255) NOT NULL,
+                                        expire_at TIMESTAMP NULL,
+                                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+                                """)
+                            elif table_name == "audit_logs":
+                                cursor.execute("""
+                                    CREATE TABLE audit_logs (
+                                        id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                                        username VARCHAR(50) NOT NULL,
+                                        operation_type VARCHAR(50) NOT NULL,
+                                        operation_result VARCHAR(20) NOT NULL,
+                                        log_type VARCHAR(50),
+                                        details TEXT,
+                                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                        INDEX (username),
+                                        INDEX (created_at)
+                                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+                                """)
+                            elif table_name == "user_settings":
+                                cursor.execute("""
+                                    CREATE TABLE user_settings (
+                                        id INT AUTO_INCREMENT PRIMARY KEY,
+                                        username VARCHAR(50) NOT NULL UNIQUE,
+                                        settings JSON,
+                                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+                                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+                                """)
+                            elif table_name == "db_config":
+                                cursor.execute("""
+                                    CREATE TABLE db_config (
+                                        id INT AUTO_INCREMENT PRIMARY KEY,
+                                        config_key VARCHAR(50) NOT NULL UNIQUE,
+                                        config_value JSON,
+                                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+                                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+                                """)
+                            logger.info(f"表 {table_name} 创建成功")
+                    except Exception as e:
+                        logger.error(f"处理表 {table_name} 时出错: {str(e)}")
+                        return False, f"处理表 {table_name} 时出错: {str(e)}"
             
+            # 提交事务
             self.connection.commit()
-            return True, "数据库表结构初始化完成"
-        except pymysql.MySQLError as e:
-            error_message = f"初始化表结构时出错: {str(e)}"
-            logger.error(error_message)
-            return False, error_message
+            return True, "表结构初始化成功"
+        
         except Exception as e:
-            error_message = f"初始化表结构时出现未知错误: {str(e)}"
-            logger.error(error_message)
-            logger.error(traceback.format_exc())
-            return False, error_message
+            logger.error(f"初始化表结构时出错: {str(e)}")
+            return False, f"初始化表结构时出错: {str(e)}"
     
     def test_connection(self) -> Tuple[bool, str]:
         """

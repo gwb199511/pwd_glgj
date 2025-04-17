@@ -848,15 +848,13 @@ def start_walkthrough(guide_key: str, parent, target_widgets: Dict[str, QWidget]
         logger.error("启动步骤引导失败: 未提供父窗口")
         return False
     
-    # 强制显示引导，不检查完成状态
-    force_walkthrough = True
+    # 检查是否需要显示引导（除非强制显示）
+    force_walkthrough = getattr(parent, 'force_walkthrough', False)
     
-    # 仅在调试时才检查完成状态
-    if not force_walkthrough:
-        # 检查是否需要显示引导
-        if user_settings.user_settings.is_guide_completed(guide_key) and not getattr(parent, 'force_walkthrough', False):
-            logger.info(f"用户已完成引导: {guide_key}，跳过显示")
-            return False
+    # 首先检查该引导是否已完成，如果已完成则不显示
+    if user_settings.is_guide_completed(guide_key) and not force_walkthrough:
+        logger.info(f"用户已完成引导: {guide_key}，跳过显示")
+        return False
     
     # 选择引导内容
     walkthrough_steps = []

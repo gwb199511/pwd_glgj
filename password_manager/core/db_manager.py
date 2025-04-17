@@ -35,7 +35,7 @@ class ConnectionPool:
         
         Args:
             config (Dict): 数据库配置
-            max_connections (int): 最大连接数，默认为30个连接(原为20)
+            max_connections (int): 最大连接数，默认为30个连接
             connection_timeout (int): 连接超时时间（秒）
         """
         self.config = config
@@ -45,9 +45,9 @@ class ConnectionPool:
         self.in_use = {}
         self.lock = threading.Lock()
         self.last_connection_time = 0  # 上次创建连接的时间
-        self.connection_interval = 0.05  # 连接创建的最小间隔时间（秒），减少为0.05秒(原为0.1)
+        self.connection_interval = 0.05  # 连接创建的最小间隔时间（秒）
         self.last_log_time = 0  # 上次日志记录时间
-        self.log_interval = 5.0  # 日志输出的最小间隔（秒），增加为5秒(原为3.0)
+        self.log_interval = 5.0  # 日志输出的最小间隔（秒）
         
         # 预创建连接
         self._create_initial_connections()
@@ -57,7 +57,7 @@ class ConnectionPool:
         预创建一些连接以提高初始性能
         
         Args:
-            initial_count (int): 初始连接数，默认为8个连接(原为5)
+            initial_count (int): 初始连接数，默认为8个连接
         """
         try:
             for _ in range(min(initial_count, self.max_connections)):
@@ -178,6 +178,9 @@ class ConnectionPool:
         Args:
             conn (pymysql.Connection): 要释放的连接
         """
+        if conn is None:
+            return
+            
         with self.lock:
             # 如果连接在使用中列表里，移除它
             if conn in self.in_use:
@@ -194,14 +197,14 @@ class ConnectionPool:
                 else:
                     # 无效连接，关闭它
                     try:
-                        if conn.open:
+                        if hasattr(conn, 'open') and conn.open:
                             conn.close()
                     except:
                         pass
             elif not in_pool:
                 # 不在连接池中且连接池已满，关闭该临时连接
                 try:
-                    if conn.open:
+                    if hasattr(conn, 'open') and conn.open:
                         conn.close()
                 except:
                     pass
@@ -213,15 +216,20 @@ class ConnectionPool:
         Returns:
             pymysql.Connection: 新创建的数据库连接
         """
-        return pymysql.connect(
-            host=self.config['host'],
-            port=self.config['port'],
-            user=self.config['user'],
-            password=self.config['password'],
-            database=self.config['database'],
-            charset='utf8mb4',
-            cursorclass=DictCursor
-        )
+        try:
+            return pymysql.connect(
+                host=self.config['host'],
+                port=self.config['port'],
+                user=self.config['user'],
+                password=self.config['password'],
+                database=self.config['database'],
+                charset='utf8mb4',
+                cursorclass=DictCursor,
+                connect_timeout=10  # 设置连接超时，避免长时间阻塞
+            )
+        except Exception as e:
+            logger.error(f"创建数据库连接失败: {str(e)}")
+            return None
     
     def _check_connection(self, conn):
         """
@@ -234,14 +242,14 @@ class ConnectionPool:
             bool: 连接是否有效
         """
         try:
-            if not conn.open:
+            if not hasattr(conn, 'open') or not conn.open:
                 return False
             
             # 执行简单查询测试连接
             with conn.cursor() as cursor:
                 cursor.execute("SELECT 1")
                 result = cursor.fetchone()
-                return result is not None and result[0] == 1
+                return result is not None and 1 in result.values()
         except:
             return False
     
@@ -259,7 +267,7 @@ class ConnectionPool:
             if conn in self.connections:
                 self.connections.remove(conn)
             
-            if conn.open:
+            if hasattr(conn, 'open') and conn.open:
                 conn.close()
         except:
             pass
@@ -269,7 +277,7 @@ class ConnectionPool:
         with self.lock:
             for conn in self.connections:
                 try:
-                    if conn.open:
+                    if hasattr(conn, 'open') and conn.open:
                         conn.close()
                 except:
                     pass
@@ -282,7 +290,7 @@ class ConnectionPool:
         清理空闲连接
         
         Args:
-            idle_timeout (int): 空闲超时时间（秒），默认为900秒(原为600)
+            idle_timeout (int): 空闲超时时间（秒），默认为900秒
         """
         with self.lock:
             current_time = time.time()
@@ -336,11 +344,23 @@ class DBManager:
             if not self._initialized:
                 self.connection = None
                 self.config = self._load_config()
-                # 初始化连接池
-                self.connection_pool = ConnectionPool(self.config)
-                # 启动后台线程定期清理空闲连接
-                self._start_connection_cleanup()
+                # 不在初始化阶段创建连接池
+                self._connection_pool = None
                 self._initialized = True
+                
+    @property
+    def connection_pool(self):
+        """懒加载连接池"""
+        if self._connection_pool is None:
+            self._connection_pool = ConnectionPool(self.config)
+            # 启动后台线程定期清理空闲连接
+            self._start_connection_cleanup()
+        return self._connection_pool
+    
+    @connection_pool.setter
+    def connection_pool(self, value):
+        """设置连接池的setter方法"""
+        self._connection_pool = value
     
     def _start_connection_cleanup(self):
         """启动后台线程定期清理空闲连接"""
@@ -470,15 +490,12 @@ class DBManager:
                 return False, "保存配置文件失败"
             
             # 关闭现有连接池
-            if hasattr(self, 'connection_pool'):
-                self.connection_pool.close_all()
+            if self._connection_pool is not None:
+                self._connection_pool.close_all()
+                self._connection_pool = None  # 清空连接池引用，下次使用时会重新创建
             
-            # 创建新连接池
-            self.connection_pool = ConnectionPool(config)
-            self.connection = None
-            
-            # 尝试连接
-            return self.connect()
+            # 尝试连接测试
+            return self.test_connection()
         except Exception as e:
             error_message = f"更新数据库配置时出错: {str(e)}"
             logger.error(error_message)
@@ -645,34 +662,53 @@ class DBManager:
     
     def test_connection(self) -> Tuple[bool, str]:
         """
-        测试数据库连接
+        测试数据库连接（简化版）
         
         Returns:
             Tuple[bool, str]: (成功状态, 消息)
         """
         try:
-            # 从连接池获取连接
-            conn = self.connection_pool.get_connection()
-            if not conn:
-                return False, "无法获取数据库连接"
+            # 直接创建单个连接进行测试，不使用连接池
+            conn = pymysql.connect(
+                host=self.config['host'],
+                port=self.config['port'],
+                user=self.config['user'],
+                password=self.config['password'],
+                database=self.config['database'],
+                charset='utf8mb4',
+                cursorclass=pymysql.cursors.Cursor,  # 使用标准游标而非DictCursor
+                connect_timeout=5  # 较短的超时时间
+            )
             
             # 尝试查询服务器信息
             with conn.cursor() as cursor:
                 cursor.execute("SELECT VERSION()")
-                version = cursor.fetchone()[0]
+                version_result = cursor.fetchone()
+                
+                # 标准游标返回元组
+                version_str = str(version_result[0] if version_result else "未知")
             
-            # 释放连接
-            self.connection_pool.release_connection(conn)
+            # 测试完成后立即关闭连接
+            conn.close()
             
-            return True, f"连接成功，MySQL版本: {version}"
-        except pymysql.MySQLError as e:
-            error_message = f"测试连接时出错: {str(e)}"
-            logger.error(error_message)
-            return False, error_message
+            return True, f"连接成功，MySQL版本: {version_str}"
+        except pymysql.OperationalError as e:
+            # 特别处理操作错误（如连接错误、认证错误等）
+            error_code = e.args[0]
+            error_message = e.args[1] if len(e.args) > 1 else str(e)
+            
+            if error_code == 1045:  # 访问被拒绝
+                message = f"访问被拒绝：用户名或密码错误"
+            elif error_code == 1049:  # 未知数据库
+                message = f"数据库不存在：{self.config['database']}"
+            elif error_code == 2003:  # 无法连接
+                message = f"无法连接到服务器：{self.config['host']}:{self.config['port']}"
+            else:
+                message = f"数据库错误 ({error_code}): {error_message}"
+            
+            return False, message
         except Exception as e:
-            error_message = f"测试连接时出现未知错误: {str(e)}"
-            logger.error(error_message)
-            return False, error_message
+            return False, f"连接失败: {str(e)}"
     
     def execute_query(self, sql: str, params = None) -> List[Dict[str, Any]]:
         """

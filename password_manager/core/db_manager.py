@@ -567,7 +567,7 @@ class DBManager:
                     return False, message
             
             # 检查表是否存在
-            table_names = ["passwords", "users", "remember", "audit_logs", "user_settings", "db_config"]
+            table_names = ["passwords", "users", "remember", "audit_logs", "user_settings", "db_config", "password_history"]
             with self.connection.cursor() as cursor:
                 for table_name in table_names:
                     try:
@@ -631,10 +631,12 @@ class DBManager:
                                 cursor.execute("""
                                     CREATE TABLE user_settings (
                                         id INT AUTO_INCREMENT PRIMARY KEY,
-                                        username VARCHAR(50) NOT NULL UNIQUE,
-                                        settings JSON,
+                                        username VARCHAR(50) NOT NULL,
+                                        setting_key VARCHAR(100) NOT NULL,
+                                        setting_value JSON,
                                         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                                        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+                                        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                                        UNIQUE KEY unique_user_setting (username, setting_key)
                                     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
                                 """)
                             elif table_name == "db_config":
@@ -645,6 +647,22 @@ class DBManager:
                                         config_value JSON,
                                         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+                                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+                                """)
+                            elif table_name == "password_history":
+                                cursor.execute("""
+                                    CREATE TABLE password_history (
+                                        id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                                        password_id BIGINT NOT NULL,
+                                        old_password VARCHAR(255) NOT NULL,
+                                        new_password VARCHAR(255) NOT NULL,
+                                        ip_address VARCHAR(50),
+                                        modify_user VARCHAR(50),
+                                        modify_reason VARCHAR(255),
+                                        modify_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                        INDEX (password_id),
+                                        INDEX (ip_address),
+                                        INDEX (modify_time)
                                     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
                                 """)
                             logger.info(f"表 {table_name} 创建成功")

@@ -1,0 +1,131 @@
+2025-04-22 09:49:42,723 - root - INFO - 密码管理系统启动
+2025-04-22 09:49:42,724 - root - INFO - 初始化用户设置模块...
+2025-04-22 09:49:42,724 - root - INFO - 用户设置模块已初始化
+2025-04-22 09:49:42,883 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-22 09:49:47,973 - core.user - INFO - 用户 admin 登录成功
+2025-04-22 09:49:47,975 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-22 09:49:48,103 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-22 09:49:48,104 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-22 09:49:48,194 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-22 09:49:49,052 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-22 09:49:50,144 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-04-22 09:50:02,365 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 5, 选中行数: 1, 选中行: [1]
+2025-04-22 09:50:02,365 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-22 09:50:02,366 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-22 09:50:02,367 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-22 09:50:02,367 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-22 09:50:02,367 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-22 09:50:35,507 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 10, 当前列: 5, 选中行数: 1, 选中行: [10]
+2025-04-22 09:50:35,508 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-22 09:50:35,508 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-22 09:50:35,509 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-22 09:50:35,509 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-22 09:50:35,509 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-22 09:50:36,678 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 10
+2025-04-22 09:50:36,688 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 10 的编辑模式
+2025-04-22 09:50:39,555 - ui.password_manager.ui_table.table_edit - INFO - 确认编辑 - 第10行
+2025-04-22 09:50:39,618 - ui.password_manager.ui_table.table_edit - INFO - 后台线程：编辑现有记录 9
+2025-04-22 09:50:39,619 - ui.password_manager.ui_table.table_edit - INFO - 通过原始数据比较找到匹配记录，真实索引: 9
+2025-04-22 09:50:39,620 - ui.password_manager.ui_table.table_edit - INFO - 后台线程：更新记录：所有者=徐国明, 真实索引=9
+2025-04-22 09:50:39,620 - core.password - INFO - 更新密码记录 - 所有者: 徐国明, 索引: 9, 项目: 生产环境, 跳过服务器同步: 是
+2025-04-22 09:50:39,620 - core.password - INFO - 跳过SSH密码更新步骤 - 项目: 生产环境
+2025-04-22 09:50:40,634 - core.password - INFO - 更新所有者 徐国明 的密码记录成功 (跳过服务器同步)
+2025-04-22 09:50:40,634 - ui.password_manager.ui_table.table_edit - INFO - 后台保存操作耗时: 1.016秒
+2025-04-22 09:50:40,637 - ui.password_manager.ui_table.table_edit - INFO - 对话框已显示 1.08 秒，立即更新
+2025-04-22 09:50:40,638 - ui.password_manager.ui_table.table_edit - INFO - 更新对话框内容为保存成功状态
+2025-04-22 09:50:40,643 - ui.password_manager.ui_table.table_edit - INFO - 对话框已成功更新为完成状态
+2025-04-22 09:50:43,641 - ui.password_manager.ui_table.table_edit - WARNING - 强制关闭对话框
+2025-04-22 09:50:43,645 - ui.password_manager.ui_table.table_edit - INFO - 编辑成功
+2025-04-22 09:50:43,646 - ui.password_manager.ui_table.table_edit - INFO - 重新加载所有密码数据
+2025-04-22 09:50:43,691 - ui.password_manager.ui_table.table_edit - INFO - 编辑操作完成，已恢复表格选择模式
+2025-04-22 09:50:43,691 - ui.password_manager.ui_table.table_edit - INFO - 已完成 编辑 操作的清理
+2025-04-22 09:51:42,833 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-04-22 09:51:42,994 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-04-22 09:51:43,153 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-04-22 09:51:43,314 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-04-22 09:51:43,474 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-04-22 09:51:43,634 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-04-22 09:51:43,794 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-04-22 09:51:43,953 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-04-22 09:53:14,420 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 7, 当前列: 5, 选中行数: 1, 选中行: [7]
+2025-04-22 09:53:14,421 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-22 09:53:14,421 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-22 09:53:14,422 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-22 09:53:14,422 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-22 09:53:14,422 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-22 09:53:16,851 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 13, 当前列: 5, 选中行数: 1, 选中行: [13]
+2025-04-22 09:53:16,852 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-22 09:53:16,852 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-22 09:53:16,853 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-22 09:53:16,853 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-22 09:53:16,853 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-22 09:53:18,030 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 13
+2025-04-22 09:53:18,037 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 13 的编辑模式
+2025-04-22 09:53:20,252 - ui.password_manager.ui_table.table_edit - INFO - 确认编辑 - 第13行
+2025-04-22 09:53:20,325 - ui.password_manager.ui_table.table_edit - INFO - 后台线程：编辑现有记录 12
+2025-04-22 09:53:20,326 - ui.password_manager.ui_table.table_edit - INFO - 通过原始数据比较找到匹配记录，真实索引: 16
+2025-04-22 09:53:20,326 - ui.password_manager.ui_table.table_edit - INFO - 后台线程：更新记录：所有者=高文彬, 真实索引=16
+2025-04-22 09:53:20,327 - core.password - INFO - 更新密码记录 - 所有者: 高文彬, 索引: 16, 项目: 监控平台, 跳过服务器同步: 是
+2025-04-22 09:53:20,328 - core.password - INFO - 跳过SSH密码更新步骤 - 项目: 监控平台
+2025-04-22 09:53:20,505 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-04-22 09:53:20,787 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-04-22 09:53:20,969 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-04-22 09:53:21,134 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-04-22 09:53:21,414 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-04-22 09:53:21,618 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-04-22 09:53:21,822 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-04-22 09:53:22,005 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-04-22 09:53:23,749 - core.password - INFO - 更新所有者 高文彬 的密码记录成功 (跳过服务器同步)
+2025-04-22 09:53:23,750 - ui.password_manager.ui_table.table_edit - INFO - 后台保存操作耗时: 3.425秒
+2025-04-22 09:53:23,751 - ui.password_manager.ui_table.table_edit - INFO - 对话框已显示 3.50 秒，立即更新
+2025-04-22 09:53:23,751 - ui.password_manager.ui_table.table_edit - INFO - 更新对话框内容为保存成功状态
+2025-04-22 09:53:23,753 - ui.password_manager.ui_table.table_edit - INFO - 对话框已成功更新为完成状态
+2025-04-22 09:53:25,332 - ui.password_manager.ui_table.table_edit - WARNING - 触发备用关闭对话框机制，强制关闭对话框
+2025-04-22 09:53:25,335 - ui.password_manager.ui_table.table_edit - INFO - 编辑成功
+2025-04-22 09:53:25,336 - ui.password_manager.ui_table.table_edit - INFO - 重新加载所有密码数据
+2025-04-22 09:53:25,404 - ui.password_manager.ui_table.table_edit - INFO - 编辑操作完成，已恢复表格选择模式
+2025-04-22 09:53:25,404 - ui.password_manager.ui_table.table_edit - INFO - 已完成 编辑 操作的清理
+2025-04-22 09:53:25,405 - ui.password_manager.ui_table.table_edit - INFO - 重新加载所有密码数据
+2025-04-22 09:53:25,427 - ui.password_manager.ui_table.table_edit - INFO - 编辑操作完成，已恢复表格选择模式
+2025-04-22 09:53:26,749 - ui.password_manager.ui_table.table_edit - WARNING - 强制关闭对话框
+2025-04-22 09:53:26,749 - ui.password_manager.ui_table.table_edit - INFO - 编辑成功
+2025-04-22 09:53:26,750 - ui.password_manager.ui_table.table_edit - INFO - 重新加载所有密码数据
+2025-04-22 09:53:26,781 - ui.password_manager.ui_table.table_edit - INFO - 编辑操作完成，已恢复表格选择模式
+2025-04-22 09:53:26,782 - ui.password_manager.ui_table.table_edit - INFO - 已完成 编辑 操作的清理
+2025-04-22 09:55:49,587 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 13, 当前列: 6, 选中行数: 1, 选中行: [13]
+2025-04-22 09:55:49,587 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-22 09:55:49,588 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-22 09:55:49,588 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-22 09:55:49,589 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-22 09:55:49,589 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-22 09:55:50,396 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 13
+2025-04-22 09:55:50,402 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 13 的编辑模式
+2025-04-22 09:55:54,883 - ui.password_manager.ui_table.table_edit - INFO - 确认编辑 - 第13行
+2025-04-22 09:55:54,959 - ui.password_manager.ui_table.table_edit - INFO - 后台线程：编辑现有记录 12
+2025-04-22 09:55:54,960 - ui.password_manager.ui_table.table_edit - INFO - 通过原始数据比较找到匹配记录，真实索引: 16
+2025-04-22 09:55:54,961 - ui.password_manager.ui_table.table_edit - INFO - 后台线程：更新记录：所有者=高文彬, 真实索引=16
+2025-04-22 09:55:54,962 - core.password - INFO - 更新密码记录 - 所有者: 高文彬, 索引: 16, 项目: 监控平台, 跳过服务器同步: 是
+2025-04-22 09:55:54,962 - core.password - INFO - 跳过SSH密码更新步骤 - 项目: 监控平台
+2025-04-22 09:55:56,480 - core.password - INFO - 更新所有者 高文彬 的密码记录成功 (跳过服务器同步)
+2025-04-22 09:55:56,481 - ui.password_manager.ui_table.table_edit - INFO - 后台保存操作耗时: 1.522秒
+2025-04-22 09:55:56,481 - ui.password_manager.ui_table.table_edit - INFO - 对话框已显示 1.60 秒，立即更新
+2025-04-22 09:55:56,482 - ui.password_manager.ui_table.table_edit - INFO - 更新对话框内容为保存成功状态
+2025-04-22 09:55:56,483 - ui.password_manager.ui_table.table_edit - INFO - 对话框已成功更新为完成状态
+2025-04-22 09:55:59,484 - ui.password_manager.ui_table.table_edit - WARNING - 强制关闭对话框
+2025-04-22 09:55:59,487 - ui.password_manager.ui_table.table_edit - INFO - 编辑成功
+2025-04-22 09:55:59,487 - ui.password_manager.ui_table.table_edit - INFO - 重新加载所有密码数据
+2025-04-22 09:55:59,509 - ui.password_manager.ui_table.table_edit - INFO - 编辑操作完成，已恢复表格选择模式
+2025-04-22 09:55:59,510 - ui.password_manager.ui_table.table_edit - INFO - 已完成 编辑 操作的清理
+2025-04-22 09:57:05,694 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 7, 当前列: 5, 选中行数: 1, 选中行: [7]
+2025-04-22 09:57:05,695 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-22 09:57:05,695 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-22 09:57:05,696 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-22 09:57:05,696 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-22 09:57:05,697 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-22 09:57:06,759 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 6 的真实索引，将使用表格行索引作为备选
+2025-04-22 09:57:06,760 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 6 作为真实索引
+2025-04-22 09:57:40,632 - ui.password_manager.ui_table.table_password - INFO - 密码更新对话框返回确认结果，刷新表格显示更新后的密码
+2025-04-22 09:57:50,120 - features.audit.audit_log_viewer - INFO - 所有模块导入成功
+2025-04-22 09:57:50,121 - ui.password_manager.password_manager_ui - INFO - 使用内嵌方式打开审计日志查看器
+2025-04-22 09:57:50,131 - features.audit.audit_log_viewer - INFO - 界面初始化完成
+2025-04-22 09:57:50,137 - features.audit.audit_log_viewer - INFO - AuditLogViewer初始化成功

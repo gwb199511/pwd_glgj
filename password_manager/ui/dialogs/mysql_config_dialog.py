@@ -383,9 +383,11 @@ class MySQLConfigDialog(QDialog):
         """
         try:
             import os
+            import config
             
-            # 修改config.py文件中的存储类型
-            config_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config.py')
+            # 直接使用已导入的config模块的文件路径
+            config_file = os.path.abspath(config.__file__)
+            logger.info(f"使用配置文件路径: {config_file}")
             
             with open(config_file, 'r', encoding='utf-8') as f:
                 content = f.read()
@@ -405,7 +407,6 @@ class MySQLConfigDialog(QDialog):
             
             # 重新加载配置模块
             import importlib
-            import config
             importlib.reload(config)
             
         except Exception as e:

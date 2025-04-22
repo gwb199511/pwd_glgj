@@ -337,6 +337,12 @@ class TableEditMixin:
             # 10. 启动线程
             self.save_thread.start()
             
+            # 11. 添加备用机制：无论如何在5秒后强制关闭对话框
+            backup_timer = QTimer(saving_dialog)
+            backup_timer.setSingleShot(True)
+            backup_timer.timeout.connect(lambda: self._backup_close_dialog(saving_dialog, True, row, is_new))
+            backup_timer.start(5000)  # 5秒后强制关闭
+            
             return True
         except Exception as e:
             action_desc = "操作" if 'action_desc' not in locals() else action_desc
@@ -393,24 +399,24 @@ class TableEditMixin:
             dialog_display_time = current_time - dialog_start_time
             
             # 最短显示时间（单位：秒）
-            MIN_DISPLAY_TIME = 1.0  # 设置最短显示1秒，可根据需求调整
+            MIN_DISPLAY_TIME = 0.8  # 缩短最短显示时间
             
             # 确保对话框显示至少MIN_DISPLAY_TIME秒
             if dialog and dialog.isVisible():
                 if dialog_display_time < MIN_DISPLAY_TIME:
                     # 需要延迟关闭
                     remain_time = int((MIN_DISPLAY_TIME - dialog_display_time) * 1000)
-                    logger.info(f"对话框已显示 {dialog_display_time:.2f} 秒，延迟 {remain_time} 毫秒后关闭")
+                    logger.info(f"对话框已显示 {dialog_display_time:.2f} 秒，延迟 {remain_time} 毫秒后更新")
                     
-                    # 使用定时器延迟关闭
+                    # 使用定时器延迟更新对话框
                     close_timer = QTimer()
                     close_timer.setSingleShot(True)
-                    close_timer.timeout.connect(lambda: self._close_dialog_and_update(dialog, success, row, action_desc))
+                    close_timer.timeout.connect(lambda: self._update_save_dialog(dialog, success, row, action_desc))
                     close_timer.start(remain_time)
                 else:
-                    # 已经显示足够时间，直接关闭
-                    logger.info(f"对话框已显示 {dialog_display_time:.2f} 秒，立即关闭")
-                    self._close_dialog_and_update(dialog, success, row, action_desc)
+                    # 已经显示足够时间，直接更新对话框
+                    logger.info(f"对话框已显示 {dialog_display_time:.2f} 秒，立即更新")
+                    self._update_save_dialog(dialog, success, row, action_desc)
             else:
                 # 对话框不存在或已关闭，直接更新状态
                 self._update_after_save(success, row, action_desc)
@@ -428,6 +434,141 @@ class TableEditMixin:
             # 确保对话框关闭，即使发生错误
             if 'dialog' in locals() and dialog and dialog.isVisible():
                 dialog.accept()
+
+    def _update_save_dialog(self, dialog, success, row, action_desc):
+        """
+        更新保存对话框为成功状态
+        
+        Args:
+            dialog (QDialog): 保存对话框
+            success (bool): 是否成功
+            row (int): 行索引
+            action_desc (str): 操作描述
+        """
+        try:
+            # 保存是否已转换标志，避免重复操作
+            dialog.setProperty("already_processed", True)
+            
+            if success and dialog and dialog.isVisible():
+                logger.info("更新对话框内容为保存成功状态")
+                
+                try:
+                    # 将"保存中"对话框转换为成功对话框
+                    dialog.setWindowTitle("保存完成")
+                    
+                    # 找到现有的布局和组件
+                    layout = dialog.layout()
+                    if layout:
+                        # 先移除所有小部件
+                        for i in reversed(range(layout.count())):
+                            item = layout.itemAt(i)
+                            if item.widget():
+                                item.widget().deleteLater()
+                        
+                        # 立即更新UI以避免残影
+                        QApplication.processEvents()
+                        
+                        # 添加成功提示标签
+                        success_label = QLabel("保存到数据库 成功！")
+                        success_label.setAlignment(Qt.AlignCenter)
+                        success_label.setStyleSheet("font-size: 14px; color: #2a2a2a; font-weight: bold;")
+                        layout.addWidget(success_label)
+                        
+                        # 添加OK按钮
+                        ok_button = QPushButton("确定")
+                        ok_button.setFixedHeight(30)
+                        ok_button.setMinimumWidth(80)
+                        ok_button.setStyleSheet("""
+                            QPushButton {
+                                background-color: #4a86e8;
+                                color: white;
+                                border: none;
+                                padding: 8px 16px;
+                                border-radius: 4px;
+                                font-weight: bold;
+                            }
+                            QPushButton:hover {
+                                background-color: #3a76d8;
+                            }
+                            QPushButton:pressed {
+                                background-color: #2a66c8;
+                            }
+                        """)
+                        ok_button.clicked.connect(dialog.accept)
+                        
+                        # 添加按钮到底部居中位置
+                        button_layout = QHBoxLayout()
+                        button_layout.addStretch()
+                        button_layout.addWidget(ok_button)
+                        button_layout.addStretch()
+                        layout.addLayout(button_layout)
+                        
+                        # 立即处理事件，确保界面更新
+                        QApplication.processEvents()
+                        
+                        # 强制重绘对话框
+                        dialog.update()
+                        
+                        # 给OK按钮焦点
+                        ok_button.setFocus()
+                        
+                        # 添加备用关闭机制：添加一个确保关闭的定时器
+                        emergency_timer = QTimer(dialog)
+                        emergency_timer.setSingleShot(True)
+                        emergency_timer.timeout.connect(lambda: self._force_close_dialog(dialog, success, row, action_desc))
+                        emergency_timer.start(3000)  # 3秒后强制关闭
+                        
+                        logger.info("对话框已成功更新为完成状态")
+                        return
+                except Exception as e:
+                    logger.error(f"更新对话框内容时出错: {str(e)}")
+                    import traceback
+                    logger.error(traceback.format_exc())
+            
+            # 如果到这里，说明更新失败或不需要更新，直接关闭对话框
+            self._close_dialog_and_update(dialog, success, row, action_desc)
+            
+        except Exception as e:
+            logger.error(f"更新保存对话框时出错: {str(e)}")
+            import traceback
+            logger.error(traceback.format_exc())
+            # 出错时强制关闭对话框
+            self._force_close_dialog(dialog, success, row, action_desc)
+    
+    def _force_close_dialog(self, dialog, success, row, action_desc):
+        """
+        强制关闭对话框并更新状态
+        
+        这是一个备用机制，确保对话框一定会关闭
+        
+        Args:
+            dialog (QDialog): 对话框
+            success (bool): 是否成功
+            row (int): 行索引
+            action_desc (str): 操作描述
+        """
+        try:
+            logger.warning("强制关闭对话框")
+            
+            # 对话框可能已经被关闭，添加防御性检查
+            if dialog and dialog.isVisible():
+                dialog.accept()
+            
+            # 确保状态更新
+            self._update_after_save(success, row, action_desc)
+            
+            # 清除异步状态
+            if hasattr(self, 'async_edit_state'):
+                delattr(self, 'async_edit_state')
+                
+        except Exception as e:
+            logger.error(f"强制关闭对话框时出错: {str(e)}")
+            
+            # 即使出错也尝试更新UI状态
+            try:
+                self._update_after_save(success, row, action_desc)
+            except:
+                pass
     
     def _create_saving_dialog(self):
         """
@@ -528,46 +669,19 @@ class TableEditMixin:
             # 完成剩余的编辑状态清理
             self._finish_edit_cleanup(row, action_desc)
             
-            # 显示保存成功提示窗口，使用与"个密码已保存到数据库"相同的样式
-            success_box = QMessageBox(self.table.window())
-            success_box.setWindowTitle("保存完成")
-            success_box.setText("保存到数据库 成功！")
-            success_box.setIcon(QMessageBox.Information)
-            success_box.setStandardButtons(QMessageBox.Ok)
-            
-            # 设置相同的窗口样式
-            success_box.setStyleSheet("""
-                QMessageBox {
-                    background-color: #f5f5f7;
-                }
-                QLabel {
-                    color: #333333;
-                    font-family: "Microsoft YaHei", "SimHei", sans-serif;
-                }
-                QPushButton {
-                    background-color: #4a86e8;
-                    color: white;
-                    border: none;
-                    padding: 8px 16px;
-                    border-radius: 4px;
-                    font-weight: bold;
-                    min-height: 24px;
-                    min-width: 60px;
-                }
-                QPushButton:hover {
-                    background-color: #3a76d8;
-                }
-                QPushButton:pressed {
-                    background-color: #2a66c8;
-                }
-            """)
-            
-            success_box.exec_()
+            # 注意：不再显示单独的成功对话框，因为已在_update_save_dialog中处理
         else:
             logger.error(f"{action_desc}失败")
             
             # 如果保存失败，需要将编辑控件还原
             self.cancel_editing()
+            
+            # 显示错误消息
+            QMessageBox.critical(
+                self.table.window(),
+                "保存失败",
+                f"密码记录{action_desc}失败，请重试。"
+            )
     
     def _finish_edit_cleanup(self, row, action_desc):
         """
@@ -1491,20 +1605,48 @@ class TableEditMixin:
             self.table.viewport().update()
 
     def add_row(self):
+        """添加新行"""
+        self.add_row_at(None)
+        return self.table.rowCount() - 1
+
+    def _backup_close_dialog(self, dialog, success, row, is_new):
         """
-        在表格末尾添加一个空行
+        备用关闭对话框机制
+        
+        Args:
+            dialog (QDialog): 对话框
+            success (bool): 是否成功
+            row (int): 行索引
+            is_new (bool): 是否是新增数据
         """
-        # 获取当前表格行数
-        row_count = self.table.rowCount()
-        
-        # 插入新行
-        self.table.insertRow(row_count)
-        
-        # 设置空单元格
-        for col in range(self.table.columnCount()):
-            self.table.setItem(row_count, col, QTableWidgetItem(""))
-        
-        return row_count 
+        # 检查对话框是否仍然显示（如果已经关闭则不做任何事）
+        if dialog and dialog.isVisible():
+            logger.warning("触发备用关闭对话框机制，强制关闭对话框")
+            
+            # 尝试关闭对话框
+            try:
+                dialog.accept()
+            except:
+                pass
+            
+            # 尝试更新状态
+            action_desc = "添加" if is_new else "编辑"
+            try:
+                self._update_after_save(success, row, action_desc)
+            except:
+                pass
+            
+            # 清除可能的异步状态
+            if hasattr(self, 'async_edit_state'):
+                delattr(self, 'async_edit_state')
+                
+            # 确保表格处于正确状态
+            try:
+                self.editing_row = -1
+                self.original_row_data = None
+                self._update_ui_after_edit(action_desc)
+            except:
+                pass
 
 class BackgroundSaveWorker(QObject):
     """

@@ -1348,5 +1348,77 @@
     "target": "徐国明/批量操作",
     "details": "批量生成随机密码并更新服务器部分成功: 1成功, 2失败。成功IP：192.168.8.87，失败IP：181.184.195.206; 238.230.238.100",
     "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-17T09:02:33.821231",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为1个服务器生成16位随机密码，ip地址为：192.168.8.87",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-17T09:03:00.848100",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "批量生成随机密码并更新服务器全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-18T17:03:53.655099",
+    "user": "admin",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/master",
+    "details": "添加密码记录成功，项目：master",
+    "log_type": null
+  },
+  {
+    "timestamp": "2025-04-18T17:09:11.918956",
+    "user": "admin",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/OA系统",
+    "details": "添加密码记录成功，项目：OA系统",
+    "log_type": null
+  },
+  {
+    "timestamp": "2025-04-18T18:00:42.050554",
+    "user": "admin",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/CRM系统",
+    "details": "添加密码记录成功，项目：CRM系统",
+    "log_type": null
+  },
+  {
+    "timestamp": "2025-04-18T18:04:39.401146",
+    "user": "admin",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/CRM系统",
+    "details": "添加密码记录成功，项目：CRM系统",
+    "log_type": null
+  },
+  {
+    "timestamp": "2025-04-22T09:57:06.760976",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为1个服务器生成16位随机密码，ip地址为：192.168.138.128",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-22T09:57:40.664662",
+    "user": "admin",
+    "operation": "generate",
+    "result": "fail",
+    "target": "徐国明/批量操作",
+    "details": "批量生成随机密码并更新服务器全部失败，共1个服务器。失败IP: 192.168.138.128",
+    "log_type": "system"
   }
 ]

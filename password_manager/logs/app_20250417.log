@@ -235,3 +235,53 @@
 2025-04-17 09:01:23,449 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
 2025-04-17 09:01:24,521 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
 2025-04-17 09:01:28,085 - core.user - INFO - 用户已登出
+2025-04-17 09:02:25,590 - root - INFO - 密码管理系统启动
+2025-04-17 09:02:25,591 - root - INFO - 初始化用户设置模块...
+2025-04-17 09:02:25,591 - root - INFO - 用户设置模块已初始化
+2025-04-17 09:02:25,664 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-17 09:02:27,073 - core.user - INFO - 用户 admin 登录成功
+2025-04-17 09:02:27,074 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-17 09:02:27,193 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-17 09:02:27,193 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-17 09:02:27,243 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-17 09:02:27,867 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-17 09:02:28,950 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-04-17 09:02:31,756 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 2, 当前列: 5, 选中行数: 1, 选中行: [2]
+2025-04-17 09:02:31,756 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-17 09:02:31,757 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-17 09:02:31,757 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-17 09:02:31,758 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-17 09:02:31,758 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-17 09:02:33,820 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 1 的真实索引，将使用表格行索引作为备选
+2025-04-17 09:02:33,821 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 1 作为真实索引
+2025-04-17 09:02:35,115 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-17 09:02:39,574 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-17 09:02:39,622 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-17 09:02:43,895 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-17 09:02:49,193 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-17 09:02:49,483 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-17 09:02:53,254 - core.password - INFO - 更新密码记录 - 所有者: 徐国明, 索引: 1, 项目: master, 跳过服务器同步: 是
+2025-04-17 09:02:53,254 - core.password - INFO - 跳过SSH密码更新步骤 - 项目: master
+2025-04-17 09:02:53,255 - core.password - INFO - _get_password_id - 所有者: 徐国明, 索引: 1, 可用记录数: 27
+2025-04-17 09:02:53,255 - core.password - INFO - 查询密码ID - 项目: master, IP: 192.168.8.87, 账号: root
+2025-04-17 09:02:53,293 - core.password - INFO - 通过精确匹配找到密码ID: 345
+2025-04-17 09:02:55,053 - core.password - INFO - 更新所有者 徐国明 的密码记录成功 (跳过服务器同步)
+2025-04-17 09:02:55,053 - ui.password_manager.ui_dialogs.password_update_dialog - INFO - 成功保存密码到数据库 - 服务器: 192.168.8.87, 索引: 1
+2025-04-17 09:03:00,815 - ui.password_manager.ui_table.table_password - INFO - 密码更新对话框返回确认结果，刷新表格显示更新后的密码
+2025-04-17 09:04:15,253 - features.audit.audit_log_viewer - INFO - 所有模块导入成功
+2025-04-17 09:04:15,253 - ui.password_manager.password_manager_ui - INFO - 使用内嵌方式打开审计日志查看器
+2025-04-17 09:04:15,261 - features.audit.audit_log_viewer - INFO - 界面初始化完成
+2025-04-17 09:04:15,268 - features.audit.audit_log_viewer - INFO - AuditLogViewer初始化成功
+2025-04-17 09:11:20,195 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 2, 当前列: 5, 选中行数: 1, 选中行: [2]
+2025-04-17 09:11:20,196 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-17 09:11:20,196 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-17 09:11:20,197 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-17 09:11:20,197 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-17 09:11:20,197 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-17 16:00:46,219 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 2, 当前列: 5, 选中行数: 1, 选中行: [2]
+2025-04-17 16:00:46,219 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-17 16:00:46,220 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-17 16:00:46,220 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-17 16:00:46,221 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-17 16:00:46,221 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-17 16:00:48,775 - core.user - INFO - 用户已登出

@@ -262,3 +262,117 @@
 2025-04-17 09:01:19,737 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
 2025-04-17 09:01:19,737 - __main__ - INFO - 正在启动应用程序...
 2025-04-17 09:01:28,481 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-17 09:02:23,813 - __main__ - WARNING - 未找到有效的Qt插件路径，可能会导致UI加载问题
+2025-04-17 09:02:23,813 - __main__ - INFO - Python解释器路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Scripts\python.exe
+2025-04-17 09:02:23,813 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
+2025-04-17 09:02:23,814 - __main__ - INFO - 正在启动应用程序...
+2025-04-17 16:00:49,153 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-18 16:18:30,828 - __main__ - WARNING - 未找到有效的Qt插件路径，可能会导致UI加载问题
+2025-04-18 16:18:30,829 - __main__ - INFO - Python解释器路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Scripts\python.exe
+2025-04-18 16:18:30,829 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
+2025-04-18 16:18:30,829 - __main__ - INFO - 正在启动应用程序...
+2025-04-18 16:19:14,446 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-18 16:21:01,184 - __main__ - WARNING - 未找到有效的Qt插件路径，可能会导致UI加载问题
+2025-04-18 16:21:01,185 - __main__ - INFO - Python解释器路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Scripts\python.exe
+2025-04-18 16:21:01,185 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
+2025-04-18 16:21:01,185 - __main__ - INFO - 正在启动应用程序...
+2025-04-18 16:21:15,919 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-18 16:21:17,237 - __main__ - WARNING - 未找到有效的Qt插件路径，可能会导致UI加载问题
+2025-04-18 16:21:17,238 - __main__ - INFO - Python解释器路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Scripts\python.exe
+2025-04-18 16:21:17,238 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
+2025-04-18 16:21:17,238 - __main__ - INFO - 正在启动应用程序...
+2025-04-18 16:21:44,295 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-18 16:31:48,442 - __main__ - WARNING - 未找到有效的Qt插件路径，可能会导致UI加载问题
+2025-04-18 16:31:48,442 - __main__ - INFO - Python解释器路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Scripts\python.exe
+2025-04-18 16:31:48,442 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
+2025-04-18 16:31:48,443 - __main__ - INFO - 正在启动应用程序...
+2025-04-18 16:37:34,640 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-18 16:37:46,915 - __main__ - WARNING - 未找到有效的Qt插件路径，可能会导致UI加载问题
+2025-04-18 16:37:46,916 - __main__ - INFO - Python解释器路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Scripts\python.exe
+2025-04-18 16:37:46,916 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
+2025-04-18 16:37:46,916 - __main__ - INFO - 正在启动应用程序...
+2025-04-18 16:38:02,724 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-18 16:38:05,740 - __main__ - WARNING - 未找到有效的Qt插件路径，可能会导致UI加载问题
+2025-04-18 16:38:05,741 - __main__ - INFO - Python解释器路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Scripts\python.exe
+2025-04-18 16:38:05,741 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
+2025-04-18 16:38:05,741 - __main__ - INFO - 正在启动应用程序...
+2025-04-18 16:40:28,479 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-18 16:40:44,159 - __main__ - WARNING - 未找到有效的Qt插件路径，可能会导致UI加载问题
+2025-04-18 16:40:44,159 - __main__ - INFO - Python解释器路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Scripts\python.exe
+2025-04-18 16:40:44,159 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
+2025-04-18 16:40:44,160 - __main__ - INFO - 正在启动应用程序...
+2025-04-18 16:42:06,536 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-18 16:44:06,698 - __main__ - WARNING - 未找到有效的Qt插件路径，可能会导致UI加载问题
+2025-04-18 16:44:06,698 - __main__ - INFO - Python解释器路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Scripts\python.exe
+2025-04-18 16:44:06,699 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
+2025-04-18 16:44:06,699 - __main__ - INFO - 正在启动应用程序...
+2025-04-18 16:44:33,946 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-18 16:52:15,270 - __main__ - WARNING - 未找到有效的Qt插件路径，可能会导致UI加载问题
+2025-04-18 16:52:15,270 - __main__ - INFO - Python解释器路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Scripts\python.exe
+2025-04-18 16:52:15,271 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
+2025-04-18 16:52:15,271 - __main__ - INFO - 正在启动应用程序...
+2025-04-18 16:52:28,197 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-18 16:52:44,861 - __main__ - WARNING - 未找到有效的Qt插件路径，可能会导致UI加载问题
+2025-04-18 16:52:44,862 - __main__ - INFO - Python解释器路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Scripts\python.exe
+2025-04-18 16:52:44,862 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
+2025-04-18 16:52:44,862 - __main__ - INFO - 正在启动应用程序...
+2025-04-18 16:52:47,596 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-18 16:54:30,520 - __main__ - WARNING - 未找到有效的Qt插件路径，可能会导致UI加载问题
+2025-04-18 16:54:30,521 - __main__ - INFO - Python解释器路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Scripts\python.exe
+2025-04-18 16:54:30,521 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
+2025-04-18 16:54:30,521 - __main__ - INFO - 正在启动应用程序...
+2025-04-18 16:54:47,539 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-18 16:54:48,515 - __main__ - WARNING - 未找到有效的Qt插件路径，可能会导致UI加载问题
+2025-04-18 16:54:48,516 - __main__ - INFO - Python解释器路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Scripts\python.exe
+2025-04-18 16:54:48,516 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
+2025-04-18 16:54:48,516 - __main__ - INFO - 正在启动应用程序...
+2025-04-18 16:59:36,508 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-18 17:03:12,429 - __main__ - WARNING - 未找到有效的Qt插件路径，可能会导致UI加载问题
+2025-04-18 17:03:12,430 - __main__ - INFO - Python解释器路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Scripts\python.exe
+2025-04-18 17:03:12,430 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
+2025-04-18 17:03:12,430 - __main__ - INFO - 正在启动应用程序...
+2025-04-18 17:07:34,043 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-18 17:08:56,111 - __main__ - WARNING - 未找到有效的Qt插件路径，可能会导致UI加载问题
+2025-04-18 17:08:56,111 - __main__ - INFO - Python解释器路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Scripts\python.exe
+2025-04-18 17:08:56,112 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
+2025-04-18 17:08:56,112 - __main__ - INFO - 正在启动应用程序...
+2025-04-18 17:09:38,591 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-18 17:12:33,563 - __main__ - WARNING - 未找到有效的Qt插件路径，可能会导致UI加载问题
+2025-04-18 17:12:33,564 - __main__ - INFO - Python解释器路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Scripts\python.exe
+2025-04-18 17:12:33,564 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
+2025-04-18 17:12:33,564 - __main__ - INFO - 正在启动应用程序...
+2025-04-18 17:12:44,276 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-18 17:14:58,730 - __main__ - WARNING - 未找到有效的Qt插件路径，可能会导致UI加载问题
+2025-04-18 17:14:58,730 - __main__ - INFO - Python解释器路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Scripts\python.exe
+2025-04-18 17:14:58,730 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
+2025-04-18 17:14:58,731 - __main__ - INFO - 正在启动应用程序...
+2025-04-18 17:15:04,905 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-18 17:15:41,190 - __main__ - WARNING - 未找到有效的Qt插件路径，可能会导致UI加载问题
+2025-04-18 17:15:41,190 - __main__ - INFO - Python解释器路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Scripts\python.exe
+2025-04-18 17:15:41,191 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
+2025-04-18 17:15:41,191 - __main__ - INFO - 正在启动应用程序...
+2025-04-18 17:57:53,645 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-18 17:57:54,880 - __main__ - WARNING - 未找到有效的Qt插件路径，可能会导致UI加载问题
+2025-04-18 17:57:54,881 - __main__ - INFO - Python解释器路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Scripts\python.exe
+2025-04-18 17:57:54,881 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
+2025-04-18 17:57:54,881 - __main__ - INFO - 正在启动应用程序...
+2025-04-18 18:00:26,419 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-18 18:00:27,862 - __main__ - WARNING - 未找到有效的Qt插件路径，可能会导致UI加载问题
+2025-04-18 18:00:27,863 - __main__ - INFO - Python解释器路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Scripts\python.exe
+2025-04-18 18:00:27,863 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
+2025-04-18 18:00:27,863 - __main__ - INFO - 正在启动应用程序...
+2025-04-18 18:01:24,677 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-18 18:04:23,925 - __main__ - WARNING - 未找到有效的Qt插件路径，可能会导致UI加载问题
+2025-04-18 18:04:23,926 - __main__ - INFO - Python解释器路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Scripts\python.exe
+2025-04-18 18:04:23,926 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
+2025-04-18 18:04:23,926 - __main__ - INFO - 正在启动应用程序...
+2025-04-18 18:04:55,339 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-18 18:05:00,340 - __main__ - WARNING - 未找到有效的Qt插件路径，可能会导致UI加载问题
+2025-04-18 18:05:00,340 - __main__ - INFO - Python解释器路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Scripts\python.exe
+2025-04-18 18:05:00,340 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
+2025-04-18 18:05:00,340 - __main__ - INFO - 正在启动应用程序...
+2025-04-18 18:05:05,961 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-22 09:49:20,978 - __main__ - WARNING - 未找到有效的Qt插件路径，可能会导致UI加载问题
+2025-04-22 09:49:20,978 - __main__ - INFO - Python解释器路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Scripts\python.exe
+2025-04-22 09:49:20,978 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
+2025-04-22 09:49:20,978 - __main__ - INFO - 正在启动应用程序...

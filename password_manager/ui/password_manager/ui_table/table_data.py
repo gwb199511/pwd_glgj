@@ -66,6 +66,20 @@ class TableDataMixin:
             # 获取密码列表
             passwords = password_manager.get_passwords_by_owner(owner)
             
+            # 保存初始数据顺序，用于重置排序功能
+            self.initial_data = []
+            for password in passwords:
+                row_data = []
+                for col, value in enumerate(password):
+                    # 对于密码列(索引4)，需要解密后保存
+                    if col == 4:  # 密码列
+                        from core.encrypt import encryptor
+                        decrypted_value = encryptor.decrypt(value)
+                        row_data.append(decrypted_value)
+                    else:
+                        row_data.append(value)
+                self.initial_data.append(row_data)
+            
             # 禁用排序，以避免在加载数据时排序
             self.table.setSortingEnabled(False)
             
@@ -82,7 +96,13 @@ class TableDataMixin:
                 # 填充每一列
                 for col, value in enumerate(password):
                     if col < self.table.columnCount():
-                        self.table.setItem(row, col, create_table_item(value))
+                        # 对于密码列(索引4)，需要解密后显示
+                        if col == 4:  # 密码列
+                            from core.encrypt import encryptor
+                            decrypted_value = encryptor.decrypt(value)
+                            self.table.setItem(row, col, create_table_item(decrypted_value))
+                        else:
+                            self.table.setItem(row, col, create_table_item(value))
                         
             # 重新启用排序
             self.table.setSortingEnabled(True)

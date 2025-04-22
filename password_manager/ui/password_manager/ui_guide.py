@@ -803,6 +803,12 @@ MAIN_FEATURES_WALKTHROUGH = [
         "position": "top"
     },
     {
+        "title": "表头右键菜单",
+        "description": "点击列标题可以对表格进行排序，如需恢复到初始顺序，请在表头上右击并选择\"重置排序\"选项。",
+        "position": "top",
+        "widget_id": "password_table"
+    },
+    {
         "title": "搜索功能",
         "description": "在这里输入关键词可以快速查找密码记录，支持模糊搜索。",
         "position": "bottom"

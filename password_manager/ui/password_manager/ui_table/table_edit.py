@@ -1436,6 +1436,19 @@ class TableEditMixin:
             # 获取密码记录
             passwords = password_manager.get_passwords_by_owner(owner)
             
+            # 保存初始数据顺序，用于重置排序功能
+            self.initial_data = []
+            for password in passwords:
+                row_data = []
+                for col, field in enumerate(password):
+                    # 对于密码列，需要解密后保存
+                    if col == 4:  # 密码列索引
+                        decrypted_password = encryptor.decrypt(field)
+                        row_data.append(decrypted_password)
+                    else:
+                        row_data.append(field)
+                self.initial_data.append(row_data)
+            
             # 检查是否需要使用insert_position
             if preserve_position and insert_position is not None:
                 logger.info(f"使用特定位置 {insert_position} 加载数据")
@@ -1449,7 +1462,7 @@ class TableEditMixin:
                 for col, field in enumerate(password):
                     if col < len(PASSWORD_COLUMNS):
                         # 为密码字段特殊处理（解密）
-                        if col == 4:  # 假设密码在第5列（索引4）
+                        if col == 4:  # 密码列索引
                             decrypted_password = encryptor.decrypt(field)
                             item = QTableWidgetItem(decrypted_password)
                         else:
@@ -1546,7 +1559,7 @@ class TableEditMixin:
                 for col, field in enumerate(password):
                     if col < len(PASSWORD_COLUMNS):
                         # 为密码字段特殊处理（解密）
-                        if col == 4:  # 假设密码在第5列（索引4）
+                        if col == 4:  # 密码列索引
                             decrypted_password = encryptor.decrypt(field)
                             item = QTableWidgetItem(decrypted_password)
                         else:

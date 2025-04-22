@@ -10,7 +10,7 @@ import logging
 from typing import List, Dict, Any, Tuple, Optional
 
 from PyQt5.QtWidgets import (
-    QTableWidget, QTableWidgetItem, QHeaderView, QAbstractItemView, QMenu
+    QTableWidget, QTableWidgetItem, QHeaderView, QAbstractItemView, QMenu, QAction
 )
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QColor
@@ -42,6 +42,9 @@ class BasePasswordTable:
         self.search_results = None
         self.search_mode = False
         self.editing_row = -1  # 当前正在编辑的行，-1表示没有正在编辑的行
+        
+        # 用于保存初始数据顺序，用于重置排序
+        self.initial_data = []
         
         # 设置表格的table_manager属性，方便引导功能直接访问
         self.table.setProperty("table_manager", self)
@@ -169,6 +172,10 @@ class BasePasswordTable:
         
         # 设置表头可以点击排序
         self.table.setSortingEnabled(True)
+        
+        # 设置水平表头右键菜单策略
+        self.table.horizontalHeader().setContextMenuPolicy(Qt.CustomContextMenu)
+        self.table.horizontalHeader().customContextMenuRequested.connect(self._show_header_context_menu)
     
     def _setup_custom_delegates(self):
         """
@@ -187,4 +194,65 @@ class BasePasswordTable:
         设置表格右键菜单
         """
         self.table.setContextMenuPolicy(Qt.CustomContextMenu)
-        # 连接信号在子类中实现 
+        # 连接信号在子类中实现
+        
+    def _show_header_context_menu(self, position):
+        """
+        显示表头右键菜单
+        
+        Args:
+            position: 鼠标位置
+        """
+        # 创建菜单
+        menu = QMenu(self.table)
+        
+        # 添加重置排序选项
+        reset_sort_action = QAction("重置排序", self.table)
+        reset_sort_action.triggered.connect(self._reset_sorting)
+        menu.addAction(reset_sort_action)
+        
+        # 显示菜单
+        menu.exec_(self.table.horizontalHeader().mapToGlobal(position))
+    
+    def _reset_sorting(self):
+        """
+        重置表格排序到初始状态
+        """
+        # 如果没有保存初始数据，则无法重置
+        if not hasattr(self, 'initial_data') or not self.initial_data:
+            logger.warning("没有保存初始数据，无法重置排序")
+            return
+            
+        # 临时禁用排序，以避免在数据重组时触发排序
+        old_sort_state = self.table.isSortingEnabled()
+        self.table.setSortingEnabled(False)
+        
+        # 清空表格
+        self.table.setRowCount(0)
+        
+        # 使用初始数据重新填充表格
+        for row_data in self.initial_data:
+            row = self.table.rowCount()
+            self.table.insertRow(row)
+            for col, text in enumerate(row_data):
+                item = QTableWidgetItem(text)
+                self.table.setItem(row, col, item)
+        
+        # 重要：清除表头排序指示器
+        header = self.table.horizontalHeader()
+        header.setSortIndicator(-1, Qt.AscendingOrder)  # 设置为-1表示无排序指示器
+        
+        # 恢复排序状态
+        self.table.setSortingEnabled(old_sort_state)
+        
+        # 记录日志
+        logger.info("已重置表格排序到初始顺序")
+        
+    def reset_initial_data(self):
+        """
+        重置初始数据
+        
+        在刷新或重新加载数据时调用，清除保存的初始数据
+        """
+        self.initial_data = []
+        logger.info("已重置初始数据") 

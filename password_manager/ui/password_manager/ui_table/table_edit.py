@@ -81,6 +81,20 @@ class TableEditMixin:
             # 记录行数据的原始副本用于取消操作
             self.original_row_data = get_row_data(self.table, row)
             
+            # 禁用表格排序功能，防止排序导致编辑行位置变化
+            self.original_sort_state = self.table.isSortingEnabled()
+            self.table.setSortingEnabled(False)
+            logger.info("已禁用表格排序功能，防止编辑过程中行位置变化")
+            
+            # 禁用点击表头事件，防止用户手动点击表头排序
+            # 保存原始的表头点击事件连接状态
+            self.header = self.table.horizontalHeader()
+            if not hasattr(self, 'original_header_signals_blocked'):
+                self.original_header_signals_blocked = self.header.signalsBlocked()
+            # 阻止表头信号
+            self.header.blockSignals(True)
+            logger.info("已阻止表头点击事件，防止用户手动点击表头排序")
+            
             # 设置行为可编辑状态
             for col in range(self.table.columnCount()):
                 item = self.table.item(row, col)
@@ -699,6 +713,22 @@ class TableEditMixin:
             self.editing_row = -1
             self.original_row_data = None
             
+            # 恢复表格排序功能
+            if hasattr(self, 'original_sort_state'):
+                self.table.setSortingEnabled(self.original_sort_state)
+                logger.info(f"已恢复表格排序功能，原始状态: {self.original_sort_state}")
+                delattr(self, 'original_sort_state')
+            
+            # 恢复表头点击事件
+            if hasattr(self, 'header') and self.header:
+                if hasattr(self, 'original_header_signals_blocked'):
+                    self.header.blockSignals(self.original_header_signals_blocked)
+                    logger.info(f"已恢复表头点击事件，原始阻塞状态: {self.original_header_signals_blocked}")
+                    delattr(self, 'original_header_signals_blocked')
+                else:
+                    self.header.blockSignals(False)
+                    logger.info("已恢复表头点击事件")
+            
             # 更新UI状态
             self._update_ui_after_edit(action_desc)
             
@@ -955,6 +985,22 @@ class TableEditMixin:
             # **** 首先确保移除确认和取消按钮 ****
             self._remove_confirm_cancel_buttons(row)
             
+            # 恢复表格排序功能
+            if hasattr(self, 'original_sort_state'):
+                self.table.setSortingEnabled(self.original_sort_state)
+                logger.info(f"已恢复表格排序功能，原始状态: {self.original_sort_state}")
+                delattr(self, 'original_sort_state')
+            
+            # 恢复表头点击事件
+            if hasattr(self, 'header') and self.header:
+                if hasattr(self, 'original_header_signals_blocked'):
+                    self.header.blockSignals(self.original_header_signals_blocked)
+                    logger.info(f"已恢复表头点击事件，原始阻塞状态: {self.original_header_signals_blocked}")
+                    delattr(self, 'original_header_signals_blocked')
+                else:
+                    self.header.blockSignals(False)
+                    logger.info("已恢复表头点击事件")
+            
             # 如果是新添加的空行（没有原始数据或原始数据为空），删除该行
             if not self.original_row_data_copy or not any(self.original_row_data_copy):
                 logger.info("删除新添加的空行")
@@ -1170,9 +1216,9 @@ class TableEditMixin:
 
             logger.info(f"在位置 {position} 添加新行")
             
-            # 禁用排序以防止行位置改变
-            old_sort_state = self.table.isSortingEnabled()
-            self.table.setSortingEnabled(False)
+            # 记录当前排序状态，但不在此处设置或恢复
+            # 由edit_row和confirm_editing/cancel_editing方法统一管理排序状态
+            # 这样可以避免在编辑过程中表格被排序导致位置变化
             
             # 插入新行
             self.table.insertRow(position)
@@ -1187,9 +1233,7 @@ class TableEditMixin:
             self.is_new_row = True
             # 保存插入位置，用于加载时恢复
             self.insert_position = position
-            
-            # 恢复排序状态
-            self.table.setSortingEnabled(old_sort_state)
+            logger.info(f"插入位置已保存: {self.insert_position}")
             
             # 返回新行索引
             return position
@@ -1684,7 +1728,7 @@ class BackgroundSaveWorker(QObject):
             
             if self.is_new:
                 # 添加新记录
-                logger.info(f"后台线程：添加新记录")
+                logger.info(f"后台线程：添加新记录, 插入位置: {self.insert_position}")
                 success, message = password_manager.add_password(
                     self.owner, self.new_data, self.insert_position
                 )

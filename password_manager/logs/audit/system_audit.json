@@ -1420,5 +1420,14 @@
     "target": "徐国明/批量操作",
     "details": "批量生成随机密码并更新服务器全部失败，共1个服务器。失败IP: 192.168.138.128",
     "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-22T10:04:58.917288",
+    "user": "admin",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/master",
+    "details": "添加密码记录成功，项目：master",
+    "log_type": null
   }
 ]

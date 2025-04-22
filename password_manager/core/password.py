@@ -221,10 +221,15 @@ class PasswordManager:
             # 检查索引是否有效
             if not passwords or index < 0 or index >= len(passwords):
                 # 如果是添加新行但索引无效，将索引调整为列表末尾
-                if skip_server_sync and index >= len(passwords):
-                    logger.info(f"自动调整新记录索引为: {len(passwords)}")
-                    index = len(passwords)
-                    # 对于新记录，直接添加到列表末尾
+                if skip_server_sync:
+                    logger.info(f"自动调整新记录索引为: {index if index >= 0 and index <= len(passwords) else len(passwords)}")
+                    # 确保索引在有效范围内
+                    if index < 0:
+                        index = len(passwords)
+                    elif index > len(passwords):
+                        index = len(passwords)
+                    
+                    # 对于新记录，插入到指定位置
                     if len(new_site_info) < 5:  # 至少需要项目名称、功能、IP地址、账户、密码
                         # 记录审计日志
                         self._log_operation(
@@ -238,18 +243,18 @@ class PasswordManager:
                     # 加密密码字段
                     new_site_info[4] = encryptor.encrypt(new_site_info[4])
                     
-                    # 添加新记录
-                    passwords.append(new_site_info)
+                    # 在指定位置插入新记录，而不是总是添加到末尾
+                    passwords.insert(index, new_site_info)
                     
                     # 保存到数据库
                     if self.db.set(owner, passwords):
-                        logger.info(f"为所有者 {owner} 添加新记录成功")
+                        logger.info(f"为所有者 {owner} 在位置 {index} 添加新记录成功")
                         
                         # 记录审计日志
                         self._log_operation(
                             operation_type=OP_TYPE_ADD,
                             result=OP_RESULT_SUCCESS,
-                            details=f"添加新密码记录成功，项目：{project_name}",
+                            details=f"添加新密码记录成功，项目：{project_name}，位置：{index}",
                             target=f"{owner}/{project_name}"
                         )
                         

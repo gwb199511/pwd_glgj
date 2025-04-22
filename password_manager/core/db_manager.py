@@ -951,5 +951,37 @@ class DBManager:
                 self.connection_pool.release_connection(conn)
 
 
+def check_audit_logs_table():
+    """
+    检查audit_logs表是否存在及其记录数
+    
+    Returns:
+        tuple: (表是否存在, 记录数, 最新记录)
+    """
+    try:
+        # 使用db_manager执行查询
+        # 检查表是否存在
+        result = db_manager.execute_query("SHOW TABLES LIKE 'audit_logs'")
+        table_exists = bool(result)
+        
+        if not table_exists:
+            return (False, 0, None)
+        
+        # 获取记录数
+        count_result = db_manager.execute_query("SELECT COUNT(*) as count FROM audit_logs")
+        count = count_result[0]['count'] if count_result else 0
+        
+        # 获取最新记录
+        latest_record = None
+        if count > 0:
+            result = db_manager.execute_query("SELECT * FROM audit_logs ORDER BY id DESC LIMIT 1")
+            if result:
+                latest_record = result[0]
+        
+        return (True, count, latest_record)
+    except Exception as e:
+        print(f"检查audit_logs表时出错: {str(e)}")
+        return (False, 0, None)
+
 # 创建全局实例
 db_manager = DBManager() 

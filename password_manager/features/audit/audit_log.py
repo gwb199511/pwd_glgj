@@ -15,6 +15,7 @@ from datetime import datetime, timedelta
 from typing import List, Dict, Any, Optional, Tuple, Union
 
 from config import LOG_DIR, DATA_DIR
+from core.db_manager import db_manager
 
 # 配置日志
 logger = logging.getLogger(__name__)
@@ -69,12 +70,8 @@ class AuditLogger:
         """初始化审计日志记录器"""
         with self.__class__._lock:
             if not self._initialized:
-                # 确保日志目录存在
-                self.log_dir = os.path.join(LOG_DIR, 'audit')
-                self.system_log_file = os.path.join(self.log_dir, 'system_audit.json')
-                
-                if not os.path.exists(self.log_dir):
-                    os.makedirs(self.log_dir)
+                # 确保审计日志表存在
+                self._ensure_audit_table()
                 
                 # 初始化缓存
                 self.cache = {}
@@ -91,6 +88,46 @@ class AuditLogger:
                 
                 self._initialized = True
     
+    def _ensure_audit_table(self):
+        """确保审计日志表存在"""
+        try:
+            # 检查audit_logs表是否存在
+            check_table_sql = "SHOW TABLES LIKE 'audit_logs'"
+            tables = db_manager.execute_query(check_table_sql)
+            
+            if not tables:
+                logger.info("audit_logs表不存在，将创建表")
+                # 创建表
+                create_table_sql = """
+                CREATE TABLE `audit_logs` (
+                  `id` bigint NOT NULL AUTO_INCREMENT,
+                  `username` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+                  `operation_type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+                  `operation_result` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+                  `log_type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+                  `details` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
+                  `target` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
+                  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+                  PRIMARY KEY (`id`) USING BTREE,
+                  INDEX `username`(`username` ASC) USING BTREE,
+                  INDEX `created_at`(`created_at` ASC) USING BTREE
+                ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+                """
+                db_manager.execute_update(create_table_sql)
+                logger.info("成功创建audit_logs表")
+            else:
+                # 检查是否需要添加target字段
+                check_column_sql = "SHOW COLUMNS FROM `audit_logs` LIKE 'target'"
+                target_column = db_manager.execute_query(check_column_sql)
+                
+                if not target_column:
+                    logger.info("audit_logs表缺少target字段，将添加该字段")
+                    add_column_sql = "ALTER TABLE `audit_logs` ADD COLUMN `target` varchar(255) NULL AFTER `details`"
+                    db_manager.execute_update(add_column_sql)
+                    logger.info("成功添加target字段到audit_logs表")
+        except Exception as e:
+            logger.error(f"确保audit_logs表存在时出错: {str(e)}")
+    
     def _log_worker(self):
         """
         日志工作线程，异步处理日志队列
@@ -98,18 +135,15 @@ class AuditLogger:
         while True:
             try:
                 # 收集批量日志
-                logs_batch = {}
+                logs_batch = []
                 current_time = time.time()
                 flush_timeout = current_time - self.last_flush_time >= self.flush_interval
                 
                 # 从队列中获取尽可能多的日志条目，直到达到批量大小或队列为空
-                while (not flush_timeout and 
-                      sum(len(entries) for entries in logs_batch.values()) < self.batch_size):
+                while len(logs_batch) < self.batch_size:
                     try:
-                        log_entry, log_type = self.log_queue.get(block=not logs_batch, timeout=0.1)
-                        if log_type not in logs_batch:
-                            logs_batch[log_type] = []
-                        logs_batch[log_type].append(log_entry)
+                        log_entry = self.log_queue.get(block=not logs_batch, timeout=0.1)
+                        logs_batch.append(log_entry)
                         self.log_queue.task_done()
                     except queue.Empty:
                         # 队列为空，跳出循环
@@ -117,9 +151,8 @@ class AuditLogger:
                 
                 # 如果收集到了日志或者到了强制刷新时间
                 if logs_batch or flush_timeout:
-                    for log_type, entries in logs_batch.items():
-                        if entries:
-                            self._batch_write_logs(log_type, entries)
+                    if logs_batch:
+                        self._batch_write_logs(logs_batch)
                     self.last_flush_time = time.time()
                 
                 # 如果队列为空，稍微等待一下再继续
@@ -130,31 +163,50 @@ class AuditLogger:
                 logger.error(f"日志工作线程出错: {str(e)}")
                 time.sleep(1)  # 出错后等待1秒再继续
     
-    def _batch_write_logs(self, log_type, log_entries):
+    def _batch_write_logs(self, log_entries):
         """
-        批量写入日志
+        批量写入日志到数据库
         
         Args:
-            log_type (str): 日志类型
             log_entries (List[Dict]): 日志条目列表
             
         Returns:
             bool: 写入成功返回True，否则返回False
         """
         try:
-            # 确定日志文件
-            log_file = self._get_log_file(log_type)
+            if not log_entries:
+                return True
+                
+            # 准备批量插入SQL和参数
+            sql = """
+                INSERT INTO audit_logs 
+                (username, operation_type, operation_result, log_type, details, target) 
+                VALUES (%s, %s, %s, %s, %s, %s)
+            """
             
-            # 读取现有日志
-            logs = self._read_logs(log_file)
+            params_list = []
+            for entry in log_entries:
+                params_list.append((
+                    entry.get('user', '未知用户'),
+                    entry.get('operation', ''),
+                    entry.get('result', ''),
+                    entry.get('log_type', LOG_TYPE_SYSTEM),
+                    entry.get('details', ''),
+                    entry.get('target', '')
+                ))
             
-            # 添加新日志条目
-            logs.extend(log_entries)
+            # 批量插入数据库
+            result = db_manager.execute_batch(sql, params_list)
             
-            # 保存日志
-            return self._write_logs(log_file, logs)
+            if result:
+                logger.debug(f"成功批量插入 {len(log_entries)} 条审计日志")
+                return True
+            else:
+                logger.warning(f"批量插入审计日志失败")
+                return False
+                
         except Exception as e:
-            logger.error(f"批量写入日志时出错: {str(e)}")
+            logger.error(f"批量写入审计日志时出错: {str(e)}")
             return False
             
     def log_operation(self, 
@@ -197,7 +249,7 @@ class AuditLogger:
             }
             
             # 将日志条目添加到队列中异步处理
-            self.log_queue.put((log_entry, log_type))
+            self.log_queue.put(log_entry)
             
             return True
         
@@ -216,7 +268,7 @@ class AuditLogger:
                  limit: int = 1000,
                  offset: int = 0) -> List[Dict[str, Any]]:
         """
-        查询日志
+        从数据库查询日志
         
         Args:
             log_type (str): 日志类型
@@ -240,74 +292,86 @@ class AuditLogger:
             if cache_key in self.cache and time.time() - self.cache_time.get(cache_key, 0) < self.cache_expiry:
                 return self.cache[cache_key]
             
-            # 读取日志
-            if log_type == LOG_TYPE_ALL:
-                # 读取所有类型的日志
-                logs = []
-                logs.extend(self._read_logs(self._get_log_file(LOG_TYPE_SYSTEM)))
-                logs.extend(self._read_logs(self._get_log_file(LOG_TYPE_SSH)))
-                logs.extend(self._read_logs(self._get_log_file(LOG_TYPE_LOGIN)))
-            else:
-                # 读取特定类型的日志
-                logs = self._read_logs(self._get_log_file(log_type))
+            # 构建SQL查询
+            sql_parts = ["SELECT * FROM audit_logs WHERE 1=1"]
+            params = []
             
-            # 应用筛选条件
-            filtered_logs = []
+            # 添加日志类型条件
+            if log_type != LOG_TYPE_ALL:
+                sql_parts.append("AND log_type = %s")
+                params.append(log_type)
+            
+            # 添加时间范围条件
+            if start_time:
+                sql_parts.append("AND created_at >= %s")
+                params.append(start_time.strftime('%Y-%m-%d %H:%M:%S'))
+            
+            if end_time:
+                sql_parts.append("AND created_at <= %s")
+                params.append(end_time.strftime('%Y-%m-%d %H:%M:%S'))
+            
+            # 添加操作类型条件
+            if operation_types and len(operation_types) > 0:
+                placeholders = ', '.join(['%s'] * len(operation_types))
+                sql_parts.append(f"AND operation_type IN ({placeholders})")
+                params.extend(operation_types)
+            
+            # 添加用户条件
+            if users and len(users) > 0:
+                placeholders = ', '.join(['%s'] * len(users))
+                sql_parts.append(f"AND username IN ({placeholders})")
+                params.extend(users)
+            
+            # 添加结果条件
+            if results and len(results) > 0:
+                placeholders = ', '.join(['%s'] * len(results))
+                sql_parts.append(f"AND operation_result IN ({placeholders})")
+                params.extend(results)
+            
+            # 添加关键词搜索条件
+            if keyword:
+                sql_parts.append("AND (details LIKE %s OR target LIKE %s OR username LIKE %s OR operation_type LIKE %s)")
+                keyword_param = f"%{keyword}%"
+                params.extend([keyword_param, keyword_param, keyword_param, keyword_param])
+            
+            # 添加排序、分页条件
+            sql_parts.append("ORDER BY created_at DESC")
+            sql_parts.append("LIMIT %s OFFSET %s")
+            params.append(limit)
+            params.append(offset)
+            
+            # 组合最终SQL
+            sql = " ".join(sql_parts)
+            
+            # 执行查询
+            logs = db_manager.execute_query(sql, params)
+            
+            # 转换为标准格式
+            formatted_logs = []
             for log in logs:
-                # 解析时间戳
-                try:
-                    log_time = datetime.fromisoformat(log.get("timestamp", ""))
-                except (ValueError, TypeError):
-                    continue
-                
-                # 时间范围筛选
-                if start_time and log_time < start_time:
-                    continue
-                if end_time and log_time > end_time:
-                    continue
-                
-                # 操作类型筛选
-                if operation_types and log.get("operation") not in operation_types:
-                    continue
-                
-                # 用户筛选
-                if users and log.get("user") not in users:
-                    continue
-                
-                # 结果筛选
-                if results and log.get("result") not in results:
-                    continue
-                
-                # 关键词搜索
-                if keyword:
-                    keyword_lower = keyword.lower()
-                    found = False
-                    # 在各个字段中搜索关键词
-                    for field in ["details", "target", "user", "operation"]:
-                        if field in log and isinstance(log[field], str) and keyword_lower in log[field].lower():
-                            found = True
-                            break
-                    if not found:
-                        continue
-                
-                filtered_logs.append(log)
+                formatted_log = {
+                    "timestamp": log.get("created_at").isoformat() if isinstance(log.get("created_at"), datetime) else log.get("created_at"),
+                    "user": log.get("username"),
+                    "operation": log.get("operation_type"),
+                    "result": log.get("operation_result"),
+                    "target": log.get("target"),
+                    "details": log.get("details"),
+                    "log_type": log.get("log_type")
+                }
+                formatted_logs.append(formatted_log)
             
-            # 排序：按时间戳降序
-            filtered_logs.sort(key=lambda x: x.get("timestamp", ""), reverse=True)
-            
-            # 分页
-            paginated_logs = filtered_logs[offset:offset+limit]
-            
-            # 缓存结果
-            self.cache[cache_key] = paginated_logs
+            # 更新缓存
+            self.cache[cache_key] = formatted_logs
             self.cache_time[cache_key] = time.time()
             
-            return paginated_logs
-        
+            return formatted_logs
+            
         except Exception as e:
-            logger.error(f"查询审计日志时出错: {str(e)}")
+            logger.error(f"获取审计日志时出错: {str(e)}")
+            import traceback
+            logger.error(traceback.format_exc())
             return []
-    
+
     def get_statistics(self, 
                        log_type: str = LOG_TYPE_SYSTEM,
                        days: int = 30) -> Dict[str, Any]:
@@ -319,104 +383,108 @@ class AuditLogger:
             days (int): 统计天数
             
         Returns:
-            Dict[str, Any]: 统计结果
+            Dict[str, Any]: 统计信息
         """
         try:
-            # 计算时间范围
+            # 确定时间范围
             end_time = datetime.now()
             start_time = end_time - timedelta(days=days)
             
-            # 获取日志
-            logs = self.get_logs(log_type, start_time, end_time)
+            start_time_str = start_time.strftime('%Y-%m-%d %H:%M:%S')
+            end_time_str = end_time.strftime('%Y-%m-%d %H:%M:%S')
             
-            # 初始化统计结果
             stats = {
-                "total_operations": len(logs),
-                "operations_by_type": {},
-                "operations_by_result": {},
-                "operations_by_user": {},
-                "operations_by_day": {},
-                "success_rate": 0,
-                "top_targets": {},
-                "recent_trends": []
+                "total": 0,
+                "by_result": {},
+                "by_operation": {},
+                "by_user": {},
+                "by_day": {}
             }
             
-            # 没有日志时直接返回
-            if not logs:
-                return stats
+            # 构建基础条件
+            base_condition = "log_type = %s AND created_at BETWEEN %s AND %s"
+            base_params = [log_type, start_time_str, end_time_str]
+            
+            if log_type == LOG_TYPE_ALL:
+                base_condition = "created_at BETWEEN %s AND %s"
+                base_params = [start_time_str, end_time_str]
+            
+            # 获取总数
+            count_sql = f"SELECT COUNT(*) AS count FROM audit_logs WHERE {base_condition}"
+            count_result = db_manager.execute_query(count_sql, base_params)
+            if count_result:
+                stats["total"] = count_result[0].get("count", 0)
+            
+            # 按结果统计
+            result_sql = f"""
+                SELECT operation_result, COUNT(*) AS count 
+                FROM audit_logs 
+                WHERE {base_condition}
+                GROUP BY operation_result
+            """
+            result_stats = db_manager.execute_query(result_sql, base_params)
+            for row in result_stats:
+                stats["by_result"][row.get("operation_result", "unknown")] = row.get("count", 0)
             
             # 按操作类型统计
-            for log in logs:
-                op_type = log.get("operation", "未知")
-                stats["operations_by_type"][op_type] = stats["operations_by_type"].get(op_type, 0) + 1
-                
-                # 按结果统计
-                result = log.get("result", "未知")
-                stats["operations_by_result"][result] = stats["operations_by_result"].get(result, 0) + 1
-                
-                # 按用户统计
-                user = log.get("user", "未知")
-                stats["operations_by_user"][user] = stats["operations_by_user"].get(user, 0) + 1
-                
-                # 按目标统计
-                target = log.get("target", "未知")
-                stats["top_targets"][target] = stats["top_targets"].get(target, 0) + 1
-                
-                # 按日期统计
-                try:
-                    log_time = datetime.fromisoformat(log.get("timestamp", ""))
-                    day_key = log_time.date().isoformat()
-                    stats["operations_by_day"][day_key] = stats["operations_by_day"].get(day_key, 0) + 1
-                except (ValueError, TypeError):
-                    continue
+            op_sql = f"""
+                SELECT operation_type, COUNT(*) AS count 
+                FROM audit_logs 
+                WHERE {base_condition}
+                GROUP BY operation_type
+            """
+            op_stats = db_manager.execute_query(op_sql, base_params)
+            for row in op_stats:
+                stats["by_operation"][row.get("operation_type", "unknown")] = row.get("count", 0)
             
-            # 计算成功率
-            success_count = stats["operations_by_result"].get(OP_RESULT_SUCCESS, 0)
-            total_count = sum(stats["operations_by_result"].values())
-            stats["success_rate"] = int(success_count / total_count * 100) if total_count else 0
+            # 按用户统计
+            user_sql = f"""
+                SELECT username, COUNT(*) AS count 
+                FROM audit_logs 
+                WHERE {base_condition}
+                GROUP BY username
+                ORDER BY count DESC
+                LIMIT 10
+            """
+            user_stats = db_manager.execute_query(user_sql, base_params)
+            for row in user_stats:
+                stats["by_user"][row.get("username", "unknown")] = row.get("count", 0)
             
-            # 计算最近趋势 (最近7天)
-            for i in range(7):
-                day = (end_time - timedelta(days=i)).date().isoformat()
-                stats["recent_trends"].append({
-                    "date": day,
-                    "count": stats["operations_by_day"].get(day, 0)
-                })
-            
-            # 排序结果
-            stats["top_users"] = sorted(
-                [{"user": k, "count": v} for k, v in stats["operations_by_user"].items()],
-                key=lambda x: x["count"],
-                reverse=True
-            )[:5]
-            
-            stats["top_operations"] = sorted(
-                [{"type": k, "count": v} for k, v in stats["operations_by_type"].items()],
-                key=lambda x: x["count"],
-                reverse=True
-            )
-            
-            stats["top_targets"] = sorted(
-                [{"target": k, "count": v} for k, v in stats["top_targets"].items()],
-                key=lambda x: x["count"],
-                reverse=True
-            )[:5]
+            # 按天统计
+            day_sql = f"""
+                SELECT DATE(created_at) AS day, COUNT(*) AS count 
+                FROM audit_logs 
+                WHERE {base_condition}
+                GROUP BY DATE(created_at)
+                ORDER BY day
+            """
+            day_stats = db_manager.execute_query(day_sql, base_params)
+            for row in day_stats:
+                day_str = row.get("day").strftime("%Y-%m-%d") if isinstance(row.get("day"), datetime) else str(row.get("day"))
+                stats["by_day"][day_str] = row.get("count", 0)
             
             return stats
             
         except Exception as e:
-            logger.error(f"生成审计日志统计时出错: {str(e)}")
-            return {"error": str(e)}
-    
+            logger.error(f"获取审计日志统计信息时出错: {str(e)}")
+            return {
+                "total": 0,
+                "by_result": {},
+                "by_operation": {},
+                "by_user": {},
+                "by_day": {},
+                "error": str(e)
+            }
+
     def get_time_range_options(self) -> List[Dict[str, Any]]:
         """
-        获取时间范围选项
+        获取时间范围选项列表
         
         Returns:
             List[Dict[str, Any]]: 时间范围选项列表
         """
         now = datetime.now()
-        today_start = datetime(now.year, now.month, now.day)
+        today_start = datetime(now.year, now.month, now.day, 0, 0, 0)
         
         return [
             {
@@ -533,90 +601,6 @@ class AuditLogger:
             return True
         except Exception as e:
             logger.error(f"导出JSON时出错: {str(e)}")
-            return False
-    
-    def _get_log_file(self, log_type: str) -> str:
-        """
-        根据日志类型获取日志文件路径
-        
-        Args:
-            log_type (str): 日志类型
-            
-        Returns:
-            str: 日志文件路径
-        """
-        if log_type == LOG_TYPE_SSH:
-            return os.path.join(self.log_dir, 'ssh_audit.json')
-        elif log_type == LOG_TYPE_LOGIN:
-            return os.path.join(self.log_dir, 'login_audit.json')
-        return self.system_log_file
-    
-    def _read_logs(self, log_file: str) -> List[Dict[str, Any]]:
-        """
-        读取日志文件
-        
-        Args:
-            log_file (str): 日志文件路径
-            
-        Returns:
-            List[Dict[str, Any]]: 日志列表
-        """
-        try:
-            if os.path.exists(log_file):
-                try:
-                    with open(log_file, 'r', encoding='utf-8') as f:
-                        return json.load(f)
-                except json.JSONDecodeError as e:
-                    logger.error(f"读取日志文件 {log_file} 时出错: {str(e)}")
-                    # 重新创建一个有效的空JSON文件
-                    with open(log_file, 'w', encoding='utf-8') as f:
-                        json.dump([], f)
-                    logger.info(f"已重新创建空日志文件: {log_file}")
-            return []
-        except Exception as e:
-            logger.error(f"读取日志文件 {log_file} 时出错: {str(e)}")
-            return []
-    
-    def _write_logs(self, log_file: str, logs: List[Dict[str, Any]]) -> bool:
-        """
-        写入日志文件
-        
-        Args:
-            log_file (str): 日志文件路径
-            logs (List[Dict[str, Any]]): 日志列表
-            
-        Returns:
-            bool: 写入成功返回True，否则返回False
-        """
-        try:
-            # 确保目录存在
-            os.makedirs(os.path.dirname(log_file), exist_ok=True)
-            
-            # 写入新日志
-            with open(log_file, 'w', encoding='utf-8') as f:
-                json.dump(logs, f, ensure_ascii=False, indent=2)
-            
-            logger.debug(f"成功写入 {len(logs)} 条日志记录到 {log_file}")
-            return True
-            
-        except Exception as e:
-            logger.error(f"写入日志文件 {log_file} 时出错: {str(e)}")
-            # 尝试以安全方式写入
-            try:
-                # 使用临时文件写入
-                temp_file = f"{log_file}.tmp"
-                with open(temp_file, 'w', encoding='utf-8') as f:
-                    json.dump(logs, f, ensure_ascii=False, indent=2)
-                
-                # 如果写入成功，重命名替换原文件
-                if os.path.exists(temp_file) and os.path.getsize(temp_file) > 0:
-                    import shutil
-                    shutil.move(temp_file, log_file)
-                    logger.info(f"通过临时文件成功写入日志: {log_file}")
-                    return True
-            except Exception as temp_err:
-                logger.error(f"通过临时文件写入日志时出错: {str(temp_err)}")
-            
             return False
 
 

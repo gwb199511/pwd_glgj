@@ -3,21 +3,21 @@
 
 """
 用户设置模块，管理用户个性化配置
+注：已从文件存储转换为数据库存储
 """
 
-import os
-import json
 import logging
 import threading
 import time
+import os
 from typing import Dict, Any, Optional, List
 
-# 导入存储接口
+# 导入数据库用户设置模块
 import sys
 import os.path
 # 添加项目根目录到Python路径
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from core.data_storage import get_user_settings_storage
+from core.db_user_settings import db_user_settings
 
 # 配置日志
 logger = logging.getLogger(__name__)
@@ -47,14 +47,13 @@ class UserSettings:
     def __init__(self):
         """初始化用户设置管理器"""
         if not self._initialized:
-            # 使用存储接口
-            self._storage = get_user_settings_storage()
             self._settings = {}
             self._pending_changes = {}
             self._last_save_time = 0
             self._save_interval = 2.0  # 最小保存间隔（秒）
             self._save_timer = None
             self._save_lock = threading.Lock()
+            self._current_user = "default"  # 默认用户
             self._load_settings()
             self._initialized = True
             # 启动后台保存线程
@@ -83,10 +82,10 @@ class UserSettings:
         save_thread.start()
             
     def _load_settings(self):
-        """从存储加载设置"""
+        """从数据库加载设置"""
         try:
-            # 从存储接口加载数据
-            self._settings = self._storage.get_all()
+            # 从数据库加载设置
+            self._settings = db_user_settings.get_all_settings(self._current_user)
             if not self._settings:
                 self._settings = self._get_default_settings()
                 self._save_settings_immediately()
@@ -95,19 +94,22 @@ class UserSettings:
             self._settings = self._get_default_settings()
     
     def _save_settings_immediately(self):
-        """立即保存设置到存储（不使用延迟）"""
+        """立即保存设置到数据库（不使用延迟）"""
         try:
-            # 使用存储接口保存数据
-            success = self._storage.save(self._settings)
-            if success:
-                self._last_save_time = time.time()
-            return success
+            # 扁平化嵌套设置，并保存到数据库
+            for section, settings in self._settings.items():
+                for key, value in settings.items():
+                    setting_key = f"{section}.{key}"
+                    db_user_settings.set_setting(self._current_user, setting_key, value)
+            
+            self._last_save_time = time.time()
+            return True
         except Exception as e:
             logger.error(f"立即保存用户设置时出错: {str(e)}")
             return False
             
     def _save_settings_delayed(self):
-        """延迟保存设置到存储"""
+        """延迟保存设置到数据库"""
         # 取消现有的定时器（如果存在）
         if self._save_timer:
             try:
@@ -121,7 +123,7 @@ class UserSettings:
         self._save_timer.start()
     
     def _flush_pending_changes(self):
-        """将所有待处理的更改刷新到存储"""
+        """将所有待处理的更改刷新到数据库"""
         with self._save_lock:
             # 如果没有待处理的更改，直接返回
             if not self._pending_changes:
@@ -144,14 +146,17 @@ class UserSettings:
                             config = config[part]
                         
                         config[parts[-1]] = value
+                    
+                    # 直接保存到数据库
+                    db_user_settings.set_setting(self._current_user, key, value)
                 
                 # 清空待处理的更改
                 self._pending_changes = {}
                 
-                # 保存到存储
-                success = self._save_settings_immediately()
-                logger.debug("已将所有待处理的设置更改保存到存储")
-                return success
+                # 更新最后保存时间
+                self._last_save_time = time.time()
+                logger.debug("已将所有待处理的设置更改保存到数据库")
+                return True
             except Exception as e:
                 logger.error(f"保存待处理的设置更改时出错: {str(e)}")
                 return False
@@ -314,66 +319,76 @@ class UserSettings:
         
     def mark_guide_completed(self, guide_key: str, immediate: bool = False) -> None:
         """
-        标记特定引导为已完成
+        标记引导步骤为已完成
         
         Args:
             guide_key (str): 引导键名
             immediate (bool): 是否立即保存，默认为False（延迟保存）
         """
-        settings = {}
         guided_key = f"{guide_key}_guided"
-        settings[f"guides.{guided_key}"] = True
-        settings[f"guides.{guide_key}"] = True
-        
-        # 使用批量设置
-        self.set_batch(settings, immediate=immediate)
-        logger.info(f"已标记引导 {guide_key} 为已完成")
+        self.set(f"guides.{guided_key}", True, immediate=immediate)
+        logger.info(f"已标记引导步骤 {guide_key} 为已完成")
         
     def mark_multiple_guides_completed(self, guide_keys: list) -> None:
         """
-        标记多个引导为已完成（批量操作）
+        标记多个引导步骤为已完成（批量操作）
         
         Args:
-            guide_keys (list): 引导键名列表
+            guide_keys (List[str]): 引导键名列表
         """
-        settings = {}
-        for key in guide_keys:
-            guided_key = f"{key}_guided"
-            settings[f"guides.{guided_key}"] = True
-        
-        self.set_batch(settings)
-        logger.info(f"已批量标记引导为已完成: {', '.join(guide_keys)}")
+        self.complete_guide_steps(guide_keys)
         
     def reset_guides(self) -> None:
-        """重置引导状态为未完成"""
-        guides = self.get("guides", {})
-        settings = {}
-        
-        # 收集所有引导键
-        for key in list(guides.keys()):
-            settings[f"guides.{key}"] = False
-            logger.info(f"已重置引导状态: {key}")
+        """
+        重置所有引导状态为未完成
+        """
+        try:
+            # 使用数据库用户设置模块的重置方法
+            db_user_settings.reset_guides(self._current_user)
             
-        # 特别确保主要引导状态被重置
-        key_list = ["main_features_guided", "password_update_guided", "main_features", "password_update"]
-        for key in key_list:
-            settings[f"guides.{key}"] = False
-            settings[f"guides.{key}_guided"] = False
-            logger.info(f"已强制重置引导状态: {key}")
-        
-        # 批量保存所有更改
-        self.set_batch(settings, immediate=True)
-        logger.info("所有引导状态已重置")
+            # 同时更新本地缓存
+            if "guides" in self._settings:
+                for key in self._settings["guides"]:
+                    if key.endswith("_guided"):
+                        self._settings["guides"][key] = False
+            
+            logger.info("已重置所有引导状态")
+        except Exception as e:
+            logger.error(f"重置引导状态时出错: {str(e)}")
     
+    def set_current_user(self, username: str) -> None:
+        """
+        设置当前用户名，用于多用户环境中的个性化设置
+        
+        Args:
+            username (str): 用户名
+        """
+        self._current_user = username
+        # 重新加载当前用户的设置
+        self._load_settings()
+        logger.info(f"已切换到用户 {username} 的设置")
+        
     def flush_all_changes(self) -> bool:
         """
-        立即保存所有待处理的更改
+        强制刷新所有待处理的更改
         
         Returns:
-            bool: 保存成功返回True，否则返回False
+            bool: 刷新成功返回True，否则返回False
         """
         return self._flush_pending_changes()
-
+        
+    def migrate_from_file(self) -> bool:
+        """
+        从文件迁移设置到数据库
+        
+        Returns:
+            bool: 迁移成功返回True，否则返回False
+        """
+        try:
+            return db_user_settings.migrate_from_file()
+        except Exception as e:
+            logger.error(f"从文件迁移设置到数据库时出错: {str(e)}")
+            return False
 
 # 创建单例实例
 user_settings = UserSettings() 

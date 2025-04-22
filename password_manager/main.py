@@ -29,10 +29,11 @@ if ui_path not in sys.path:
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtGui import QFont
 
-from config import LOG_DIR, LOG_FILE, LOG_LEVEL, LOG_FORMAT, FONT_FAMILY
+from config import LOG_DIR, LOG_FILE, LOG_LEVEL, LOG_FORMAT, FONT_FAMILY, DATA_DIR
 from ui.login.login_ui import LoginUI
 from ui.password_manager.password_manager_ui import PasswordManagerUI
 from core.user_settings import user_settings
+from core.db_user_settings import db_user_settings
 
 
 def setup_logging():
@@ -67,12 +68,66 @@ def setup_logging():
     logging.info("密码管理系统启动")
 
 
+def migrate_user_settings_if_needed():
+    """
+    如有必要，将用户设置从JSON文件迁移到数据库
+    """
+    try:
+        # 检查是否存在用户设置文件
+        settings_file = os.path.join(DATA_DIR, 'user_settings.json')
+        if os.path.exists(settings_file):
+            logging.info("检测到用户设置文件，尝试迁移到数据库...")
+            
+            # 检查数据库中是否已有设置数据
+            from core.db_manager import db_manager
+            check_sql = """
+            SELECT COUNT(*) 
+            FROM information_schema.tables 
+            WHERE table_schema = DATABASE() 
+            AND table_name = 'user_settings'
+            """
+            tables_result = db_manager.execute_query(check_sql)
+            
+            if tables_result and tables_result[0][0] > 0:
+                # 表存在，检查是否有数据
+                count_sql = "SELECT COUNT(*) FROM user_settings"
+                count_result = db_manager.execute_query(count_sql)
+                
+                if count_result and count_result[0][0] == 0:
+                    # 表存在但没有数据，执行迁移
+                    result = user_settings.migrate_from_file()
+                    if result:
+                        logging.info("用户设置已成功迁移到数据库")
+                    else:
+                        logging.warning("用户设置迁移失败")
+                else:
+                    logging.info("数据库中已有用户设置数据，跳过迁移")
+            else:
+                # 表不存在，创建表并执行迁移
+                logging.info("创建用户设置数据库表...")
+                # 确保表存在
+                db_user_settings._ensure_settings_table()
+                
+                # 执行迁移
+                result = user_settings.migrate_from_file()
+                if result:
+                    logging.info("用户设置已成功迁移到数据库")
+                else:
+                    logging.warning("用户设置迁移失败")
+    except Exception as e:
+        logging.error(f"迁移用户设置时出错: {str(e)}")
+        logging.error(traceback.format_exc())
+
+
 def main():
     """
     主函数
     """
     # 设置日志系统
     setup_logging()
+    
+    # 迁移用户设置（如果需要）
+    migrate_user_settings_if_needed()
     
     # 确保用户设置模块已经初始化
     logging.info(f"初始化用户设置模块...")
@@ -107,6 +162,8 @@ def main():
         logging.info(f"用户 {username} 登录成功，准备打开密码管理界面")
         # 隐藏登录窗口
         login_window.hide()
+        # 设置当前用户
+        user_settings.set_current_user(username)
         # 创建并显示密码管理界面
         password_manager_window = PasswordManagerUI(username)
         password_manager_window.run()

@@ -125,7 +125,7 @@ class BasePasswordTable:
         self.table.setColumnWidth(2, 120)
         
         # 备注列宽一点
-        self.table.setColumnWidth(3, 200)
+        self.table.setColumnWidth(3, 120)
         
         # 密码列宽一点
         self.table.setColumnWidth(4, 200)  # 设置最大宽度，防止占用过多空间

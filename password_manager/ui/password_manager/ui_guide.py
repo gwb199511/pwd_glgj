@@ -16,7 +16,7 @@ from PyQt5.QtWidgets import (
     QCheckBox, QPushButton, QGraphicsDropShadowEffect,
     QSizePolicy, QApplication, QMenu, QAction
 )
-from PyQt5.QtCore import Qt, QPropertyAnimation, QRect, QEasingCurve, QTimer, pyqtSignal, QObject, QPoint
+from PyQt5.QtCore import Qt, QPropertyAnimation, QRect, QEasingCurve, QTimer, pyqtSignal, QObject, QPoint, QSize
 from PyQt5.QtGui import QPixmap, QFont, QIcon, QColor, QPalette, QBrush, QPainter, QPen, QPainterPath
 
 # 添加项目根目录到系统路径
@@ -480,11 +480,22 @@ class WalkthroughOverlay(QWidget):
             # 使用控件ID从目标控件字典中获取控件
             target = self.target_widgets[step["widget_id"]]
         
+        # 处理特殊区域高亮
+        if "special_rect" in step and step["special_rect"] == "table_header" and target:
+            if hasattr(target, "horizontalHeader"):
+                # 获取表头矩形并转换为全局坐标
+                header = target.horizontalHeader()
+                header_rect = QRect(0, 0, target.width(), header.height())
+                global_pos = target.mapToGlobal(header_rect.topLeft())
+                parent_pos = self.mapFromGlobal(global_pos)
+                self.highlight_rect = QRect(parent_pos, QSize(header_rect.width(), header_rect.height()))
+                return self.highlight_rect
+        
         # 如果有目标控件，计算其位置和尺寸
         if target and hasattr(target, "rect"):
             # 获取控件全局位置并转换为父窗口坐标
             global_pos = target.mapToGlobal(target.rect().topLeft())
-            parent_pos = self.parent().mapFromGlobal(global_pos)
+            parent_pos = self.mapFromGlobal(global_pos)
             self.highlight_rect = QRect(parent_pos, target.size())
         else:
             # 默认不高亮任何区域，但确保是一个有效的空QRect
@@ -806,12 +817,15 @@ MAIN_FEATURES_WALKTHROUGH = [
         "title": "表头右键菜单",
         "description": "点击列标题可以对表格进行排序，如需恢复到初始顺序，请在表头上右击并选择\"重置排序\"选项。",
         "position": "top",
-        "widget_id": "password_table"
+        "widget_id": "password_table",
+        "header_only": True,  # 添加标记，表示只高亮表头
+        "special_rect": "table_header"  # 添加特殊区域标记
     },
     {
         "title": "搜索功能",
         "description": "在这里输入关键词可以快速查找密码记录，支持模糊搜索。",
-        "position": "bottom"
+        "position": "bottom",
+        "widget_id": "search_edit"  # 确保正确指定搜索框控件ID
     },
     {
         "title": "右键操作（除密码列）",

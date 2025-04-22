@@ -224,7 +224,7 @@ class PasswordManagerUI(QMainWindow):
         target_widgets = {
             "owners_list": self.layout_manager.owner_list_widget,
             "password_table": self.layout_manager.password_table,
-            "search_box": self.layout_manager.search_edit,
+            "search_edit": self.layout_manager.search_edit,
             "action_buttons": self.layout_manager.splitter,
             "toolbar": self.layout_manager.toolbar
         }

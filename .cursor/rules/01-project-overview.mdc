@@ -1,0 +1,36 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# 密码管理系统概览
+
+## 项目结构
+
+密码管理系统是一个基于PyQt5的桌面应用程序，用于安全地存储和管理密码。
+
+主要目录结构：
+- [main.py](mdc:password_manager/main.py) - 应用程序主入口
+- [run.py](mdc:password_manager/run.py) - 启动脚本
+- [config.py](mdc:password_manager/config.py) - 全局配置文件
+- `core/` - 核心功能模块
+- `ui/` - 用户界面模块
+- `utils/` - 工具函数模块
+- `features/` - 特性功能模块
+
+## 核心模块
+
+- [core/user.py](mdc:password_manager/core/user.py) - 用户管理
+- [core/password.py](mdc:password_manager/core/password.py) - 密码管理核心
+- [core/encrypt.py](mdc:password_manager/core/encrypt.py) - 加密功能
+- [core/database.py](mdc:password_manager/core/database.py) - 数据库操作
+- [core/db_manager.py](mdc:password_manager/core/db_manager.py) - 数据库管理器
+- [core/data_storage.py](mdc:password_manager/core/data_storage.py) - 数据存储抽象
+- [core/user_settings.py](mdc:password_manager/core/user_settings.py) - 用户设置管理
+
+## 用户界面
+
+- `ui/login/` - 登录相关UI组件
+- `ui/password_manager/` - 主密码管理界面
+- `ui/components/` - 可复用UI组件
+- `ui/dialogs/` - 对话框组件

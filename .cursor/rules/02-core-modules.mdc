@@ -1,0 +1,48 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# 核心模块详解
+
+## 用户管理
+
+[user.py](mdc:password_manager/core/user.py) 包含用户认证、注册和管理功能：
+- 用户注册、登录和认证
+- 用户权限管理
+- 用户信息存储
+
+## 密码管理
+
+[password.py](mdc:password_manager/core/password.py) 是密码管理的核心：
+- 密码存储与检索
+- 密码生成与更新
+- 密码分类与组织
+
+## 加密功能
+
+[encrypt.py](mdc:password_manager/core/encrypt.py) 提供加密和解密功能：
+- 使用Fernet加密算法
+- 密码加密与解密
+- 密钥管理
+
+## 数据存储
+
+[data_storage.py](mdc:password_manager/core/data_storage.py) 提供数据存储抽象层：
+- 支持本地文件存储
+- 支持MySQL数据库存储
+- 统一的数据访问接口
+
+## 数据库操作
+
+[database.py](mdc:password_manager/core/database.py) 和 [db_manager.py](mdc:password_manager/core/db_manager.py) 处理数据库连接和操作：
+- 数据库连接管理
+- SQL查询执行
+- 数据库模式定义和迁移
+
+## 用户设置
+
+[user_settings.py](mdc:password_manager/core/user_settings.py) 管理用户个性化设置：
+- 界面设置
+- 功能偏好
+- 设置的持久化存储

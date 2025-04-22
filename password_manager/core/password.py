@@ -313,15 +313,16 @@ class PasswordManager:
                 
                 # 记录历史（如果密码已更改）
                 if password_changed:
-                    # 从audit_logger获取当前用户
+                    # 从user_manager获取当前用户
                     modify_user = "未知用户"
-                    # 尝试从审计日志模块获取登录的用户
+                    # 尝试从用户管理模块获取登录的用户
                     try:
-                        from core.user import current_user
-                        if current_user and current_user.username:
-                            modify_user = current_user.username
-                    except Exception:
-                        pass
+                        from core.user import user_manager
+                        current_username = user_manager.get_current_user()
+                        if current_username:
+                            modify_user = current_username
+                    except Exception as e:
+                        logger.error(f"获取当前用户失败: {str(e)}")
                         
                     # 从数据库查询该记录的ID
                     password_id = self._get_password_id(owner, index)
@@ -333,7 +334,8 @@ class PasswordManager:
                             old_password=old_decrypted_password,
                             new_password=new_decrypted_password,
                             ip_address=ip_address,
-                            modify_user=modify_user
+                            modify_user=modify_user,
+                            modify_reason="SSH同步" if password_changed else ""
                         )
                 
                 # 加密密码字段
@@ -419,15 +421,16 @@ class PasswordManager:
             
             # 记录密码修改历史（如果密码已更改）
             if password_changed:
-                # 从audit_logger获取当前用户
+                # 从user_manager获取当前用户
                 modify_user = "未知用户"
-                # 尝试从审计日志模块获取登录的用户
+                # 尝试从用户管理模块获取登录的用户
                 try:
-                    from core.user import current_user
-                    if current_user and current_user.username:
-                        modify_user = current_user.username
-                except Exception:
-                    pass
+                    from core.user import user_manager
+                    current_username = user_manager.get_current_user()
+                    if current_username:
+                        modify_user = current_username
+                except Exception as e:
+                    logger.error(f"获取当前用户失败: {str(e)}")
                         
                 # 从数据库查询该记录的ID
                 password_id = self._get_password_id(owner, index)

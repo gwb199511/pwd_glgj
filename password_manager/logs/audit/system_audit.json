@@ -1429,5 +1429,68 @@
     "target": "徐国明/master",
     "details": "添加密码记录成功，项目：master",
     "log_type": null
+  },
+  {
+    "timestamp": "2025-04-22T14:28:05.413521",
+    "user": "admin",
+    "operation": "add",
+    "result": "success",
+    "target": "徐国明/slave",
+    "details": "添加密码记录成功，项目：slave",
+    "log_type": null
+  },
+  {
+    "timestamp": "2025-04-22T14:28:22.334529",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为2个服务器生成16位随机密码，ip地址为：192.168.8.87; 192.168.8.88",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-22T14:28:49.446054",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "批量生成随机密码并更新服务器全部成功，共2个服务器，IP地址：192.168.8.87; 192.168.8.88",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-22T14:33:59.043239",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为1个服务器生成16位随机密码，ip地址为：192.168.8.87",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-22T14:34:13.330781",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "批量生成随机密码并更新服务器全部成功，共1个服务器，IP地址：192.168.8.87",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-22T14:34:43.486671",
+    "user": "admin",
+    "operation": "generate",
+    "result": "info",
+    "target": "徐国明/批量操作",
+    "details": "开始为1个服务器生成16位随机密码，ip地址为：192.168.8.88",
+    "log_type": "system"
+  },
+  {
+    "timestamp": "2025-04-22T14:35:01.453380",
+    "user": "admin",
+    "operation": "generate",
+    "result": "success",
+    "target": "徐国明/批量操作",
+    "details": "批量生成随机密码并更新服务器全部成功，共1个服务器，IP地址：192.168.8.88",
+    "log_type": "system"
   }
 ]

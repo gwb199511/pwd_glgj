@@ -626,3 +626,429 @@
 2025-04-22 12:00:29,436 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
 2025-04-22 12:00:30,507 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
 2025-04-22 12:00:32,925 - core.user - INFO - 用户已登出
+2025-04-22 14:25:55,303 - root - INFO - 密码管理系统启动
+2025-04-22 14:25:55,303 - root - INFO - 初始化用户设置模块...
+2025-04-22 14:25:55,304 - root - INFO - 用户设置模块已初始化
+2025-04-22 14:25:55,383 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-22 14:25:56,762 - core.user - INFO - 用户 admin 登录成功
+2025-04-22 14:25:56,763 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-22 14:25:56,863 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-22 14:25:56,863 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-22 14:25:56,936 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-22 14:25:57,553 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-22 14:25:58,641 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-04-22 14:26:05,301 - ui.password_manager.ui_table.base_table - INFO - 已重置表格排序到初始顺序
+2025-04-22 14:26:18,912 - core.user_settings - INFO - 已重置引导状态: guides
+2025-04-22 14:26:18,912 - core.user_settings - INFO - 已重置引导状态: ui
+2025-04-22 14:26:18,912 - core.user_settings - INFO - 已重置引导状态: password
+2025-04-22 14:26:18,913 - core.user_settings - INFO - 已重置引导状态: password_update_guided
+2025-04-22 14:26:18,913 - core.user_settings - INFO - 已重置引导状态: main_features_guided
+2025-04-22 14:26:18,913 - core.user_settings - INFO - 已重置引导状态: main_features
+2025-04-22 14:26:18,914 - core.user_settings - INFO - 已重置引导状态: main_features_guided_guided
+2025-04-22 14:26:18,914 - core.user_settings - INFO - 已重置引导状态: password_update_guided_guided
+2025-04-22 14:26:18,914 - core.user_settings - INFO - 已重置引导状态: password_update
+2025-04-22 14:26:18,914 - core.user_settings - INFO - 已强制重置引导状态: main_features_guided
+2025-04-22 14:26:18,915 - core.user_settings - INFO - 已强制重置引导状态: password_update_guided
+2025-04-22 14:26:18,915 - core.user_settings - INFO - 已强制重置引导状态: main_features
+2025-04-22 14:26:18,915 - core.user_settings - INFO - 已强制重置引导状态: password_update
+2025-04-22 14:26:20,862 - core.user_settings - INFO - 所有引导状态已重置
+2025-04-22 14:26:28,955 - core.user - INFO - 用户已登出
+2025-04-22 14:26:32,571 - root - INFO - 密码管理系统启动
+2025-04-22 14:26:32,571 - root - INFO - 初始化用户设置模块...
+2025-04-22 14:26:32,571 - root - INFO - 用户设置模块已初始化
+2025-04-22 14:26:32,636 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-22 14:26:33,893 - core.user - INFO - 用户 admin 登录成功
+2025-04-22 14:26:33,894 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-22 14:26:34,113 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-22 14:26:34,113 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-22 14:26:34,167 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-22 14:26:34,756 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-22 14:26:35,848 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-22 14:26:35,849 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 0 张图片
+2025-04-22 14:26:35,956 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/7
+2025-04-22 14:26:38,706 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-22 14:26:38,707 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 1
+2025-04-22 14:26:38,708 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 2/7
+2025-04-22 14:26:41,887 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-22 14:26:41,887 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 2
+2025-04-22 14:26:41,889 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 3/7
+2025-04-22 14:26:59,527 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-22 14:26:59,528 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 3
+2025-04-22 14:26:59,529 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/7
+2025-04-22 14:27:03,421 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-22 14:27:03,421 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-04-22 14:27:03,422 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/7
+2025-04-22 14:27:03,723 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-22 14:27:03,724 - ui.password_manager.ui_guide - INFO - 缓存中未找到图片 account_menu.png，尝试加载...
+2025-04-22 14:27:03,724 - ui.password_manager.ui_guide - INFO - 尝试加载菜单图片，列索引: 3, 文件名: account_menu.png
+2025-04-22 14:27:03,725 - ui.password_manager.ui_guide - WARNING - 无法加载图片，使用文本标签作为备选
+2025-04-22 14:27:03,725 - ui.password_manager.ui_guide - INFO - 已创建文本菜单替代图片，位置: (153, 188)
+2025-04-22 14:27:03,778 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (153, 403)
+2025-04-22 14:27:18,142 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-22 14:27:18,142 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 5
+2025-04-22 14:27:18,143 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 6/7
+2025-04-22 14:27:18,447 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-22 14:27:18,448 - ui.password_manager.ui_guide - INFO - 缓存中未找到图片 password_menu.png，尝试加载...
+2025-04-22 14:27:18,448 - ui.password_manager.ui_guide - INFO - 尝试加载菜单图片，列索引: 4, 文件名: password_menu.png
+2025-04-22 14:27:18,449 - ui.password_manager.ui_guide - WARNING - 无法加载图片，使用文本标签作为备选
+2025-04-22 14:27:18,449 - ui.password_manager.ui_guide - INFO - 已创建文本菜单替代图片，位置: (687, 188)
+2025-04-22 14:27:18,499 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (453, 403)
+2025-04-22 14:27:25,612 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-04-22 14:27:25,613 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 6
+2025-04-22 14:27:25,614 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 7/7
+2025-04-22 14:27:27,851 - core.user_settings - INFO - 已标记引导 main_features 为已完成
+2025-04-22 14:27:27,851 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-22 14:27:40,940 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 9, 当前列: 4, 选中行数: 1, 选中行: [9]
+2025-04-22 14:27:40,940 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-22 14:27:40,941 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-22 14:27:40,941 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-22 14:27:40,941 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-22 14:27:40,941 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-22 14:27:42,370 - ui.password_manager.ui_table.table_events - INFO - 尝试在行9（上方）添加新行 [添加方式: 上方]
+2025-04-22 14:27:42,371 - ui.password_manager.ui_table.table_edit - INFO - 在位置 8 添加新行
+2025-04-22 14:27:42,375 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 9
+2025-04-22 14:27:42,375 - ui.password_manager.ui_table.table_edit - INFO - 已禁用表格排序功能，防止编辑过程中行位置变化
+2025-04-22 14:27:42,376 - ui.password_manager.ui_table.table_edit - INFO - 已阻止表头点击事件，防止用户手动点击表头排序
+2025-04-22 14:27:42,378 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 9 的编辑模式
+2025-04-22 14:27:42,379 - ui.password_manager.ui_table.table_edit - INFO - 插入位置已保存: 8
+2025-04-22 14:27:42,379 - ui.password_manager.ui_table.table_events - INFO - 成功在行9（上方）添加新行，新行索引: 9 [添加方式: 上方]
+2025-04-22 14:27:43,677 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑 - 第9行: 
+2025-04-22 14:27:43,678 - ui.password_manager.ui_table.table_edit - INFO - 已恢复表格排序功能，原始状态: True
+2025-04-22 14:27:43,679 - ui.password_manager.ui_table.table_edit - INFO - 已恢复表头点击事件，原始阻塞状态: False
+2025-04-22 14:27:43,679 - ui.password_manager.ui_table.table_edit - INFO - 删除新添加的空行
+2025-04-22 14:27:43,680 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑完成，已恢复原始数据
+2025-04-22 14:27:45,385 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 10, 当前列: 3, 选中行数: 1, 选中行: [10]
+2025-04-22 14:27:45,385 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-22 14:27:45,387 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-22 14:27:45,388 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-22 14:27:45,388 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-22 14:27:45,388 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-22 14:27:46,520 - ui.password_manager.ui_table.table_events - INFO - 尝试在行10（上方）添加新行 [添加方式: 上方]
+2025-04-22 14:27:46,521 - ui.password_manager.ui_table.table_edit - INFO - 在位置 9 添加新行
+2025-04-22 14:27:46,525 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 10
+2025-04-22 14:27:46,525 - ui.password_manager.ui_table.table_edit - INFO - 已禁用表格排序功能，防止编辑过程中行位置变化
+2025-04-22 14:27:46,526 - ui.password_manager.ui_table.table_edit - INFO - 已阻止表头点击事件，防止用户手动点击表头排序
+2025-04-22 14:27:46,531 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 10 的编辑模式
+2025-04-22 14:27:46,532 - ui.password_manager.ui_table.table_edit - INFO - 插入位置已保存: 9
+2025-04-22 14:27:46,532 - ui.password_manager.ui_table.table_events - INFO - 成功在行10（上方）添加新行，新行索引: 10 [添加方式: 上方]
+2025-04-22 14:28:03,113 - ui.password_manager.ui_table.table_edit - INFO - 确认编辑 - 第10行
+2025-04-22 14:28:03,178 - ui.password_manager.ui_table.table_edit - INFO - 使用保存的插入位置: 9
+2025-04-22 14:28:03,180 - ui.password_manager.ui_table.table_edit - INFO - 后台线程：添加新记录, 插入位置: 9
+2025-04-22 14:28:03,180 - core.password - INFO - 在位置 10 插入新记录
+2025-04-22 14:28:03,335 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-04-22 14:28:03,493 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-04-22 14:28:03,680 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-04-22 14:28:03,817 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-04-22 14:28:03,977 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-04-22 14:28:04,143 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-04-22 14:28:04,304 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-04-22 14:28:04,463 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-04-22 14:28:05,413 - core.password - INFO - 为所有者 徐国明 添加密码记录成功
+2025-04-22 14:28:05,413 - ui.password_manager.ui_table.table_edit - INFO - 后台保存操作耗时: 2.233秒
+2025-04-22 14:28:05,414 - ui.password_manager.ui_table.table_edit - INFO - 对话框已显示 2.30 秒，立即更新
+2025-04-22 14:28:05,415 - ui.password_manager.ui_table.table_edit - INFO - 更新对话框内容为保存成功状态
+2025-04-22 14:28:05,424 - ui.password_manager.ui_table.table_edit - INFO - 对话框已成功更新为完成状态
+2025-04-22 14:28:08,423 - ui.password_manager.ui_table.table_edit - WARNING - 强制关闭对话框
+2025-04-22 14:28:08,424 - ui.password_manager.ui_table.table_edit - INFO - 添加成功
+2025-04-22 14:28:08,424 - ui.password_manager.ui_table.table_edit - INFO - 已恢复表格排序功能，原始状态: True
+2025-04-22 14:28:08,425 - ui.password_manager.ui_table.table_edit - INFO - 已恢复表头点击事件，原始阻塞状态: False
+2025-04-22 14:28:08,425 - ui.password_manager.ui_table.table_edit - INFO - 保存插入位置 9 以便在刷新后恢复
+2025-04-22 14:28:08,425 - ui.password_manager.ui_table.table_edit - INFO - 使用保存的位置 9 刷新数据
+2025-04-22 14:28:08,442 - ui.password_manager.ui_table.table_edit - INFO - 添加操作完成，已恢复表格选择模式
+2025-04-22 14:28:08,442 - ui.password_manager.ui_table.table_edit - INFO - 已完成 添加 操作的清理
+2025-04-22 14:28:12,401 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 10, 当前列: 5, 选中行数: 1, 选中行: [10]
+2025-04-22 14:28:12,401 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-22 14:28:12,402 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-22 14:28:12,402 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-22 14:28:12,403 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-22 14:28:12,403 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-22 14:28:16,907 - ui.password_manager.ui_table.base_table - INFO - 已重置表格排序到初始顺序
+2025-04-22 14:28:19,532 - ui.password_manager.ui_table.base_table - INFO - 已重置表格排序到初始顺序
+2025-04-22 14:28:21,585 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 10, 当前列: 5, 选中行数: 2, 选中行: [1, 10]
+2025-04-22 14:28:21,585 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 2
+2025-04-22 14:28:22,332 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 0 的真实索引，将使用表格行索引作为备选
+2025-04-22 14:28:22,333 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 0 作为真实索引
+2025-04-22 14:28:22,333 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 9 的真实索引，将使用表格行索引作为备选
+2025-04-22 14:28:22,333 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 9 作为真实索引
+2025-04-22 14:28:25,173 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-22 14:28:25,503 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-22 14:28:25,545 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-22 14:28:25,832 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-22 14:28:31,086 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-22 14:28:31,393 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-22 14:28:31,603 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-22 14:28:31,753 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-22 14:28:31,793 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-22 14:28:31,973 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-22 14:28:43,173 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-22 14:28:43,303 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-22 14:28:45,898 - core.password - INFO - 更新密码记录 - 所有者: 徐国明, 索引: 0, 项目: master, 跳过服务器同步: 是
+2025-04-22 14:28:45,899 - core.password - INFO - 跳过SSH密码更新步骤 - 项目: master
+2025-04-22 14:28:45,899 - core.password - INFO - _get_password_id - 所有者: 徐国明, 索引: 0, 可用记录数: 15
+2025-04-22 14:28:45,899 - core.password - INFO - 查询密码ID - 项目: master, IP: 192.168.8.87, 账号: root
+2025-04-22 14:28:45,933 - core.password - INFO - 通过精确匹配找到密码ID: 233
+2025-04-22 14:28:46,973 - core.password - INFO - 更新所有者 徐国明 的密码记录成功 (跳过服务器同步)
+2025-04-22 14:28:46,973 - ui.password_manager.ui_dialogs.password_update_dialog - INFO - 成功保存密码到数据库 - 服务器: 192.168.8.87, 索引: 0
+2025-04-22 14:28:46,974 - core.password - INFO - 更新密码记录 - 所有者: 徐国明, 索引: 9, 项目: slave, 跳过服务器同步: 是
+2025-04-22 14:28:46,974 - core.password - INFO - 跳过SSH密码更新步骤 - 项目: slave
+2025-04-22 14:28:46,975 - core.password - INFO - _get_password_id - 所有者: 徐国明, 索引: 9, 可用记录数: 15
+2025-04-22 14:28:46,975 - core.password - INFO - 查询密码ID - 项目: slave, IP: 192.168.8.88, 账号: root
+2025-04-22 14:28:47,014 - core.password - INFO - 通过精确匹配找到密码ID: 257
+2025-04-22 14:28:48,063 - core.password - INFO - 更新所有者 徐国明 的密码记录成功 (跳过服务器同步)
+2025-04-22 14:28:48,064 - ui.password_manager.ui_dialogs.password_update_dialog - INFO - 成功保存密码到数据库 - 服务器: 192.168.8.88, 索引: 9
+2025-04-22 14:28:49,409 - ui.password_manager.ui_table.table_password - INFO - 密码更新对话框返回确认结果，刷新表格显示更新后的密码
+2025-04-22 14:28:59,643 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 10, 当前列: 1, 选中行数: 1, 选中行: [10]
+2025-04-22 14:28:59,643 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-22 14:28:59,644 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-22 14:28:59,644 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-22 14:28:59,645 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-22 14:28:59,645 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-22 14:29:03,961 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 10, 当前列: 2, 选中行数: 1, 选中行: [10]
+2025-04-22 14:29:03,962 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-22 14:29:03,962 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-22 14:29:03,963 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-22 14:29:03,963 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-22 14:29:03,964 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-22 14:29:06,549 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 9, 当前列: 4, 选中行数: 1, 选中行: [9]
+2025-04-22 14:29:06,549 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-04-22 14:29:06,550 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-22 14:29:06,550 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-22 14:29:06,551 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-22 14:29:06,551 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-22 14:29:09,321 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 10, 当前列: 5, 选中行数: 1, 选中行: [10]
+2025-04-22 14:29:09,322 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-22 14:29:09,322 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-22 14:29:09,323 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-22 14:29:09,323 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-22 14:29:09,323 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-22 14:29:10,402 - ui.password_manager.ui_table.table_events - INFO - 查看密码历史记录 - 所有者: 徐国明, 行索引: 9
+2025-04-22 14:29:10,409 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 开始加载历史数据 - 所有者: 徐国明, 行索引: 9
+2025-04-22 14:29:10,410 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 时间范围: 2025-03-22 14:29:10 至 2025-04-22 14:29:10
+2025-04-22 14:29:10,410 - core.password - INFO - 查询密码历史记录 - 所有者: 徐国明, IP地址: 192.168.8.88
+2025-04-22 14:29:10,411 - core.password - INFO - _get_password_id - 所有者: 徐国明, 索引: 9, 可用记录数: 15
+2025-04-22 14:29:10,411 - core.password - INFO - 查询密码ID - 项目: slave, IP: 192.168.8.88, 账号: root
+2025-04-22 14:29:10,433 - core.password - INFO - 通过精确匹配找到密码ID: 272
+2025-04-22 14:29:10,434 - core.data_storage - INFO - 查询密码历史记录 - 密码ID: 272, 页码: 1, 每页记录数: 10
+2025-04-22 14:29:10,434 - core.data_storage - INFO - 开始时间: 2025-03-22 14:29:10
+2025-04-22 14:29:10,435 - core.data_storage - INFO - 结束时间: 2025-04-22 14:29:10
+2025-04-22 14:29:10,435 - core.data_storage - INFO - IP地址: 192.168.8.88
+2025-04-22 14:29:10,543 - core.data_storage - WARNING - 密码ID 272 在历史记录中不存在，尝试使用IP地址 192.168.8.88 查询
+2025-04-22 14:29:10,583 - core.data_storage - INFO - 发现IP地址 192.168.8.88 对应的历史密码ID: 257
+2025-04-22 14:29:10,583 - core.data_storage - INFO - 自动将当前密码ID 272 更新为历史记录ID 257
+2025-04-22 14:29:10,624 - core.data_storage - INFO - 符合条件的总记录数: 1
+2025-04-22 14:29:10,663 - core.data_storage - INFO - 查询到 1 条历史记录
+2025-04-22 14:29:10,664 - core.data_storage - INFO - 第一条记录: {'id': 43, 'password_id': 257, 'old_password': '1', 'new_password': '?kmYM!Tr4D*&6wFG', 'ip_address': '192.168.8.88', 'modify_user': '未知用户', 'modify_reason': '', 'modify_time': datetime.datetime(2025, 4, 22, 14, 28, 47)}
+2025-04-22 14:29:10,664 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 历史记录查询结果 - 总记录数: 1, 当前页记录数: 1
+2025-04-22 14:29:10,665 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - populate_table开始填充表格，记录数：1
+2025-04-22 14:29:10,665 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 第一条记录内容: {'id': 43, 'password_id': 257, 'old_password': '1', 'new_password': '?kmYM!Tr4D*&6wFG', 'ip_address': '192.168.8.88', 'modify_user': '未知用户', 'modify_reason': '', 'modify_time': datetime.datetime(2025, 4, 22, 14, 28, 47)}
+2025-04-22 14:29:19,712 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 5, 选中行数: 1, 选中行: [1]
+2025-04-22 14:29:19,713 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-22 14:29:19,713 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-22 14:29:19,714 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-22 14:29:19,714 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-22 14:29:19,714 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-22 14:29:20,929 - ui.password_manager.ui_table.table_events - INFO - 查看密码历史记录 - 所有者: 徐国明, 行索引: 0
+2025-04-22 14:29:20,939 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 开始加载历史数据 - 所有者: 徐国明, 行索引: 0
+2025-04-22 14:29:20,940 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 时间范围: 2025-03-22 14:29:20 至 2025-04-22 14:29:20
+2025-04-22 14:29:20,940 - core.password - INFO - 查询密码历史记录 - 所有者: 徐国明, IP地址: 192.168.8.87
+2025-04-22 14:29:20,941 - core.password - INFO - _get_password_id - 所有者: 徐国明, 索引: 0, 可用记录数: 15
+2025-04-22 14:29:20,941 - core.password - INFO - 查询密码ID - 项目: master, IP: 192.168.8.87, 账号: root
+2025-04-22 14:29:20,973 - core.password - INFO - 通过精确匹配找到密码ID: 263
+2025-04-22 14:29:20,974 - core.data_storage - INFO - 查询密码历史记录 - 密码ID: 263, 页码: 1, 每页记录数: 10
+2025-04-22 14:29:20,974 - core.data_storage - INFO - 开始时间: 2025-03-22 14:29:20
+2025-04-22 14:29:20,975 - core.data_storage - INFO - 结束时间: 2025-04-22 14:29:20
+2025-04-22 14:29:20,975 - core.data_storage - INFO - IP地址: 192.168.8.87
+2025-04-22 14:29:21,043 - core.data_storage - WARNING - 密码ID 263 在历史记录中不存在，尝试使用IP地址 192.168.8.87 查询
+2025-04-22 14:29:21,084 - core.data_storage - INFO - 发现IP地址 192.168.8.87 对应的历史密码ID: 233
+2025-04-22 14:29:21,085 - core.data_storage - INFO - 自动将当前密码ID 263 更新为历史记录ID 233
+2025-04-22 14:29:21,123 - core.data_storage - INFO - 符合条件的总记录数: 1
+2025-04-22 14:29:21,144 - core.data_storage - INFO - 查询到 1 条历史记录
+2025-04-22 14:29:21,144 - core.data_storage - INFO - 第一条记录: {'id': 42, 'password_id': 233, 'old_password': '1', 'new_password': 'w+pE8M+h_IZiRGwH', 'ip_address': '192.168.8.87', 'modify_user': '未知用户', 'modify_reason': '', 'modify_time': datetime.datetime(2025, 4, 22, 14, 28, 46)}
+2025-04-22 14:29:21,145 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 历史记录查询结果 - 总记录数: 1, 当前页记录数: 1
+2025-04-22 14:29:21,146 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - populate_table开始填充表格，记录数：1
+2025-04-22 14:29:21,146 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 第一条记录内容: {'id': 42, 'password_id': 233, 'old_password': '1', 'new_password': 'w+pE8M+h_IZiRGwH', 'ip_address': '192.168.8.87', 'modify_user': '未知用户', 'modify_reason': '', 'modify_time': datetime.datetime(2025, 4, 22, 14, 28, 46)}
+2025-04-22 14:33:22,131 - root - INFO - 密码管理系统启动
+2025-04-22 14:33:22,131 - root - INFO - 初始化用户设置模块...
+2025-04-22 14:33:22,132 - root - INFO - 用户设置模块已初始化
+2025-04-22 14:33:22,233 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-22 14:33:23,801 - core.user - INFO - 用户 admin 登录成功
+2025-04-22 14:33:23,802 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-22 14:33:23,924 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-22 14:33:23,924 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-22 14:33:23,994 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-22 14:33:24,633 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-22 14:33:25,689 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-04-22 14:33:39,721 - core.user - INFO - 用户已登出
+2025-04-22 14:33:42,923 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 5, 选中行数: 1, 选中行: [1]
+2025-04-22 14:33:42,924 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-22 14:33:42,924 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-22 14:33:42,925 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-22 14:33:42,925 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-22 14:33:42,925 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-22 14:33:45,395 - ui.password_manager.ui_table.table_events - INFO - 查看密码历史记录 - 所有者: 徐国明, 行索引: 0
+2025-04-22 14:33:45,406 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 开始加载历史数据 - 所有者: 徐国明, 行索引: 0
+2025-04-22 14:33:45,406 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 时间范围: 2025-03-22 14:33:45 至 2025-04-22 14:33:45
+2025-04-22 14:33:45,406 - core.password - INFO - 查询密码历史记录 - 所有者: 徐国明, IP地址: 192.168.8.87
+2025-04-22 14:33:45,406 - core.password - INFO - _get_password_id - 所有者: 徐国明, 索引: 0, 可用记录数: 15
+2025-04-22 14:33:45,407 - core.password - INFO - 查询密码ID - 项目: master, IP: 192.168.8.87, 账号: root
+2025-04-22 14:33:45,444 - core.password - INFO - 通过精确匹配找到密码ID: 263
+2025-04-22 14:33:45,445 - core.data_storage - INFO - 查询密码历史记录 - 密码ID: 263, 页码: 1, 每页记录数: 10
+2025-04-22 14:33:45,445 - core.data_storage - INFO - 开始时间: 2025-03-22 14:33:45
+2025-04-22 14:33:45,446 - core.data_storage - INFO - 结束时间: 2025-04-22 14:33:45
+2025-04-22 14:33:45,446 - core.data_storage - INFO - IP地址: 192.168.8.87
+2025-04-22 14:33:45,563 - core.data_storage - WARNING - 密码ID 263 在历史记录中不存在，尝试使用IP地址 192.168.8.87 查询
+2025-04-22 14:33:45,603 - core.data_storage - INFO - 发现IP地址 192.168.8.87 对应的历史密码ID: 233
+2025-04-22 14:33:45,604 - core.data_storage - INFO - 自动将当前密码ID 263 更新为历史记录ID 233
+2025-04-22 14:33:45,644 - core.data_storage - INFO - 符合条件的总记录数: 1
+2025-04-22 14:33:45,684 - core.data_storage - INFO - 查询到 1 条历史记录
+2025-04-22 14:33:45,685 - core.data_storage - INFO - 第一条记录: {'id': 42, 'password_id': 233, 'old_password': '1', 'new_password': 'w+pE8M+h_IZiRGwH', 'ip_address': '192.168.8.87', 'modify_user': '未知用户', 'modify_reason': '', 'modify_time': datetime.datetime(2025, 4, 22, 14, 28, 46)}
+2025-04-22 14:33:45,685 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 历史记录查询结果 - 总记录数: 1, 当前页记录数: 1
+2025-04-22 14:33:45,686 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - populate_table开始填充表格，记录数：1
+2025-04-22 14:33:45,686 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 第一条记录内容: {'id': 42, 'password_id': 233, 'old_password': '1', 'new_password': 'w+pE8M+h_IZiRGwH', 'ip_address': '192.168.8.87', 'modify_user': '未知用户', 'modify_reason': '', 'modify_time': datetime.datetime(2025, 4, 22, 14, 28, 46)}
+2025-04-22 14:33:57,273 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 5, 选中行数: 1, 选中行: [1]
+2025-04-22 14:33:57,273 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-22 14:33:57,274 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-22 14:33:57,274 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-22 14:33:57,275 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-22 14:33:57,275 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-22 14:33:59,042 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 0 的真实索引，将使用表格行索引作为备选
+2025-04-22 14:33:59,042 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 0 作为真实索引
+2025-04-22 14:34:00,163 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-22 14:34:00,674 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-22 14:34:00,740 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-22 14:34:00,994 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-22 14:34:06,284 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-22 14:34:08,544 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-22 14:34:10,018 - core.password - INFO - 更新密码记录 - 所有者: 徐国明, 索引: 0, 项目: master, 跳过服务器同步: 是
+2025-04-22 14:34:10,018 - core.password - INFO - 跳过SSH密码更新步骤 - 项目: master
+2025-04-22 14:34:10,019 - core.password - INFO - _get_password_id - 所有者: 徐国明, 索引: 0, 可用记录数: 15
+2025-04-22 14:34:10,019 - core.password - INFO - 查询密码ID - 项目: master, IP: 192.168.8.87, 账号: root
+2025-04-22 14:34:10,054 - core.password - INFO - 通过精确匹配找到密码ID: 263
+2025-04-22 14:34:11,054 - core.password - INFO - 更新所有者 徐国明 的密码记录成功 (跳过服务器同步)
+2025-04-22 14:34:11,054 - ui.password_manager.ui_dialogs.password_update_dialog - INFO - 成功保存密码到数据库 - 服务器: 192.168.8.87, 索引: 0
+2025-04-22 14:34:13,301 - ui.password_manager.ui_table.table_password - INFO - 密码更新对话框返回确认结果，刷新表格显示更新后的密码
+2025-04-22 14:34:14,403 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 5, 选中行数: 1, 选中行: [1]
+2025-04-22 14:34:14,403 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-22 14:34:14,404 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-22 14:34:14,404 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-22 14:34:14,405 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-22 14:34:14,405 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-22 14:34:15,476 - ui.password_manager.ui_table.table_events - INFO - 查看密码历史记录 - 所有者: 徐国明, 行索引: 0
+2025-04-22 14:34:15,482 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 开始加载历史数据 - 所有者: 徐国明, 行索引: 0
+2025-04-22 14:34:15,483 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 时间范围: 2025-03-22 14:34:15 至 2025-04-22 14:34:15
+2025-04-22 14:34:15,484 - core.password - INFO - 查询密码历史记录 - 所有者: 徐国明, IP地址: 192.168.8.87
+2025-04-22 14:34:15,484 - core.password - INFO - _get_password_id - 所有者: 徐国明, 索引: 0, 可用记录数: 15
+2025-04-22 14:34:15,484 - core.password - INFO - 查询密码ID - 项目: master, IP: 192.168.8.87, 账号: root
+2025-04-22 14:34:15,524 - core.password - INFO - 通过精确匹配找到密码ID: 278
+2025-04-22 14:34:15,524 - core.data_storage - INFO - 查询密码历史记录 - 密码ID: 278, 页码: 1, 每页记录数: 10
+2025-04-22 14:34:15,524 - core.data_storage - INFO - 开始时间: 2025-03-22 14:34:15
+2025-04-22 14:34:15,525 - core.data_storage - INFO - 结束时间: 2025-04-22 14:34:15
+2025-04-22 14:34:15,525 - core.data_storage - INFO - IP地址: 192.168.8.87
+2025-04-22 14:34:15,654 - core.data_storage - WARNING - 密码ID 278 在历史记录中不存在，尝试使用IP地址 192.168.8.87 查询
+2025-04-22 14:34:15,680 - core.data_storage - INFO - 发现IP地址 192.168.8.87 对应的历史密码ID: 233, 263
+2025-04-22 14:34:15,714 - core.data_storage - INFO - 符合条件的总记录数: 2
+2025-04-22 14:34:15,754 - core.data_storage - INFO - 查询到 2 条历史记录
+2025-04-22 14:34:15,754 - core.data_storage - INFO - 第一条记录: {'id': 44, 'password_id': 263, 'old_password': 'w+pE8M+h_IZiRGwH', 'new_password': 'QCi8=eI71RKu#eRc', 'ip_address': '192.168.8.87', 'modify_user': 'admin', 'modify_reason': 'SSH同步', 'modify_time': datetime.datetime(2025, 4, 22, 14, 34, 10)}
+2025-04-22 14:34:15,755 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 历史记录查询结果 - 总记录数: 2, 当前页记录数: 2
+2025-04-22 14:34:15,756 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - populate_table开始填充表格，记录数：2
+2025-04-22 14:34:15,756 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 第一条记录内容: {'id': 44, 'password_id': 263, 'old_password': 'w+pE8M+h_IZiRGwH', 'new_password': 'QCi8=eI71RKu#eRc', 'ip_address': '192.168.8.87', 'modify_user': 'admin', 'modify_reason': 'SSH同步', 'modify_time': datetime.datetime(2025, 4, 22, 14, 34, 10)}
+2025-04-22 14:34:40,827 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 10, 当前列: 5, 选中行数: 1, 选中行: [10]
+2025-04-22 14:34:40,828 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-22 14:34:40,828 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-22 14:34:40,829 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-22 14:34:40,829 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-22 14:34:40,829 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-22 14:34:43,485 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 9 的真实索引，将使用表格行索引作为备选
+2025-04-22 14:34:43,486 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 9 作为真实索引
+2025-04-22 14:34:45,934 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-22 14:34:46,064 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-22 14:34:46,104 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-22 14:34:46,214 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-22 14:34:57,424 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-04-22 14:34:57,554 - paramiko.transport - INFO - Authentication (password) successful!
+2025-04-22 14:34:58,862 - core.password - INFO - 更新密码记录 - 所有者: 徐国明, 索引: 9, 项目: slave, 跳过服务器同步: 是
+2025-04-22 14:34:58,863 - core.password - INFO - 跳过SSH密码更新步骤 - 项目: slave
+2025-04-22 14:34:58,863 - core.password - INFO - _get_password_id - 所有者: 徐国明, 索引: 9, 可用记录数: 15
+2025-04-22 14:34:58,863 - core.password - INFO - 查询密码ID - 项目: slave, IP: 192.168.8.88, 账号: root
+2025-04-22 14:34:58,898 - core.password - INFO - 通过精确匹配找到密码ID: 287
+2025-04-22 14:34:59,874 - core.password - INFO - 更新所有者 徐国明 的密码记录成功 (跳过服务器同步)
+2025-04-22 14:34:59,874 - ui.password_manager.ui_dialogs.password_update_dialog - INFO - 成功保存密码到数据库 - 服务器: 192.168.8.88, 索引: 9
+2025-04-22 14:35:01,420 - ui.password_manager.ui_table.table_password - INFO - 密码更新对话框返回确认结果，刷新表格显示更新后的密码
+2025-04-22 14:35:05,696 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 10, 当前列: 5, 选中行数: 1, 选中行: [10]
+2025-04-22 14:35:05,697 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-22 14:35:05,698 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-22 14:35:05,699 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-22 14:35:05,699 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-22 14:35:05,700 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-22 14:35:06,666 - ui.password_manager.ui_table.table_events - INFO - 查看密码历史记录 - 所有者: 徐国明, 行索引: 9
+2025-04-22 14:35:06,676 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 开始加载历史数据 - 所有者: 徐国明, 行索引: 9
+2025-04-22 14:35:06,677 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 时间范围: 2025-03-22 14:35:06 至 2025-04-22 14:35:06
+2025-04-22 14:35:06,678 - core.password - INFO - 查询密码历史记录 - 所有者: 徐国明, IP地址: 192.168.8.88
+2025-04-22 14:35:06,678 - core.password - INFO - _get_password_id - 所有者: 徐国明, 索引: 9, 可用记录数: 15
+2025-04-22 14:35:06,678 - core.password - INFO - 查询密码ID - 项目: slave, IP: 192.168.8.88, 账号: root
+2025-04-22 14:35:06,735 - core.password - INFO - 通过精确匹配找到密码ID: 302
+2025-04-22 14:35:06,736 - core.data_storage - INFO - 查询密码历史记录 - 密码ID: 302, 页码: 1, 每页记录数: 10
+2025-04-22 14:35:06,737 - core.data_storage - INFO - 开始时间: 2025-03-22 14:35:06
+2025-04-22 14:35:06,737 - core.data_storage - INFO - 结束时间: 2025-04-22 14:35:06
+2025-04-22 14:35:06,738 - core.data_storage - INFO - IP地址: 192.168.8.88
+2025-04-22 14:35:06,854 - core.data_storage - WARNING - 密码ID 302 在历史记录中不存在，尝试使用IP地址 192.168.8.88 查询
+2025-04-22 14:35:06,894 - core.data_storage - INFO - 发现IP地址 192.168.8.88 对应的历史密码ID: 257, 287
+2025-04-22 14:35:06,934 - core.data_storage - INFO - 符合条件的总记录数: 2
+2025-04-22 14:35:06,974 - core.data_storage - INFO - 查询到 2 条历史记录
+2025-04-22 14:35:06,974 - core.data_storage - INFO - 第一条记录: {'id': 45, 'password_id': 287, 'old_password': '?kmYM!Tr4D*&6wFG', 'new_password': '<RuN8xCb1F!tHIBV', 'ip_address': '192.168.8.88', 'modify_user': 'admin', 'modify_reason': 'SSH同步', 'modify_time': datetime.datetime(2025, 4, 22, 14, 34, 59)}
+2025-04-22 14:35:06,975 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 历史记录查询结果 - 总记录数: 2, 当前页记录数: 2
+2025-04-22 14:35:06,975 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - populate_table开始填充表格，记录数：2
+2025-04-22 14:35:06,976 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 第一条记录内容: {'id': 45, 'password_id': 287, 'old_password': '?kmYM!Tr4D*&6wFG', 'new_password': '<RuN8xCb1F!tHIBV', 'ip_address': '192.168.8.88', 'modify_user': 'admin', 'modify_reason': 'SSH同步', 'modify_time': datetime.datetime(2025, 4, 22, 14, 34, 59)}
+2025-04-22 14:35:29,017 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 5, 选中行数: 1, 选中行: [1]
+2025-04-22 14:35:29,018 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-22 14:35:29,018 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-22 14:35:29,019 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-22 14:35:29,019 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-22 14:35:29,020 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-22 14:35:31,150 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 1
+2025-04-22 14:35:31,151 - ui.password_manager.ui_table.table_edit - INFO - 已禁用表格排序功能，防止编辑过程中行位置变化
+2025-04-22 14:35:31,151 - ui.password_manager.ui_table.table_edit - INFO - 已阻止表头点击事件，防止用户手动点击表头排序
+2025-04-22 14:35:31,158 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 1 的编辑模式
+2025-04-22 14:35:34,247 - ui.password_manager.ui_table.table_edit - INFO - 确认编辑 - 第1行
+2025-04-22 14:35:34,310 - ui.password_manager.ui_table.table_edit - INFO - 后台线程：编辑现有记录 0
+2025-04-22 14:35:34,311 - ui.password_manager.ui_table.table_edit - INFO - 通过原始数据比较找到匹配记录，真实索引: 0
+2025-04-22 14:35:34,312 - ui.password_manager.ui_table.table_edit - INFO - 后台线程：更新记录：所有者=徐国明, 真实索引=0
+2025-04-22 14:35:34,312 - core.password - INFO - 更新密码记录 - 所有者: 徐国明, 索引: 0, 项目: master, 跳过服务器同步: 是
+2025-04-22 14:35:34,313 - core.password - INFO - 跳过SSH密码更新步骤 - 项目: master
+2025-04-22 14:35:35,224 - core.password - INFO - 更新所有者 徐国明 的密码记录成功 (跳过服务器同步)
+2025-04-22 14:35:35,224 - ui.password_manager.ui_table.table_edit - INFO - 后台保存操作耗时: 0.915秒
+2025-04-22 14:35:35,224 - ui.password_manager.ui_table.table_edit - INFO - 对话框已显示 0.98 秒，立即更新
+2025-04-22 14:35:35,225 - ui.password_manager.ui_table.table_edit - INFO - 更新对话框内容为保存成功状态
+2025-04-22 14:35:35,230 - ui.password_manager.ui_table.table_edit - INFO - 对话框已成功更新为完成状态
+2025-04-22 14:35:38,234 - ui.password_manager.ui_table.table_edit - WARNING - 强制关闭对话框
+2025-04-22 14:35:38,234 - ui.password_manager.ui_table.table_edit - INFO - 编辑成功
+2025-04-22 14:35:38,235 - ui.password_manager.ui_table.table_edit - INFO - 已恢复表格排序功能，原始状态: True
+2025-04-22 14:35:38,235 - ui.password_manager.ui_table.table_edit - INFO - 已恢复表头点击事件，原始阻塞状态: False
+2025-04-22 14:35:38,236 - ui.password_manager.ui_table.table_edit - INFO - 重新加载所有密码数据
+2025-04-22 14:35:38,251 - ui.password_manager.ui_table.table_edit - INFO - 编辑操作完成，已恢复表格选择模式
+2025-04-22 14:35:38,251 - ui.password_manager.ui_table.table_edit - INFO - 已完成 编辑 操作的清理
+2025-04-22 14:38:10,180 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 5, 选中行数: 1, 选中行: [1]
+2025-04-22 14:38:10,180 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-04-22 14:38:10,181 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-04-22 14:38:10,182 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-04-22 14:38:10,182 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-04-22 14:38:10,182 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-04-22 14:38:11,737 - ui.password_manager.ui_table.table_events - INFO - 查看密码历史记录 - 所有者: 徐国明, 行索引: 0
+2025-04-22 14:38:11,743 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 开始加载历史数据 - 所有者: 徐国明, 行索引: 0
+2025-04-22 14:38:11,744 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 时间范围: 2025-03-22 14:38:11 至 2025-04-22 14:38:11
+2025-04-22 14:38:11,744 - core.password - INFO - 查询密码历史记录 - 所有者: 徐国明, IP地址: 192.168.8.87
+2025-04-22 14:38:11,744 - core.password - INFO - _get_password_id - 所有者: 徐国明, 索引: 0, 可用记录数: 15
+2025-04-22 14:38:11,745 - core.password - INFO - 查询密码ID - 项目: master, IP: 192.168.8.87, 账号: root
+2025-04-22 14:38:11,775 - core.password - INFO - 通过精确匹配找到密码ID: 308
+2025-04-22 14:38:11,776 - core.data_storage - INFO - 查询密码历史记录 - 密码ID: 308, 页码: 1, 每页记录数: 10
+2025-04-22 14:38:11,776 - core.data_storage - INFO - 开始时间: 2025-03-22 14:38:11
+2025-04-22 14:38:11,776 - core.data_storage - INFO - 结束时间: 2025-04-22 14:38:11
+2025-04-22 14:38:11,776 - core.data_storage - INFO - IP地址: 192.168.8.87
+2025-04-22 14:38:11,896 - core.data_storage - WARNING - 密码ID 308 在历史记录中不存在，尝试使用IP地址 192.168.8.87 查询
+2025-04-22 14:38:11,935 - core.data_storage - INFO - 发现IP地址 192.168.8.87 对应的历史密码ID: 233, 263
+2025-04-22 14:38:11,975 - core.data_storage - INFO - 符合条件的总记录数: 2
+2025-04-22 14:38:12,015 - core.data_storage - INFO - 查询到 2 条历史记录
+2025-04-22 14:38:12,015 - core.data_storage - INFO - 第一条记录: {'id': 44, 'password_id': 263, 'old_password': 'w+pE8M+h_IZiRGwH', 'new_password': 'QCi8=eI71RKu#eRc', 'ip_address': '192.168.8.87', 'modify_user': 'admin', 'modify_reason': 'SSH同步', 'modify_time': datetime.datetime(2025, 4, 22, 14, 34, 10)}
+2025-04-22 14:38:12,016 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 历史记录查询结果 - 总记录数: 2, 当前页记录数: 2
+2025-04-22 14:38:12,016 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - populate_table开始填充表格，记录数：2
+2025-04-22 14:38:12,017 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 第一条记录内容: {'id': 44, 'password_id': 263, 'old_password': 'w+pE8M+h_IZiRGwH', 'new_password': 'QCi8=eI71RKu#eRc', 'ip_address': '192.168.8.87', 'modify_user': 'admin', 'modify_reason': 'SSH同步', 'modify_time': datetime.datetime(2025, 4, 22, 14, 34, 10)}

@@ -2419,5 +2419,50 @@
     "target": "用户登出",
     "details": "用户登出系统",
     "log_type": "login"
+  },
+  {
+    "timestamp": "2025-04-22T14:25:56.763985",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "login"
+  },
+  {
+    "timestamp": "2025-04-22T14:26:28.956478",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "login"
+  },
+  {
+    "timestamp": "2025-04-22T14:26:33.894428",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "login"
+  },
+  {
+    "timestamp": "2025-04-22T14:33:23.801854",
+    "user": "admin",
+    "operation": "login",
+    "result": "success",
+    "target": "用户登录",
+    "details": "用户登录成功",
+    "log_type": "login"
+  },
+  {
+    "timestamp": "2025-04-22T14:33:39.721795",
+    "user": "admin",
+    "operation": "logout",
+    "result": "success",
+    "target": "用户登出",
+    "details": "用户登出系统",
+    "log_type": "login"
   }
 ]

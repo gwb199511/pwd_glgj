@@ -89,6 +89,14 @@ class UserSettings:
             if not self._settings:
                 self._settings = self._get_default_settings()
                 self._save_settings_immediately()
+                
+            # DEBUG: 打印加载的设置
+            import json
+            logger.debug(f"从数据库加载了设置: {json.dumps(self._settings, ensure_ascii=False)}")
+            if "guides" in self._settings:
+                logger.debug(f"guides设置: {json.dumps(self._settings['guides'], ensure_ascii=False)}")
+            else:
+                logger.debug("没有找到guides设置")
         except Exception as e:
             logger.error(f"加载用户设置时出错: {str(e)}")
             self._settings = self._get_default_settings()
@@ -167,6 +175,7 @@ class UserSettings:
             # 引导设置
             "guides": {
                 "password_update_guided": False,  # 密码更新引导是否已完成
+                "main_features_guided": False,    # 主界面功能引导是否已完成
             },
             # 界面设置
             "ui": {
@@ -317,16 +326,35 @@ class UserSettings:
         self.set_batch(settings, immediate=True)
         logger.info(f"已完成引导步骤: {', '.join(guide_keys)}")
         
-    def mark_guide_completed(self, guide_key: str, immediate: bool = False) -> None:
+    def mark_guide_completed(self, guide_key: str, immediate: bool = True) -> None:
         """
         标记引导步骤为已完成
         
         Args:
             guide_key (str): 引导键名
-            immediate (bool): 是否立即保存，默认为False（延迟保存）
+            immediate (bool): 是否立即保存，默认为True（立即保存）
         """
         guided_key = f"{guide_key}_guided"
-        self.set(f"guides.{guided_key}", True, immediate=immediate)
+        setting_key = f"guides.{guided_key}"
+        
+        # 确保值能够立即应用到内存设置中
+        parts = setting_key.split('.')
+        config = self._settings
+        for i, part in enumerate(parts[:-1]):
+            if part not in config:
+                config[part] = {}
+            config = config[part]
+            
+        # 设置最后一级的值
+        config[parts[-1]] = True
+        
+        # 通过set方法设置值以保存到数据库
+        self.set(setting_key, True, immediate=immediate)
+        
+        # 如果需要立即保存，强制刷新更改
+        if immediate:
+            self.flush_all_changes()
+            
         logger.info(f"已标记引导步骤 {guide_key} 为已完成")
         
     def mark_multiple_guides_completed(self, guide_keys: list) -> None:
@@ -344,17 +372,37 @@ class UserSettings:
         """
         try:
             # 使用数据库用户设置模块的重置方法
-            db_user_settings.reset_guides(self._current_user)
+            result = db_user_settings.reset_guides(self._current_user)
             
-            # 同时更新本地缓存
-            if "guides" in self._settings:
-                for key in self._settings["guides"]:
-                    if key.endswith("_guided"):
-                        self._settings["guides"][key] = False
-            
-            logger.info("已重置所有引导状态")
+            if result:
+                # 同时更新本地缓存
+                if "guides" in self._settings:
+                    for key in list(self._settings["guides"].keys()):
+                        if key.endswith("_guided"):
+                            self._settings["guides"][key] = False
+                
+                # 清除所有待处理的变更
+                with self._save_lock:
+                    # 清除所有guides相关的待处理更改
+                    keys_to_remove = []
+                    for key in self._pending_changes:
+                        if key.startswith("guides.") and key.endswith("_guided"):
+                            keys_to_remove.append(key)
+                    
+                    for key in keys_to_remove:
+                        del self._pending_changes[key]
+                
+                # 强制重新加载设置以确保与数据库同步
+                self._load_settings()
+                
+                logger.info("已成功重置所有引导状态")
+            else:
+                logger.warning("重置引导状态可能未完全成功")
         except Exception as e:
             logger.error(f"重置引导状态时出错: {str(e)}")
+            
+        # 无论是否成功，都刷新一次缓存
+        self.flush_all_changes()
     
     def set_current_user(self, username: str) -> None:
         """

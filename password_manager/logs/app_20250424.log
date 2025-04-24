@@ -155,3 +155,669 @@
 2025-04-24 11:07:04,334 - core.user_settings - INFO - 已标记引导步骤 main_features 为已完成
 2025-04-24 11:07:04,335 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
 2025-04-24 11:07:05,831 - core.user - INFO - 用户已登出
+2025-04-24 14:40:37,798 - root - INFO - 密码管理系统启动
+2025-04-24 14:40:37,798 - root - INFO - 初始化用户设置模块...
+2025-04-24 14:40:37,798 - root - INFO - 用户设置模块已初始化
+2025-04-24 14:40:37,861 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 14:40:38,951 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 14:40:38,952 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 14:40:38,982 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 14:40:39,001 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 14:40:39,002 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 14:40:39,052 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 14:40:39,099 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 14:40:39,657 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 14:40:40,739 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-24 14:40:40,740 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 0 张图片
+2025-04-24 14:40:40,848 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/7
+2025-04-24 14:40:43,566 - core.user_settings - INFO - 已标记引导步骤 main_features 为已完成
+2025-04-24 14:40:43,567 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-24 14:40:52,936 - core.user - INFO - 用户已登出
+2025-04-24 14:40:56,147 - root - INFO - 密码管理系统启动
+2025-04-24 14:40:56,148 - root - INFO - 初始化用户设置模块...
+2025-04-24 14:40:56,148 - root - INFO - 用户设置模块已初始化
+2025-04-24 14:40:56,198 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 14:40:57,522 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 14:40:57,522 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 14:40:57,552 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 14:40:57,601 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 14:40:57,602 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 14:40:57,651 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 14:40:57,691 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 14:40:58,261 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 14:40:59,352 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-24 14:40:59,352 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 0 张图片
+2025-04-24 14:40:59,456 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/7
+2025-04-24 14:41:00,307 - core.user_settings - INFO - 已标记引导步骤 main_features 为已完成
+2025-04-24 14:41:00,307 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-24 14:41:01,208 - core.user - INFO - 用户已登出
+2025-04-24 14:41:01,258 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 14:41:08,958 - root - INFO - 密码管理系统启动
+2025-04-24 14:41:08,958 - root - INFO - 初始化用户设置模块...
+2025-04-24 14:41:08,959 - root - INFO - 用户设置模块已初始化
+2025-04-24 14:41:09,022 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 14:41:10,052 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 14:41:10,052 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 14:41:10,083 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 14:41:10,131 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 14:41:10,132 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 14:41:10,181 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 14:41:10,215 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 14:41:10,764 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 14:41:11,843 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-24 14:41:11,844 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 0 张图片
+2025-04-24 14:41:11,949 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/7
+2025-04-24 14:41:13,037 - core.user_settings - INFO - 已标记引导步骤 main_features 为已完成
+2025-04-24 14:41:13,038 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-24 14:41:15,228 - core.user - INFO - 用户已登出
+2025-04-24 14:41:22,688 - root - INFO - 密码管理系统启动
+2025-04-24 14:41:22,689 - root - INFO - 初始化用户设置模块...
+2025-04-24 14:41:22,689 - root - INFO - 用户设置模块已初始化
+2025-04-24 14:41:22,751 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 14:41:31,722 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 14:41:31,722 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 14:41:31,782 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 14:41:31,782 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 14:41:31,782 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 14:41:31,831 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 14:41:31,874 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 14:41:32,471 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 14:41:33,553 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-24 14:41:33,554 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 0 张图片
+2025-04-24 14:41:33,661 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/7
+2025-04-24 14:41:35,509 - core.user - INFO - 用户已登出
+2025-04-24 14:44:48,856 - root - INFO - 密码管理系统启动
+2025-04-24 14:44:48,857 - root - INFO - 初始化用户设置模块...
+2025-04-24 14:44:48,857 - root - INFO - 用户设置模块已初始化
+2025-04-24 14:44:48,912 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 14:44:49,892 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 14:44:49,892 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 14:44:49,982 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 14:44:49,982 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 14:44:49,996 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 14:44:50,012 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 14:44:50,048 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 14:44:50,651 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 14:44:51,739 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-24 14:44:51,739 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 0 张图片
+2025-04-24 14:44:51,847 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/7
+2025-04-24 14:44:52,743 - core.user_settings - INFO - 已标记引导步骤 main_features 为已完成
+2025-04-24 14:44:52,744 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-24 14:44:56,258 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-24 14:44:56,259 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 0 张图片
+2025-04-24 14:44:56,363 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/7
+2025-04-24 14:44:57,938 - core.user_settings - INFO - 已标记引导步骤 main_features 为已完成
+2025-04-24 14:44:57,939 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-24 14:45:00,451 - core.user - INFO - 用户已登出
+2025-04-24 14:45:03,543 - root - INFO - 密码管理系统启动
+2025-04-24 14:45:03,543 - root - INFO - 初始化用户设置模块...
+2025-04-24 14:45:03,544 - root - INFO - 用户设置模块已初始化
+2025-04-24 14:45:03,623 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 14:45:05,352 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 14:45:05,352 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 14:45:05,407 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 14:45:05,482 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 14:45:05,482 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 14:45:05,532 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 14:45:05,572 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 14:45:06,164 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 14:45:07,238 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-24 14:45:07,239 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 0 张图片
+2025-04-24 14:45:07,346 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/7
+2025-04-24 14:45:11,885 - core.user_settings - INFO - 已标记引导步骤 main_features 为已完成
+2025-04-24 14:45:11,886 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-24 14:45:13,252 - core.user - INFO - 用户已登出
+2025-04-24 14:46:50,553 - root - INFO - 密码管理系统启动
+2025-04-24 14:46:50,554 - root - INFO - 初始化用户设置模块...
+2025-04-24 14:46:50,554 - root - INFO - 用户设置模块已初始化
+2025-04-24 14:46:50,676 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 14:46:53,213 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 14:46:53,213 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 14:46:53,251 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 14:46:53,272 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 14:46:53,272 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 14:46:53,334 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 14:46:53,377 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 14:46:53,970 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 14:46:55,048 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-24 14:46:55,049 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 0 张图片
+2025-04-24 14:46:55,156 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/7
+2025-04-24 14:46:56,550 - core.user_settings - INFO - 已标记引导步骤 main_features 为已完成
+2025-04-24 14:46:56,550 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-24 14:46:57,634 - core.user - INFO - 用户已登出
+2025-04-24 14:47:14,849 - root - INFO - 密码管理系统启动
+2025-04-24 14:47:14,849 - root - INFO - 初始化用户设置模块...
+2025-04-24 14:47:14,850 - root - INFO - 用户设置模块已初始化
+2025-04-24 14:47:14,952 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 14:47:18,392 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 14:47:18,393 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 14:47:18,426 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 14:47:18,473 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 14:47:18,473 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 14:47:18,532 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 14:47:18,580 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 14:47:19,231 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 14:47:20,316 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-24 14:47:20,316 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 0 张图片
+2025-04-24 14:47:20,425 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/7
+2025-04-24 14:47:22,694 - core.user_settings - INFO - 已标记引导步骤 main_features 为已完成
+2025-04-24 14:47:22,694 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-24 14:47:23,669 - core.user - INFO - 用户已登出
+2025-04-24 14:48:38,170 - root - INFO - 密码管理系统启动
+2025-04-24 14:48:38,171 - root - INFO - 初始化用户设置模块...
+2025-04-24 14:48:38,171 - root - INFO - 用户设置模块已初始化
+2025-04-24 14:48:38,273 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 14:48:54,363 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 14:48:54,364 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 14:48:54,400 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 14:48:54,463 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 14:48:54,463 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 14:48:54,513 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 14:48:54,569 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 14:48:55,206 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 14:48:56,300 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-24 14:48:56,301 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 0 张图片
+2025-04-24 14:48:56,407 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/7
+2025-04-24 14:48:57,490 - core.user_settings - INFO - 已标记引导步骤 main_features 为已完成
+2025-04-24 14:48:57,491 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-24 14:48:58,484 - core.user - INFO - 用户已登出
+2025-04-24 14:49:09,149 - root - INFO - 密码管理系统启动
+2025-04-24 14:49:09,150 - root - INFO - 初始化用户设置模块...
+2025-04-24 14:49:09,150 - root - INFO - 用户设置模块已初始化
+2025-04-24 14:49:09,252 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 14:49:11,532 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 14:49:11,533 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 14:49:11,633 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 14:49:11,633 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 14:49:11,653 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 14:49:11,679 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 14:49:11,701 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 14:49:12,288 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 14:49:13,353 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-24 14:49:13,354 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 0 张图片
+2025-04-24 14:49:13,459 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/7
+2025-04-24 14:49:14,771 - core.user_settings - INFO - 已标记引导步骤 main_features 为已完成
+2025-04-24 14:49:14,771 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-24 14:49:15,644 - core.user - INFO - 用户已登出
+2025-04-24 14:52:23,181 - root - INFO - 密码管理系统启动
+2025-04-24 14:52:23,182 - root - INFO - 初始化用户设置模块...
+2025-04-24 14:52:23,182 - root - INFO - 用户设置模块已初始化
+2025-04-24 14:52:23,342 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 14:52:29,003 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 14:52:29,003 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 14:52:29,055 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 14:52:29,069 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 14:52:29,070 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 14:52:29,113 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 14:52:29,174 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 14:52:29,840 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 14:52:31,025 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-04-24 14:52:34,837 - core.user - INFO - 用户已登出
+2025-04-24 14:53:48,441 - root - INFO - 密码管理系统启动
+2025-04-24 14:53:48,441 - root - INFO - 初始化用户设置模块...
+2025-04-24 14:53:48,441 - root - INFO - 用户设置模块已初始化
+2025-04-24 14:53:48,543 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 14:53:56,714 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 14:53:56,715 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 14:53:56,823 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 14:53:56,823 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 14:53:56,853 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 14:53:56,853 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 14:53:56,915 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 14:53:57,591 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 14:53:58,690 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-04-24 14:54:05,435 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-24 14:54:05,437 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 0 张图片
+2025-04-24 14:54:05,542 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/7
+2025-04-24 14:54:06,613 - core.user_settings - INFO - 已标记引导步骤 main_features 为已完成
+2025-04-24 14:54:06,613 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-24 14:54:09,543 - core.user_settings - INFO - 已重置所有引导状态
+2025-04-24 14:54:11,211 - core.user - INFO - 用户已登出
+2025-04-24 14:55:03,477 - root - INFO - 密码管理系统启动
+2025-04-24 14:55:03,478 - root - INFO - 初始化用户设置模块...
+2025-04-24 14:55:03,478 - root - INFO - 用户设置模块已初始化
+2025-04-24 14:55:03,573 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 14:55:06,623 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 14:55:06,623 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 14:55:06,655 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 14:55:06,707 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 14:55:06,708 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 14:55:06,754 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 14:55:06,803 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 14:55:07,413 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 14:55:08,553 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 未完成
+2025-04-24 14:55:08,554 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: False
+2025-04-24 14:55:08,554 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-04-24 14:55:08,556 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-24 14:55:08,557 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 0 张图片
+2025-04-24 14:55:08,559 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 成功
+2025-04-24 14:55:08,661 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/7
+2025-04-24 14:55:17,039 - core.user_settings - INFO - 已标记引导步骤 main_features 为已完成
+2025-04-24 14:55:17,039 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-24 14:55:18,041 - core.user - INFO - 用户已登出
+2025-04-24 14:55:29,692 - root - INFO - 密码管理系统启动
+2025-04-24 14:55:29,693 - root - INFO - 初始化用户设置模块...
+2025-04-24 14:55:29,693 - root - INFO - 用户设置模块已初始化
+2025-04-24 14:55:29,793 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 14:55:31,924 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 14:55:31,925 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 14:55:32,035 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 14:55:32,035 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 14:55:32,036 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 14:55:32,093 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 14:55:32,133 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 14:55:32,748 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 14:55:33,820 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 未完成
+2025-04-24 14:55:33,820 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: False
+2025-04-24 14:55:33,833 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-04-24 14:55:33,835 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-24 14:55:33,835 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 0 张图片
+2025-04-24 14:55:33,837 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 成功
+2025-04-24 14:55:33,939 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/7
+2025-04-24 14:55:35,533 - core.user_settings - INFO - 已标记引导步骤 main_features 为已完成
+2025-04-24 14:55:35,533 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-24 14:55:37,257 - core.user - INFO - 用户已登出
+2025-04-24 14:56:33,780 - root - INFO - 密码管理系统启动
+2025-04-24 14:56:33,780 - root - INFO - 初始化用户设置模块...
+2025-04-24 14:56:33,780 - root - INFO - 用户设置模块已初始化
+2025-04-24 14:56:33,865 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 14:56:35,143 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 14:56:35,144 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 14:56:35,189 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 14:56:35,206 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 14:56:35,206 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 14:56:35,264 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 14:56:35,310 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 14:56:35,981 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 14:56:37,086 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 已完成
+2025-04-24 14:56:37,086 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-04-24 14:56:37,087 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-04-24 14:56:37,087 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-04-24 14:56:37,087 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 失败或已跳过
+2025-04-24 14:56:39,600 - core.user - INFO - 用户已登出
+2025-04-24 14:57:25,050 - root - INFO - 密码管理系统启动
+2025-04-24 14:57:25,050 - root - INFO - 初始化用户设置模块...
+2025-04-24 14:57:25,051 - root - INFO - 用户设置模块已初始化
+2025-04-24 14:57:25,153 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 14:57:26,255 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 14:57:26,255 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 14:57:26,288 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 14:57:26,353 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 14:57:26,354 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 14:57:26,404 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 14:57:26,449 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 14:57:27,052 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 14:57:28,131 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 已完成
+2025-04-24 14:57:28,131 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-04-24 14:57:28,132 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-04-24 14:57:28,132 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-04-24 14:57:28,133 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 失败或已跳过
+2025-04-24 14:57:30,364 - core.user - INFO - 用户已登出
+2025-04-24 14:58:46,349 - root - INFO - 密码管理系统启动
+2025-04-24 14:58:46,349 - root - INFO - 初始化用户设置模块...
+2025-04-24 14:58:46,349 - root - INFO - 用户设置模块已初始化
+2025-04-24 14:58:46,453 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 14:58:47,793 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 14:58:47,793 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 14:58:47,825 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 14:58:47,873 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 14:58:47,874 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 14:58:47,924 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 14:58:47,968 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 14:58:48,615 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 14:58:49,707 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 未完成
+2025-04-24 14:58:49,707 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: False
+2025-04-24 14:58:49,708 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-04-24 14:58:49,709 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-24 14:58:49,710 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 0 张图片
+2025-04-24 14:58:49,712 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 成功
+2025-04-24 14:58:49,819 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/7
+2025-04-24 14:58:51,614 - core.user_settings - INFO - 已标记引导步骤 main_features 为已完成
+2025-04-24 14:58:51,614 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-24 14:58:52,787 - core.user - INFO - 用户已登出
+2025-04-24 14:59:21,002 - root - INFO - 密码管理系统启动
+2025-04-24 14:59:21,003 - root - INFO - 初始化用户设置模块...
+2025-04-24 14:59:21,003 - root - INFO - 用户设置模块已初始化
+2025-04-24 14:59:21,126 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 14:59:22,684 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 14:59:22,685 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 14:59:22,746 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 14:59:22,747 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 14:59:22,747 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 14:59:22,773 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 14:59:22,835 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 14:59:23,523 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 14:59:24,615 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 已完成
+2025-04-24 14:59:24,616 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-04-24 14:59:24,616 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-04-24 14:59:24,617 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-04-24 14:59:24,617 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 失败或已跳过
+2025-04-24 14:59:26,432 - core.user - INFO - 用户已登出
+2025-04-24 14:59:46,791 - root - INFO - 密码管理系统启动
+2025-04-24 14:59:46,792 - root - INFO - 初始化用户设置模块...
+2025-04-24 14:59:46,792 - root - INFO - 用户设置模块已初始化
+2025-04-24 14:59:46,853 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 14:59:48,024 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 14:59:48,025 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 14:59:48,083 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 14:59:48,083 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 14:59:48,136 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 14:59:48,177 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 14:59:48,193 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 14:59:48,787 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 14:59:49,864 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 已完成
+2025-04-24 14:59:49,865 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-04-24 14:59:49,865 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-04-24 14:59:49,866 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-04-24 14:59:49,866 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 失败或已跳过
+2025-04-24 15:00:24,023 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-04-24 15:00:24,023 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: True
+2025-04-24 15:00:24,025 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-24 15:00:24,025 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 0 张图片
+2025-04-24 15:00:24,131 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/7
+2025-04-24 15:00:25,283 - core.user_settings - INFO - 已标记引导步骤 main_features 为已完成
+2025-04-24 15:00:25,283 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-24 15:00:28,214 - core.user_settings - INFO - 已重置所有引导状态
+2025-04-24 15:00:32,879 - core.user - INFO - 用户已登出
+2025-04-24 15:00:35,953 - root - INFO - 密码管理系统启动
+2025-04-24 15:00:35,954 - root - INFO - 初始化用户设置模块...
+2025-04-24 15:00:35,954 - root - INFO - 用户设置模块已初始化
+2025-04-24 15:00:36,034 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 15:00:37,443 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 15:00:37,444 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 15:00:37,532 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 15:00:37,533 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 15:00:37,554 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 15:00:37,564 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 15:00:37,666 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 15:00:38,296 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 15:00:39,379 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 未完成
+2025-04-24 15:00:39,380 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: False
+2025-04-24 15:00:39,380 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-04-24 15:00:39,382 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-24 15:00:39,383 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 0 张图片
+2025-04-24 15:00:39,385 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 成功
+2025-04-24 15:00:39,489 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/7
+2025-04-24 15:00:41,044 - core.user_settings - INFO - 已标记引导步骤 main_features 为已完成
+2025-04-24 15:00:41,044 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-24 15:00:43,895 - core.user - INFO - 用户已登出
+2025-04-24 15:00:47,910 - root - INFO - 密码管理系统启动
+2025-04-24 15:00:47,910 - root - INFO - 初始化用户设置模块...
+2025-04-24 15:00:47,911 - root - INFO - 用户设置模块已初始化
+2025-04-24 15:00:48,034 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 15:00:50,475 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 15:00:50,475 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 15:00:50,509 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 15:00:50,534 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 15:00:50,535 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 15:00:50,584 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 15:00:50,636 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 15:00:51,187 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 15:00:52,264 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 已完成
+2025-04-24 15:00:52,265 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-04-24 15:00:52,266 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-04-24 15:00:52,266 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-04-24 15:00:52,266 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 失败或已跳过
+2025-04-24 15:00:58,875 - core.user_settings - INFO - 已重置所有引导状态
+2025-04-24 15:01:00,752 - core.user - INFO - 用户已登出
+2025-04-24 15:01:03,900 - root - INFO - 密码管理系统启动
+2025-04-24 15:01:03,901 - root - INFO - 初始化用户设置模块...
+2025-04-24 15:01:03,901 - root - INFO - 用户设置模块已初始化
+2025-04-24 15:01:03,940 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 15:01:12,007 - root - INFO - 密码管理系统启动
+2025-04-24 15:01:12,008 - root - INFO - 初始化用户设置模块...
+2025-04-24 15:01:12,008 - root - INFO - 用户设置模块已初始化
+2025-04-24 15:01:12,054 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 15:01:13,163 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 15:01:13,164 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 15:01:13,223 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 15:01:13,284 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 15:01:13,285 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 15:01:13,344 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 15:01:13,385 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 15:01:13,974 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 15:01:15,049 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 已完成
+2025-04-24 15:01:15,050 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-04-24 15:01:15,050 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-04-24 15:01:15,051 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-04-24 15:01:15,051 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 失败或已跳过
+2025-04-24 15:01:18,553 - core.user_settings - INFO - 已重置所有引导状态
+2025-04-24 15:01:24,331 - core.user - INFO - 用户已登出
+2025-04-24 15:01:29,571 - root - INFO - 密码管理系统启动
+2025-04-24 15:01:29,571 - root - INFO - 初始化用户设置模块...
+2025-04-24 15:01:29,572 - root - INFO - 用户设置模块已初始化
+2025-04-24 15:01:29,654 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 15:01:30,684 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 15:01:30,684 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 15:01:30,737 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 15:01:30,745 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 15:01:30,745 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 15:01:30,798 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 15:01:30,843 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 15:01:31,393 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 15:01:32,491 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 已完成
+2025-04-24 15:01:32,492 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-04-24 15:01:32,492 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-04-24 15:01:32,493 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-04-24 15:01:32,493 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 失败或已跳过
+2025-04-24 15:01:34,146 - core.user - INFO - 用户已登出
+2025-04-24 15:04:39,640 - root - INFO - 密码管理系统启动
+2025-04-24 15:04:39,640 - root - INFO - 初始化用户设置模块...
+2025-04-24 15:04:39,640 - root - INFO - 用户设置模块已初始化
+2025-04-24 15:04:39,704 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 15:04:40,753 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 15:04:40,755 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 15:04:40,847 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 15:04:40,847 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 15:04:40,868 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 15:04:40,885 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 15:04:40,941 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 15:04:41,549 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 15:04:42,647 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 未完成
+2025-04-24 15:04:42,648 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: False
+2025-04-24 15:04:42,648 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-04-24 15:04:42,651 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-24 15:04:42,651 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 0 张图片
+2025-04-24 15:04:42,653 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 成功
+2025-04-24 15:04:42,755 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/7
+2025-04-24 15:04:43,956 - core.user_settings - INFO - 已标记引导步骤 main_features 为已完成
+2025-04-24 15:04:43,956 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-24 15:04:45,034 - core.user - INFO - 用户已登出
+2025-04-24 15:04:48,163 - root - INFO - 密码管理系统启动
+2025-04-24 15:04:48,164 - root - INFO - 初始化用户设置模块...
+2025-04-24 15:04:48,164 - root - INFO - 用户设置模块已初始化
+2025-04-24 15:04:48,244 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 15:04:49,294 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 15:04:49,294 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 15:04:49,389 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 15:04:49,390 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 15:04:49,405 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 15:04:49,415 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 15:04:49,463 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 15:04:50,067 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 15:04:51,145 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 已完成
+2025-04-24 15:04:51,146 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-04-24 15:04:51,146 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-04-24 15:04:51,147 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-04-24 15:04:51,147 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 失败或已跳过
+2025-04-24 15:04:52,795 - core.user - INFO - 用户已登出
+2025-04-24 15:16:48,160 - root - INFO - 密码管理系统启动
+2025-04-24 15:16:48,161 - root - INFO - 初始化用户设置模块...
+2025-04-24 15:16:48,161 - root - INFO - 用户设置模块已初始化
+2025-04-24 15:16:48,227 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 15:16:49,815 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 15:16:49,815 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 15:16:49,914 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 15:16:49,914 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 15:16:49,935 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 15:16:49,936 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 15:16:49,979 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 15:16:50,554 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 15:16:51,628 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 已完成
+2025-04-24 15:16:51,628 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-04-24 15:16:51,629 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-04-24 15:16:51,629 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-04-24 15:16:51,630 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 失败或已跳过
+2025-04-24 15:16:53,565 - core.db_user_settings - INFO - 开始重置用户 admin 的引导状态...
+2025-04-24 15:16:53,655 - core.db_user_settings - INFO - 已重置引导设置 guides.password_update_guided，影响行数: []
+2025-04-24 15:16:53,745 - core.db_user_settings - INFO - 已重置引导设置 guides.main_features_guided，影响行数: []
+2025-04-24 15:16:53,785 - core.db_user_settings - INFO - 用户 admin 的所有引导状态已重置
+2025-04-24 15:16:53,825 - core.user_settings - INFO - 已成功重置所有引导状态
+2025-04-24 15:16:56,251 - core.user - INFO - 用户已登出
+2025-04-24 15:16:56,305 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 15:17:02,714 - root - INFO - 密码管理系统启动
+2025-04-24 15:17:02,715 - root - INFO - 初始化用户设置模块...
+2025-04-24 15:17:02,715 - root - INFO - 用户设置模块已初始化
+2025-04-24 15:17:02,755 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 15:17:03,845 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 15:17:03,846 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 15:17:03,877 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 15:17:03,925 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 15:17:03,925 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 15:17:03,975 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 15:17:04,012 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 15:17:04,586 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 15:17:05,668 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 未完成
+2025-04-24 15:17:05,669 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: False
+2025-04-24 15:17:05,669 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-04-24 15:17:05,671 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-04-24 15:17:05,671 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 0 张图片
+2025-04-24 15:17:05,673 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 成功
+2025-04-24 15:17:05,777 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/7
+2025-04-24 15:17:06,756 - core.user_settings - INFO - 已标记引导步骤 main_features 为已完成
+2025-04-24 15:17:06,756 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-04-24 15:17:11,366 - core.user - INFO - 用户已登出
+2025-04-24 15:17:15,663 - root - INFO - 密码管理系统启动
+2025-04-24 15:17:15,663 - root - INFO - 初始化用户设置模块...
+2025-04-24 15:17:15,663 - root - INFO - 用户设置模块已初始化
+2025-04-24 15:17:15,746 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 15:17:16,586 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 15:17:16,586 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 15:17:16,620 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 15:17:16,666 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 15:17:16,666 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 15:17:16,716 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 15:17:16,763 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 15:17:17,349 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 15:17:18,428 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 已完成
+2025-04-24 15:17:18,428 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-04-24 15:17:18,429 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-04-24 15:17:18,429 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-04-24 15:17:18,429 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 失败或已跳过
+2025-04-24 15:17:20,890 - core.user - INFO - 用户已登出
+2025-04-24 15:17:36,201 - root - INFO - 密码管理系统启动
+2025-04-24 15:17:36,202 - root - INFO - 初始化用户设置模块...
+2025-04-24 15:17:36,202 - root - INFO - 用户设置模块已初始化
+2025-04-24 15:17:36,286 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 15:27:38,423 - root - INFO - 密码管理系统启动
+2025-04-24 15:27:38,423 - root - INFO - 初始化用户设置模块...
+2025-04-24 15:27:38,423 - root - INFO - 用户设置模块已初始化
+2025-04-24 15:27:38,533 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 15:27:43,879 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 15:27:43,879 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 15:27:43,894 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 15:27:43,923 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 15:27:43,924 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 15:27:43,969 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 15:27:44,047 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 15:27:44,776 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 15:27:45,850 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 已完成
+2025-04-24 15:27:45,850 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-04-24 15:27:45,851 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-04-24 15:27:45,851 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-04-24 15:27:45,851 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 失败或已跳过
+2025-04-24 15:27:46,959 - core.user - INFO - 用户已登出
+2025-04-24 15:27:47,006 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 15:28:36,130 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 15:28:36,130 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 15:28:36,157 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 15:28:36,207 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 15:28:36,208 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 15:28:36,258 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 15:28:36,293 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 15:28:36,921 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 15:28:37,993 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 已完成
+2025-04-24 15:28:37,993 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-04-24 15:28:37,994 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-04-24 15:28:37,994 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-04-24 15:28:37,994 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 失败或已跳过
+2025-04-24 15:28:38,720 - core.user - INFO - 用户已登出
+2025-04-24 15:28:42,589 - root - INFO - 密码管理系统启动
+2025-04-24 15:28:42,589 - root - INFO - 初始化用户设置模块...
+2025-04-24 15:28:42,589 - root - INFO - 用户设置模块已初始化
+2025-04-24 15:28:42,677 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 15:32:56,083 - root - INFO - 密码管理系统启动
+2025-04-24 15:32:56,084 - root - INFO - 初始化用户设置模块...
+2025-04-24 15:32:56,084 - root - INFO - 用户设置模块已初始化
+2025-04-24 15:32:56,176 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 15:32:58,020 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 15:32:58,021 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 15:32:58,098 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 15:32:58,099 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 15:32:58,135 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 15:32:58,136 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 15:32:58,209 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 15:32:58,853 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 15:32:59,944 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 已完成
+2025-04-24 15:32:59,944 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-04-24 15:32:59,945 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-04-24 15:32:59,945 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-04-24 15:32:59,945 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 失败或已跳过
+2025-04-24 15:33:32,607 - core.user - INFO - 用户已登出
+2025-04-24 15:34:32,574 - root - INFO - 密码管理系统启动
+2025-04-24 15:34:32,574 - root - INFO - 初始化用户设置模块...
+2025-04-24 15:34:32,574 - root - INFO - 用户设置模块已初始化
+2025-04-24 15:34:32,679 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 15:34:33,814 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 15:34:33,814 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 15:34:33,862 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 15:34:33,868 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 15:34:33,868 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 15:34:33,933 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 15:34:33,986 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 15:34:34,556 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 15:34:35,648 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 已完成
+2025-04-24 15:34:35,648 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-04-24 15:34:35,649 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-04-24 15:34:35,649 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-04-24 15:34:35,649 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 失败或已跳过
+2025-04-24 15:34:36,984 - core.user - INFO - 用户已登出
+2025-04-24 16:15:40,167 - root - INFO - 密码管理系统启动
+2025-04-24 16:15:40,168 - root - INFO - 初始化用户设置模块...
+2025-04-24 16:15:40,168 - root - INFO - 用户设置模块已初始化
+2025-04-24 16:15:40,271 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 16:15:43,691 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 16:15:43,692 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 16:15:43,729 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 16:15:43,795 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 16:15:43,796 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 16:15:43,842 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 16:15:43,881 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 16:15:44,444 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 16:15:45,508 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 已完成
+2025-04-24 16:15:45,508 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-04-24 16:15:45,509 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-04-24 16:15:45,509 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-04-24 16:15:45,509 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 失败或已跳过
+2025-04-24 16:15:46,128 - core.user - INFO - 用户已登出
+2025-04-24 16:17:22,057 - root - INFO - 密码管理系统启动
+2025-04-24 16:17:22,057 - root - INFO - 初始化用户设置模块...
+2025-04-24 16:17:22,058 - root - INFO - 用户设置模块已初始化
+2025-04-24 16:17:22,141 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 16:17:41,428 - root - INFO - 密码管理系统启动
+2025-04-24 16:17:41,429 - root - INFO - 初始化用户设置模块...
+2025-04-24 16:17:41,429 - root - INFO - 用户设置模块已初始化
+2025-04-24 16:17:41,521 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-04-24 16:17:43,521 - core.user - INFO - 用户 admin 登录成功
+2025-04-24 16:17:43,522 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-04-24 16:17:43,639 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-04-24 16:17:43,639 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-04-24 16:17:43,663 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-04-24 16:17:43,671 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-04-24 16:17:43,739 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-04-24 16:17:44,394 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-04-24 16:17:45,481 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 已完成
+2025-04-24 16:17:45,481 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-04-24 16:17:45,482 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-04-24 16:17:45,482 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-04-24 16:17:45,482 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 失败或已跳过

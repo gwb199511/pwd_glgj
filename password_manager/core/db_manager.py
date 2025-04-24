@@ -728,13 +728,14 @@ class DBManager:
         except Exception as e:
             return False, f"连接失败: {str(e)}"
     
-    def execute_query(self, sql: str, params = None) -> List[Dict[str, Any]]:
+    def execute_query(self, sql: str, params = None, commit: bool = False) -> List[Dict[str, Any]]:
         """
         执行SQL查询
         
         Args:
             sql (str): SQL查询语句
             params: 查询参数，可以是元组、列表或None
+            commit (bool): 是否在执行后提交事务，默认为False
             
         Returns:
             List[Dict[str, Any]]: 查询结果列表
@@ -762,9 +763,18 @@ class DBManager:
             
             with conn.cursor() as cursor:
                 cursor.execute(sql, params)
-                return cursor.fetchall()
+                result = cursor.fetchall()
+                
+                # 如果需要提交事务
+                if commit:
+                    conn.commit()
+                    
+                return result
         except Exception as e:
             logger.error(f"执行查询时出错: {str(e)}")
+            # 如果需要提交但出错，回滚事务
+            if commit and conn:
+                conn.rollback()
             return []
         finally:
             # 如果是新获取的连接，释放它

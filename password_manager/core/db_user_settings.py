@@ -174,39 +174,128 @@ class DBUserSettings:
         params = (username,)
         result = db_manager.execute_query(sql, params)
         
+        self.logger.debug(f"从数据库获取了 {len(result)} 条用户设置")
+        
+        # 创建最终结果字典
         settings = {}
+        
+        # 遍历所有设置
         for row in result:
-            key, value = row
-            # 处理层次结构的键 (如 "guides.password_update_guided")
-            parts = key.split('.')
-            current = settings
-            
-            # 遍历键的每一部分，创建必要的嵌套字典
-            for i, part in enumerate(parts):
-                if i == len(parts) - 1:
-                    # 最后一部分是实际的键
-                    try:
-                        current[part] = json.loads(value) if value else value
-                    except (json.JSONDecodeError, TypeError):
-                        current[part] = value
-                else:
-                    # 中间部分是嵌套字典
+            if isinstance(row, dict):
+                # 字典形式的结果
+                key = row.get('setting_key')
+                value = row.get('setting_value')
+            else:
+                # 元组形式的结果
+                key, value = row
+                
+            # 跳过空键
+            if not key:
+                continue
+                
+            self.logger.debug(f"处理设置: {key}={value} (类型: {type(value)})")
+                
+            # 处理点号分隔的键
+            if '.' in key:
+                # 如"guides.main_features_guided"
+                parts = key.split('.')
+                
+                # 解析值
+                parsed_value = self._parse_value(value)
+                
+                # 创建嵌套结构
+                current = settings
+                for i, part in enumerate(parts[:-1]):
                     if part not in current:
                         current[part] = {}
                     current = current[part]
                     
+                # 设置最后一级的值
+                current[parts[-1]] = parsed_value
+            else:
+                # 无点号的顶级键
+                settings[key] = self._parse_value(value)
+        
+        self.logger.debug(f"构建的设置树: {settings}")
         return settings
+        
+    def _parse_value(self, value):
+        """解析设置值，处理特殊格式"""
+        if value is None:
+            return None
+            
+        # 字符串类型的处理
+        if isinstance(value, str):
+            # 尝试作为JSON解析
+            try:
+                return json.loads(value)
+            except json.JSONDecodeError:
+                # 特殊处理布尔值字符串
+                if value.lower() == 'true':
+                    return True
+                elif value.lower() == 'false':
+                    return False
+                # 特殊处理数字字符串
+                try:
+                    if '.' in value:
+                        return float(value)
+                    else:
+                        return int(value)
+                except ValueError:
+                    # 保持原始字符串
+                    return value
+        
+        # 其他类型直接返回
+        return value
     
     def reset_guides(self, username="default"):
-        """重置引导记录"""
-        guides_keys = [
-            "guides.password_update_guided"
-        ]
+        """
+        重置引导记录
         
-        for key in guides_keys:
-            self.set_setting(username, key, False)
+        Args:
+            username (str): 用户名
         
-        return True
+        Returns:
+            bool: 成功返回True，失败返回False
+        """
+        try:
+            guides_keys = [
+                "guides.password_update_guided",
+                "guides.main_features_guided"
+            ]
+            
+            self.logger.info(f"开始重置用户 {username} 的引导状态...")
+            
+            for key in guides_keys:
+                # 先查询当前值
+                current_value = self.get_setting(username, key)
+                self.logger.debug(f"引导设置 {key} 当前值: {current_value}")
+                
+                # 直接执行SQL更新，确保更新成功
+                sql = """
+                UPDATE user_settings 
+                SET setting_value = 'false' 
+                WHERE username = %s AND setting_key = %s
+                """
+                params = (username, key)
+                affected = db_manager.execute_query(sql, params, commit=True)
+                
+                self.logger.info(f"已重置引导设置 {key}，影响行数: {affected}")
+                
+                # 验证更改
+                new_value = self.get_setting(username, key)
+                self.logger.debug(f"引导设置 {key} 新值: {new_value}")
+                
+                # 如果记录不存在，则创建
+                if new_value is None:
+                    self.set_setting(username, key, False)
+                    self.logger.info(f"创建了不存在的引导设置: {key}")
+            
+            self.logger.info(f"用户 {username} 的所有引导状态已重置")
+            return True
+        except Exception as e:
+            self.logger.error(f"重置引导状态时出错: {str(e)}")
+            return False
 
 # 创建单例实例
 db_user_settings = DBUserSettings() 

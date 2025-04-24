@@ -872,7 +872,11 @@ def start_walkthrough(guide_key: str, parent, target_widgets: Dict[str, QWidget]
     force_walkthrough = getattr(parent, 'force_walkthrough', False)
     
     # 首先检查该引导是否已完成，如果已完成则不显示
-    if user_settings.is_guide_completed(guide_key) and not force_walkthrough:
+    is_completed = user_settings.is_guide_completed(guide_key)
+    logger.info(f"检查引导 {guide_key} 是否已完成: {is_completed}")
+    logger.info(f"当前是否强制显示引导: {force_walkthrough}")
+    
+    if is_completed and not force_walkthrough:
         logger.info(f"用户已完成引导: {guide_key}，跳过显示")
         return False
     
@@ -924,8 +928,8 @@ def start_walkthrough(guide_key: str, parent, target_widgets: Dict[str, QWidget]
         if hasattr(parent, '_original_resize_event'):
             parent.resizeEvent = parent._original_resize_event
         
-        # 标记引导已完成（使用延迟保存）
-        user_settings.mark_guide_completed(guide_key, immediate=False)
+        # 标记引导已完成（使用立即保存）
+        user_settings.mark_guide_completed(guide_key, immediate=True)
         logger.info(f"用户已完成步骤引导: {guide_key}")
     
     overlay.finished.connect(on_walkthrough_finished)

@@ -220,6 +220,14 @@ class PasswordManagerUI(QMainWindow):
         
     def _show_main_features_guide(self):
         """显示主界面功能引导"""
+        import logging
+        logger = logging.getLogger(__name__)
+        
+        # 检查引导是否已完成
+        from core.user_settings import user_settings
+        is_completed = user_settings.is_guide_completed("main_features")
+        logger.info(f"检查main_features引导状态: {'已完成' if is_completed else '未完成'}")
+        
         # 获取关键UI元素
         target_widgets = {
             "owners_list": self.layout_manager.owner_list_widget,
@@ -230,8 +238,12 @@ class PasswordManagerUI(QMainWindow):
         }
         
         # 启动步骤引导
-        start_walkthrough("main_features", self, target_widgets)
+        result = start_walkthrough("main_features", self, target_widgets)
+        logger.info(f"启动main_features引导结果: {'成功' if result else '失败或已跳过'}")
         
+        # 强制刷新用户设置，确保状态及时保存
+        user_settings.flush_all_changes()
+
     def _reset_all_guides(self):
         """重置引导状态"""
         # 确认重置
@@ -569,6 +581,11 @@ class PasswordManagerUI(QMainWindow):
         # 添加重置引导选项
         tools_menu.addSeparator()
         
+        # 显示主界面引导
+        show_main_guide_action = QAction("显示主界面引导", self)
+        show_main_guide_action.triggered.connect(self._show_main_guide_directly)
+        tools_menu.addAction(show_main_guide_action)
+        
         reset_guides_action = QAction("重置所有引导", self)
         reset_guides_action.triggered.connect(self._reset_all_guides)
         tools_menu.addAction(reset_guides_action)
@@ -761,6 +778,26 @@ class PasswordManagerUI(QMainWindow):
             return True
         
         return False
+
+    def _show_main_guide_directly(self):
+        """直接显示主界面功能引导，无论设置状态如何"""
+        # 临时设置强制显示标志
+        self.force_walkthrough = True
+        
+        # 获取关键UI元素
+        target_widgets = {
+            "owners_list": self.layout_manager.owner_list_widget,
+            "password_table": self.layout_manager.password_table,
+            "search_edit": self.layout_manager.search_edit,
+            "action_buttons": self.layout_manager.splitter,
+            "toolbar": self.layout_manager.toolbar
+        }
+        
+        # 启动步骤引导
+        start_walkthrough("main_features", self, target_widgets)
+        
+        # 清除强制显示标志
+        self.force_walkthrough = False
 
 
 def main():

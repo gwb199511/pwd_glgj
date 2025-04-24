@@ -39,20 +39,36 @@ def main():
         
         # 尝试设置可能有效的路径
         plugin_paths = [
-            os.path.join(os.path.dirname(sys.executable), "Lib/site-packages/PyQt5/Qt5/plugins"),
-            os.path.join(os.path.dirname(sys.executable), "Lib/site-packages/PyQt5/Qt/plugins"),
-            os.path.join(os.path.dirname(os.path.abspath(__file__)), ".venv/Lib/site-packages/PyQt5/Qt5/plugins"),
+            # 虚拟环境中的Qt插件路径
+            os.path.join(project_root, "venv", "Lib", "site-packages", "PyQt5", "Qt5", "plugins"),
+            os.path.normpath(os.path.join(project_root, "venv/Lib/site-packages/PyQt5/Qt5/plugins")),
         ]
+        
+        # 动态添加PyQt5路径
+        try:
+            import PyQt5
+            qt5_plugin_path = os.path.join(PyQt5.__path__[0], 'Qt5', 'plugins')
+            if qt5_plugin_path not in plugin_paths:
+                plugin_paths.append(qt5_plugin_path)
+                logger.info(f"从PyQt5模块添加插件路径: {qt5_plugin_path}")
+        except Exception as e:
+            logger.warning(f"获取PyQt5插件路径时出错: {str(e)}")
         
         # 记录查找插件路径的尝试
         found_valid_path = False
         for path in plugin_paths:
             if os.path.exists(path):
-                logger.info(f"找到Qt插件路径: {path}")
-                os.environ["QT_PLUGIN_PATH"] = path
-                os.environ["QT_QPA_PLATFORM_PLUGIN_PATH"] = os.path.join(path, "platforms")
-                found_valid_path = True
-                break
+                platforms_path = os.path.join(path, "platforms")
+                if os.path.exists(platforms_path) and any(f.endswith('.dll') for f in os.listdir(platforms_path)):
+                    logger.info(f"找到Qt插件路径: {path}")
+                    os.environ["QT_PLUGIN_PATH"] = path
+                    os.environ["QT_QPA_PLATFORM_PLUGIN_PATH"] = platforms_path
+                    found_valid_path = True
+                    break
+                else:
+                    logger.debug(f"插件路径存在但没有平台插件: {path}")
+            else:
+                logger.debug(f"尝试的插件路径不存在: {path}")
         
         # 如果未找到有效路径，记录警告
         if not found_valid_path:

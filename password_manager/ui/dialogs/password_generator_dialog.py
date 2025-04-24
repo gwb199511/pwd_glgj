@@ -17,7 +17,7 @@ from PyQt5.QtWidgets import (
     QMenu, QMessageBox, QTextEdit
 )
 from PyQt5.QtCore import Qt, pyqtSignal, QSize, QTimer
-from PyQt5.QtGui import QClipboard, QFont, QColor, QPalette
+from PyQt5.QtGui import QClipboard, QFont, QColor, QPalette, QKeySequence
 
 from utils.password_generator import PasswordGenerator
 from ui.components.ui_components import show_message
@@ -131,7 +131,7 @@ class PasswordGeneratorDialog(QDialog):
         """
         # 设置窗口标题和大小
         self.setWindowTitle("密码生成器")
-        self.resize(600, 500)
+        self.resize(700, 800)
         
         # 主布局
         main_layout = QVBoxLayout()
@@ -234,6 +234,7 @@ class PasswordGeneratorDialog(QDialog):
         # 密码历史列表
         self.password_list = QListWidget()
         self.password_list.setAlternatingRowColors(True)
+        self.password_list.setSelectionMode(QListWidget.ExtendedSelection)  # 启用多选模式
         
         # 按钮区域
         btn_layout = QHBoxLayout()
@@ -286,6 +287,9 @@ class PasswordGeneratorDialog(QDialog):
         
         # 密码列表双击复制
         self.password_list.itemDoubleClicked.connect(self.copy_from_list)
+        
+        # 添加键盘快捷键Ctrl+C复制选中项
+        self.password_list.installEventFilter(self)
         
         # 清空按钮
         self.clear_btn.clicked.connect(self.clear_history)
@@ -473,23 +477,34 @@ class PasswordGeneratorDialog(QDialog):
         Args:
             position: 鼠标位置
         """
-        item = self.password_list.itemAt(position)
-        if item:
-            context_menu = QMenu(self)
+        selected_items = self.password_list.selectedItems()
+        if not selected_items:
+            return
             
-            # 添加菜单项
+        context_menu = QMenu(self)
+        
+        # 添加菜单项
+        if len(selected_items) == 1:
+            item = selected_items[0]
             copy_action = QAction("复制", self)
             copy_action.triggered.connect(lambda: self.copy_from_list(item))
+            context_menu.addAction(copy_action)
             
             remove_action = QAction("移除此项", self)
             remove_action.triggered.connect(lambda: self.remove_item(item))
-            
-            # 添加到菜单
-            context_menu.addAction(copy_action)
             context_menu.addAction(remove_action)
+        else:
+            # 多选时的菜单
+            copy_selected_action = QAction(f"复制选中的 {len(selected_items)} 个密码", self)
+            copy_selected_action.triggered.connect(self.copy_selected_passwords)
+            context_menu.addAction(copy_selected_action)
             
-            # 显示菜单
-            context_menu.exec_(self.password_list.mapToGlobal(position))
+            remove_selected_action = QAction(f"移除选中的 {len(selected_items)} 个项", self)
+            remove_selected_action.triggered.connect(self.remove_selected_items)
+            context_menu.addAction(remove_selected_action)
+        
+        # 显示菜单
+        context_menu.exec_(self.password_list.mapToGlobal(position))
     
     def remove_item(self, item):
         """
@@ -506,6 +521,54 @@ class PasswordGeneratorDialog(QDialog):
         # 如果列表为空，禁用清空按钮
         if self.password_list.count() == 0:
             self.clear_btn.setEnabled(False)
+    
+    def eventFilter(self, obj, event):
+        """
+        事件过滤器，用于处理键盘快捷键
+        
+        Args:
+            obj: 事件对象
+            event: 事件
+            
+        Returns:
+            bool: 是否处理了事件
+        """
+        if obj == self.password_list and event.type() == event.KeyPress:
+            if event.matches(QKeySequence.Copy):
+                self.copy_selected_passwords()
+                return True
+        return super().eventFilter(obj, event)
+        
+    def copy_selected_passwords(self):
+        """
+        复制所有选中的密码到剪贴板
+        """
+        selected_items = self.password_list.selectedItems()
+        if not selected_items:
+            return
+            
+        passwords = [item.text() for item in selected_items]
+        combined_text = "\n".join(passwords)
+        
+        clipboard = QApplication.clipboard()
+        clipboard.setText(combined_text)
+        
+        count = len(passwords)
+        self.statusBar().showMessage(f"已复制 {count} 个密码到剪贴板", 3000)
+        logger.debug(f"已复制 {count} 个密码到剪贴板")
+    
+    def remove_selected_items(self):
+        """
+        移除所有选中的项
+        """
+        selected_items = self.password_list.selectedItems()
+        if not selected_items:
+            return
+            
+        for item in selected_items:
+            self.remove_item(item)
+            
+        self.statusBar().showMessage(f"已移除 {len(selected_items)} 个密码", 3000)
     
     def statusBar(self):
         """

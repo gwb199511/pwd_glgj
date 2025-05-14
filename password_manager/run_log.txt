@@ -702,3 +702,22 @@
 2025-04-24 16:17:39,687 - __main__ - INFO - Python解释器路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Scripts\python.exe
 2025-04-24 16:17:39,688 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
 2025-04-24 16:17:39,688 - __main__ - INFO - 正在启动应用程序...
+2025-04-24 16:22:23,113 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-24 16:22:24,705 - __main__ - INFO - 找到Qt插件路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Lib\site-packages\PyQt5\Qt5\plugins
+2025-04-24 16:22:24,705 - __main__ - INFO - Python解释器路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Scripts\python.exe
+2025-04-24 16:22:24,706 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
+2025-04-24 16:22:24,706 - __main__ - INFO - 正在启动应用程序...
+2025-04-24 16:25:38,477 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-24 16:25:39,310 - __main__ - INFO - 找到Qt插件路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Lib\site-packages\PyQt5\Qt5\plugins
+2025-04-24 16:25:39,310 - __main__ - INFO - Python解释器路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Scripts\python.exe
+2025-04-24 16:25:39,311 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
+2025-04-24 16:25:39,311 - __main__ - INFO - 正在启动应用程序...
+2025-04-24 16:27:30,414 - __main__ - INFO - 应用程序退出，返回代码: 0
+2025-04-24 16:27:31,718 - __main__ - INFO - 找到Qt插件路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Lib\site-packages\PyQt5\Qt5\plugins
+2025-04-24 16:27:31,719 - __main__ - INFO - Python解释器路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Scripts\python.exe
+2025-04-24 16:27:31,719 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
+2025-04-24 16:27:31,719 - __main__ - INFO - 正在启动应用程序...
+2025-05-14 10:09:07,265 - __main__ - INFO - 找到Qt插件路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Lib\site-packages\PyQt5\Qt5\plugins
+2025-05-14 10:09:07,265 - __main__ - INFO - Python解释器路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Scripts\python.exe
+2025-05-14 10:09:07,265 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
+2025-05-14 10:09:07,266 - __main__ - INFO - 正在启动应用程序...

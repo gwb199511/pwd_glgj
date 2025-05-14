@@ -239,7 +239,7 @@ class PasswordManagerUI(QMainWindow):
         
         # 启动步骤引导
         result = start_walkthrough("main_features", self, target_widgets)
-        logger.info(f"启动main_features引导结果: {'成功' if result else '失败或已跳过'}")
+        logger.info(f"启动main_features引导结果: {'成功' if result else '已跳过'}")
         
         # 强制刷新用户设置，确保状态及时保存
         user_settings.flush_all_changes()

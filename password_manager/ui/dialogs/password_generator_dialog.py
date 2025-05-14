@@ -10,7 +10,7 @@ import sys
 from typing import List, Dict, Optional, Union
 
 from PyQt5.QtWidgets import (
-    QDialog, QVBoxLayout, QHBoxLayout, QPushButton, QLabel, 
+    QDialog, QVBoxLayout, QHBoxLayout, QLabel, 
     QLineEdit, QSpinBox, QCheckBox, QGroupBox, QRadioButton, 
     QComboBox, QListWidget, QProgressBar, QApplication, 
     QButtonGroup, QGridLayout, QFrame, QSizePolicy, QAction,
@@ -20,7 +20,8 @@ from PyQt5.QtCore import Qt, pyqtSignal, QSize, QTimer
 from PyQt5.QtGui import QClipboard, QFont, QColor, QPalette, QKeySequence
 
 from utils.password_generator import PasswordGenerator
-from ui.components.ui_components import show_message
+from ui.components.ui_components import show_message, ModernButton, ModernLabel, ModernLineEdit, HorizontalLine
+from config import COLORS, FONT_FAMILY
 
 # 配置日志
 logger = logging.getLogger(__name__)
@@ -46,12 +47,13 @@ class PasswordStrengthIndicator(QProgressBar):
         self.setMaximum(100)
         self.setValue(0)
         self.setFormat("%v - %p%")
+        self.setFixedHeight(20)
         
         # 设置样式
         self.setStyleSheet("""
             QProgressBar {
                 border: 1px solid #bbb;
-                border-radius: 3px;
+                border-radius: 4px;
                 text-align: center;
                 height: 20px;
             }
@@ -75,27 +77,28 @@ class PasswordStrengthIndicator(QProgressBar):
         self.setValue(value)
         
         # 根据强度设置颜色
-        color = "#ff4444"  # 红色 - 弱
+        color = COLORS["danger"]  # 红色 - 弱
         text = f"弱 ({entropy:.1f} 位)"
         
         if strength == '中':
-            color = "#ffaa33"  # 橙色 - 中
+            color = COLORS["warning"]  # 橙色 - 中
             text = f"中等 ({entropy:.1f} 位)"
         elif strength == '强':
-            color = "#33aa33"  # 绿色 - 强
+            color = COLORS["success"]  # 绿色 - 强
             text = f"强 ({entropy:.1f} 位)"
         elif strength == '非常强':
-            color = "#3333ff"  # 蓝色 - 非常强
+            color = COLORS["primary"]  # 蓝色 - 非常强
             text = f"非常强 ({entropy:.1f} 位)"
         
         # 设置文本和颜色
         self.setFormat(text)
         self.setStyleSheet(f"""
             QProgressBar {{
-                border: 1px solid #bbb;
-                border-radius: 3px;
+                border: 1px solid {COLORS["border"]};
+                border-radius: 4px;
                 text-align: center;
                 height: 20px;
+                font-family: "{FONT_FAMILY}";
             }}
             
             QProgressBar::chunk {{
@@ -132,13 +135,85 @@ class PasswordGeneratorDialog(QDialog):
         # 设置窗口标题和大小
         self.setWindowTitle("密码生成器")
         self.resize(700, 800)
+        self.setMinimumWidth(600)
+        
+        # 设置全局样式
+        self.setStyleSheet(f"""
+            QDialog {{
+                background-color: {COLORS["light"]};
+                font-family: "{FONT_FAMILY}";
+                font-size: 9pt;
+            }}
+            QGroupBox {{
+                font-family: "{FONT_FAMILY}";
+                font-weight: bold;
+                font-size: 10pt;
+                border: 1px solid {COLORS["border"]};
+                border-radius: 4px;
+                margin-top: 8px;
+                padding-top: 10px;
+            }}
+            QGroupBox::title {{
+                subcontrol-origin: margin;
+                left: 10px;
+                padding: 0 3px;
+            }}
+            QRadioButton, QCheckBox {{
+                font-family: "{FONT_FAMILY}";
+                font-size: 9pt;
+            }}
+            QListWidget {{
+                border: 1px solid {COLORS["border"]};
+                border-radius: 4px;
+                background-color: white;
+                font-family: "{FONT_FAMILY}";
+                font-size: 9pt;
+            }}
+            QListWidget::item {{
+                padding: 5px;
+                border-bottom: 1px solid #f0f0f0;
+            }}
+            QListWidget::item:selected {{
+                background-color: {COLORS["primary"]};
+                color: white;
+                border-radius: 2px;
+            }}
+            QListWidget::item:hover {{
+                background-color: #f5f5f5;
+            }}
+            QListWidget::item:selected:hover {{
+                background-color: {COLORS["primary"]};
+            }}
+            QSpinBox {{
+                border: 1px solid {COLORS["border"]};
+                border-radius: 4px;
+                padding: 2px;
+                background-color: white;
+                selection-background-color: {COLORS["primary"]};
+                font-size: 9pt;
+            }}
+        """)
         
         # 主布局
         main_layout = QVBoxLayout()
+        main_layout.setContentsMargins(20, 20, 20, 20)
+        main_layout.setSpacing(16)
+        
+        # 标题
+        title_label = ModernLabel("生成安全的随机密码", font_size=14, bold=True)
+        title_label.setAlignment(Qt.AlignCenter)
+        main_layout.addWidget(title_label)
+        
+        description = ModernLabel("使用本工具可以生成符合安全标准的随机密码，并查看密码强度", 
+                               color=COLORS["secondary"], font_size=9)
+        description.setAlignment(Qt.AlignCenter)
+        main_layout.addWidget(description)
+        main_layout.addWidget(HorizontalLine())
         
         # 密码长度选择区域
         length_group = QGroupBox("密码长度")
         length_layout = QHBoxLayout()
+        length_layout.setContentsMargins(15, 15, 15, 15)
         
         # 预设长度选择
         self.length_preset_group = QButtonGroup(self)
@@ -148,6 +223,19 @@ class PasswordGeneratorDialog(QDialog):
         self.radio_32 = QRadioButton("32 位")
         self.radio_custom = QRadioButton("自定义")
         
+        # 美化单选按钮
+        for radio in [self.radio_8, self.radio_16, self.radio_32, self.radio_custom]:
+            radio.setStyleSheet(f"""
+                QRadioButton {{
+                    spacing: 5px;
+                    font-size: 9pt;
+                }}
+                QRadioButton::indicator {{
+                    width: 16px;
+                    height: 16px;
+                }}
+            """)
+            
         self.length_preset_group.addButton(self.radio_8)
         self.length_preset_group.addButton(self.radio_16)
         self.length_preset_group.addButton(self.radio_32)
@@ -161,6 +249,7 @@ class PasswordGeneratorDialog(QDialog):
         self.length_spinbox.setRange(1, 128)
         self.length_spinbox.setValue(16)
         self.length_spinbox.setEnabled(False)  # 初始禁用
+        self.length_spinbox.setMinimumWidth(60)
         
         # 添加到布局中
         length_layout.addWidget(self.radio_8)
@@ -168,18 +257,36 @@ class PasswordGeneratorDialog(QDialog):
         length_layout.addWidget(self.radio_32)
         length_layout.addWidget(self.radio_custom)
         length_layout.addWidget(self.length_spinbox)
+        length_layout.addStretch()
         
         length_group.setLayout(length_layout)
+        main_layout.addWidget(length_group)
         
         # 字符类型选择区域
         char_group = QGroupBox("字符类型")
         char_layout = QGridLayout()
+        char_layout.setContentsMargins(15, 15, 15, 15)
+        char_layout.setSpacing(10)
         
         self.check_lowercase = QCheckBox("小写字母 (a-z)")
         self.check_uppercase = QCheckBox("大写字母 (A-Z)")
         self.check_digits = QCheckBox("数字 (0-9)")
         self.check_symbols = QCheckBox("特殊符号 (!@#$...)")
         self.check_exclude_similar = QCheckBox("排除相似字符 (Il1O0o)")
+        
+        # 美化复选框
+        for checkbox in [self.check_lowercase, self.check_uppercase, self.check_digits, 
+                         self.check_symbols, self.check_exclude_similar]:
+            checkbox.setStyleSheet(f"""
+                QCheckBox {{
+                    spacing: 5px;
+                    font-size: 9pt;
+                }}
+                QCheckBox::indicator {{
+                    width: 16px;
+                    height: 16px;
+                }}
+            """)
         
         # 默认全选
         self.check_lowercase.setChecked(True)
@@ -194,110 +301,124 @@ class PasswordGeneratorDialog(QDialog):
         char_layout.addWidget(self.check_exclude_similar, 2, 0, 1, 2)
         
         char_group.setLayout(char_layout)
+        main_layout.addWidget(char_group)
         
         # 密码生成区域
         gen_group = QGroupBox("密码生成")
         gen_layout = QVBoxLayout()
+        gen_layout.setContentsMargins(15, 15, 15, 15)
+        gen_layout.setSpacing(10)
         
         # 单个密码生成
         single_pass_layout = QHBoxLayout()
-        single_pass_layout.addWidget(QLabel("生成的密码:"))
+        single_pass_label = ModernLabel("生成的密码:", color=COLORS["text_dark"], font_size=9)
+        single_pass_layout.addWidget(single_pass_label)
         
-        self.password_edit = QLineEdit()
+        self.password_edit = ModernLineEdit(placeholder="点击生成按钮生成密码")
         self.password_edit.setReadOnly(True)
-        self.password_edit.setPlaceholderText("点击生成按钮生成密码")
         
-        self.copy_btn = QPushButton("复制")
+        self.copy_btn = ModernButton("复制", color=COLORS["primary"])
         self.copy_btn.setEnabled(False)
         
         single_pass_layout.addWidget(self.password_edit)
         single_pass_layout.addWidget(self.copy_btn)
         
+        gen_layout.addLayout(single_pass_layout)
+        
         # 密码强度
         strength_layout = QHBoxLayout()
-        strength_layout.addWidget(QLabel("密码强度:"))
+        strength_label = ModernLabel("密码强度:", color=COLORS["text_dark"], font_size=9)
+        strength_layout.addWidget(strength_label)
         
         self.strength_indicator = PasswordStrengthIndicator()
         strength_layout.addWidget(self.strength_indicator)
         
+        gen_layout.addLayout(strength_layout)
+        
         # 生成多个密码
         multi_label_layout = QHBoxLayout()
-        multi_label_layout.addWidget(QLabel("生成多个密码:"))
+        multi_label = ModernLabel("生成多个密码:", color=COLORS["text_dark"], font_size=9)
+        multi_label_layout.addWidget(multi_label)
         
         self.count_spinbox = QSpinBox()
         self.count_spinbox.setRange(1, 20)
         self.count_spinbox.setValue(5)
+        self.count_spinbox.setMinimumWidth(60)
         
         multi_label_layout.addWidget(self.count_spinbox)
         multi_label_layout.addStretch()
         
+        gen_layout.addLayout(multi_label_layout)
+        
         # 密码历史列表
+        password_list_label = ModernLabel("生成历史:", color=COLORS["text_dark"], font_size=9)
+        gen_layout.addWidget(password_list_label)
+        
         self.password_list = QListWidget()
         self.password_list.setAlternatingRowColors(True)
         self.password_list.setSelectionMode(QListWidget.ExtendedSelection)  # 启用多选模式
+        self.password_list.setMinimumHeight(200)
+        gen_layout.addWidget(self.password_list)
         
         # 按钮区域
         btn_layout = QHBoxLayout()
         
-        self.generate_btn = QPushButton("生成单个密码")
-        self.generate_multi_btn = QPushButton("生成多个密码")
-        self.clear_btn = QPushButton("清空历史")
+        self.generate_btn = ModernButton("生成单个密码", color=COLORS["primary"])
+        self.generate_multi_btn = ModernButton("生成多个密码", color=COLORS["success"])
+        self.clear_btn = ModernButton("清空历史", color=COLORS["secondary"])
         self.clear_btn.setEnabled(False)
         
         btn_layout.addWidget(self.generate_btn)
         btn_layout.addWidget(self.generate_multi_btn)
         btn_layout.addWidget(self.clear_btn)
         
-        # 添加所有子布局到生成区域
-        gen_layout.addLayout(single_pass_layout)
-        gen_layout.addLayout(strength_layout)
-        gen_layout.addLayout(multi_label_layout)
-        gen_layout.addWidget(self.password_list)
         gen_layout.addLayout(btn_layout)
-        
         gen_group.setLayout(gen_layout)
-        
-        # 添加组到主布局
-        main_layout.addWidget(length_group)
-        main_layout.addWidget(char_group)
         main_layout.addWidget(gen_group)
         
-        # 设置对话框布局
+        # 底部按钮
+        bottom_layout = QHBoxLayout()
+        self.close_btn = ModernButton("关闭", color=COLORS["secondary"])
+        self.close_btn.clicked.connect(self.close)
+        bottom_layout.addStretch()
+        bottom_layout.addWidget(self.close_btn)
+        
+        main_layout.addLayout(bottom_layout)
+        
         self.setLayout(main_layout)
         
-        # 连接信号和槽
+        # 连接信号
         self.connect_signals()
         
-    def connect_signals(self):
-        """
-        连接信号和槽
-        """
-        # 长度选择逻辑
-        self.radio_8.toggled.connect(lambda: self.on_length_preset_changed(8))
-        self.radio_16.toggled.connect(lambda: self.on_length_preset_changed(16))
-        self.radio_32.toggled.connect(lambda: self.on_length_preset_changed(32))
-        self.radio_custom.toggled.connect(self.on_custom_length_toggled)
-        
-        # 生成按钮
-        self.generate_btn.clicked.connect(self.generate_password)
-        self.generate_multi_btn.clicked.connect(self.generate_multiple_passwords)
-        
-        # 复制按钮
-        self.copy_btn.clicked.connect(self.copy_password)
-        
-        # 密码列表双击复制
-        self.password_list.itemDoubleClicked.connect(self.copy_from_list)
-        
-        # 添加键盘快捷键Ctrl+C复制选中项
+        # 安装事件过滤器
         self.password_list.installEventFilter(self)
-        
-        # 清空按钮
-        self.clear_btn.clicked.connect(self.clear_history)
-        
-        # 右键菜单
         self.password_list.setContextMenuPolicy(Qt.CustomContextMenu)
         self.password_list.customContextMenuRequested.connect(self.show_context_menu)
         
+        # 初始生成一个密码
+        self.generate_password()
+        
+    def connect_signals(self):
+        """
+        连接信号与槽
+        """
+        # 密码长度选择信号
+        self.radio_8.toggled.connect(lambda checked: self.on_length_preset_changed(8) if checked else None)
+        self.radio_16.toggled.connect(lambda checked: self.on_length_preset_changed(16) if checked else None)
+        self.radio_32.toggled.connect(lambda checked: self.on_length_preset_changed(32) if checked else None)
+        self.radio_custom.toggled.connect(self.on_custom_length_toggled)
+        
+        # 生成按钮信号
+        self.generate_btn.clicked.connect(self.generate_password)
+        self.generate_multi_btn.clicked.connect(self.generate_multiple_passwords)
+        
+        # 复制按钮和清空按钮信号
+        self.copy_btn.clicked.connect(self.copy_password)
+        self.clear_btn.clicked.connect(self.clear_history)
+        
+        # 历史列表双击信号
+        self.password_list.itemDoubleClicked.connect(self.copy_from_list)
+
     def on_length_preset_changed(self, length):
         """
         处理预设长度变化
@@ -579,9 +700,16 @@ class PasswordGeneratorDialog(QDialog):
         """
         # 由于QDialog没有内置状态栏，我们创建一个标签来显示状态信息
         if not hasattr(self, '_status_bar'):
-            self._status_bar = QLabel("", self)
+            self._status_bar = ModernLabel("", color=COLORS["secondary"], font_size=9)
             self._status_bar.setAlignment(Qt.AlignLeft)
-            self._status_bar.setStyleSheet("font-style: italic; color: #666;")
+            self._status_bar.setStyleSheet(f"""
+                font-style: italic;
+                color: {COLORS["secondary"]};
+                padding: 5px;
+                border-top: 1px solid {COLORS["border"]};
+                background-color: {COLORS["light"]};
+                font-size: 9pt;
+            """)
             self.layout().addWidget(self._status_bar)
             self._status_timer = None
             

@@ -1,0 +1,15 @@
+2025-05-16 13:41:05,091 - __main__ - INFO - 从PyQt5模块添加插件路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\Lib\site-packages\PyQt5\Qt5\plugins
+2025-05-16 13:41:05,092 - __main__ - INFO - 找到Qt插件路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Lib\site-packages\PyQt5\Qt5\plugins
+2025-05-16 13:41:05,092 - __main__ - INFO - Python解释器路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\python.exe
+2025-05-16 13:41:05,092 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
+2025-05-16 13:41:05,093 - __main__ - INFO - 正在启动应用程序...
+2025-05-16 13:47:07,624 - __main__ - INFO - 从PyQt5模块添加插件路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\Lib\site-packages\PyQt5\Qt5\plugins
+2025-05-16 13:47:07,625 - __main__ - INFO - 找到Qt插件路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Lib\site-packages\PyQt5\Qt5\plugins
+2025-05-16 13:47:07,625 - __main__ - INFO - Python解释器路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\python.exe
+2025-05-16 13:47:07,625 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
+2025-05-16 13:47:07,625 - __main__ - INFO - 正在启动应用程序...
+2025-05-16 13:53:38,502 - __main__ - INFO - 从PyQt5模块添加插件路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\Lib\site-packages\PyQt5\Qt5\plugins
+2025-05-16 13:53:38,502 - __main__ - INFO - 找到Qt插件路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\venv\Lib\site-packages\PyQt5\Qt5\plugins
+2025-05-16 13:53:38,503 - __main__ - INFO - Python解释器路径: C:\Users\gwb\AppData\Local\Programs\Python\Python312\python.exe
+2025-05-16 13:53:38,503 - __main__ - INFO - 主脚本路径: C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py
+2025-05-16 13:53:38,503 - __main__ - INFO - 正在启动应用程序...

@@ -12,6 +12,10 @@ import traceback
 import logging
 from datetime import datetime
 
+# 设置环境变量，禁用自动数据库连接
+# 这必须在任何其他导入之前设置
+os.environ['PM_DISABLE_AUTO_DB_CONNECT'] = '1'
+
 # 添加项目根目录到Python路径
 current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.abspath(current_dir)
@@ -91,7 +95,12 @@ def main():
         
         # 使用subprocess启动应用程序
         logger.info("正在启动应用程序...")
-        result = subprocess.call([python_path, main_script])
+        
+        # 创建环境变量字典，传递当前环境变量
+        env = os.environ.copy()
+        
+        # 使用subprocess启动应用程序，传递环境变量
+        result = subprocess.call([python_path, main_script], env=env)
         logger.info(f"应用程序退出，返回代码: {result}")
         
     except Exception as e:

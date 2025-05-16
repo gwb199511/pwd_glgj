@@ -21,6 +21,11 @@ from config import DATA_DIR, DB_CONFIG_FILE, DEFAULT_MYSQL_CONFIG, STORAGE_TYPE
 # 配置日志
 logger = logging.getLogger(__name__)
 
+# 检查是否禁用自动连接
+DB_AUTO_CONNECT = os.environ.get('PM_DISABLE_AUTO_DB_CONNECT', '0') != '1'
+if not DB_AUTO_CONNECT:
+    logger.info("数据库自动连接已禁用，将在显式触发时才进行连接")
+
 
 class ConnectionPool:
     """
@@ -29,7 +34,7 @@ class ConnectionPool:
     提供连接的创建、获取、释放和维护功能。
     """
     
-    def __init__(self, config, max_connections=30, connection_timeout=60):
+    def __init__(self, config, max_connections=30, connection_timeout=60, auto_connect=True):
         """
         初始化连接池
         
@@ -37,6 +42,7 @@ class ConnectionPool:
             config (Dict): 数据库配置
             max_connections (int): 最大连接数，默认为30个连接
             connection_timeout (int): 连接超时时间（秒）
+            auto_connect (bool): 是否自动连接，默认为True
         """
         self.config = config
         self.max_connections = max_connections
@@ -49,6 +55,9 @@ class ConnectionPool:
         self.last_log_time = 0  # 上次日志记录时间
         self.log_interval = 5.0  # 日志输出的最小间隔（秒）
         
+        # 设置自动连接
+        self.auto_connect = auto_connect and DB_AUTO_CONNECT
+        
         # 预创建连接
         self._create_initial_connections()
     
@@ -59,6 +68,11 @@ class ConnectionPool:
         Args:
             initial_count (int): 初始连接数，默认为8个连接
         """
+        # 如果不是自动连接模式，则不预创建连接
+        if not hasattr(self, 'auto_connect') or not self.auto_connect:
+            logger.info("已禁用自动连接模式，不预创建数据库连接")
+            return
+            
         try:
             for _ in range(min(initial_count, self.max_connections)):
                 conn = self._create_connection()
@@ -68,6 +82,8 @@ class ConnectionPool:
                     logger.info(f"预创建连接成功，当前连接池大小: {len(self.connections)}")
         except Exception as e:
             logger.error(f"预创建连接失败: {str(e)}")
+            # 记录更详细的错误信息
+            logger.debug(traceback.format_exc())
     
     def get_connection(self):
         """
@@ -76,6 +92,16 @@ class ConnectionPool:
         Returns:
             pymysql.Connection: 数据库连接
         """
+        # 如果禁用了自动连接，返回None
+        if not hasattr(self, 'auto_connect') or not self.auto_connect:
+            # 只有第一次调用或间隔5秒后才记录警告日志
+            current_time = time.time()
+            if not hasattr(self, '_last_connection_warning_time') or \
+               current_time - self._last_connection_warning_time > 5.0:
+                logger.warning("数据库自动连接已禁用，无法获取连接")
+                self._last_connection_warning_time = current_time
+            return None
+            
         with self.lock:
             current_time = time.time()
             
@@ -225,7 +251,7 @@ class ConnectionPool:
                 database=self.config['database'],
                 charset='utf8mb4',
                 cursorclass=DictCursor,
-                connect_timeout=10  # 设置连接超时，避免长时间阻塞
+                connect_timeout=5  # 减少连接超时时间，避免长时间阻塞
             )
         except Exception as e:
             logger.error(f"创建数据库连接失败: {str(e)}")
@@ -311,6 +337,10 @@ class ConnectionPool:
             for conn in to_remove:
                 self._close_connection(conn)
                 logger.debug(f"已清理一个空闲连接，当前连接池大小: {len(self.connections)}")
+    
+    def set_auto_connect(self, auto_connect):
+        """设置自动连接模式"""
+        self.auto_connect = auto_connect
 
 
 class DBManager:
@@ -324,6 +354,9 @@ class DBManager:
     _instance = None
     _lock = threading.Lock()
     _initialized = False
+    _auto_connect = False  # 控制是否自动连接
+    _last_connection_attempt = 0  # 上次尝试连接的时间
+    _connection_attempt_interval = 10.0  # 连接尝试的最小间隔时间（秒）
     
     def __new__(cls):
         """
@@ -350,17 +383,26 @@ class DBManager:
                 
     @property
     def connection_pool(self):
-        """懒加载连接池"""
+        """懒加载连接池，但在自动连接模式关闭时不会预创建连接"""
         if self._connection_pool is None:
-            self._connection_pool = ConnectionPool(self.config)
-            # 启动后台线程定期清理空闲连接
-            self._start_connection_cleanup()
+            self._connection_pool = ConnectionPool(self.config, auto_connect=self._auto_connect)
+            # 如果自动连接开启，才启动后台线程定期清理空闲连接
+            if self._auto_connect:
+                self._start_connection_cleanup()
         return self._connection_pool
     
     @connection_pool.setter
     def connection_pool(self, value):
         """设置连接池的setter方法"""
         self._connection_pool = value
+    
+    def enable_auto_connect(self):
+        """启用自动连接模式"""
+        self._auto_connect = True
+        
+        # 如果连接池已存在，触发连接创建
+        if self._connection_pool is not None:
+            self._connection_pool.set_auto_connect(True)
     
     def _start_connection_cleanup(self):
         """启动后台线程定期清理空闲连接"""
@@ -425,6 +467,15 @@ class DBManager:
         Returns:
             Tuple[bool, str]: (成功状态, 消息)
         """
+        # 检查是否应该限制连接尝试频率
+        current_time = time.time()
+        if current_time - self._last_connection_attempt < self._connection_attempt_interval:
+            logger.debug("连接尝试过于频繁，跳过本次尝试")
+            return False, "连接尝试过于频繁，请稍后再试"
+            
+        # 更新上次尝试时间
+        self._last_connection_attempt = current_time
+        
         try:
             # 从连接池获取连接
             conn = self.connection_pool.get_connection()
@@ -680,13 +731,22 @@ class DBManager:
     
     def test_connection(self) -> Tuple[bool, str]:
         """
-        测试数据库连接（简化版）
+        测试数据库连接
         
         Returns:
             Tuple[bool, str]: (成功状态, 消息)
         """
+        # 避免频繁重复尝试连接
+        current_time = time.time()
+        if current_time - self._last_connection_attempt < self._connection_attempt_interval:
+            logger.debug("连接测试过于频繁，跳过本次测试")
+            return False, "连接测试过于频繁，请稍后再试"
+            
+        # 更新尝试时间
+        self._last_connection_attempt = current_time
+            
         try:
-            # 直接创建单个连接进行测试，不使用连接池
+            # 创建临时连接，使用较短的超时时间
             conn = pymysql.connect(
                 host=self.config['host'],
                 port=self.config['port'],
@@ -694,22 +754,23 @@ class DBManager:
                 password=self.config['password'],
                 database=self.config['database'],
                 charset='utf8mb4',
-                cursorclass=pymysql.cursors.Cursor,  # 使用标准游标而非DictCursor
-                connect_timeout=5  # 较短的超时时间
+                connect_timeout=3  # 更短的超时时间，避免用户界面长时间无响应
             )
             
-            # 尝试查询服务器信息
+            # 执行简单查询测试连接
             with conn.cursor() as cursor:
-                cursor.execute("SELECT VERSION()")
-                version_result = cursor.fetchone()
+                cursor.execute("SELECT 1")
+                result = cursor.fetchone()
                 
-                # 标准游标返回元组
-                version_str = str(version_result[0] if version_result else "未知")
-            
-            # 测试完成后立即关闭连接
+            # 关闭连接
             conn.close()
             
-            return True, f"连接成功，MySQL版本: {version_str}"
+            # 检查结果
+            if result and 1 in result.values():
+                return True, "连接成功"
+            else:
+                return False, "连接测试失败，查询未返回预期结果"
+                
         except pymysql.OperationalError as e:
             # 特别处理操作错误（如连接错误、认证错误等）
             error_code = e.args[0]
@@ -726,20 +787,34 @@ class DBManager:
             
             return False, message
         except Exception as e:
-            return False, f"连接失败: {str(e)}"
+            error_message = f"测试数据库连接时出错: {str(e)}"
+            logger.error(error_message)
+            logger.error(traceback.format_exc())
+            return False, error_message
     
-    def execute_query(self, sql: str, params = None, commit: bool = False) -> List[Dict[str, Any]]:
+    def execute_query(self, sql: str, params = None, fetch_one=False, commit: bool = False) -> List[Dict[str, Any]]:
         """
         执行SQL查询
         
         Args:
             sql (str): SQL查询语句
             params: 查询参数，可以是元组、列表或None
+            fetch_one (bool): 是否只获取一行结果
             commit (bool): 是否在执行后提交事务，默认为False
             
         Returns:
             List[Dict[str, Any]]: 查询结果列表
         """
+        # 如果数据库自动连接被禁用，静默返回空结果
+        if not hasattr(self, '_auto_connect') or not self._auto_connect:
+            # 控制日志频率
+            current_time = time.time()
+            if not hasattr(self, '_last_query_warning_time') or \
+               current_time - self._last_query_warning_time > 10.0:
+                logger.warning("执行查询时无法获取数据库连接")
+                self._last_query_warning_time = current_time
+            return []
+        
         conn = None
         try:
             # 获取连接
@@ -792,6 +867,16 @@ class DBManager:
         Returns:
             int: 受影响的行数，错误时返回-1
         """
+        # 如果数据库自动连接被禁用，静默返回
+        if not hasattr(self, '_auto_connect') or not self._auto_connect:
+            # 控制日志频率
+            current_time = time.time()
+            if not hasattr(self, '_last_update_warning_time') or \
+               current_time - self._last_update_warning_time > 10.0:
+                logger.warning("执行更新时无法获取数据库连接")
+                self._last_update_warning_time = current_time
+            return -1
+        
         conn = None
         try:
             # 获取连接
@@ -838,6 +923,16 @@ class DBManager:
         Returns:
             int: 最后插入的ID，错误时返回-1
         """
+        # 如果数据库自动连接被禁用，静默返回
+        if not hasattr(self, '_auto_connect') or not self._auto_connect:
+            # 控制日志频率
+            current_time = time.time()
+            if not hasattr(self, '_last_insert_warning_time') or \
+               current_time - self._last_insert_warning_time > 10.0:
+                logger.warning("执行插入时无法获取数据库连接")
+                self._last_insert_warning_time = current_time
+            return -1
+        
         conn = None
         try:
             # 获取连接
@@ -884,6 +979,16 @@ class DBManager:
         Returns:
             bool: 操作是否成功
         """
+        # 如果数据库自动连接被禁用，静默返回
+        if not hasattr(self, '_auto_connect') or not self._auto_connect:
+            # 控制日志频率
+            current_time = time.time()
+            if not hasattr(self, '_last_batch_warning_time') or \
+               current_time - self._last_batch_warning_time > 10.0:
+                logger.warning("执行批量操作时无法获取数据库连接")
+                self._last_batch_warning_time = current_time
+            return False
+        
         conn = None
         try:
             # 获取连接
@@ -895,7 +1000,7 @@ class DBManager:
             if not conn:
                 logger.error("批量执行SQL时无法获取数据库连接")
                 return False
-            
+
             # 开始事务
             conn.begin()
             
@@ -927,6 +1032,16 @@ class DBManager:
         Returns:
             bool: 操作是否成功
         """
+        # 如果数据库自动连接被禁用，静默返回
+        if not hasattr(self, '_auto_connect') or not self._auto_connect:
+            # 控制日志频率
+            current_time = time.time()
+            if not hasattr(self, '_last_transaction_warning_time') or \
+               current_time - self._last_transaction_warning_time > 10.0:
+                logger.warning("执行事务时无法获取数据库连接")
+                self._last_transaction_warning_time = current_time
+            return False
+        
         conn = None
         try:
             # 获取连接

@@ -199,9 +199,9 @@ class LoginUI(QWidget):
         layout.addSpacing(20)
         
         # 登录按钮
-        login_button = ModernButton("登录", color=COLORS["primary"])
-        login_button.clicked.connect(self.login)
-        layout.addWidget(login_button)
+        self.login_button = ModernButton("登录", color=COLORS["primary"])
+        self.login_button.clicked.connect(self.login)
+        layout.addWidget(self.login_button)
         
         layout.addSpacing(10)
         
@@ -211,9 +211,9 @@ class LoginUI(QWidget):
         register_label = ModernLabel("还没有账号？")
         register_layout.addWidget(register_label)
         
-        register_button = ModernButton("注册新用户", flat=True, color=COLORS["primary"])
-        register_button.clicked.connect(self.register)
-        register_layout.addWidget(register_button)
+        self.register_button = ModernButton("注册新用户", flat=True, color=COLORS["primary"])
+        self.register_button.clicked.connect(self.register)
+        register_layout.addWidget(self.register_button)
         register_layout.addStretch()
         
         layout.addLayout(register_layout)

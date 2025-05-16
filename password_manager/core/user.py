@@ -247,6 +247,11 @@ class UserManager:
             # 从数据库获取最新的凭证 - 使用连接池，不再需要手动连接
             from core.db_manager import db_manager
             
+            # 检查数据库连接是否禁用
+            if hasattr(db_manager, '_auto_connect') and not db_manager._auto_connect:
+                logger.info("数据库连接已禁用，无法加载登录凭证")
+                return None
+                
             # 获取未过期的记录
             from datetime import datetime
             current_time = datetime.now()
@@ -256,7 +261,7 @@ class UserManager:
             results = db_manager.execute_query(sql, (current_time,))
             
             if not results or len(results) == 0:
-                logger.warning("未找到有效的登录凭证")
+                logger.debug("未找到有效的登录凭证")
                 return None
                 
             # 遍历结果，确保正确获取值

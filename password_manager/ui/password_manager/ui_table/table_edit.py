@@ -52,14 +52,78 @@ class TableEditMixin:
         
     def edit_row(self, row: int) -> bool:
         """
-        编辑指定行
+        编辑行
         
         Args:
             row (int): 行索引
             
         Returns:
-            bool: 是否成功进入编辑模式
+            bool: 编辑成功返回True，否则返回False
         """
+        # 如果已经在编辑模式，不允许编辑其他行
+        if self.editing_row >= 0 and self.editing_row != row:
+            logger.warning(f"已在编辑行 {self.editing_row}，不能同时编辑行 {row}")
+            return False
+            
+        # 获取真实行索引
+        real_index = self._get_real_row_index(row)
+        
+        # 处理需要切换所有者的情况
+        if isinstance(real_index, dict) and 'owner' in real_index and 'password' in real_index:
+            owner = real_index['owner']
+            password = real_index['password']
+            logger.info(f"编辑不同所有者 {owner} 的密码记录")
+            
+            # 显示确认对话框
+            reply = QMessageBox.question(
+                self.table, 
+                "编辑其他用户的密码", 
+                f"你正在尝试编辑属于用户 {owner} 的密码记录。\n\n确定要继续吗？",
+                QMessageBox.Yes | QMessageBox.No,
+                QMessageBox.No
+            )
+            
+            if reply == QMessageBox.No:
+                logger.info("用户取消了编辑其他用户的密码记录")
+                return False
+                
+            # 实现对其他用户记录的编辑逻辑
+            # 暂时切换到该用户，编辑完成后再切回
+            self.temp_owner = self.current_owner
+            self.temp_search_mode = True if hasattr(self, 'search_mode') else False
+            self.temp_search_results = self.search_results if hasattr(self, 'search_results') else None
+            
+            # 加载该用户的密码
+            self._load_passwords_internal(owner)
+            
+            # 查找对应的记录
+            all_passwords = password_manager.get_passwords_by_owner(owner)
+            found_index = -1
+            
+            for i, p in enumerate(all_passwords):
+                # 比较除密码字段之外的所有字段
+                match = True
+                for j in range(min(len(p), len(password))):
+                    if j != 4 and str(p[j]) != str(password[j]):
+                        match = False
+                        break
+                
+                if match:
+                    found_index = i
+                    break
+            
+            if found_index == -1:
+                logger.error(f"无法找到要编辑的记录")
+                return False
+                
+            # 编辑找到的记录
+            row = found_index
+            real_index = found_index
+            
+        elif real_index is None:
+            logger.error(f"无法获取行 {row} 的真实索引")
+            return False
+        
         try:
             # 检查行索引是否合法
             if row < 0 or row >= self.table.rowCount():
@@ -266,16 +330,40 @@ class TableEditMixin:
         
     def confirm_editing(self, row: int) -> bool:
         """
-        确认编辑，保存更改
+        确认编辑
         
         Args:
             row (int): 行索引
             
         Returns:
-            bool: 操作是否成功
+            bool: 确认成功返回True，否则返回False
         """
         try:
-            logger.info(f"确认编辑 - 第{row+1}行")
+            # 检查编辑状态
+            if not hasattr(self, 'editing_row') or self.editing_row < 0:
+                logger.warning(f"没有处于编辑状态，无法确认编辑")
+                return False
+                
+            if self.editing_row != row:
+                logger.warning(f"正在编辑行 {self.editing_row}，而不是行 {row}")
+                return False
+                
+            # 获取真实行索引
+            real_index = self._get_real_row_index(row)
+            
+            # 处理特殊返回值（切换所有者的情况）
+            is_other_owner = False
+            other_owner = None
+            
+            if isinstance(real_index, dict) and 'owner' in real_index:
+                other_owner = real_index['owner']
+                is_other_owner = True
+                # 使用当前行作为真实索引，因为已经在edit_row中切换了所有者
+                real_index = row
+                
+            if real_index is None:
+                logger.error(f"无法获取行 {row} 的真实索引")
+                return False
             
             # 1. 获取行数据
             new_data = []
@@ -670,33 +758,85 @@ class TableEditMixin:
     
     def _update_after_save(self, success, row, action_desc):
         """
-        保存完成后更新UI和状态
+        保存后更新UI
         
         Args:
-            success (bool): 保存是否成功
+            success (bool): 是否成功
             row (int): 行索引
             action_desc (str): 操作描述
         """
-        if success:
-            logger.info(f"{action_desc}成功")
+        try:
+            logger.info(f"{action_desc}后更新UI: 成功={success}, 行={row}")
             
-            # 完成剩余的编辑状态清理
-            self._finish_edit_cleanup(row, action_desc)
+            if success:
+                # 保存成功后的操作
+                self._finish_edit_cleanup(row, action_desc)
+                
+                # 如果之前是在编辑其他用户的记录，需要恢复原状态
+                if hasattr(self, 'temp_owner'):
+                    logger.info(f"恢复到原所有者 {self.temp_owner}")
+                    
+                    # 恢复搜索状态
+                    temp_search_mode = self.temp_search_mode if hasattr(self, 'temp_search_mode') else False
+                    temp_search_results = self.temp_search_results if hasattr(self, 'temp_search_results') else None
+                    
+                    # 切回原所有者
+                    current_owner = self.current_owner
+                    self._load_passwords_internal(self.temp_owner)
+                    
+                    # 恢复搜索状态
+                    if temp_search_mode and temp_search_results:
+                        self.search_mode = temp_search_mode
+                        self.search_results = temp_search_results
+                        self._refresh_search_results()
+                        
+                    # 清除临时属性
+                    delattr(self, 'temp_owner')
+                    if hasattr(self, 'temp_search_mode'):
+                        delattr(self, 'temp_search_mode')
+                    if hasattr(self, 'temp_search_results'):
+                        delattr(self, 'temp_search_results')
+                        
+                    # 显示提示消息
+                    QMessageBox.information(
+                        self.table, 
+                        "保存成功", 
+                        f"已成功保存对用户 {current_owner} 的密码记录的修改。"
+                    )
+            else:
+                logger.error(f"{action_desc}失败")
+                
+                # 如果保存失败，需要将编辑控件还原
+                self.cancel_editing()
+                
+                # 显示错误消息
+                QMessageBox.critical(
+                    self.table.window(),
+                    "保存失败",
+                    f"密码记录{action_desc}失败，请重试。"
+                )
             
-            # 注意：不再显示单独的成功对话框，因为已在_update_save_dialog中处理
-        else:
-            logger.error(f"{action_desc}失败")
+        except Exception as e:
+            logger.error(f"保存后更新UI时出错: {str(e)}")
+            import traceback
+            logger.error(traceback.format_exc())
             
-            # 如果保存失败，需要将编辑控件还原
-            self.cancel_editing()
+            # 即使出错也确保重置所有状态，避免界面卡死
+            self.editing_row = -1
+            self.original_row_data = None
             
-            # 显示错误消息
-            QMessageBox.critical(
-                self.table.window(),
-                "保存失败",
-                f"密码记录{action_desc}失败，请重试。"
-            )
-    
+            if hasattr(self, 'required_field_delegate'):
+                self.required_field_delegate.set_editing_mode(False)
+                
+            self.table.setSelectionMode(QAbstractItemView.ExtendedSelection)
+            self.table.setEditTriggers(QAbstractItemView.NoEditTriggers)
+            
+            # 强制清理所有按钮相关属性
+            self._clear_button_attributes()
+                
+            # 强制更新UI
+            self.table.viewport().update()
+        
     def _finish_edit_cleanup(self, row, action_desc):
         """
         完成编辑操作的最终清理
@@ -1343,10 +1483,11 @@ class TableEditMixin:
                             # 如果是(所有者, 密码)格式的元组
                             owner, password = search_item
                             
-                            # 如果所有者不是当前所有者，无法获取真实索引
+                            # 如果所有者不是当前所有者，需要先切换到该所有者
                             if owner != self.current_owner:
                                 logger.warning(f"搜索结果所有者 {owner} 与当前所有者 {self.current_owner} 不匹配")
-                                return None
+                                # 返回特殊标记，表示需要切换所有者
+                                return {'owner': owner, 'password': password}
                             
                             # 获取所有者的所有密码
                             all_passwords = password_manager.get_passwords_by_owner(owner)

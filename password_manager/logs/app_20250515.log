@@ -1,0 +1,24 @@
+2025-05-15 17:34:49,754 - root - INFO - 密码管理系统启动
+2025-05-15 17:34:49,755 - root - INFO - 初始化用户设置模块...
+2025-05-15 17:34:49,755 - root - INFO - 用户设置模块已初始化
+2025-05-15 17:34:49,867 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-05-15 17:34:52,167 - core.user - INFO - 用户 admin 登录成功
+2025-05-15 17:34:52,168 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-05-15 17:34:52,201 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-05-15 17:34:52,247 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-05-15 17:34:52,248 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-05-15 17:34:52,298 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-05-15 17:34:52,338 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-05-15 17:34:52,959 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-05-15 17:34:54,031 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 已完成
+2025-05-15 17:34:54,031 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-05-15 17:34:54,032 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-05-15 17:34:54,032 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-05-15 17:34:54,033 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 已跳过
+2025-05-15 17:35:06,057 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 5, 选中行数: 1, 选中行: [1]
+2025-05-15 17:35:06,057 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-05-15 17:35:06,058 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-05-15 17:35:06,059 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-05-15 17:35:06,059 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-05-15 17:35:06,059 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-05-16 08:52:50,296 - core.user - INFO - 用户已登出

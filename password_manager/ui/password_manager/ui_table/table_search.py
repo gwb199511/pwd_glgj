@@ -44,8 +44,8 @@ class TableSearchMixin:
             self.last_search_text = keyword
             logger.debug(f"设置搜索关键字: '{keyword}'")
             
-            # 执行搜索
-            results = password_manager.search_passwords(keyword, self.current_owner)
+            # 执行搜索，传入None作为owner参数，搜索所有用户的密码
+            results = password_manager.search_passwords(keyword, None)
             
             if not results:
                 # 没有找到结果，但搜索成功

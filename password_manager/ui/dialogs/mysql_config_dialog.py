@@ -211,12 +211,17 @@ class MySQLConfigDialog(QDialog):
             success = False
             message = ""
             try:
-                db_manager.update_config(config)
+                # 先应用配置但不测试连接
+                db_manager.config = config.copy()
+                # 重置连接尝试时间
+                db_manager._last_connection_attempt = 0
                 # 测试连接
                 success, message = db_manager.test_connection()
             except Exception as e:
                 success = False
                 message = str(e)
+                logger.error(f"测试连接时出错: {str(e)}")
+                logger.error(traceback.format_exc())
             
             # 在主线程中更新UI (使用QApplication.processEvents而不是跨线程操作UI)
             return success, message
@@ -267,24 +272,34 @@ class MySQLConfigDialog(QDialog):
                 db_manager.update_config(config)
                 
                 # 创建数据库
+                logger.info(f"尝试创建/连接数据库: {config['database']} 在服务器: {config['host']}:{config['port']}")
                 db_success, db_message = db_manager.create_database()
                 
                 if db_success:
+                    logger.info(f"数据库创建/连接成功: {db_message}")
                     # 初始化表结构
+                    logger.info("开始初始化表结构...")
                     table_success, table_message = db_manager.initialize_tables()
                     
                     # 如果表结构初始化成功，添加默认用户
                     if table_success:
+                        logger.info("表结构初始化成功，开始创建默认用户...")
                         self._create_default_users()
+                        logger.info("默认用户创建完成")
+                    else:
+                        logger.error(f"表结构初始化失败: {table_message}")
                     
                     success = table_success
                     message = table_message
                 else:
+                    logger.error(f"数据库创建/连接失败: {db_message}")
                     success = db_success
                     message = db_message
             except Exception as e:
+                logger.error(f"初始化过程发生异常: {str(e)}")
+                logger.error(traceback.format_exc())
                 success = False
-                message = str(e)
+                message = f"初始化数据库时出错: {str(e)}"
                 
             return success, message
         
@@ -355,24 +370,43 @@ class MySQLConfigDialog(QDialog):
         # 获取配置
         config = self.get_config_from_ui()
         
-        # 更新数据库配置
-        success, message = db_manager.update_config(config)
-        
-        if not success:
-            show_message(self, "保存失败", f"保存配置失败：\n{message}", QMessageBox.Critical)
-            return
-        
-        # 设置存储类型为mysql
-        storage_type = "mysql"
-        
-        # 修改配置文件中的存储模式
-        self._update_storage_type(storage_type)
-        
-        # 发送存储模式变更信号
-        self.storage_mode_changed.emit(storage_type)
-        
-        # 关闭对话框
-        self.accept()
+        try:
+            # 保存配置，不进行连接测试
+            if not db_manager._save_config(config):
+                show_message(self, "保存失败", "保存配置文件失败，请检查文件权限或磁盘空间", QMessageBox.Critical)
+                return
+                
+            # 更新内部配置对象
+            db_manager.config = config
+            
+            # 关闭现有连接池
+            if db_manager._connection_pool is not None:
+                db_manager._connection_pool.close_all()
+                db_manager._connection_pool = None
+            
+            # 尝试进行测试连接，但即使失败也继续
+            success, message = db_manager.test_connection()
+            if not success:
+                logger.warning(f"配置已保存，但连接测试失败: {message}")
+                # 显示警告，但不阻止保存
+                show_message(self, "配置已保存", f"配置已保存，但连接测试失败：\n{message}\n\n您可能需要初始化数据库。", QMessageBox.Warning)
+            
+            # 设置存储类型为mysql
+            storage_type = "mysql"
+            
+            # 修改配置文件中的存储模式
+            self._update_storage_type(storage_type)
+            
+            # 发送存储模式变更信号
+            self.storage_mode_changed.emit(storage_type)
+            
+            # 关闭对话框
+            self.accept()
+        except Exception as e:
+            error_message = f"保存配置时出错: {str(e)}"
+            logger.error(error_message)
+            logger.error(traceback.format_exc())
+            show_message(self, "保存失败", error_message, QMessageBox.Critical)
     
     def _update_storage_type(self, storage_type: str) -> None:
         """

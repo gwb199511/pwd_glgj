@@ -1,5 +1,5 @@
 {
-    "host": "192.168.8.82",
+    "host": "192.168.5.8",
     "port": 3306,
     "user": "root",
     "password": "Capinfo@123",

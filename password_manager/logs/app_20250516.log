@@ -780,3 +780,768 @@ NameError: cannot access free variable 'QDialog' where it is not associated with
 2025-05-16 18:12:27,270 - root - ERROR - 无法连接到数据库服务器(192.168.8.82:3306): (2003, "Can't connect to MySQL server on '192.168.8.82' (timed out)")
 2025-05-16 18:12:27,270 - root - ERROR - 无法连接到数据库: 无法连接到数据库服务器(192.168.8.82:3306): (2003, "Can't connect to MySQL server on '192.168.8.82' (timed out)")
 2025-05-16 18:12:31,202 - root - INFO - 用户选择退出程序
+2025-05-16 20:52:09,928 - root - INFO - 密码管理系统启动
+2025-05-16 20:52:09,970 - root - INFO - 数据库自动连接状态: 已启用
+2025-05-16 20:52:09,971 - root - INFO - 准备尝试数据库连接...
+2025-05-16 20:52:09,971 - root - INFO - 已启用数据库自动连接
+2025-05-16 20:52:09,972 - root - INFO - 开始检查数据库连接状态...
+2025-05-16 20:52:09,972 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 20:52:09,973 - root - INFO - 连接目标: 192.168.8.82:3306/password_manager, 超时: 3秒
+2025-05-16 20:52:12,996 - root - ERROR - 无法连接到数据库服务器(192.168.8.82:3306): (2003, "Can't connect to MySQL server on '192.168.8.82' (timed out)")
+2025-05-16 20:52:12,997 - root - ERROR - 无法连接到数据库: 无法连接到数据库服务器(192.168.8.82:3306): (2003, "Can't connect to MySQL server on '192.168.8.82' (timed out)")
+2025-05-16 20:52:15,301 - root - INFO - 用户选择修改数据库连接信息
+2025-05-16 20:52:21,192 - core.db_manager - ERROR - 连接测试失败: 数据库不存在：password_manager，需要先初始化数据库
+2025-05-16 20:52:28,291 - ui.dialogs.mysql_config_dialog - INFO - 尝试创建/连接数据库: password_manager 在服务器: 192.168.5.8:3306
+2025-05-16 20:52:28,292 - core.db_manager - INFO - 正在连接MySQL服务器: 192.168.5.8:3306
+2025-05-16 20:52:28,295 - core.db_manager - INFO - 检查数据库 password_manager 是否存在
+2025-05-16 20:52:28,298 - core.db_manager - INFO - 数据库 password_manager 不存在，正在创建...
+2025-05-16 20:52:28,302 - core.db_manager - INFO - 数据库 password_manager 已创建成功
+2025-05-16 20:52:28,303 - core.db_manager - INFO - 数据库连接已关闭
+2025-05-16 20:52:28,303 - ui.dialogs.mysql_config_dialog - INFO - 数据库创建/连接成功: 数据库 password_manager 准备就绪
+2025-05-16 20:52:28,304 - ui.dialogs.mysql_config_dialog - INFO - 开始初始化表结构...
+2025-05-16 20:52:28,304 - core.db_manager - INFO - 正在连接数据库以初始化表结构: password_manager
+2025-05-16 20:52:28,327 - core.db_manager - INFO - 连接成功，开始初始化表结构
+2025-05-16 20:52:28,328 - core.db_manager - INFO - 检查表 passwords 是否存在
+2025-05-16 20:52:28,331 - core.db_manager - INFO - 表 passwords 不存在，正在创建...
+2025-05-16 20:52:28,342 - core.db_manager - INFO - 表 passwords 创建成功
+2025-05-16 20:52:28,343 - core.db_manager - INFO - 检查表 users 是否存在
+2025-05-16 20:52:28,345 - core.db_manager - INFO - 表 users 不存在，正在创建...
+2025-05-16 20:52:28,355 - core.db_manager - INFO - 表 users 创建成功
+2025-05-16 20:52:28,356 - core.db_manager - INFO - 检查表 remember 是否存在
+2025-05-16 20:52:28,358 - core.db_manager - INFO - 表 remember 不存在，正在创建...
+2025-05-16 20:52:28,369 - core.db_manager - INFO - 表 remember 创建成功
+2025-05-16 20:52:28,370 - core.db_manager - INFO - 检查表 audit_logs 是否存在
+2025-05-16 20:52:28,373 - core.db_manager - INFO - 表 audit_logs 不存在，正在创建...
+2025-05-16 20:52:28,385 - core.db_manager - INFO - 表 audit_logs 创建成功
+2025-05-16 20:52:28,385 - core.db_manager - INFO - 检查表 user_settings 是否存在
+2025-05-16 20:52:28,388 - core.db_manager - INFO - 表 user_settings 不存在，正在创建...
+2025-05-16 20:52:28,400 - core.db_manager - INFO - 表 user_settings 创建成功
+2025-05-16 20:52:28,402 - core.db_manager - INFO - 检查表 db_config 是否存在
+2025-05-16 20:52:28,405 - core.db_manager - INFO - 表 db_config 不存在，正在创建...
+2025-05-16 20:52:28,415 - core.db_manager - INFO - 表 db_config 创建成功
+2025-05-16 20:52:28,415 - core.db_manager - INFO - 检查表 password_history 是否存在
+2025-05-16 20:52:28,418 - core.db_manager - INFO - 表 password_history 不存在，正在创建...
+2025-05-16 20:52:28,432 - core.db_manager - INFO - 表 password_history 创建成功
+2025-05-16 20:52:28,434 - core.db_manager - INFO - 表结构初始化成功: 创建了 7 个表，已存在 0 个表
+2025-05-16 20:52:28,435 - ui.dialogs.mysql_config_dialog - INFO - 表结构初始化成功，开始创建默认用户...
+2025-05-16 20:52:28,440 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 20:52:28,463 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 20:52:28,478 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 20:52:28,481 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 20:52:28,509 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 20:52:28,512 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 20:52:28,515 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 20:52:28,539 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 20:52:28,544 - ui.dialogs.mysql_config_dialog - INFO - 创建了默认管理员用户: admin
+2025-05-16 20:52:28,550 - ui.dialogs.mysql_config_dialog - INFO - 为人员 徐国明 创建了示例数据
+2025-05-16 20:52:28,557 - ui.dialogs.mysql_config_dialog - INFO - 为人员 高文彬 创建了示例数据
+2025-05-16 20:52:28,562 - ui.dialogs.mysql_config_dialog - INFO - 为人员 石帆 创建了示例数据
+2025-05-16 20:52:28,563 - ui.dialogs.mysql_config_dialog - INFO - 默认数据初始化完成
+2025-05-16 20:52:28,563 - ui.dialogs.mysql_config_dialog - INFO - 默认用户创建完成
+2025-05-16 20:52:31,598 - core.db_manager - ERROR - 测试数据库连接时出错: 'tuple' object has no attribute 'values'
+2025-05-16 20:52:31,600 - core.db_manager - ERROR - Traceback (most recent call last):
+  File "C:\Users\14214\Desktop\pwd_glgj\password_manager\core\db_manager.py", line 840, in test_connection
+    if result and 1 in result.values():
+AttributeError: 'tuple' object has no attribute 'values'
+
+2025-05-16 20:52:37,018 - ui.dialogs.mysql_config_dialog - WARNING - 配置已保存，但连接测试失败: 连接测试过于频繁，请稍后再试
+2025-05-16 20:52:42,971 - ui.dialogs.mysql_config_dialog - INFO - 使用配置文件路径: C:\Users\14214\Desktop\pwd_glgj\password_manager\config.py
+2025-05-16 20:52:42,984 - ui.dialogs.mysql_config_dialog - INFO - 存储类型已更新为: mysql
+2025-05-16 20:52:43,009 - root - INFO - 数据库配置已保存，尝试使用新配置连接
+2025-05-16 20:54:20,386 - root - INFO - 密码管理系统启动
+2025-05-16 20:54:20,409 - root - INFO - 数据库自动连接状态: 已启用
+2025-05-16 20:54:20,409 - root - INFO - 准备尝试数据库连接...
+2025-05-16 20:54:20,410 - root - INFO - 已启用数据库自动连接
+2025-05-16 20:54:20,410 - root - INFO - 开始检查数据库连接状态...
+2025-05-16 20:54:20,411 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 20:54:20,411 - root - INFO - 连接目标: 192.168.5.8:3306/password_manager, 超时: 3秒
+2025-05-16 20:54:20,421 - root - INFO - 数据库连接测试成功
+2025-05-16 20:54:20,422 - root - INFO - 数据库连接成功，继续启动程序
+2025-05-16 20:54:20,423 - root - INFO - 初始化用户设置模块...
+2025-05-16 20:54:20,423 - root - INFO - 用户设置模块已初始化
+2025-05-16 20:54:20,483 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 20:54:20,487 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 20:54:20,491 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 20:54:20,506 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 20:54:20,511 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 20:54:20,515 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 20:54:20,536 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 20:54:20,552 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 20:54:34,500 - root - INFO - 密码管理系统启动
+2025-05-16 20:54:34,536 - root - INFO - 数据库自动连接状态: 已启用
+2025-05-16 20:54:34,537 - root - INFO - 准备尝试数据库连接...
+2025-05-16 20:54:34,537 - root - INFO - 已启用数据库自动连接
+2025-05-16 20:54:34,538 - root - INFO - 开始检查数据库连接状态...
+2025-05-16 20:54:34,538 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 20:54:34,539 - root - INFO - 连接目标: 192.168.5.9:3306/password_manager, 超时: 3秒
+2025-05-16 20:54:37,550 - root - ERROR - 无法连接到数据库服务器(192.168.5.9:3306): (2003, "Can't connect to MySQL server on '192.168.5.9' (timed out)")
+2025-05-16 20:54:37,551 - root - ERROR - 无法连接到数据库: 无法连接到数据库服务器(192.168.5.9:3306): (2003, "Can't connect to MySQL server on '192.168.5.9' (timed out)")
+2025-05-16 20:54:39,289 - root - INFO - 用户选择修改数据库连接信息
+2025-05-16 20:54:49,613 - ui.dialogs.mysql_config_dialog - INFO - 尝试创建/连接数据库: password_manager 在服务器: 192.168.5.8:3306
+2025-05-16 20:54:49,614 - core.db_manager - INFO - 正在连接MySQL服务器: 192.168.5.8:3306
+2025-05-16 20:54:49,635 - core.db_manager - INFO - 检查数据库 password_manager 是否存在
+2025-05-16 20:54:49,637 - core.db_manager - INFO - 数据库 password_manager 已存在，无需创建
+2025-05-16 20:54:49,638 - core.db_manager - INFO - 数据库连接已关闭
+2025-05-16 20:54:49,639 - ui.dialogs.mysql_config_dialog - INFO - 数据库创建/连接成功: 数据库 password_manager 准备就绪
+2025-05-16 20:54:49,639 - ui.dialogs.mysql_config_dialog - INFO - 开始初始化表结构...
+2025-05-16 20:54:49,640 - core.db_manager - INFO - 正在连接数据库以初始化表结构: password_manager
+2025-05-16 20:54:49,644 - core.db_manager - INFO - 连接成功，开始初始化表结构
+2025-05-16 20:54:49,645 - core.db_manager - INFO - 检查表 passwords 是否存在
+2025-05-16 20:54:49,648 - core.db_manager - INFO - 表 passwords 已存在
+2025-05-16 20:54:49,649 - core.db_manager - INFO - 检查表 users 是否存在
+2025-05-16 20:54:49,651 - core.db_manager - INFO - 表 users 已存在
+2025-05-16 20:54:49,652 - core.db_manager - INFO - 检查表 remember 是否存在
+2025-05-16 20:54:49,654 - core.db_manager - INFO - 表 remember 已存在
+2025-05-16 20:54:49,655 - core.db_manager - INFO - 检查表 audit_logs 是否存在
+2025-05-16 20:54:49,657 - core.db_manager - INFO - 表 audit_logs 已存在
+2025-05-16 20:54:49,658 - core.db_manager - INFO - 检查表 user_settings 是否存在
+2025-05-16 20:54:49,661 - core.db_manager - INFO - 表 user_settings 已存在
+2025-05-16 20:54:49,662 - core.db_manager - INFO - 检查表 db_config 是否存在
+2025-05-16 20:54:49,665 - core.db_manager - INFO - 表 db_config 已存在
+2025-05-16 20:54:49,666 - core.db_manager - INFO - 检查表 password_history 是否存在
+2025-05-16 20:54:49,668 - core.db_manager - INFO - 表 password_history 已存在
+2025-05-16 20:54:49,671 - core.db_manager - INFO - 所有表结构已存在（共 7 个表）
+2025-05-16 20:54:49,671 - ui.dialogs.mysql_config_dialog - INFO - 表结构初始化成功，开始创建默认用户...
+2025-05-16 20:54:49,677 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 20:54:49,682 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 20:54:49,695 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 20:54:49,700 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 20:54:49,705 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 20:54:49,709 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 20:54:49,715 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 20:54:49,740 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 20:54:49,746 - ui.dialogs.mysql_config_dialog - INFO - 默认数据初始化完成
+2025-05-16 20:54:49,747 - ui.dialogs.mysql_config_dialog - INFO - 默认用户创建完成
+2025-05-16 20:54:57,230 - ui.dialogs.mysql_config_dialog - INFO - 使用配置文件路径: C:\Users\14214\Desktop\pwd_glgj\password_manager\config.py
+2025-05-16 20:54:57,232 - ui.dialogs.mysql_config_dialog - INFO - 存储类型已更新为: mysql
+2025-05-16 20:54:57,261 - root - INFO - 数据库配置已保存，尝试使用新配置连接
+2025-05-16 21:13:12,109 - root - INFO - 密码管理系统启动
+2025-05-16 21:13:12,127 - root - INFO - 数据库自动连接状态: 已启用
+2025-05-16 21:13:12,128 - root - INFO - 准备尝试数据库连接...
+2025-05-16 21:13:12,128 - root - INFO - 已启用数据库自动连接
+2025-05-16 21:13:12,129 - root - INFO - 开始检查数据库连接状态...
+2025-05-16 21:13:12,129 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 21:13:12,129 - root - INFO - 连接目标: 192.168.5.8:3306/password_manager, 超时: 3秒
+2025-05-16 21:13:12,136 - root - INFO - 数据库连接测试成功
+2025-05-16 21:13:12,137 - root - INFO - 数据库连接成功，继续启动程序
+2025-05-16 21:13:12,137 - root - INFO - 初始化用户设置模块...
+2025-05-16 21:13:12,138 - root - INFO - 用户设置模块已初始化
+2025-05-16 21:13:12,187 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 21:13:12,207 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 21:13:12,210 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 21:13:12,237 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 21:13:12,253 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 21:13:12,256 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 21:13:12,260 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 21:13:12,282 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 21:13:23,528 - root - INFO - 密码管理系统启动
+2025-05-16 21:13:23,557 - root - INFO - 数据库自动连接状态: 已启用
+2025-05-16 21:13:23,558 - root - INFO - 准备尝试数据库连接...
+2025-05-16 21:13:23,558 - root - INFO - 已启用数据库自动连接
+2025-05-16 21:13:23,559 - root - INFO - 开始检查数据库连接状态...
+2025-05-16 21:13:23,559 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 21:13:23,559 - root - INFO - 连接目标: 192.168.5.9:3306/password_manager, 超时: 3秒
+2025-05-16 21:13:26,567 - root - ERROR - 无法连接到数据库服务器(192.168.5.9:3306): (2003, "Can't connect to MySQL server on '192.168.5.9' (timed out)")
+2025-05-16 21:13:26,568 - root - ERROR - 无法连接到数据库: 无法连接到数据库服务器(192.168.5.9:3306): (2003, "Can't connect to MySQL server on '192.168.5.9' (timed out)")
+2025-05-16 21:13:28,346 - root - INFO - 用户选择修改数据库连接信息
+2025-05-16 21:13:34,289 - ui.dialogs.mysql_config_dialog - INFO - 尝试创建/连接数据库: password_manager 在服务器: 192.168.5.8:3306
+2025-05-16 21:13:34,289 - core.db_manager - INFO - 正在连接MySQL服务器: 192.168.5.8:3306
+2025-05-16 21:13:34,302 - core.db_manager - INFO - 检查数据库 password_manager 是否存在
+2025-05-16 21:13:34,304 - core.db_manager - INFO - 数据库 password_manager 已存在，无需创建
+2025-05-16 21:13:34,305 - core.db_manager - INFO - 数据库连接已关闭
+2025-05-16 21:13:34,306 - ui.dialogs.mysql_config_dialog - INFO - 数据库创建/连接成功: 数据库 password_manager 准备就绪
+2025-05-16 21:13:34,306 - ui.dialogs.mysql_config_dialog - INFO - 开始初始化表结构...
+2025-05-16 21:13:34,307 - core.db_manager - INFO - 正在连接数据库以初始化表结构: password_manager
+2025-05-16 21:13:34,309 - core.db_manager - INFO - 连接成功，开始初始化表结构
+2025-05-16 21:13:34,309 - core.db_manager - INFO - 检查表 passwords 是否存在
+2025-05-16 21:13:34,312 - core.db_manager - INFO - 表 passwords 已存在
+2025-05-16 21:13:34,312 - core.db_manager - INFO - 检查表 users 是否存在
+2025-05-16 21:13:34,314 - core.db_manager - INFO - 表 users 已存在
+2025-05-16 21:13:34,315 - core.db_manager - INFO - 检查表 remember 是否存在
+2025-05-16 21:13:34,317 - core.db_manager - INFO - 表 remember 已存在
+2025-05-16 21:13:34,318 - core.db_manager - INFO - 检查表 audit_logs 是否存在
+2025-05-16 21:13:34,320 - core.db_manager - INFO - 表 audit_logs 已存在
+2025-05-16 21:13:34,321 - core.db_manager - INFO - 检查表 user_settings 是否存在
+2025-05-16 21:13:34,322 - core.db_manager - INFO - 表 user_settings 已存在
+2025-05-16 21:13:34,323 - core.db_manager - INFO - 检查表 db_config 是否存在
+2025-05-16 21:13:34,324 - core.db_manager - INFO - 表 db_config 已存在
+2025-05-16 21:13:34,324 - core.db_manager - INFO - 检查表 password_history 是否存在
+2025-05-16 21:13:34,326 - core.db_manager - INFO - 表 password_history 已存在
+2025-05-16 21:13:34,327 - core.db_manager - INFO - 所有表结构已存在（共 7 个表）
+2025-05-16 21:13:34,328 - ui.dialogs.mysql_config_dialog - INFO - 表结构初始化成功，开始创建默认用户...
+2025-05-16 21:13:34,331 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 21:13:34,348 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 21:13:34,363 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 21:13:34,377 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 21:13:34,393 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 21:13:34,396 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 21:13:34,399 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 21:13:34,422 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 21:13:34,427 - ui.dialogs.mysql_config_dialog - INFO - 默认数据初始化完成
+2025-05-16 21:13:34,427 - ui.dialogs.mysql_config_dialog - INFO - 默认用户创建完成
+2025-05-16 21:14:53,384 - ui.dialogs.mysql_config_dialog - INFO - 使用配置文件路径: C:\Users\14214\Desktop\pwd_glgj\password_manager\config.py
+2025-05-16 21:14:53,386 - ui.dialogs.mysql_config_dialog - INFO - 存储类型已更新为: mysql
+2025-05-16 21:14:53,406 - root - INFO - 数据库配置已保存，尝试使用新配置连接
+2025-05-16 21:14:53,662 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 21:14:53,663 - root - INFO - 连接目标: 192.168.5.8:3306/password_manager, 超时: 3秒
+2025-05-16 21:14:53,684 - root - INFO - 数据库连接测试成功
+2025-05-16 21:14:53,711 - root - INFO - 使用新配置连接数据库成功
+2025-05-16 21:14:56,773 - root - ERROR - 检查数据库连接时发生异常: local variable 'QDialog' referenced before assignment
+2025-05-16 21:14:56,775 - root - ERROR - Traceback (most recent call last):
+  File "C:\Users\14214\Desktop\pwd_glgj\password_manager\main.py", line 664, in main
+    if config_dialog.exec_() == QDialog.Rejected:
+UnboundLocalError: local variable 'QDialog' referenced before assignment
+
+2025-05-16 21:14:56,776 - root - ERROR - 程序发生错误: free variable 'QDialog' referenced before assignment in enclosing scope
+2025-05-16 21:14:56,777 - root - ERROR - Traceback (most recent call last):
+  File "C:\Users\14214\Desktop\pwd_glgj\password_manager\main.py", line 664, in main
+    if config_dialog.exec_() == QDialog.Rejected:
+UnboundLocalError: local variable 'QDialog' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\14214\Desktop\pwd_glgj\password_manager\main.py", line 757, in <module>
+    main()
+  File "C:\Users\14214\Desktop\pwd_glgj\password_manager\main.py", line 695, in main
+    show_critical_error(
+  File "C:\Users\14214\Desktop\pwd_glgj\password_manager\main.py", line 345, in show_critical_error
+    dialog = QDialog(None, Qt.WindowStaysOnTopHint)
+NameError: free variable 'QDialog' referenced before assignment in enclosing scope
+
+2025-05-16 21:18:54,426 - root - INFO - 密码管理系统启动
+2025-05-16 21:18:54,464 - root - INFO - 数据库自动连接状态: 已启用
+2025-05-16 21:18:54,465 - root - INFO - 准备尝试数据库连接...
+2025-05-16 21:18:54,465 - root - INFO - 已启用数据库自动连接
+2025-05-16 21:18:54,466 - root - INFO - 开始检查数据库连接状态...
+2025-05-16 21:18:54,466 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 21:18:54,466 - root - INFO - 连接目标: 192.168.5.9:3306/password_manager, 超时: 3秒
+2025-05-16 21:18:57,486 - root - ERROR - 无法连接到数据库服务器(192.168.5.9:3306): (2003, "Can't connect to MySQL server on '192.168.5.9' (timed out)")
+2025-05-16 21:18:57,487 - root - ERROR - 无法连接到数据库: 无法连接到数据库服务器(192.168.5.9:3306): (2003, "Can't connect to MySQL server on '192.168.5.9' (timed out)")
+2025-05-16 21:18:59,564 - root - INFO - 用户选择修改数据库连接信息
+2025-05-16 21:19:05,301 - core.db_manager - ERROR - 连接测试失败: 无法连接到服务器：192.168.5.9:3306
+2025-05-16 21:19:26,679 - ui.dialogs.mysql_config_dialog - WARNING - 配置已保存，但连接测试失败: 连接测试过于频繁，请稍后再试
+2025-05-16 21:19:29,925 - ui.dialogs.mysql_config_dialog - INFO - 使用配置文件路径: C:\Users\14214\Desktop\pwd_glgj\password_manager\config.py
+2025-05-16 21:19:29,926 - ui.dialogs.mysql_config_dialog - INFO - 存储类型已更新为: mysql
+2025-05-16 21:19:29,949 - root - INFO - 数据库配置已保存，尝试使用新配置连接
+2025-05-16 21:19:30,099 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 21:19:30,100 - root - INFO - 连接目标: 192.168.5.8:3306/password_manager, 超时: 3秒
+2025-05-16 21:19:30,106 - root - INFO - 数据库连接测试成功
+2025-05-16 21:19:30,129 - root - INFO - 使用新配置连接数据库成功
+2025-05-16 21:19:33,477 - root - INFO - 初始化用户设置模块...
+2025-05-16 21:19:33,478 - root - INFO - 用户设置模块已初始化
+2025-05-16 21:19:33,487 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 21:19:33,492 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 21:19:33,496 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 21:19:33,503 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 21:19:33,510 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 21:19:33,515 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 21:19:33,530 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 21:19:33,535 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 21:19:46,042 - core.user - INFO - 用户 admin 登录成功
+2025-05-16 21:19:46,043 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-05-16 21:19:46,179 - core.db_manager - ERROR - 批量执行SQL时出错: (1054, "Unknown column 'target' in 'field list'")
+2025-05-16 21:19:46,180 - features.audit.audit_log - WARNING - 批量插入审计日志失败
+2025-05-16 21:19:46,182 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-05-16 21:19:46,182 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-05-16 21:19:46,218 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-05-16 21:19:46,736 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-05-16 21:19:52,646 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-05-16 21:19:53,860 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 未完成
+2025-05-16 21:19:53,873 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: False
+2025-05-16 21:19:53,873 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-05-16 21:19:53,895 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-05-16 21:19:53,896 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 0 张图片
+2025-05-16 21:19:53,901 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 成功
+2025-05-16 21:19:54,005 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/7
+2025-05-16 21:19:57,823 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-05-16 21:19:57,823 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 1
+2025-05-16 21:19:57,827 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 2/7
+2025-05-16 21:19:58,822 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-05-16 21:19:58,822 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 2
+2025-05-16 21:19:58,825 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 3/7
+2025-05-16 21:20:00,636 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-05-16 21:20:00,637 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 3
+2025-05-16 21:20:00,639 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 4/7
+2025-05-16 21:20:01,840 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-05-16 21:20:01,841 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 4
+2025-05-16 21:20:01,842 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 5/7
+2025-05-16 21:20:02,141 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-05-16 21:20:02,142 - ui.password_manager.ui_guide - INFO - 缓存中未找到图片 account_menu.png，尝试加载...
+2025-05-16 21:20:02,142 - ui.password_manager.ui_guide - INFO - 尝试加载菜单图片，列索引: 3, 文件名: account_menu.png
+2025-05-16 21:20:02,143 - ui.password_manager.ui_guide - WARNING - 无法加载图片，使用文本标签作为备选
+2025-05-16 21:20:02,144 - ui.password_manager.ui_guide - INFO - 已创建文本菜单替代图片，位置: (153, 188)
+2025-05-16 21:20:02,195 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (153, 403)
+2025-05-16 21:20:04,322 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-05-16 21:20:04,323 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 5
+2025-05-16 21:20:04,324 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 6/7
+2025-05-16 21:20:04,625 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-05-16 21:20:04,625 - ui.password_manager.ui_guide - INFO - 缓存中未找到图片 password_menu.png，尝试加载...
+2025-05-16 21:20:04,625 - ui.password_manager.ui_guide - INFO - 尝试加载菜单图片，列索引: 4, 文件名: password_menu.png
+2025-05-16 21:20:04,626 - ui.password_manager.ui_guide - WARNING - 无法加载图片，使用文本标签作为备选
+2025-05-16 21:20:04,628 - ui.password_manager.ui_guide - INFO - 已创建文本菜单替代图片，位置: (687, 188)
+2025-05-16 21:20:04,679 - ui.password_manager.ui_guide - INFO - 将提示框放在菜单下方，位置: (453, 403)
+2025-05-16 21:20:06,333 - ui.password_manager.ui_guide - INFO - 已清理菜单图片
+2025-05-16 21:20:06,333 - ui.password_manager.ui_guide - INFO - 已递增步骤索引到: 6
+2025-05-16 21:20:06,335 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 7/7
+2025-05-16 21:20:08,369 - core.user_settings - INFO - 已标记引导步骤 main_features 为已完成
+2025-05-16 21:20:08,370 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-05-16 21:20:31,650 - ui.dialogs.mysql_config_dialog - INFO - 使用配置文件路径: C:\Users\14214\Desktop\pwd_glgj\password_manager\config.py
+2025-05-16 21:20:31,652 - ui.dialogs.mysql_config_dialog - INFO - 存储类型已更新为: mysql
+2025-05-16 21:20:33,549 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 21:20:33,553 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 21:20:33,579 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 21:20:33,583 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 21:20:33,608 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 21:20:33,625 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 21:20:33,628 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 21:20:33,631 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 21:21:01,336 - core.user - INFO - 用户已登出
+2025-05-16 21:21:01,357 - core.db_manager - ERROR - 批量执行SQL时出错: (1054, "Unknown column 'target' in 'field list'")
+2025-05-16 21:21:01,358 - features.audit.audit_log - WARNING - 批量插入审计日志失败
+2025-05-16 21:21:04,183 - root - INFO - 密码管理系统启动
+2025-05-16 21:21:04,207 - root - INFO - 数据库自动连接状态: 已启用
+2025-05-16 21:21:04,208 - root - INFO - 准备尝试数据库连接...
+2025-05-16 21:21:04,208 - root - INFO - 已启用数据库自动连接
+2025-05-16 21:21:04,209 - root - INFO - 开始检查数据库连接状态...
+2025-05-16 21:21:04,209 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 21:21:04,209 - root - INFO - 连接目标: 192.168.5.8:3306/password_manager, 超时: 3秒
+2025-05-16 21:21:04,218 - root - INFO - 数据库连接测试成功
+2025-05-16 21:21:04,219 - root - INFO - 数据库连接成功，继续启动程序
+2025-05-16 21:21:04,219 - root - INFO - 初始化用户设置模块...
+2025-05-16 21:21:04,220 - root - INFO - 用户设置模块已初始化
+2025-05-16 21:21:04,274 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 21:21:04,279 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 21:21:04,284 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 21:21:04,290 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 21:21:04,294 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 21:21:04,297 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 21:21:04,321 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 21:21:04,324 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 21:21:04,327 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-05-16 21:21:16,219 - root - INFO - 密码管理系统启动
+2025-05-16 21:21:16,250 - root - INFO - 数据库自动连接状态: 已启用
+2025-05-16 21:21:16,251 - root - INFO - 准备尝试数据库连接...
+2025-05-16 21:21:16,251 - root - INFO - 已启用数据库自动连接
+2025-05-16 21:21:16,251 - root - INFO - 开始检查数据库连接状态...
+2025-05-16 21:21:16,252 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 21:21:16,252 - root - INFO - 连接目标: 192.168.5.9:3306/password_manager, 超时: 3秒
+2025-05-16 21:21:19,260 - root - ERROR - 无法连接到数据库服务器(192.168.5.9:3306): (2003, "Can't connect to MySQL server on '192.168.5.9' (timed out)")
+2025-05-16 21:21:19,261 - root - ERROR - 无法连接到数据库: 无法连接到数据库服务器(192.168.5.9:3306): (2003, "Can't connect to MySQL server on '192.168.5.9' (timed out)")
+2025-05-16 21:21:24,394 - root - INFO - 用户选择修改数据库连接信息
+2025-05-16 21:21:31,447 - core.db_manager - ERROR - 连接测试失败: 无法连接到服务器：192.168.5.9:3306
+2025-05-16 21:21:44,360 - core.db_manager - ERROR - 连接测试失败: 无法连接到服务器：192.168.8:3306
+2025-05-16 21:22:10,427 - core.db_manager - ERROR - 连接测试失败: 无法连接到服务器：192.168.5.87:3306
+2025-05-16 21:26:02,631 - root - INFO - 密码管理系统启动
+2025-05-16 21:26:02,654 - root - INFO - 数据库自动连接状态: 已启用
+2025-05-16 21:26:02,655 - root - INFO - 准备尝试数据库连接...
+2025-05-16 21:26:02,655 - root - INFO - 已启用数据库自动连接
+2025-05-16 21:26:02,656 - root - INFO - 开始检查数据库连接状态...
+2025-05-16 21:26:02,656 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 21:26:02,657 - root - INFO - 连接目标: 192.168.5.8:3306/password_manager, 超时: 3秒
+2025-05-16 21:26:02,665 - root - INFO - 数据库连接测试成功
+2025-05-16 21:26:02,666 - root - INFO - 数据库连接成功，继续启动程序
+2025-05-16 21:26:02,667 - root - INFO - 初始化用户设置模块...
+2025-05-16 21:26:02,667 - root - INFO - 用户设置模块已初始化
+2025-05-16 21:26:02,733 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 21:26:02,737 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 21:26:02,742 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 21:26:02,771 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 21:26:02,776 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 21:26:02,801 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 21:26:02,821 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 21:26:02,846 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 21:26:02,855 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-05-16 21:26:04,790 - core.user - INFO - 用户 admin 登录成功
+2025-05-16 21:26:04,790 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-05-16 21:26:04,793 - core.db_manager - ERROR - 批量执行SQL时出错: (1054, "Unknown column 'target' in 'field list'")
+2025-05-16 21:26:04,794 - features.audit.audit_log - WARNING - 批量插入审计日志失败
+2025-05-16 21:26:04,798 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-05-16 21:26:04,799 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-05-16 21:26:04,843 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-05-16 21:26:04,933 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-05-16 21:26:05,724 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-05-16 21:26:06,861 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 未完成
+2025-05-16 21:26:06,862 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: False
+2025-05-16 21:26:06,862 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-05-16 21:26:06,865 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-05-16 21:26:06,866 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 0 张图片
+2025-05-16 21:26:06,869 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 成功
+2025-05-16 21:26:06,975 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/7
+2025-05-16 21:26:08,096 - core.user_settings - INFO - 已标记引导步骤 main_features 为已完成
+2025-05-16 21:26:08,096 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-05-16 21:26:23,453 - core.user - INFO - 用户已登出
+2025-05-16 21:26:23,529 - core.db_manager - ERROR - 批量执行SQL时出错: (1054, "Unknown column 'target' in 'field list'")
+2025-05-16 21:26:23,531 - features.audit.audit_log - WARNING - 批量插入审计日志失败
+2025-05-16 21:26:25,123 - root - INFO - 密码管理系统启动
+2025-05-16 21:26:25,163 - root - INFO - 数据库自动连接状态: 已启用
+2025-05-16 21:26:25,164 - root - INFO - 准备尝试数据库连接...
+2025-05-16 21:26:25,164 - root - INFO - 已启用数据库自动连接
+2025-05-16 21:26:25,165 - root - INFO - 开始检查数据库连接状态...
+2025-05-16 21:26:25,165 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 21:26:25,166 - root - INFO - 连接目标: 192.168.5.8:3306/password_manager, 超时: 3秒
+2025-05-16 21:26:25,178 - root - INFO - 数据库连接测试成功
+2025-05-16 21:26:25,179 - root - INFO - 数据库连接成功，继续启动程序
+2025-05-16 21:26:25,181 - root - INFO - 初始化用户设置模块...
+2025-05-16 21:26:25,181 - root - INFO - 用户设置模块已初始化
+2025-05-16 21:26:25,223 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 21:26:25,226 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 21:26:25,230 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 21:26:25,236 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 21:26:25,240 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 21:26:25,263 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 21:26:25,279 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 21:26:25,282 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 21:26:25,285 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-05-16 21:26:26,666 - core.user - INFO - 用户 admin 登录成功
+2025-05-16 21:26:26,667 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-05-16 21:26:26,669 - core.db_manager - ERROR - 批量执行SQL时出错: (1054, "Unknown column 'target' in 'field list'")
+2025-05-16 21:26:26,672 - features.audit.audit_log - WARNING - 批量插入审计日志失败
+2025-05-16 21:26:26,674 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-05-16 21:26:26,675 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-05-16 21:26:26,702 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-05-16 21:26:26,760 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-05-16 21:26:27,620 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-05-16 21:26:28,721 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 已完成
+2025-05-16 21:26:28,722 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-05-16 21:26:28,722 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-05-16 21:26:28,723 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-05-16 21:26:28,723 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 已跳过
+2025-05-16 21:28:25,296 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 21:28:25,309 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 21:28:25,313 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 21:28:25,316 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 21:28:25,319 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 21:28:25,339 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 21:28:25,356 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 21:28:25,359 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 21:29:25,379 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 21:29:25,379 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 21:29:25,383 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 21:29:25,384 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 21:29:25,442 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 21:29:25,448 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 21:29:25,452 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 21:29:25,460 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 21:29:25,462 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 21:29:25,466 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 21:29:25,472 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 21:29:25,479 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 21:29:25,486 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 21:29:25,487 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 21:29:25,494 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 21:29:25,503 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 21:32:41,961 - core.user - INFO - 用户已登出
+2025-05-16 21:32:41,963 - core.db_manager - ERROR - 批量执行SQL时出错: (1054, "Unknown column 'target' in 'field list'")
+2025-05-16 21:32:41,964 - features.audit.audit_log - WARNING - 批量插入审计日志失败
+2025-05-16 21:32:46,162 - root - INFO - 密码管理系统启动
+2025-05-16 21:32:46,192 - root - INFO - 数据库自动连接状态: 已启用
+2025-05-16 21:32:46,192 - root - INFO - 准备尝试数据库连接...
+2025-05-16 21:32:46,193 - root - INFO - 已启用数据库自动连接
+2025-05-16 21:32:46,193 - root - INFO - 开始检查数据库连接状态...
+2025-05-16 21:32:46,193 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 21:32:46,194 - root - INFO - 连接目标: 192.168.5.8:3306/password_manager, 超时: 3秒
+2025-05-16 21:32:46,202 - root - INFO - 数据库连接测试成功
+2025-05-16 21:32:46,203 - root - INFO - 数据库连接成功，继续启动程序
+2025-05-16 21:32:46,203 - root - INFO - 初始化用户设置模块...
+2025-05-16 21:32:46,204 - root - INFO - 用户设置模块已初始化
+2025-05-16 21:32:46,251 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 21:32:46,264 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 21:32:46,268 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 21:32:46,272 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 21:32:46,294 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 21:32:46,298 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 21:32:46,325 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 21:32:46,330 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 21:32:46,333 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-05-16 21:32:49,042 - core.user - INFO - 用户 admin 登录成功
+2025-05-16 21:32:49,043 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-05-16 21:32:49,047 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-05-16 21:32:49,048 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-05-16 21:32:49,071 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-05-16 21:32:49,116 - core.db_manager - ERROR - 批量执行SQL时出错: (1054, "Unknown column 'target' in 'field list'")
+2025-05-16 21:32:49,119 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-05-16 21:32:49,120 - features.audit.audit_log - WARNING - 批量插入审计日志失败
+2025-05-16 21:32:49,991 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-05-16 21:32:51,095 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 已完成
+2025-05-16 21:32:51,095 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-05-16 21:32:51,096 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-05-16 21:32:51,096 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-05-16 21:32:51,097 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 已跳过
+2025-05-16 21:33:02,988 - core.user - INFO - 用户已登出
+2025-05-16 21:33:02,990 - core.db_manager - ERROR - 批量执行SQL时出错: (1054, "Unknown column 'target' in 'field list'")
+2025-05-16 21:33:02,994 - features.audit.audit_log - WARNING - 批量插入审计日志失败
+2025-05-16 21:37:03,640 - root - INFO - 密码管理系统启动
+2025-05-16 21:37:03,677 - root - INFO - 数据库自动连接状态: 已启用
+2025-05-16 21:37:03,677 - root - INFO - 准备尝试数据库连接...
+2025-05-16 21:37:03,678 - root - INFO - 已启用数据库自动连接
+2025-05-16 21:37:03,678 - root - INFO - 开始检查数据库连接状态...
+2025-05-16 21:37:03,678 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 21:37:03,679 - root - INFO - 连接目标: 192.168.5.8:3306/password_manager, 超时: 3秒
+2025-05-16 21:37:03,689 - root - INFO - 数据库连接测试成功
+2025-05-16 21:37:03,690 - root - INFO - 数据库连接成功，继续启动程序
+2025-05-16 21:37:03,691 - root - INFO - 初始化用户设置模块...
+2025-05-16 21:37:03,692 - root - INFO - 用户设置模块已初始化
+2025-05-16 21:37:03,752 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 21:37:03,755 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 21:37:03,759 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 21:37:03,774 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 21:37:03,779 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 21:37:03,784 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 21:37:03,790 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 21:37:03,794 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 21:37:03,797 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-05-16 21:37:05,663 - core.user - INFO - 用户 admin 登录成功
+2025-05-16 21:37:05,663 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-05-16 21:37:05,665 - core.db_manager - ERROR - 批量执行SQL时出错: (1054, "Unknown column 'target' in 'field list'")
+2025-05-16 21:37:05,666 - features.audit.audit_log - WARNING - 批量插入审计日志失败
+2025-05-16 21:37:05,669 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-05-16 21:37:05,670 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-05-16 21:37:05,696 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-05-16 21:37:05,771 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-05-16 21:37:06,564 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-05-16 21:37:07,697 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 已完成
+2025-05-16 21:37:07,699 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-05-16 21:37:07,699 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-05-16 21:37:07,700 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-05-16 21:37:07,700 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 已跳过
+2025-05-16 21:37:10,441 - ui.dialogs.mysql_config_dialog - INFO - 尝试创建/连接数据库: password_manager 在服务器: 192.168.5.8:3306
+2025-05-16 21:37:10,442 - core.db_manager - INFO - 正在连接MySQL服务器: 192.168.5.8:3306
+2025-05-16 21:37:10,455 - core.db_manager - INFO - 检查数据库 password_manager 是否存在
+2025-05-16 21:37:10,457 - core.db_manager - INFO - 数据库 password_manager 已存在，无需创建
+2025-05-16 21:37:10,458 - core.db_manager - INFO - 数据库连接已关闭
+2025-05-16 21:37:10,459 - ui.dialogs.mysql_config_dialog - INFO - 数据库创建/连接成功: 数据库 password_manager 准备就绪
+2025-05-16 21:37:10,459 - ui.dialogs.mysql_config_dialog - INFO - 开始初始化表结构...
+2025-05-16 21:37:10,460 - core.db_manager - INFO - 正在连接数据库以初始化表结构: password_manager
+2025-05-16 21:37:10,486 - core.db_manager - INFO - 连接成功，开始初始化表结构
+2025-05-16 21:37:10,487 - core.db_manager - INFO - 检查表 passwords 是否存在
+2025-05-16 21:37:10,490 - core.db_manager - INFO - 表 passwords 已存在
+2025-05-16 21:37:10,490 - core.db_manager - INFO - 检查表 users 是否存在
+2025-05-16 21:37:10,493 - core.db_manager - INFO - 表 users 已存在
+2025-05-16 21:37:10,494 - core.db_manager - INFO - 检查表 remember 是否存在
+2025-05-16 21:37:10,496 - core.db_manager - INFO - 表 remember 已存在
+2025-05-16 21:37:10,496 - core.db_manager - INFO - 检查表 audit_logs 是否存在
+2025-05-16 21:37:10,499 - core.db_manager - INFO - 表 audit_logs 已存在
+2025-05-16 21:37:10,500 - core.db_manager - INFO - 检查表 user_settings 是否存在
+2025-05-16 21:37:10,503 - core.db_manager - INFO - 表 user_settings 已存在
+2025-05-16 21:37:10,504 - core.db_manager - INFO - 检查表 db_config 是否存在
+2025-05-16 21:37:10,506 - core.db_manager - INFO - 表 db_config 已存在
+2025-05-16 21:37:10,507 - core.db_manager - INFO - 检查表 password_history 是否存在
+2025-05-16 21:37:10,510 - core.db_manager - INFO - 表 password_history 已存在
+2025-05-16 21:37:10,511 - core.db_manager - INFO - 所有表结构已存在（共 7 个表）
+2025-05-16 21:37:10,512 - ui.dialogs.mysql_config_dialog - INFO - 表结构初始化成功，开始创建默认用户...
+2025-05-16 21:37:10,532 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 21:37:10,536 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 21:37:10,561 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 21:37:10,576 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 21:37:10,592 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 21:37:10,607 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 21:37:10,611 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 21:37:10,637 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 21:37:10,643 - ui.dialogs.mysql_config_dialog - INFO - 默认数据初始化完成
+2025-05-16 21:37:10,644 - ui.dialogs.mysql_config_dialog - INFO - 默认用户创建完成
+2025-05-16 21:37:27,824 - ui.dialogs.mysql_config_dialog - INFO - 使用配置文件路径: C:\Users\14214\Desktop\pwd_glgj\password_manager\config.py
+2025-05-16 21:37:27,826 - ui.dialogs.mysql_config_dialog - INFO - 存储类型已更新为: mysql
+2025-05-16 21:37:49,268 - core.user - INFO - 用户已登出
+2025-05-16 21:37:49,271 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 21:37:49,274 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 21:37:49,296 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 21:37:49,300 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 21:37:49,306 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 21:37:49,326 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 21:37:49,331 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 21:37:56,638 - root - INFO - 密码管理系统启动
+2025-05-16 21:37:56,670 - root - INFO - 数据库自动连接状态: 已启用
+2025-05-16 21:37:56,671 - root - INFO - 准备尝试数据库连接...
+2025-05-16 21:37:56,672 - root - INFO - 已启用数据库自动连接
+2025-05-16 21:37:56,672 - root - INFO - 开始检查数据库连接状态...
+2025-05-16 21:37:56,673 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 21:37:56,674 - root - INFO - 连接目标: 192.168.5.8:3306/password_manager, 超时: 3秒
+2025-05-16 21:37:56,684 - root - INFO - 数据库连接测试成功
+2025-05-16 21:37:56,685 - root - INFO - 数据库连接成功，继续启动程序
+2025-05-16 21:37:56,686 - root - INFO - 初始化用户设置模块...
+2025-05-16 21:37:56,686 - root - INFO - 用户设置模块已初始化
+2025-05-16 21:37:56,720 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 21:37:56,725 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 21:37:56,730 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 21:37:56,735 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 21:37:56,761 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 21:37:56,766 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 21:37:56,771 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 21:37:56,786 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 21:37:56,790 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-05-16 21:38:02,041 - core.user - WARNING - 用户 admin 登录失败，密码错误
+2025-05-16 21:38:02,042 - ui.login.login_ui - WARNING - 用户登录失败: 用户名或密码错误
+2025-05-16 21:38:02,086 - core.db_manager - ERROR - 批量执行SQL时出错: (1054, "Unknown column 'target' in 'field list'")
+2025-05-16 21:38:02,087 - features.audit.audit_log - WARNING - 批量插入审计日志失败
+2025-05-16 21:39:48,338 - root - INFO - 密码管理系统启动
+2025-05-16 21:39:48,377 - root - INFO - 数据库自动连接状态: 已启用
+2025-05-16 21:39:48,378 - root - INFO - 准备尝试数据库连接...
+2025-05-16 21:39:48,379 - root - INFO - 已启用数据库自动连接
+2025-05-16 21:39:48,379 - root - INFO - 开始检查数据库连接状态...
+2025-05-16 21:39:48,380 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 21:39:48,380 - root - INFO - 连接目标: 192.168.5.8:3306/password_manager, 超时: 3秒
+2025-05-16 21:39:48,391 - root - INFO - 数据库连接测试成功
+2025-05-16 21:39:48,391 - root - INFO - 数据库连接成功，继续启动程序
+2025-05-16 21:39:48,392 - root - INFO - 初始化用户设置模块...
+2025-05-16 21:39:48,393 - root - INFO - 用户设置模块已初始化
+2025-05-16 21:39:48,448 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 21:39:48,463 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 21:39:48,466 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 21:39:48,470 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 21:39:48,494 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 21:39:48,497 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 21:39:48,523 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 21:39:48,539 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 21:39:48,542 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-05-16 21:39:50,517 - core.user - INFO - 用户 admin 登录成功
+2025-05-16 21:39:50,518 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-05-16 21:39:50,523 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-05-16 21:39:50,524 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-05-16 21:39:50,546 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-05-16 21:39:50,604 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-05-16 21:39:50,625 - core.db_manager - ERROR - 批量执行SQL时出错: (1054, "Unknown column 'target' in 'field list'")
+2025-05-16 21:39:50,630 - features.audit.audit_log - WARNING - 批量插入审计日志失败
+2025-05-16 21:39:51,593 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-05-16 21:39:52,808 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 已完成
+2025-05-16 21:39:52,809 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-05-16 21:39:52,810 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-05-16 21:39:52,810 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-05-16 21:39:52,811 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 已跳过
+2025-05-16 21:39:54,881 - ui.dialogs.mysql_config_dialog - INFO - 尝试创建/连接数据库: password_manager 在服务器: 192.168.5.8:3306
+2025-05-16 21:39:54,882 - core.db_manager - INFO - 正在连接MySQL服务器: 192.168.5.8:3306
+2025-05-16 21:39:54,900 - core.db_manager - INFO - 检查数据库 password_manager 是否存在
+2025-05-16 21:39:54,903 - core.db_manager - INFO - 数据库 password_manager 已存在，无需创建
+2025-05-16 21:39:54,904 - core.db_manager - INFO - 数据库连接已关闭
+2025-05-16 21:39:54,905 - ui.dialogs.mysql_config_dialog - INFO - 数据库创建/连接成功: 数据库 password_manager 准备就绪
+2025-05-16 21:39:54,906 - ui.dialogs.mysql_config_dialog - INFO - 开始初始化表结构...
+2025-05-16 21:39:54,906 - core.db_manager - INFO - 正在连接数据库以初始化表结构: password_manager
+2025-05-16 21:39:54,910 - core.db_manager - INFO - 连接成功，开始初始化表结构
+2025-05-16 21:39:54,911 - core.db_manager - INFO - 检查表 passwords 是否存在
+2025-05-16 21:39:54,914 - core.db_manager - INFO - 表 passwords 已存在
+2025-05-16 21:39:54,914 - core.db_manager - INFO - 检查表 users 是否存在
+2025-05-16 21:39:54,916 - core.db_manager - INFO - 表 users 已存在
+2025-05-16 21:39:54,917 - core.db_manager - INFO - 检查表 remember 是否存在
+2025-05-16 21:39:54,920 - core.db_manager - INFO - 表 remember 已存在
+2025-05-16 21:39:54,921 - core.db_manager - INFO - 检查表 audit_logs 是否存在
+2025-05-16 21:39:54,923 - core.db_manager - INFO - 表 audit_logs 已存在
+2025-05-16 21:39:54,924 - core.db_manager - INFO - 检查表 user_settings 是否存在
+2025-05-16 21:39:54,926 - core.db_manager - INFO - 表 user_settings 已存在
+2025-05-16 21:39:54,927 - core.db_manager - INFO - 检查表 db_config 是否存在
+2025-05-16 21:39:54,930 - core.db_manager - INFO - 表 db_config 已存在
+2025-05-16 21:39:54,930 - core.db_manager - INFO - 检查表 password_history 是否存在
+2025-05-16 21:39:54,932 - core.db_manager - INFO - 表 password_history 已存在
+2025-05-16 21:39:54,934 - core.db_manager - INFO - 所有表结构已存在（共 7 个表）
+2025-05-16 21:39:54,934 - ui.dialogs.mysql_config_dialog - INFO - 表结构初始化成功，开始创建默认用户...
+2025-05-16 21:39:54,938 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 21:39:54,959 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 21:39:54,963 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 21:39:54,990 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 21:39:55,006 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 21:39:55,009 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 21:39:55,012 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 21:39:55,016 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 21:39:55,022 - ui.dialogs.mysql_config_dialog - INFO - 默认数据初始化完成
+2025-05-16 21:39:55,023 - ui.dialogs.mysql_config_dialog - INFO - 默认用户创建完成
+2025-05-16 21:41:58,409 - core.user - INFO - 用户已登出
+2025-05-16 21:41:58,456 - core.db_manager - ERROR - 批量执行SQL时出错: (1049, "Unknown database 'password_manager'")
+2025-05-16 21:41:58,458 - features.audit.audit_log - WARNING - 批量插入审计日志失败
+2025-05-16 21:42:05,156 - root - INFO - 密码管理系统启动
+2025-05-16 21:42:05,183 - root - INFO - 数据库自动连接状态: 已启用
+2025-05-16 21:42:05,184 - root - INFO - 准备尝试数据库连接...
+2025-05-16 21:42:05,184 - root - INFO - 已启用数据库自动连接
+2025-05-16 21:42:05,185 - root - INFO - 开始检查数据库连接状态...
+2025-05-16 21:42:05,185 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 21:42:05,186 - root - INFO - 连接目标: 192.168.5.8:3306/password_manager, 超时: 3秒
+2025-05-16 21:42:05,194 - root - ERROR - 数据库不存在: password_manager
+2025-05-16 21:42:05,194 - root - ERROR - 无法连接到数据库: 数据库不存在: password_manager
+2025-05-16 21:42:11,172 - root - INFO - 用户选择修改数据库连接信息
+2025-05-16 21:42:15,650 - core.db_manager - ERROR - 连接测试失败: 数据库不存在：password_manager，需要先初始化数据库
+2025-05-16 21:42:15,651 - ui.dialogs.mysql_config_dialog - INFO - 尝试创建/连接数据库: password_manager 在服务器: 192.168.5.8:3306
+2025-05-16 21:42:15,652 - core.db_manager - INFO - 正在连接MySQL服务器: 192.168.5.8:3306
+2025-05-16 21:42:15,655 - core.db_manager - INFO - 检查数据库 password_manager 是否存在
+2025-05-16 21:42:15,656 - core.db_manager - INFO - 数据库 password_manager 不存在，正在创建...
+2025-05-16 21:42:15,659 - core.db_manager - INFO - 数据库 password_manager 已创建成功
+2025-05-16 21:42:15,660 - core.db_manager - INFO - 数据库连接已关闭
+2025-05-16 21:42:15,660 - ui.dialogs.mysql_config_dialog - INFO - 数据库创建/连接成功: 数据库 password_manager 准备就绪
+2025-05-16 21:42:15,661 - ui.dialogs.mysql_config_dialog - INFO - 开始初始化表结构...
+2025-05-16 21:42:15,661 - core.db_manager - INFO - 正在连接数据库以初始化表结构: password_manager
+2025-05-16 21:42:15,682 - core.db_manager - INFO - 连接成功，开始初始化表结构
+2025-05-16 21:42:15,683 - core.db_manager - INFO - 检查表 passwords 是否存在
+2025-05-16 21:42:15,685 - core.db_manager - INFO - 表 passwords 不存在，正在创建...
+2025-05-16 21:42:15,694 - core.db_manager - INFO - 表 passwords 创建成功
+2025-05-16 21:42:15,694 - core.db_manager - INFO - 检查表 users 是否存在
+2025-05-16 21:42:15,697 - core.db_manager - INFO - 表 users 不存在，正在创建...
+2025-05-16 21:42:15,708 - core.db_manager - INFO - 表 users 创建成功
+2025-05-16 21:42:15,709 - core.db_manager - INFO - 检查表 remember 是否存在
+2025-05-16 21:42:15,710 - core.db_manager - INFO - 表 remember 不存在，正在创建...
+2025-05-16 21:42:15,721 - core.db_manager - INFO - 表 remember 创建成功
+2025-05-16 21:42:15,722 - core.db_manager - INFO - 检查表 audit_logs 是否存在
+2025-05-16 21:42:15,724 - core.db_manager - INFO - 表 audit_logs 不存在，正在创建...
+2025-05-16 21:42:15,734 - core.db_manager - INFO - 表 audit_logs 创建成功
+2025-05-16 21:42:15,735 - core.db_manager - INFO - 检查表 user_settings 是否存在
+2025-05-16 21:42:15,737 - core.db_manager - INFO - 表 user_settings 不存在，正在创建...
+2025-05-16 21:42:15,747 - core.db_manager - INFO - 表 user_settings 创建成功
+2025-05-16 21:42:15,748 - core.db_manager - INFO - 检查表 db_config 是否存在
+2025-05-16 21:42:15,750 - core.db_manager - INFO - 表 db_config 不存在，正在创建...
+2025-05-16 21:42:15,759 - core.db_manager - INFO - 表 db_config 创建成功
+2025-05-16 21:42:15,760 - core.db_manager - INFO - 检查表 password_history 是否存在
+2025-05-16 21:42:15,764 - core.db_manager - INFO - 表 password_history 不存在，正在创建...
+2025-05-16 21:42:15,776 - core.db_manager - INFO - 表 password_history 创建成功
+2025-05-16 21:42:15,778 - core.db_manager - INFO - 表结构初始化成功: 创建了 7 个表，已存在 0 个表
+2025-05-16 21:42:15,779 - ui.dialogs.mysql_config_dialog - INFO - 表结构初始化成功，开始创建默认用户...
+2025-05-16 21:42:15,783 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 21:42:15,791 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 21:42:15,817 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 21:42:15,820 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 21:42:15,848 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 21:42:15,851 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 21:42:15,878 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 21:42:15,882 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 21:42:15,887 - ui.dialogs.mysql_config_dialog - INFO - 创建了默认管理员用户: admin
+2025-05-16 21:42:15,891 - ui.dialogs.mysql_config_dialog - INFO - 为人员 徐国明 创建了示例数据
+2025-05-16 21:42:15,896 - ui.dialogs.mysql_config_dialog - INFO - 为人员 高文彬 创建了示例数据
+2025-05-16 21:42:15,901 - ui.dialogs.mysql_config_dialog - INFO - 为人员 石帆 创建了示例数据
+2025-05-16 21:42:15,902 - ui.dialogs.mysql_config_dialog - INFO - 默认数据初始化完成
+2025-05-16 21:42:15,902 - ui.dialogs.mysql_config_dialog - INFO - 默认用户创建完成
+2025-05-16 21:42:21,605 - ui.dialogs.mysql_config_dialog - INFO - 使用配置文件路径: C:\Users\14214\Desktop\pwd_glgj\password_manager\config.py
+2025-05-16 21:42:21,606 - ui.dialogs.mysql_config_dialog - INFO - 存储类型已更新为: mysql
+2025-05-16 21:42:21,631 - root - INFO - 数据库配置已保存，尝试使用新配置连接
+2025-05-16 21:42:21,777 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 21:42:21,778 - root - INFO - 连接目标: 192.168.5.8:3306/password_manager, 超时: 3秒
+2025-05-16 21:42:21,802 - root - INFO - 数据库连接测试成功
+2025-05-16 21:42:21,833 - root - INFO - 使用新配置连接数据库成功
+2025-05-16 21:42:23,494 - root - INFO - 初始化用户设置模块...
+2025-05-16 21:42:23,494 - root - INFO - 用户设置模块已初始化
+2025-05-16 21:42:23,502 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 21:42:23,514 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 21:42:23,528 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 21:42:23,533 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 21:42:23,537 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 21:42:23,542 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 21:42:23,555 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 21:42:23,560 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 21:42:30,337 - core.user - INFO - 用户 admin 登录成功
+2025-05-16 21:42:30,337 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-05-16 21:42:30,341 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-05-16 21:42:30,342 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-05-16 21:42:30,343 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-05-16 21:42:30,380 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-05-16 21:42:30,441 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-05-16 21:42:31,309 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-05-16 21:42:32,411 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 未完成
+2025-05-16 21:42:32,412 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: False
+2025-05-16 21:42:32,412 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-05-16 21:42:32,414 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-05-16 21:42:32,415 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 0 张图片
+2025-05-16 21:42:32,417 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 成功
+2025-05-16 21:42:32,526 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/7
+2025-05-16 21:42:33,553 - core.user_settings - INFO - 已标记引导步骤 main_features 为已完成
+2025-05-16 21:42:33,553 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-05-16 21:43:07,366 - features.audit.audit_log_viewer - INFO - 所有模块导入成功
+2025-05-16 21:43:07,367 - ui.password_manager.password_manager_ui - INFO - 使用内嵌方式打开审计日志查看器
+2025-05-16 21:43:07,488 - features.audit.audit_log_viewer - INFO - 界面初始化完成
+2025-05-16 21:43:07,492 - features.audit.audit_log_viewer - INFO - AuditLogViewer初始化成功
+2025-05-16 21:43:15,808 - ui.password_manager.password_manager_ui - INFO - 使用内嵌方式打开审计日志查看器
+2025-05-16 21:43:15,834 - features.audit.audit_log_viewer - INFO - 界面初始化完成
+2025-05-16 21:43:15,838 - features.audit.audit_log_viewer - INFO - AuditLogViewer初始化成功

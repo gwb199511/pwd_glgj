@@ -105,14 +105,21 @@ def check_database_connection():
             
             # 测试连接
             with conn.cursor() as cursor:
-                cursor.execute("SELECT 1")
+                cursor.execute("SELECT 1 as test_value")
                 result = cursor.fetchone()
             
             # 关闭连接
             conn.close()
             
-            logging.info("数据库连接测试成功")
-            return True, ""
+            # 验证结果，同时兼容字典和元组
+            if result:
+                # 如果结果存在，即连接成功
+                logging.info("数据库连接测试成功")
+                return True, ""
+            else:
+                # 没有结果，但也没有抛出异常
+                logging.warning("数据库连接测试：查询返回空结果")
+                return False, "连接建立但查询返回空结果"
         except pymysql.Error as e:
             error_code = getattr(e, 'args', [None])[0]
             if error_code == 2003:  # Can't connect to MySQL server
@@ -319,6 +326,15 @@ def main():
     # 设置日志系统
     setup_logging()
     
+    # 导入必需的全局组件到局部变量，避免作用域问题
+    from PyQt5.QtWidgets import QDialog as _QDialog
+    from PyQt5.QtWidgets import QApplication, QVBoxLayout, QHBoxLayout, QProgressBar, QLabel
+    from PyQt5.QtCore import Qt
+    from ui.components.ui_components import ModernButton, ModernLabel, HorizontalLine, show_message
+    
+    # 将QDialog全局引用保存到局部变量，避免作用域问题
+    QDialog = _QDialog
+    
     # 创建应用程序
     app = QApplication(sys.argv)
     
@@ -332,7 +348,8 @@ def main():
     
     # 创建错误消息处理函数，确保任何错误都能在GUI中显示
     def show_critical_error(title, message, details=None):
-        # 已经在全局导入了必要的组件，不需要在这里重复导入
+        # 使用函数外部定义的QDialog而不是尝试重新导入它
+        nonlocal QDialog  # 明确使用外部作用域的QDialog
         
         # 创建自定义对话框
         dialog = QDialog(None, Qt.WindowStaysOnTopHint)
@@ -569,11 +586,18 @@ def main():
                 
                 # 定义配置保存后的回调函数
                 def on_config_saved():
+                    # 在函数内部导入需要的组件，使用不同的变量名避免作用域问题
+                    from PyQt5.QtWidgets import QDialog as ConfigDialog
+                    from PyQt5.QtWidgets import QVBoxLayout, QProgressBar
+                    from PyQt5.QtCore import Qt
+                    from ui.components.ui_components import ModernLabel
+                    
                     logging.info("数据库配置已保存，尝试使用新配置连接")
                     nonlocal db_connected
                     
-                    # 显示连接进度对话框
-                    connecting_dialog = QDialog(None, Qt.WindowStaysOnTopHint)
+                    # 使用不同名称的QDialog
+                    connecting_dialog = ConfigDialog(None)
+                    connecting_dialog.setWindowFlags(connecting_dialog.windowFlags() | Qt.WindowStaysOnTopHint)
                     connecting_dialog.setWindowTitle("正在连接")
                     connecting_dialog.setFixedSize(350, 150)
                     connecting_dialog.setModal(True)
@@ -617,7 +641,6 @@ def main():
                         logging.info("使用新配置连接数据库成功")
                         
                         # 显示成功消息
-                        from ui.components.ui_components import show_message
                         show_message(
                             None, 
                             "连接成功", 

@@ -545,6 +545,9 @@ class DBManager:
                 self._connection_pool.close_all()
                 self._connection_pool = None  # 清空连接池引用，下次使用时会重新创建
             
+            # 重置连接尝试时间，确保下次测试连接可以立即执行
+            self._last_connection_attempt = 0
+            
             # 尝试连接测试
             return self.test_connection()
         except Exception as e:
@@ -570,29 +573,53 @@ class DBManager:
         """
         try:
             # 连接到MySQL服务器（不指定数据库）
+            logger.info(f"正在连接MySQL服务器: {self.config['host']}:{self.config['port']}")
             conn = pymysql.connect(
                 host=self.config['host'],
                 port=self.config['port'],
                 user=self.config['user'],
                 password=self.config['password'],
-                charset='utf8mb4'
+                charset='utf8mb4',
+                connect_timeout=5  # 增加超时设置
             )
             
             database_name = self.config['database']
             with conn.cursor() as cursor:
                 # 检查数据库是否存在
+                logger.info(f"检查数据库 {database_name} 是否存在")
                 cursor.execute(f"SHOW DATABASES LIKE '{database_name}'")
                 result = cursor.fetchone()
                 
                 if not result:
                     # 创建数据库
-                    cursor.execute(f"CREATE DATABASE `{database_name}` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci")
-                    logger.info(f"数据库 {database_name} 已创建")
+                    logger.info(f"数据库 {database_name} 不存在，正在创建...")
+                    try:
+                        cursor.execute(f"CREATE DATABASE `{database_name}` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci")
+                        logger.info(f"数据库 {database_name} 已创建成功")
+                    except pymysql.Error as e:
+                        error_message = f"创建数据库失败: {str(e)}"
+                        logger.error(error_message)
+                        return False, error_message
                 else:
-                    logger.info(f"数据库 {database_name} 已存在")
+                    logger.info(f"数据库 {database_name} 已存在，无需创建")
             
             conn.close()
+            logger.info(f"数据库连接已关闭")
             return True, f"数据库 {database_name} 准备就绪"
+        except pymysql.OperationalError as e:
+            # 特别处理操作错误
+            error_code = e.args[0]
+            error_message = e.args[1] if len(e.args) > 1 else str(e)
+            
+            if error_code == 1045:  # 访问被拒绝
+                message = f"访问被拒绝：用户名或密码错误"
+            elif error_code == 2003:  # 无法连接
+                message = f"无法连接到服务器：{self.config['host']}:{self.config['port']}"
+            else:
+                message = f"数据库错误 ({error_code}): {error_message}"
+            
+            logger.error(f"创建数据库时出错: {message}")
+            return False, message
         except pymysql.MySQLError as e:
             error_message = f"创建数据库时出错: {str(e)}"
             logger.error(error_message)
@@ -611,123 +638,171 @@ class DBManager:
             Tuple[bool, str]: (成功状态, 消息)
         """
         try:
-            # 确保连接到数据库
-            if not self.is_connected():
-                success, message = self.connect()
-                if not success:
-                    return False, message
+            # 尝试创建一个新的连接，不使用连接池
+            try:
+                logger.info(f"正在连接数据库以初始化表结构: {self.config['database']}")
+                conn = pymysql.connect(
+                    host=self.config['host'],
+                    port=self.config['port'],
+                    user=self.config['user'],
+                    password=self.config['password'],
+                    database=self.config['database'],
+                    charset='utf8mb4',
+                    connect_timeout=5  # 较短的超时时间
+                )
+                logger.info("连接成功，开始初始化表结构")
+            except pymysql.OperationalError as e:
+                error_code = e.args[0]
+                if error_code == 1049:  # 未知数据库
+                    logger.error(f"数据库不存在: {self.config['database']}，请先创建数据库")
+                    return False, f"数据库不存在: {self.config['database']}，请先创建数据库"
+                else:
+                    logger.error(f"连接数据库时出错: {str(e)}")
+                    return False, f"连接数据库时出错: {str(e)}"
+            except Exception as e:
+                logger.error(f"连接数据库时出现未知错误: {str(e)}")
+                return False, f"连接数据库时出现未知错误: {str(e)}"
             
             # 检查表是否存在
+            tables_created = 0
+            tables_existed = 0
             table_names = ["passwords", "users", "remember", "audit_logs", "user_settings", "db_config", "password_history"]
-            with self.connection.cursor() as cursor:
-                for table_name in table_names:
-                    try:
-                        # 检查表是否存在
-                        cursor.execute(f"SHOW TABLES LIKE '{table_name}'")
-                        if not cursor.fetchone():
-                            # 表不存在，创建表
-                            if table_name == "users":
-                                cursor.execute("""
-                                    CREATE TABLE users (
-                                        id INT AUTO_INCREMENT PRIMARY KEY,
-                                        username VARCHAR(50) NOT NULL UNIQUE,
-                                        password VARCHAR(255) NOT NULL,
-                                        is_admin BOOLEAN DEFAULT FALSE,
-                                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-                                """)
-                            elif table_name == "passwords":
-                                cursor.execute("""
-                                    CREATE TABLE passwords (
-                                        id BIGINT AUTO_INCREMENT PRIMARY KEY,
-                                        owner VARCHAR(50) NOT NULL,
-                                        project_name VARCHAR(100) NOT NULL,
-                                        func_desc VARCHAR(255),
-                                        ip_address VARCHAR(50),
-                                        account VARCHAR(50),
-                                        password VARCHAR(255) NOT NULL,
-                                        area VARCHAR(50),
-                                        network_type VARCHAR(50),
-                                        other_info TEXT,
-                                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                                        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-                                        INDEX (owner)
-                                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-                                """)
-                            elif table_name == "remember":
-                                cursor.execute("""
-                                    CREATE TABLE remember (
-                                        id INT AUTO_INCREMENT PRIMARY KEY,
-                                        username VARCHAR(50) NOT NULL UNIQUE,
-                                        password VARCHAR(255) NOT NULL,
-                                        expire_at TIMESTAMP NULL,
-                                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-                                """)
-                            elif table_name == "audit_logs":
-                                cursor.execute("""
-                                    CREATE TABLE audit_logs (
-                                        id BIGINT AUTO_INCREMENT PRIMARY KEY,
-                                        username VARCHAR(50) NOT NULL,
-                                        operation_type VARCHAR(50) NOT NULL,
-                                        operation_result VARCHAR(20) NOT NULL,
-                                        log_type VARCHAR(50),
-                                        details TEXT,
-                                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                                        INDEX (username),
-                                        INDEX (created_at)
-                                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-                                """)
-                            elif table_name == "user_settings":
-                                cursor.execute("""
-                                    CREATE TABLE user_settings (
-                                        id INT AUTO_INCREMENT PRIMARY KEY,
-                                        username VARCHAR(50) NOT NULL,
-                                        setting_key VARCHAR(100) NOT NULL,
-                                        setting_value JSON,
-                                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                                        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-                                        UNIQUE KEY unique_user_setting (username, setting_key)
-                                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-                                """)
-                            elif table_name == "db_config":
-                                cursor.execute("""
-                                    CREATE TABLE db_config (
-                                        id INT AUTO_INCREMENT PRIMARY KEY,
-                                        config_key VARCHAR(50) NOT NULL UNIQUE,
-                                        config_value JSON,
-                                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                                        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-                                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-                                """)
-                            elif table_name == "password_history":
-                                cursor.execute("""
-                                    CREATE TABLE password_history (
-                                        id BIGINT AUTO_INCREMENT PRIMARY KEY,
-                                        password_id BIGINT NOT NULL,
-                                        old_password VARCHAR(255) NOT NULL,
-                                        new_password VARCHAR(255) NOT NULL,
-                                        ip_address VARCHAR(50),
-                                        modify_user VARCHAR(50),
-                                        modify_reason VARCHAR(255),
-                                        modify_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                                        INDEX (password_id),
-                                        INDEX (ip_address),
-                                        INDEX (modify_time)
-                                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-                                """)
-                            logger.info(f"表 {table_name} 创建成功")
-                    except Exception as e:
-                        logger.error(f"处理表 {table_name} 时出错: {str(e)}")
-                        return False, f"处理表 {table_name} 时出错: {str(e)}"
             
-            # 提交事务
-            self.connection.commit()
-            return True, "表结构初始化成功"
+            try:
+                with conn.cursor() as cursor:
+                    for table_name in table_names:
+                        try:
+                            # 检查表是否存在
+                            logger.info(f"检查表 {table_name} 是否存在")
+                            cursor.execute(f"SHOW TABLES LIKE '{table_name}'")
+                            if not cursor.fetchone():
+                                # 表不存在，创建表
+                                logger.info(f"表 {table_name} 不存在，正在创建...")
+                                # 这里使用现有的表创建代码
+                                if table_name == "users":
+                                    cursor.execute("""
+                                        CREATE TABLE users (
+                                            id INT AUTO_INCREMENT PRIMARY KEY,
+                                            username VARCHAR(50) NOT NULL UNIQUE,
+                                            password VARCHAR(255) NOT NULL,
+                                            is_admin BOOLEAN DEFAULT FALSE,
+                                            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                                        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+                                    """)
+                                elif table_name == "passwords":
+                                    cursor.execute("""
+                                        CREATE TABLE passwords (
+                                            id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                                            owner VARCHAR(50) NOT NULL,
+                                            project_name VARCHAR(100) NOT NULL,
+                                            func_desc VARCHAR(255),
+                                            ip_address VARCHAR(50),
+                                            account VARCHAR(50),
+                                            password VARCHAR(255) NOT NULL,
+                                            area VARCHAR(50),
+                                            network_type VARCHAR(50),
+                                            other_info TEXT,
+                                            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                                            INDEX (owner)
+                                        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+                                    """)
+                                elif table_name == "remember":
+                                    cursor.execute("""
+                                        CREATE TABLE remember (
+                                            id INT AUTO_INCREMENT PRIMARY KEY,
+                                            username VARCHAR(50) NOT NULL UNIQUE,
+                                            password VARCHAR(255) NOT NULL,
+                                            expire_at TIMESTAMP NULL,
+                                            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                                        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+                                    """)
+                                elif table_name == "audit_logs":
+                                    cursor.execute("""
+                                        CREATE TABLE audit_logs (
+                                            id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                                            username VARCHAR(50) NOT NULL,
+                                            operation_type VARCHAR(50) NOT NULL,
+                                            operation_result VARCHAR(20) NOT NULL,
+                                            log_type VARCHAR(50),
+                                            details TEXT,
+                                            target VARCHAR(255),
+                                            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                            INDEX (username),
+                                            INDEX (created_at)
+                                        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+                                    """)
+                                elif table_name == "user_settings":
+                                    cursor.execute("""
+                                        CREATE TABLE user_settings (
+                                            id INT AUTO_INCREMENT PRIMARY KEY,
+                                            username VARCHAR(50) NOT NULL,
+                                            setting_key VARCHAR(100) NOT NULL,
+                                            setting_value JSON,
+                                            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                                            UNIQUE KEY unique_user_setting (username, setting_key)
+                                        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+                                    """)
+                                elif table_name == "db_config":
+                                    cursor.execute("""
+                                        CREATE TABLE db_config (
+                                            id INT AUTO_INCREMENT PRIMARY KEY,
+                                            config_key VARCHAR(50) NOT NULL UNIQUE,
+                                            config_value JSON,
+                                            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+                                        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+                                    """)
+                                elif table_name == "password_history":
+                                    cursor.execute("""
+                                        CREATE TABLE password_history (
+                                            id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                                            password_id BIGINT NOT NULL,
+                                            old_password VARCHAR(255) NOT NULL,
+                                            new_password VARCHAR(255) NOT NULL,
+                                            ip_address VARCHAR(50),
+                                            modify_user VARCHAR(50),
+                                            modify_reason VARCHAR(255),
+                                            modify_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                            INDEX (password_id),
+                                            INDEX (ip_address),
+                                            INDEX (modify_time)
+                                        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+                                    """)
+                                logger.info(f"表 {table_name} 创建成功")
+                                tables_created += 1
+                            else:
+                                logger.info(f"表 {table_name} 已存在")
+                                tables_existed += 1
+                        except Exception as e:
+                            logger.error(f"处理表 {table_name} 时出错: {str(e)}")
+                            logger.error(traceback.format_exc())
+                            return False, f"处理表 {table_name} 时出错: {str(e)}"
+                
+                # 提交事务
+                conn.commit()
+                conn.close()
+                
+                if tables_created > 0:
+                    message = f"表结构初始化成功: 创建了 {tables_created} 个表，已存在 {tables_existed} 个表"
+                else:
+                    message = f"所有表结构已存在（共 {tables_existed} 个表）"
+                
+                logger.info(message)
+                return True, message
+            except Exception as e:
+                conn.close()
+                error_message = f"初始化表结构时出错: {str(e)}"
+                logger.error(error_message)
+                logger.error(traceback.format_exc())
+                return False, error_message
         
         except Exception as e:
-            logger.error(f"初始化表结构时出错: {str(e)}")
-            return False, f"初始化表结构时出错: {str(e)}"
+            error_message = f"初始化表结构时出现未预期的错误: {str(e)}"
+            logger.error(error_message)
+            logger.error(traceback.format_exc())
+            return False, error_message
     
     def test_connection(self) -> Tuple[bool, str]:
         """
@@ -736,14 +811,9 @@ class DBManager:
         Returns:
             Tuple[bool, str]: (成功状态, 消息)
         """
-        # 避免频繁重复尝试连接
-        current_time = time.time()
-        if current_time - self._last_connection_attempt < self._connection_attempt_interval:
-            logger.debug("连接测试过于频繁，跳过本次测试")
-            return False, "连接测试过于频繁，请稍后再试"
-            
-        # 更新尝试时间
-        self._last_connection_attempt = current_time
+        # 移除频率限制，确保测试连接始终执行
+        # 更新尝试时间，但不进行频率限制检查
+        self._last_connection_attempt = time.time()
             
         try:
             # 创建临时连接，使用较短的超时时间
@@ -754,20 +824,30 @@ class DBManager:
                 password=self.config['password'],
                 database=self.config['database'],
                 charset='utf8mb4',
+                cursorclass=DictCursor,  # 确保使用DictCursor
                 connect_timeout=3  # 更短的超时时间，避免用户界面长时间无响应
             )
             
             # 执行简单查询测试连接
             with conn.cursor() as cursor:
-                cursor.execute("SELECT 1")
+                cursor.execute("SELECT 1 as test_value")
                 result = cursor.fetchone()
                 
             # 关闭连接
             conn.close()
             
-            # 检查结果
-            if result and 1 in result.values():
-                return True, "连接成功"
+            # 检查结果 - 同时兼容元组和字典类型
+            if result:
+                # 处理字典类型结果
+                if isinstance(result, dict) and 'test_value' in result and result['test_value'] == 1:
+                    return True, "连接成功"
+                # 处理元组类型结果
+                elif isinstance(result, tuple) and len(result) > 0 and result[0] == 1:
+                    return True, "连接成功"
+                # 处理其他情况
+                else:
+                    logger.warning(f"连接测试返回了意外的结果格式: {type(result)}, 值: {result}")
+                    return True, "连接成功，但返回格式不标准"
             else:
                 return False, "连接测试失败，查询未返回预期结果"
                 
@@ -779,11 +859,14 @@ class DBManager:
             if error_code == 1045:  # 访问被拒绝
                 message = f"访问被拒绝：用户名或密码错误"
             elif error_code == 1049:  # 未知数据库
-                message = f"数据库不存在：{self.config['database']}"
+                message = f"数据库不存在：{self.config['database']}，需要先初始化数据库"
             elif error_code == 2003:  # 无法连接
                 message = f"无法连接到服务器：{self.config['host']}:{self.config['port']}"
             else:
                 message = f"数据库错误 ({error_code}): {error_message}"
+            
+            # 记录详细的错误信息
+            logger.error(f"连接测试失败: {message}")
             
             return False, message
         except Exception as e:

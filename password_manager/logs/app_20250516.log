@@ -1970,3 +1970,257 @@ AttributeError: 'PasswordTable' object has no attribute 'original_row_data'
 2025-05-16 22:12:32,209 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
 2025-05-16 22:12:32,210 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
 2025-05-16 22:12:33,960 - ui.password_manager.ui_table.table_edit - ERROR - 无法获取行 0 的真实索引
+2025-05-16 23:58:32,984 - root - INFO - 密码管理系统启动
+2025-05-16 23:58:33,010 - root - INFO - 已成功加载应用程序图标: C:\Users\14214\Desktop\pwd_glgj\password_manager\data\password_manager.ico
+2025-05-16 23:58:33,011 - root - INFO - 数据库自动连接状态: 已启用
+2025-05-16 23:58:33,012 - root - INFO - 准备尝试数据库连接...
+2025-05-16 23:58:33,012 - root - INFO - 已启用数据库自动连接
+2025-05-16 23:58:33,012 - root - INFO - 开始检查数据库连接状态...
+2025-05-16 23:58:33,013 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 23:58:33,013 - root - INFO - 连接目标: 192.168.5.8:3306/password_manager, 超时: 3秒
+2025-05-16 23:58:33,020 - root - INFO - 数据库连接测试成功
+2025-05-16 23:58:33,021 - root - INFO - 数据库连接成功，继续启动程序
+2025-05-16 23:58:33,022 - root - INFO - 初始化用户设置模块...
+2025-05-16 23:58:33,022 - root - INFO - 用户设置模块已初始化
+2025-05-16 23:58:33,056 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 23:58:33,082 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 23:58:33,086 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 23:58:33,111 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 23:58:33,127 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 23:58:33,130 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 23:58:33,134 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 23:58:33,157 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 23:58:33,160 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-05-16 23:58:34,649 - core.user - INFO - 用户 admin 登录成功
+2025-05-16 23:58:34,650 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-05-16 23:58:34,656 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-05-16 23:58:34,659 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-05-16 23:58:34,660 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-05-16 23:58:34,675 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-05-16 23:58:34,720 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-05-16 23:58:35,382 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-05-16 23:58:36,435 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 已完成
+2025-05-16 23:58:36,436 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-05-16 23:58:36,436 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-05-16 23:58:36,436 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-05-16 23:58:36,437 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 已跳过
+2025-05-16 23:58:36,511 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 3, 选中行数: 1, 选中行: [1]
+2025-05-16 23:58:36,511 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-05-16 23:58:36,512 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-05-16 23:58:36,513 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-05-16 23:58:36,513 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-05-16 23:58:36,514 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-05-16 23:58:37,408 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 1
+2025-05-16 23:58:37,409 - ui.password_manager.ui_table.table_edit - INFO - 已禁用表格排序功能，防止编辑过程中行位置变化
+2025-05-16 23:58:37,410 - ui.password_manager.ui_table.table_edit - INFO - 已阻止表头点击事件，防止用户手动点击表头排序
+2025-05-16 23:58:37,463 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 1 的编辑模式
+2025-05-16 23:58:42,369 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑 - 第1行: 示例项目
+2025-05-16 23:58:42,407 - ui.password_manager.ui_table.table_edit - INFO - 已恢复表格排序功能，原始状态: True
+2025-05-16 23:58:42,408 - ui.password_manager.ui_table.table_edit - INFO - 已恢复表头点击事件，原始阻塞状态: False
+2025-05-16 23:58:42,411 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑完成，已恢复原始数据
+2025-05-16 23:58:49,944 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 2, 选中行数: 1, 选中行: [1]
+2025-05-16 23:58:49,944 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-05-16 23:58:49,945 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-05-16 23:58:49,946 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-05-16 23:58:49,946 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-05-16 23:58:49,947 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-05-16 23:58:50,711 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 1
+2025-05-16 23:58:50,711 - ui.password_manager.ui_table.table_edit - INFO - 已禁用表格排序功能，防止编辑过程中行位置变化
+2025-05-16 23:58:50,712 - ui.password_manager.ui_table.table_edit - INFO - 已阻止表头点击事件，防止用户手动点击表头排序
+2025-05-16 23:58:50,717 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 1 的编辑模式
+2025-05-16 23:58:54,742 - ui.password_manager.ui_table.table_edit - INFO - 后台线程：编辑现有记录 0
+2025-05-16 23:58:54,743 - ui.password_manager.ui_table.table_edit - INFO - 通过原始数据比较找到匹配记录，真实索引: 0
+2025-05-16 23:58:54,743 - ui.password_manager.ui_table.table_edit - INFO - 后台线程：更新记录：所有者=石帆, 真实索引=0
+2025-05-16 23:58:54,744 - core.password - INFO - 更新密码记录 - 所有者: 石帆, 索引: 0, 项目: 示例项目, 跳过服务器同步: 是
+2025-05-16 23:58:54,744 - core.password - INFO - 跳过SSH密码更新步骤 - 项目: 示例项目
+2025-05-16 23:58:54,745 - core.password - INFO - _get_password_id - 所有者: 石帆, 索引: 0, 可用记录数: 1
+2025-05-16 23:58:54,745 - core.password - INFO - 查询密码ID - 项目: 示例项目, IP: 127.0.0.1, 账号: username
+2025-05-16 23:58:54,747 - core.password - INFO - 通过精确匹配找到密码ID: 3
+2025-05-16 23:58:54,763 - core.password - INFO - 更新所有者 石帆 的密码记录成功 (跳过服务器同步)
+2025-05-16 23:58:54,763 - ui.password_manager.ui_table.table_edit - INFO - 后台保存操作耗时: 0.021秒
+2025-05-16 23:58:54,764 - ui.password_manager.ui_table.table_edit - INFO - 对话框已显示 0.08 秒，延迟 715 毫秒后更新
+2025-05-16 23:58:59,754 - ui.password_manager.ui_table.table_edit - WARNING - 触发备用关闭对话框机制，强制关闭对话框
+2025-05-16 23:58:59,765 - ui.password_manager.ui_table.table_edit - INFO - 编辑后更新UI: 成功=True, 行=0
+2025-05-16 23:58:59,783 - ui.password_manager.ui_table.table_edit - INFO - 已恢复表格排序功能，原始状态: True
+2025-05-16 23:58:59,785 - ui.password_manager.ui_table.table_edit - INFO - 已恢复表头点击事件，原始阻塞状态: False
+2025-05-16 23:58:59,786 - ui.password_manager.ui_table.table_edit - INFO - 重新加载所有密码数据
+2025-05-16 23:58:59,802 - ui.password_manager.ui_table.table_edit - INFO - 编辑操作完成，已恢复表格选择模式
+2025-05-16 23:58:59,802 - ui.password_manager.ui_table.table_edit - INFO - 已完成 编辑 操作的清理
+2025-05-16 23:58:59,803 - ui.password_manager.ui_table.table_edit - INFO - 重新加载所有密码数据
+2025-05-16 23:58:59,811 - ui.password_manager.ui_table.table_edit - INFO - 编辑操作完成，已恢复表格选择模式
+2025-05-16 23:59:37,155 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 4, 选中行数: 1, 选中行: [1]
+2025-05-16 23:59:37,155 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-05-16 23:59:37,156 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-05-16 23:59:37,156 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-05-16 23:59:37,157 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-05-16 23:59:37,157 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-05-16 23:59:38,390 - ui.password_manager.ui_table.table_events - INFO - 尝试在行1（上方）添加新行 [添加方式: 上方]
+2025-05-16 23:59:38,391 - ui.password_manager.ui_table.table_edit - INFO - 在位置 0 添加新行
+2025-05-16 23:59:38,397 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 1
+2025-05-16 23:59:38,397 - ui.password_manager.ui_table.table_edit - INFO - 已禁用表格排序功能，防止编辑过程中行位置变化
+2025-05-16 23:59:38,398 - ui.password_manager.ui_table.table_edit - INFO - 已阻止表头点击事件，防止用户手动点击表头排序
+2025-05-16 23:59:38,402 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 1 的编辑模式
+2025-05-16 23:59:38,402 - ui.password_manager.ui_table.table_edit - INFO - 插入位置已保存: 0
+2025-05-16 23:59:38,403 - ui.password_manager.ui_table.table_events - INFO - 成功在行1（上方）添加新行，新行索引: 1 [添加方式: 上方]
+2025-05-16 23:59:44,262 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑 - 第1行: 
+2025-05-16 23:59:44,264 - ui.password_manager.ui_table.table_edit - INFO - 已恢复表格排序功能，原始状态: True
+2025-05-16 23:59:44,264 - ui.password_manager.ui_table.table_edit - INFO - 已恢复表头点击事件，原始阻塞状态: False
+2025-05-16 23:59:44,265 - ui.password_manager.ui_table.table_edit - INFO - 删除新添加的空行
+2025-05-16 23:59:44,271 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑完成，已恢复原始数据
+2025-05-16 23:59:47,054 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 8, 选中行数: 1, 选中行: [1]
+2025-05-16 23:59:47,055 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-05-16 23:59:47,056 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-05-16 23:59:47,056 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-05-16 23:59:47,057 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-05-16 23:59:47,057 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-05-16 23:59:47,684 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 1
+2025-05-16 23:59:47,684 - ui.password_manager.ui_table.table_edit - INFO - 已禁用表格排序功能，防止编辑过程中行位置变化
+2025-05-16 23:59:47,685 - ui.password_manager.ui_table.table_edit - INFO - 已阻止表头点击事件，防止用户手动点击表头排序
+2025-05-16 23:59:47,690 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 1 的编辑模式
+2025-05-16 23:59:50,360 - ui.password_manager.ui_table.table_edit - INFO - 后台线程：编辑现有记录 0
+2025-05-16 23:59:50,361 - ui.password_manager.ui_table.table_edit - INFO - 通过原始数据比较找到匹配记录，真实索引: 0
+2025-05-16 23:59:50,362 - ui.password_manager.ui_table.table_edit - INFO - 后台线程：更新记录：所有者=石帆, 真实索引=0
+2025-05-16 23:59:50,362 - core.password - INFO - 更新密码记录 - 所有者: 石帆, 索引: 0, 项目: 示例项目, 跳过服务器同步: 是
+2025-05-16 23:59:50,363 - core.password - INFO - 跳过SSH密码更新步骤 - 项目: 示例项目
+2025-05-16 23:59:50,371 - core.password - INFO - 更新所有者 石帆 的密码记录成功 (跳过服务器同步)
+2025-05-16 23:59:50,371 - ui.password_manager.ui_table.table_edit - INFO - 后台保存操作耗时: 0.011秒
+2025-05-16 23:59:50,373 - ui.password_manager.ui_table.table_edit - INFO - 对话框已显示 0.06 秒，延迟 737 毫秒后更新
+2025-05-16 23:59:55,356 - ui.password_manager.ui_table.table_edit - WARNING - 触发备用关闭对话框机制，强制关闭对话框
+2025-05-16 23:59:55,366 - ui.password_manager.ui_table.table_edit - INFO - 编辑后更新UI: 成功=True, 行=0
+2025-05-16 23:59:55,367 - ui.password_manager.ui_table.table_edit - INFO - 已恢复表格排序功能，原始状态: True
+2025-05-16 23:59:55,367 - ui.password_manager.ui_table.table_edit - INFO - 已恢复表头点击事件，原始阻塞状态: False
+2025-05-16 23:59:55,368 - ui.password_manager.ui_table.table_edit - INFO - 重新加载所有密码数据
+2025-05-16 23:59:55,388 - ui.password_manager.ui_table.table_edit - INFO - 编辑操作完成，已恢复表格选择模式
+2025-05-16 23:59:55,389 - ui.password_manager.ui_table.table_edit - INFO - 已完成 编辑 操作的清理
+2025-05-16 23:59:55,389 - ui.password_manager.ui_table.table_edit - INFO - 重新加载所有密码数据
+2025-05-16 23:59:55,397 - ui.password_manager.ui_table.table_edit - INFO - 编辑操作完成，已恢复表格选择模式
+2025-05-17 00:00:27,968 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 1, 选中行数: 1, 选中行: [1]
+2025-05-17 00:00:27,969 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-05-17 00:00:27,970 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-05-17 00:00:27,970 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-05-17 00:00:27,971 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-05-17 00:00:27,971 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-05-17 00:00:29,957 - ui.password_manager.ui_table.table_events - INFO - 尝试在行2（下方）添加新行 [添加方式: 下方]
+2025-05-17 00:00:29,958 - ui.password_manager.ui_table.table_edit - INFO - 在位置 1 添加新行
+2025-05-17 00:00:29,961 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 2
+2025-05-17 00:00:29,962 - ui.password_manager.ui_table.table_edit - INFO - 已禁用表格排序功能，防止编辑过程中行位置变化
+2025-05-17 00:00:29,962 - ui.password_manager.ui_table.table_edit - INFO - 已阻止表头点击事件，防止用户手动点击表头排序
+2025-05-17 00:00:29,968 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 2 的编辑模式
+2025-05-17 00:00:29,968 - ui.password_manager.ui_table.table_edit - INFO - 插入位置已保存: 1
+2025-05-17 00:00:29,969 - ui.password_manager.ui_table.table_events - INFO - 成功在行2（下方）添加新行，新行索引: 2 [添加方式: 下方]
+2025-05-17 00:00:51,819 - ui.password_manager.ui_table.table_edit - INFO - 使用保存的插入位置: 1
+2025-05-17 00:00:51,820 - ui.password_manager.ui_table.table_edit - INFO - 后台线程：添加新记录, 插入位置: 1
+2025-05-17 00:00:51,821 - core.password - INFO - 在位置 2 插入新记录
+2025-05-17 00:00:51,832 - core.password - INFO - 为所有者 石帆 添加密码记录成功
+2025-05-17 00:00:51,832 - ui.password_manager.ui_table.table_edit - INFO - 后台保存操作耗时: 0.012秒
+2025-05-17 00:00:51,837 - ui.password_manager.ui_table.table_edit - INFO - 对话框已显示 0.07 秒，延迟 727 毫秒后更新
+2025-05-17 00:00:51,853 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-05-17 00:00:56,827 - ui.password_manager.ui_table.table_edit - WARNING - 触发备用关闭对话框机制，强制关闭对话框
+2025-05-17 00:00:56,830 - ui.password_manager.ui_table.table_edit - INFO - 添加后更新UI: 成功=True, 行=1
+2025-05-17 00:00:56,831 - ui.password_manager.ui_table.table_edit - INFO - 已恢复表格排序功能，原始状态: True
+2025-05-17 00:00:56,832 - ui.password_manager.ui_table.table_edit - INFO - 已恢复表头点击事件，原始阻塞状态: False
+2025-05-17 00:00:56,833 - ui.password_manager.ui_table.table_edit - INFO - 保存插入位置 1 以便在刷新后恢复
+2025-05-17 00:00:56,833 - ui.password_manager.ui_table.table_edit - INFO - 使用保存的位置 1 刷新数据
+2025-05-17 00:00:56,841 - ui.password_manager.ui_table.table_edit - INFO - 添加操作完成，已恢复表格选择模式
+2025-05-17 00:00:56,842 - ui.password_manager.ui_table.table_edit - INFO - 已完成 添加 操作的清理
+2025-05-17 00:00:56,842 - ui.password_manager.ui_table.table_edit - INFO - 保存插入位置 1 以便在刷新后恢复
+2025-05-17 00:00:56,843 - ui.password_manager.ui_table.table_edit - INFO - 使用保存的位置 1 刷新数据
+2025-05-17 00:00:56,855 - ui.password_manager.ui_table.table_edit - INFO - 添加操作完成，已恢复表格选择模式
+2025-05-17 00:01:05,934 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 2, 当前列: 5, 选中行数: 1, 选中行: [2]
+2025-05-17 00:01:05,934 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-05-17 00:01:05,935 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-05-17 00:01:05,936 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-05-17 00:01:05,936 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-05-17 00:01:05,936 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-05-17 00:01:07,203 - ui.password_manager.ui_table.table_password - WARNING - 无法获取行 1 的真实索引，将使用表格行索引作为备选
+2025-05-17 00:01:07,203 - ui.password_manager.ui_table.table_password - INFO - 在非搜索模式下使用当前行索引 1 作为真实索引
+2025-05-17 00:01:07,210 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-05-17 00:01:08,603 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-05-17 00:01:08,739 - paramiko.transport - INFO - Authentication (password) successful!
+2025-05-17 00:01:08,771 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-05-17 00:01:08,833 - paramiko.transport - INFO - Authentication (password) successful!
+2025-05-17 00:01:20,165 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_7.4)
+2025-05-17 00:01:20,232 - paramiko.transport - INFO - Authentication (password) successful!
+2025-05-17 00:01:20,356 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-05-17 00:01:21,663 - core.password - INFO - 更新密码记录 - 所有者: 石帆, 索引: 1, 项目: 示例项目, 跳过服务器同步: 是
+2025-05-17 00:01:21,664 - core.password - INFO - 跳过SSH密码更新步骤 - 项目: 示例项目
+2025-05-17 00:01:21,664 - core.password - INFO - _get_password_id - 所有者: 石帆, 索引: 1, 可用记录数: 2
+2025-05-17 00:01:21,664 - core.password - INFO - 查询密码ID - 项目: 示例项目, IP: 192.168.5.8, 账号: root
+2025-05-17 00:01:21,667 - core.password - INFO - 通过精确匹配找到密码ID: 7
+2025-05-17 00:01:21,682 - core.password - INFO - 更新所有者 石帆 的密码记录成功 (跳过服务器同步)
+2025-05-17 00:01:21,683 - ui.password_manager.ui_dialogs.password_update_dialog - INFO - 成功保存密码到数据库 - 服务器: 192.168.5.8, 索引: 1
+2025-05-17 00:01:22,935 - ui.password_manager.ui_table.table_password - INFO - 密码更新对话框返回确认结果，刷新表格显示更新后的密码
+2025-05-17 00:01:23,045 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-05-17 00:01:29,586 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 2, 当前列: 5, 选中行数: 1, 选中行: [2]
+2025-05-17 00:01:29,586 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-05-17 00:01:29,588 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-05-17 00:01:29,588 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-05-17 00:01:29,589 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-05-17 00:01:29,589 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-05-17 00:01:30,607 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 2
+2025-05-17 00:01:30,608 - ui.password_manager.ui_table.table_edit - INFO - 已禁用表格排序功能，防止编辑过程中行位置变化
+2025-05-17 00:01:30,608 - ui.password_manager.ui_table.table_edit - INFO - 已阻止表头点击事件，防止用户手动点击表头排序
+2025-05-17 00:01:30,616 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 2 的编辑模式
+2025-05-17 00:01:33,629 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑 - 第2行: 示例项目
+2025-05-17 00:01:33,639 - ui.password_manager.ui_table.table_edit - INFO - 已恢复表格排序功能，原始状态: True
+2025-05-17 00:01:33,640 - ui.password_manager.ui_table.table_edit - INFO - 已恢复表头点击事件，原始阻塞状态: False
+2025-05-17 00:01:33,641 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑完成，已恢复原始数据
+2025-05-17 00:01:43,775 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 5, 选中行数: 1, 选中行: [1]
+2025-05-17 00:01:43,776 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-05-17 00:01:43,776 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-05-17 00:01:43,777 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-05-17 00:01:43,777 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-05-17 00:01:43,778 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-05-17 00:01:49,127 - ui.password_manager.ui_table.table_events - INFO - 尝试在行3（末尾）添加新行 [添加方式: 末尾]
+2025-05-17 00:01:49,127 - ui.password_manager.ui_table.table_edit - INFO - 在位置 2 添加新行
+2025-05-17 00:01:49,132 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 3
+2025-05-17 00:01:49,133 - ui.password_manager.ui_table.table_edit - INFO - 已禁用表格排序功能，防止编辑过程中行位置变化
+2025-05-17 00:01:49,133 - ui.password_manager.ui_table.table_edit - INFO - 已阻止表头点击事件，防止用户手动点击表头排序
+2025-05-17 00:01:49,139 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 3 的编辑模式
+2025-05-17 00:01:49,140 - ui.password_manager.ui_table.table_edit - INFO - 插入位置已保存: 2
+2025-05-17 00:01:49,140 - ui.password_manager.ui_table.table_events - INFO - 成功在行3（末尾）添加新行，新行索引: 3 [添加方式: 末尾]
+2025-05-17 00:01:50,795 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑 - 第3行: 
+2025-05-17 00:01:50,812 - ui.password_manager.ui_table.table_edit - INFO - 已恢复表格排序功能，原始状态: True
+2025-05-17 00:01:50,812 - ui.password_manager.ui_table.table_edit - INFO - 已恢复表头点击事件，原始阻塞状态: False
+2025-05-17 00:01:50,813 - ui.password_manager.ui_table.table_edit - INFO - 删除新添加的空行
+2025-05-17 00:01:50,823 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑完成，已恢复原始数据
+2025-05-17 00:01:56,365 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 2, 当前列: 5, 选中行数: 1, 选中行: [2]
+2025-05-17 00:01:56,365 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-05-17 00:01:56,366 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-05-17 00:01:56,367 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-05-17 00:01:56,367 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-05-17 00:01:56,367 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-05-17 00:01:58,649 - ui.password_manager.ui_table.table_events - INFO - 查看密码历史记录 - 所有者: 石帆, 行索引: 1
+2025-05-17 00:01:58,728 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 开始加载历史数据 - 所有者: 石帆, 行索引: 1
+2025-05-17 00:01:58,729 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 时间范围: 2025-04-17 00:01:58 至 2025-05-17 00:01:58
+2025-05-17 00:01:58,729 - core.password - INFO - 查询密码历史记录 - 所有者: 石帆, IP地址: 192.168.5.8
+2025-05-17 00:01:58,730 - core.password - INFO - _get_password_id - 所有者: 石帆, 索引: 1, 可用记录数: 2
+2025-05-17 00:01:58,730 - core.password - INFO - 查询密码ID - 项目: 示例项目, IP: 192.168.5.8, 账号: root
+2025-05-17 00:01:58,733 - core.password - INFO - 通过精确匹配找到密码ID: 9
+2025-05-17 00:01:58,733 - core.data_storage - INFO - 查询密码历史记录 - 密码ID: 9, 页码: 1, 每页记录数: 10
+2025-05-17 00:01:58,734 - core.data_storage - INFO - 开始时间: 2025-04-17 00:01:58
+2025-05-17 00:01:58,734 - core.data_storage - INFO - 结束时间: 2025-05-17 00:01:58
+2025-05-17 00:01:58,735 - core.data_storage - INFO - IP地址: 192.168.5.8
+2025-05-17 00:01:58,739 - core.data_storage - WARNING - 密码ID 9 在历史记录中不存在，尝试使用IP地址 192.168.5.8 查询
+2025-05-17 00:01:58,741 - core.data_storage - INFO - 发现IP地址 192.168.5.8 对应的历史密码ID: 7
+2025-05-17 00:01:58,742 - core.data_storage - INFO - 自动将当前密码ID 9 更新为历史记录ID 7
+2025-05-17 00:01:58,744 - core.data_storage - INFO - 符合条件的总记录数: 1
+2025-05-17 00:01:58,746 - core.data_storage - INFO - 查询到 1 条历史记录
+2025-05-17 00:01:58,747 - core.data_storage - INFO - 第一条记录: {'id': 2, 'password_id': 7, 'old_password': '1', 'new_password': '<Y4-a%DqXLfr01pw', 'ip_address': '192.168.5.8', 'modify_user': 'admin', 'modify_reason': 'SSH同步', 'modify_time': datetime.datetime(2025, 5, 17, 0, 1, 22)}
+2025-05-17 00:01:58,747 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 历史记录查询结果 - 总记录数: 1, 当前页记录数: 1
+2025-05-17 00:01:58,748 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - populate_table开始填充表格，记录数：1
+2025-05-17 00:01:58,748 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 第一条记录内容: {'id': 2, 'password_id': 7, 'old_password': '1', 'new_password': '<Y4-a%DqXLfr01pw', 'ip_address': '192.168.5.8', 'modify_user': 'admin', 'modify_reason': 'SSH同步', 'modify_time': datetime.datetime(2025, 5, 17, 0, 1, 22)}
+2025-05-17 00:02:01,274 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 2, 当前列: 5, 选中行数: 1, 选中行: [2]
+2025-05-17 00:02:01,275 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-05-17 00:02:01,276 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-05-17 00:02:01,276 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-05-17 00:02:01,277 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-05-17 00:02:01,277 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-05-17 00:02:02,258 - ui.password_manager.ui_table.table_edit - INFO - 开始编辑行 2
+2025-05-17 00:02:02,259 - ui.password_manager.ui_table.table_edit - INFO - 已禁用表格排序功能，防止编辑过程中行位置变化
+2025-05-17 00:02:02,260 - ui.password_manager.ui_table.table_edit - INFO - 已阻止表头点击事件，防止用户手动点击表头排序
+2025-05-17 00:02:02,267 - ui.password_manager.ui_table.table_edit - INFO - 已成功进入行 2 的编辑模式
+2025-05-17 00:02:05,446 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑 - 第2行: 示例项目
+2025-05-17 00:02:05,464 - ui.password_manager.ui_table.table_edit - INFO - 已恢复表格排序功能，原始状态: True
+2025-05-17 00:02:05,465 - ui.password_manager.ui_table.table_edit - INFO - 已恢复表头点击事件，原始阻塞状态: False
+2025-05-17 00:02:05,467 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑完成，已恢复原始数据

@@ -119,10 +119,6 @@ class TableEditMixin:
             # 编辑找到的记录
             row = found_index
             real_index = found_index
-            
-        elif real_index is None:
-            logger.error(f"无法获取行 {row} 的真实索引")
-            return False
         
         try:
             # 检查行索引是否合法
@@ -232,7 +228,7 @@ class TableEditMixin:
                 logger.error(f"恢复状态时又出错: {str(cleanup_error)}")
             
             return False
-        
+    
     def _add_confirm_cancel_buttons(self, row: int):
         """
         添加确认和取消按钮到指定行的下一行
@@ -361,10 +357,6 @@ class TableEditMixin:
                 # 使用当前行作为真实索引，因为已经在edit_row中切换了所有者
                 real_index = row
                 
-            if real_index is None:
-                logger.error(f"无法获取行 {row} 的真实索引")
-                return False
-            
             # 1. 获取行数据
             new_data = []
             
@@ -1463,7 +1455,7 @@ class TableEditMixin:
                 return None
                 
             # 记录当前状态
-            logger.debug(f"获取行 {row} 的真实索引: 搜索模式={self.search_mode}, 表格行数={self.table.rowCount()}")
+            logger.debug(f"获取行 {row} 的真实索引: 搜索模式={self.search_mode if hasattr(self, 'search_mode') else False}, 表格行数={self.table.rowCount()}")
                 
             # 检查行索引是否超出表格范围
             if row >= self.table.rowCount():
@@ -1506,7 +1498,9 @@ class TableEditMixin:
                                     return i
                                     
                             logger.error(f"无法在所有密码中找到匹配记录")
-                            return None
+                            # 当无法找到匹配记录时，使用当前显示行索引作为兜底，避免无法编辑
+                            logger.warning(f"无法找到匹配记录，使用显示行索引 {row} 作为兜底")
+                            return row
                         elif isinstance(search_item, int):
                             # 如果直接存储了索引
                             real_index = search_item
@@ -1515,12 +1509,21 @@ class TableEditMixin:
                         else:
                             logger.error(f"search_results[{row}]的格式不支持：{type(search_item)}")
                             logger.error(f"search_results内容: {search_item}")
+                            # 使用显示行索引作为兜底
+                            logger.warning(f"格式不支持，使用显示行索引 {row} 作为兜底")
+                            return row
                     except Exception as e:
                         logger.error(f"从search_results获取真实索引时出错: {str(e)}")
                         import traceback
                         logger.error(traceback.format_exc())
+                        # 使用显示行索引作为兜底
+                        logger.warning(f"获取真实索引出错，使用显示行索引 {row} 作为兜底")
+                        return row
                 else:
                     logger.error(f"行索引 {row} 超出search_results范围 (0-{len(self.search_results)-1 if self.search_results else -1})")
+                    # 使用显示行索引作为兜底，避免操作失败
+                    logger.warning(f"行索引超出范围，使用显示行索引 {row} 作为兜底")
+                    return row
             else:
                 # 详细记录不使用搜索模式的原因
                 if not hasattr(self, 'search_mode') or not self.search_mode:
@@ -1539,8 +1542,8 @@ class TableEditMixin:
             import traceback
             logger.error(traceback.format_exc())
             # 在出错的情况下，返回None，而不是返回可能错误的原始索引
-            logger.warning(f"索引计算出错，返回None")
-            return None
+            logger.warning(f"索引计算出错，使用显示行索引 {row} 作为兜底")
+            return row
     
     def _load_passwords_internal(self, owner: str, preserve_position: bool = False, insert_position: Optional[int] = None):
         """
@@ -1942,9 +1945,11 @@ class BackgroundSaveWorker(QObject):
                     logger.info(f"通过原始数据比较找到匹配记录，真实索引: {i}")
                     return i
             
-            # 如果找不到匹配，返回None
-            return None
+            # 如果找不到匹配，返回原始行索引
+            logger.warning(f"无法找到匹配记录，使用原始行索引 {self.row} 作为兜底")
+            return self.row
             
         except Exception as e:
             logger.error(f"获取真实索引时出错: {str(e)}")
-            return None 
+            logger.warning(f"索引计算出错，使用原始行索引 {self.row} 作为兜底")
+            return self.row

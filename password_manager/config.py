@@ -20,6 +20,7 @@ PASSWORD_DATA_FILE = os.path.join(DATA_DIR, 'passwords.json')
 ENCRYPTION_KEY_FILE = os.path.join(DATA_DIR, 'encryption.key')
 REMEMBER_FILE = os.path.join(DATA_DIR, 'remember.json')
 DB_CONFIG_FILE = os.path.join(DATA_DIR, 'db_config.json')
+APP_ICON_FILE = os.path.join(DATA_DIR, 'password_manager.ico')  # 应用程序图标路径
 
 # 确保目录存在
 for directory in [DATA_DIR, LOG_DIR]:

@@ -17,7 +17,7 @@ from PyQt5.QtWidgets import (
     QDialog, QFileDialog, QShortcut
 )
 from PyQt5.QtCore import Qt, QModelIndex, QEvent, pyqtSignal, QTimer
-from PyQt5.QtGui import QCloseEvent, QKeySequence, QFont, QPixmap
+from PyQt5.QtGui import QCloseEvent, QKeySequence, QFont, QPixmap, QIcon
 
 from ui.password_manager.ui_layout import PasswordManagerLayout
 from ui.password_manager.ui_table import PasswordTable
@@ -25,9 +25,9 @@ from ui.password_manager.ui_operations import PasswordOperations
 from ui.password_manager.ui_guide import start_walkthrough
 from core.password import password_manager
 from core.user import user_manager
-from config import WINDOW_WIDTH, WINDOW_HEIGHT, VERSION, COLORS
+from config import WINDOW_WIDTH, WINDOW_HEIGHT, VERSION, COLORS, FONT_FAMILY, PASSWORD_COLUMNS, APP_ICON_FILE, STORAGE_TYPE
 from core.user_settings import user_settings
-from ui.components.ui_components import show_message, show_confirmation, ModernLabel, HorizontalLine
+from ui.components.ui_components import show_message, show_confirmation, ModernLabel, HorizontalLine, ModernButton
 
 # 为了解决导入问题，添加项目根目录到Python路径
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
@@ -211,6 +211,13 @@ class PasswordManagerUI(QMainWindow):
         """
         显示密码管理界面
         """
+        # 设置窗口图标
+        try:
+            if os.path.exists(APP_ICON_FILE):
+                self.setWindowIcon(QIcon(APP_ICON_FILE))
+        except Exception as e:
+            logging.warning(f"设置密码管理窗口图标时出错: {str(e)}")
+
         # 确保窗口使用配置的默认大小
         self.resize(WINDOW_WIDTH, WINDOW_HEIGHT)
         self.show()
@@ -266,50 +273,60 @@ class PasswordManagerUI(QMainWindow):
 
     def _show_about_dialog(self):
         """显示关于对话框"""
-        from config import VERSION, BUILD_DATE
-        from PyQt5.QtWidgets import QDialog, QVBoxLayout, QHBoxLayout, QLabel, QPushButton
-        from PyQt5.QtGui import QPixmap, QFont
-        from PyQt5.QtCore import Qt
-        from ui.components.ui_components import ModernLabel, HorizontalLine
+        from config import VERSION, BUILD_DATE, COLORS, STORAGE_TYPE
+        from PyQt5.QtWidgets import QDialog, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QGroupBox, QSpacerItem, QSizePolicy, QGridLayout, QMessageBox
+        from PyQt5.QtGui import QPixmap, QFont, QIcon
+        from PyQt5.QtCore import Qt, QUrl
+        from ui.components.ui_components import ModernLabel, HorizontalLine, ModernButton
+        import os
+        import platform
         
         # 创建自定义关于对话框
         about_dialog = QDialog(self)
         about_dialog.setWindowTitle("关于密码管理系统")
-        about_dialog.setMinimumWidth(480)
-        about_dialog.setMinimumHeight(360)
+        about_dialog.setMinimumWidth(520)
+        about_dialog.setMinimumHeight(450)
         about_dialog.setWindowFlags(about_dialog.windowFlags() & ~Qt.WindowContextHelpButtonHint)
         
         # 主布局
         layout = QVBoxLayout(about_dialog)
-        layout.setContentsMargins(20, 20, 20, 20)
+        layout.setContentsMargins(25, 25, 25, 25)
         layout.setSpacing(15)
         
         # 标题部分
         title_layout = QHBoxLayout()
         
-        # Logo (可以替换为实际的应用logo)
+        # Logo
         try:
-            # 尝试加载logo
-            logo_path = "resources/logo.png"  # 假设有这个路径
-            logo_label = QLabel()
-            pixmap = QPixmap(logo_path)
-            if not pixmap.isNull():
-                logo_label.setPixmap(pixmap.scaled(64, 64, Qt.KeepAspectRatio, Qt.SmoothTransformation))
-                title_layout.addWidget(logo_label)
+            # 尝试使用应用图标
+            if os.path.exists(APP_ICON_FILE):
+                logo_label = QLabel()
+                pixmap = QPixmap(APP_ICON_FILE)
+                if not pixmap.isNull():
+                    logo_label.setPixmap(pixmap.scaled(72, 72, Qt.KeepAspectRatio, Qt.SmoothTransformation))
+                    title_layout.addWidget(logo_label)
+                else:
+                    # 如果无法加载，使用图标文字
+                    icon_label = QLabel("🔐")
+                    icon_label.setFont(QFont("Arial", 40))
+                    icon_label.setStyleSheet(f"color: {COLORS['primary']};")
+                    title_layout.addWidget(icon_label)
             else:
-                # 如果没有logo，使用大图标文字
+                # 使用图标文字
                 icon_label = QLabel("🔐")
-                icon_label.setFont(QFont("Arial", 36))
+                icon_label.setFont(QFont("Arial", 40))
+                icon_label.setStyleSheet(f"color: {COLORS['primary']};")
                 title_layout.addWidget(icon_label)
-        except:
-            # 使用大图标文字作为后备
+        except Exception as e:
+            # 使用图标文字作为后备
             icon_label = QLabel("🔐")
-            icon_label.setFont(QFont("Arial", 36))
+            icon_label.setFont(QFont("Arial", 40))
+            icon_label.setStyleSheet(f"color: {COLORS['primary']};")
             title_layout.addWidget(icon_label)
         
         # 标题文字
         title_text = QVBoxLayout()
-        title = ModernLabel("密码管理系统", font_size=16, bold=True)
+        title = ModernLabel("密码管理系统", font_size=18, bold=True, color=COLORS["primary"])
         subtitle = ModernLabel(f"版本 {VERSION}", font_size=10)
         
         title_text.addWidget(title)
@@ -321,45 +338,156 @@ class PasswordManagerUI(QMainWindow):
         layout.addWidget(HorizontalLine())
         
         # 信息部分
-        info_layout = QVBoxLayout()
+        info_box = QGroupBox("软件信息")
+        info_box.setStyleSheet(f"""
+            QGroupBox {{
+                border: 1px solid {COLORS['border']};
+                border-radius: 6px;
+                margin-top: 12px;
+                padding-top: 10px;
+            }}
+            QGroupBox::title {{
+                subcontrol-origin: margin;
+                left: 10px;
+                padding: 0 5px 0 5px;
+                color: {COLORS['primary']};
+                font-weight: bold;
+            }}
+        """)
         
-        build_info = QLabel(f"<b>构建日期:</b> {BUILD_DATE}")
-        build_info.setTextFormat(Qt.RichText)
-        info_layout.addWidget(build_info)
+        info_layout = QVBoxLayout(info_box)
+        info_layout.setSpacing(10)
         
+        # 信息表格布局
+        info_grid = QGridLayout()
+        info_grid.setColumnStretch(0, 0)
+        info_grid.setColumnStretch(1, 1)
+        info_grid.setHorizontalSpacing(10)
+        info_grid.setVerticalSpacing(8)
+        
+        # 构建日期
+        build_label = QLabel("<b>构建日期:</b>")
+        build_label.setTextFormat(Qt.RichText)
+        build_value = QLabel(BUILD_DATE)
+        info_grid.addWidget(build_label, 0, 0, Qt.AlignLeft)
+        info_grid.addWidget(build_value, 0, 1, Qt.AlignLeft)
+        
+        # 系统信息
+        sys_label = QLabel("<b>操作系统:</b>")
+        sys_label.setTextFormat(Qt.RichText)
+        sys_value = QLabel(f"{platform.system()} {platform.version()}")
+        info_grid.addWidget(sys_label, 1, 0, Qt.AlignLeft)
+        info_grid.addWidget(sys_value, 1, 1, Qt.AlignLeft)
+        
+        # Python版本
+        py_label = QLabel("<b>Python版本:</b>")
+        py_label.setTextFormat(Qt.RichText)
+        py_value = QLabel(platform.python_version())
+        info_grid.addWidget(py_label, 2, 0, Qt.AlignLeft)
+        info_grid.addWidget(py_value, 2, 1, Qt.AlignLeft)
+        
+        # 数据存储
+        db_label = QLabel("<b>数据存储:</b>")
+        db_label.setTextFormat(Qt.RichText)
+        db_value = QLabel("MySQL数据库" if STORAGE_TYPE == "mysql" else "本地JSON文件")
+        info_grid.addWidget(db_label, 3, 0, Qt.AlignLeft)
+        info_grid.addWidget(db_value, 3, 1, Qt.AlignLeft)
+        
+        info_layout.addLayout(info_grid)
+        
+        # 描述
         description = QLabel(
             "密码管理系统是一个安全、高效的密码存储与管理工具，"
             "专为组织内部使用设计，提供便捷的密码记录、搜索和导出功能。"
+            "系统支持多用户管理，并提供详细的操作审计日志，确保数据安全性和可追溯性。"
         )
         description.setWordWrap(True)
         description.setTextFormat(Qt.RichText)
         info_layout.addWidget(description)
         
+        # 功能部分        
+        features_box = QGroupBox("主要功能")
+        features_box.setStyleSheet(f"""
+            QGroupBox {{
+                border: 1px solid {COLORS['border']};
+                border-radius: 6px;
+                margin-top: 12px;
+                padding-top: 10px;
+            }}
+            QGroupBox::title {{
+                subcontrol-origin: margin;
+                left: 10px;
+                padding: 0 5px 0 5px;
+                color: {COLORS['primary']};
+                font-weight: bold;
+            }}
+        """)
+        
+        features_layout = QVBoxLayout(features_box)
+        
         features = QLabel(
-            "<b>主要功能:</b><br>"
-            "• 多人员密码管理<br>"
-            "• 强大的搜索功能<br>"
-            "• Excel导入导出<br>"
-            "• 安全的数据存储<br>"
-            "• 操作审计日志<br>"
-            "• 密码生成器"
+            "• <b>多人员密码管理</b>: 按人员分类管理多种系统密码<br>"
+            "• <b>强大的搜索功能</b>: 快速定位所需密码信息<br>"
+            "• <b>Excel导入导出</b>: 支持Excel格式数据导入导出<br>"
+            "• <b>安全的数据存储</b>: 使用加密技术保障数据安全<br>"
+            "• <b>操作审计日志</b>: 记录所有用户操作，便于追溯<br>"
+            "• <b>密码生成器</b>: 快速生成符合规则的强密码"
         )
         features.setTextFormat(Qt.RichText)
-        info_layout.addWidget(features)
+        features_layout.addWidget(features)
+        
+        layout.addWidget(info_box)
+        layout.addWidget(features_box)
+        
+        # 技术栈部分
+        tech_layout = QHBoxLayout()
+        tech_label = ModernLabel("技术栈:", font_size=9, bold=True)
+        tech_value = ModernLabel("Python, PyQt5, MySQL", font_size=9)
+        
+        tech_layout.addWidget(tech_label)
+        tech_layout.addWidget(tech_value)
+        tech_layout.addStretch()
+        
+        # 操作区域
+        action_box = QHBoxLayout()
+        
+        # 创建链接按钮
+        help_button = ModernButton("用户手册", color=COLORS["info"], flat=True)
+        help_button.setFixedWidth(90)
+        help_button.clicked.connect(lambda: QMessageBox.information(about_dialog, "用户手册", "用户手册功能开发中，敬请期待！"))
+        
+        report_button = ModernButton("问题反馈", color=COLORS["secondary"], flat=True)
+        report_button.setFixedWidth(90)
+        report_button.clicked.connect(lambda: QMessageBox.information(about_dialog, "问题反馈", "如遇到问题，请与系统管理员联系。"))
+        
+        update_button = ModernButton("检查更新", color=COLORS["info"], flat=True)
+        update_button.setFixedWidth(90)
+        update_button.clicked.connect(lambda: QMessageBox.information(about_dialog, "检查更新", f"当前版本 {VERSION} 已是最新版本。"))
+        
+        action_box.addWidget(help_button)
+        action_box.addWidget(report_button)
+        action_box.addWidget(update_button)
+        action_box.addStretch()
+        
+        layout.addLayout(tech_layout)
+        layout.addLayout(action_box)
         
         # 版权信息
-        copyright_info = QLabel("© 2023 公司名称，保留所有权利。")
+        copyright_layout = QHBoxLayout()
+        copyright_info = ModernLabel("© 2025 首信科技，保留所有权利。", color=COLORS["secondary"])
         copyright_info.setAlignment(Qt.AlignCenter)
+        copyright_layout.addStretch()
+        copyright_layout.addWidget(copyright_info)
+        copyright_layout.addStretch()
         
-        layout.addLayout(info_layout)
-        layout.addStretch()
+        layout.addSpacerItem(QSpacerItem(20, 10, QSizePolicy.Minimum, QSizePolicy.Expanding))
         layout.addWidget(HorizontalLine())
-        layout.addWidget(copyright_info)
+        layout.addLayout(copyright_layout)
         
         # 添加确定按钮
         button_layout = QHBoxLayout()
-        ok_button = QPushButton("确定")
-        ok_button.setFixedWidth(100)
+        ok_button = ModernButton("确定", color=COLORS["primary"])
+        ok_button.setFixedWidth(120)
         ok_button.clicked.connect(about_dialog.accept)
         button_layout.addStretch()
         button_layout.addWidget(ok_button)

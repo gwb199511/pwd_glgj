@@ -16,7 +16,7 @@ import pymysql
 import time
 
 from PyQt5.QtWidgets import QApplication, QMessageBox, QDialog, QVBoxLayout, QHBoxLayout, QProgressBar, QLabel, QDialogButtonBox
-from PyQt5.QtGui import QFont, QCursor
+from PyQt5.QtGui import QFont, QCursor, QIcon
 from PyQt5.QtCore import Qt, QTimer
 
 # 添加项目根目录到Python路径
@@ -32,7 +32,7 @@ if ui_path not in sys.path:
     sys.path.insert(0, ui_path)
     print(f"已添加UI模块路径: {ui_path}")
 
-from config import LOG_DIR, LOG_FILE, LOG_LEVEL, LOG_FORMAT, FONT_FAMILY, DATA_DIR, COLORS
+from config import LOG_DIR, LOG_FILE, LOG_LEVEL, LOG_FORMAT, FONT_FAMILY, DATA_DIR, COLORS, APP_ICON_FILE
 from ui.login.login_ui import LoginUI
 from ui.password_manager.password_manager_ui import PasswordManagerUI
 from core.user_settings import user_settings
@@ -337,6 +337,18 @@ def main():
     
     # 创建应用程序
     app = QApplication(sys.argv)
+    
+    # 设置应用程序图标
+    try:
+        from PyQt5.QtGui import QIcon
+        if os.path.exists(APP_ICON_FILE):
+            app_icon = QIcon(APP_ICON_FILE)
+            app.setWindowIcon(app_icon)
+            logging.info(f"已成功加载应用程序图标: {APP_ICON_FILE}")
+        else:
+            logging.warning(f"应用程序图标文件不存在: {APP_ICON_FILE}")
+    except Exception as e:
+        logging.warning(f"设置应用程序图标时出错: {str(e)}")
     
     # 设置全局字体
     font = QFont(FONT_FAMILY)

@@ -1545,3 +1545,428 @@ NameError: free variable 'QDialog' referenced before assignment in enclosing sco
 2025-05-16 21:43:15,808 - ui.password_manager.password_manager_ui - INFO - 使用内嵌方式打开审计日志查看器
 2025-05-16 21:43:15,834 - features.audit.audit_log_viewer - INFO - 界面初始化完成
 2025-05-16 21:43:15,838 - features.audit.audit_log_viewer - INFO - AuditLogViewer初始化成功
+2025-05-16 21:56:00,944 - core.user - INFO - 用户已登出
+2025-05-16 21:56:01,016 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-05-16 21:56:05,732 - root - INFO - 密码管理系统启动
+2025-05-16 21:56:05,814 - root - INFO - 已成功加载应用程序图标: C:\Users\14214\Desktop\pwd_glgj\password_manager\data\password_manager.ico
+2025-05-16 21:56:05,815 - root - INFO - 数据库自动连接状态: 已启用
+2025-05-16 21:56:05,816 - root - INFO - 准备尝试数据库连接...
+2025-05-16 21:56:05,816 - root - INFO - 已启用数据库自动连接
+2025-05-16 21:56:05,817 - root - INFO - 开始检查数据库连接状态...
+2025-05-16 21:56:05,817 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 21:56:05,818 - root - INFO - 连接目标: 192.168.5.8:3306/password_manager, 超时: 3秒
+2025-05-16 21:56:05,832 - root - INFO - 数据库连接测试成功
+2025-05-16 21:56:05,833 - root - INFO - 数据库连接成功，继续启动程序
+2025-05-16 21:56:05,833 - root - INFO - 初始化用户设置模块...
+2025-05-16 21:56:05,834 - root - INFO - 用户设置模块已初始化
+2025-05-16 21:56:05,900 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 21:56:05,915 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 21:56:05,919 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 21:56:05,945 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 21:56:05,948 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 21:56:05,952 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 21:56:05,955 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 21:56:05,959 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 21:56:05,961 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-05-16 21:56:08,238 - core.user - INFO - 用户 admin 登录成功
+2025-05-16 21:56:08,238 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-05-16 21:56:08,242 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-05-16 21:56:08,244 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-05-16 21:56:08,245 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-05-16 21:56:08,271 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-05-16 21:56:08,322 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-05-16 21:56:09,150 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-05-16 21:56:10,248 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 已完成
+2025-05-16 21:56:10,249 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-05-16 21:56:10,249 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-05-16 21:56:10,250 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-05-16 21:56:10,250 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 已跳过
+2025-05-16 21:56:21,614 - core.user - INFO - 用户已登出
+2025-05-16 21:56:21,621 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-05-16 21:56:29,643 - root - INFO - 密码管理系统启动
+2025-05-16 21:56:29,677 - root - INFO - 已成功加载应用程序图标: C:\Users\14214\Desktop\pwd_glgj\password_manager\data\password_manager.ico
+2025-05-16 21:56:29,678 - root - INFO - 数据库自动连接状态: 已启用
+2025-05-16 21:56:29,678 - root - INFO - 准备尝试数据库连接...
+2025-05-16 21:56:29,678 - root - INFO - 已启用数据库自动连接
+2025-05-16 21:56:29,679 - root - INFO - 开始检查数据库连接状态...
+2025-05-16 21:56:29,679 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 21:56:29,680 - root - INFO - 连接目标: 192.168.5.8:3306/password_manager, 超时: 3秒
+2025-05-16 21:56:29,689 - root - INFO - 数据库连接测试成功
+2025-05-16 21:56:29,690 - root - INFO - 数据库连接成功，继续启动程序
+2025-05-16 21:56:29,690 - root - INFO - 初始化用户设置模块...
+2025-05-16 21:56:29,691 - root - INFO - 用户设置模块已初始化
+2025-05-16 21:56:29,719 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 21:56:29,723 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 21:56:29,741 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 21:56:29,757 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 21:56:29,772 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 21:56:29,788 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 21:56:29,803 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 21:56:29,807 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 21:56:29,809 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-05-16 21:56:40,611 - root - INFO - 密码管理系统启动
+2025-05-16 21:56:40,648 - root - INFO - 已成功加载应用程序图标: C:\Users\14214\Desktop\pwd_glgj\password_manager\data\password_manager.ico
+2025-05-16 21:56:40,649 - root - INFO - 数据库自动连接状态: 已启用
+2025-05-16 21:56:40,649 - root - INFO - 准备尝试数据库连接...
+2025-05-16 21:56:40,650 - root - INFO - 已启用数据库自动连接
+2025-05-16 21:56:40,650 - root - INFO - 开始检查数据库连接状态...
+2025-05-16 21:56:40,650 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 21:56:40,651 - root - INFO - 连接目标: 192.168.5.8:3306/password_manager, 超时: 3秒
+2025-05-16 21:56:40,659 - root - INFO - 数据库连接测试成功
+2025-05-16 21:56:40,660 - root - INFO - 数据库连接成功，继续启动程序
+2025-05-16 21:56:40,660 - root - INFO - 初始化用户设置模块...
+2025-05-16 21:56:40,661 - root - INFO - 用户设置模块已初始化
+2025-05-16 21:56:40,691 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 21:56:40,716 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 21:56:40,732 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 21:56:40,747 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 21:56:40,750 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 21:56:40,754 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 21:56:40,758 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 21:56:40,778 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 21:56:40,782 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-05-16 21:56:47,176 - root - INFO - 密码管理系统启动
+2025-05-16 21:56:47,212 - root - INFO - 已成功加载应用程序图标: C:\Users\14214\Desktop\pwd_glgj\password_manager\data\password_manager.ico
+2025-05-16 21:56:47,214 - root - INFO - 数据库自动连接状态: 已启用
+2025-05-16 21:56:47,214 - root - INFO - 准备尝试数据库连接...
+2025-05-16 21:56:47,215 - root - INFO - 已启用数据库自动连接
+2025-05-16 21:56:47,215 - root - INFO - 开始检查数据库连接状态...
+2025-05-16 21:56:47,216 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 21:56:47,216 - root - INFO - 连接目标: 192.168.5.8:3306/password_manager, 超时: 3秒
+2025-05-16 21:56:47,225 - root - INFO - 数据库连接测试成功
+2025-05-16 21:56:47,226 - root - INFO - 数据库连接成功，继续启动程序
+2025-05-16 21:56:47,227 - root - INFO - 初始化用户设置模块...
+2025-05-16 21:56:47,227 - root - INFO - 用户设置模块已初始化
+2025-05-16 21:56:47,274 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 21:56:47,291 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 21:56:47,294 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 21:56:47,298 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 21:56:47,321 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 21:56:47,326 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 21:56:47,329 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 21:56:47,333 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 21:56:47,336 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-05-16 21:56:53,895 - core.user - INFO - 用户 admin 登录成功
+2025-05-16 21:56:53,896 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-05-16 21:56:53,901 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-05-16 21:56:53,901 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-05-16 21:56:53,926 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-05-16 21:56:53,974 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-05-16 21:56:53,982 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-05-16 21:56:54,779 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-05-16 21:56:55,914 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 已完成
+2025-05-16 21:56:55,915 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-05-16 21:56:55,915 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-05-16 21:56:55,916 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-05-16 21:56:55,916 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 已跳过
+2025-05-16 21:58:01,725 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 5, 选中行数: 1, 选中行: [1]
+2025-05-16 21:58:01,729 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-05-16 21:58:01,731 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-05-16 21:58:01,732 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-05-16 21:58:01,734 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-05-16 21:58:01,735 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-05-16 21:58:03,272 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 5, 选中行数: 1, 选中行: [1]
+2025-05-16 21:58:03,273 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-05-16 21:58:03,274 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-05-16 21:58:03,275 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-05-16 21:58:03,275 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-05-16 21:58:03,276 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-05-16 21:58:04,499 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 4, 选中行数: 1, 选中行: [1]
+2025-05-16 21:58:04,500 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-05-16 21:58:04,501 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-05-16 21:58:04,501 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-05-16 21:58:04,502 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-05-16 21:58:04,502 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-05-16 21:58:05,975 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 3, 选中行数: 1, 选中行: [1]
+2025-05-16 21:58:05,976 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-05-16 21:58:05,976 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-05-16 21:58:05,977 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-05-16 21:58:05,978 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-05-16 21:58:05,978 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-05-16 21:58:07,079 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 2, 选中行数: 1, 选中行: [1]
+2025-05-16 21:58:07,080 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-05-16 21:58:07,081 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-05-16 21:58:07,083 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-05-16 21:58:07,084 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-05-16 21:58:07,084 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-05-16 21:58:08,156 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 5, 选中行数: 1, 选中行: [1]
+2025-05-16 21:58:08,157 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-05-16 21:58:08,158 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-05-16 21:58:08,159 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-05-16 21:58:08,159 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-05-16 21:58:08,159 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-05-16 21:58:11,955 - ui.password_manager.ui_table.table_events - INFO - 尝试在行2（下方）添加新行 [添加方式: 下方]
+2025-05-16 21:58:11,956 - ui.password_manager.ui_table.table_edit - INFO - 在位置 1 添加新行
+2025-05-16 21:58:11,990 - ui.password_manager.ui_table.table_edit - ERROR - 无法获取行 1 的真实索引
+2025-05-16 21:58:11,991 - ui.password_manager.ui_table.table_edit - INFO - 插入位置已保存: 1
+2025-05-16 21:58:11,991 - ui.password_manager.ui_table.table_events - INFO - 成功在行2（下方）添加新行，新行索引: 2 [添加方式: 下方]
+2025-05-16 21:58:32,068 - core.user - INFO - 用户已登出
+2025-05-16 21:58:32,088 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-05-16 22:04:45,641 - root - INFO - 密码管理系统启动
+2025-05-16 22:04:45,680 - root - INFO - 已成功加载应用程序图标: C:\Users\14214\Desktop\pwd_glgj\password_manager\data\password_manager.ico
+2025-05-16 22:04:45,681 - root - INFO - 数据库自动连接状态: 已启用
+2025-05-16 22:04:45,681 - root - INFO - 准备尝试数据库连接...
+2025-05-16 22:04:45,682 - root - INFO - 已启用数据库自动连接
+2025-05-16 22:04:45,682 - root - INFO - 开始检查数据库连接状态...
+2025-05-16 22:04:45,683 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 22:04:45,683 - root - INFO - 连接目标: 192.168.5.8:3306/password_manager, 超时: 3秒
+2025-05-16 22:04:45,695 - root - INFO - 数据库连接测试成功
+2025-05-16 22:04:45,696 - root - INFO - 数据库连接成功，继续启动程序
+2025-05-16 22:04:45,697 - root - INFO - 初始化用户设置模块...
+2025-05-16 22:04:45,697 - root - INFO - 用户设置模块已初始化
+2025-05-16 22:04:45,732 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 22:04:45,758 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 22:04:45,773 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 22:04:45,778 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 22:04:45,783 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 22:04:45,803 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 22:04:45,810 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 22:04:45,813 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 22:04:45,818 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-05-16 22:04:47,479 - core.user - INFO - 用户 admin 登录成功
+2025-05-16 22:04:47,480 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-05-16 22:04:47,486 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-05-16 22:04:47,487 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-05-16 22:04:47,513 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-05-16 22:04:47,571 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-05-16 22:04:47,579 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-05-16 22:04:48,419 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-05-16 22:04:49,536 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 已完成
+2025-05-16 22:04:49,536 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-05-16 22:04:49,537 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-05-16 22:04:49,537 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-05-16 22:04:49,538 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 已跳过
+2025-05-16 22:06:07,157 - core.user - INFO - 用户已登出
+2025-05-16 22:06:07,161 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-05-16 22:06:48,819 - root - INFO - 密码管理系统启动
+2025-05-16 22:06:48,861 - root - INFO - 已成功加载应用程序图标: C:\Users\14214\Desktop\pwd_glgj\password_manager\data\password_manager.ico
+2025-05-16 22:06:48,862 - root - INFO - 数据库自动连接状态: 已启用
+2025-05-16 22:06:48,863 - root - INFO - 准备尝试数据库连接...
+2025-05-16 22:06:48,863 - root - INFO - 已启用数据库自动连接
+2025-05-16 22:06:48,863 - root - INFO - 开始检查数据库连接状态...
+2025-05-16 22:06:48,864 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 22:06:48,864 - root - INFO - 连接目标: 192.168.5.8:3306/password_manager, 超时: 3秒
+2025-05-16 22:06:48,874 - root - INFO - 数据库连接测试成功
+2025-05-16 22:06:48,875 - root - INFO - 数据库连接成功，继续启动程序
+2025-05-16 22:06:48,876 - root - INFO - 初始化用户设置模块...
+2025-05-16 22:06:48,876 - root - INFO - 用户设置模块已初始化
+2025-05-16 22:06:48,911 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 22:06:48,915 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 22:06:48,918 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 22:06:48,922 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 22:06:48,935 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 22:06:48,951 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 22:06:48,954 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 22:06:48,958 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 22:06:48,960 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-05-16 22:06:51,761 - core.user - INFO - 用户 admin 登录成功
+2025-05-16 22:06:51,762 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-05-16 22:06:51,765 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-05-16 22:06:51,768 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-05-16 22:06:51,769 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-05-16 22:06:51,792 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-05-16 22:06:51,850 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-05-16 22:06:52,617 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-05-16 22:06:53,710 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 已完成
+2025-05-16 22:06:53,711 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-05-16 22:06:53,712 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-05-16 22:06:53,712 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-05-16 22:06:53,712 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 已跳过
+2025-05-16 22:07:24,701 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-05-16 22:08:27,511 - core.user - INFO - 用户已登出
+2025-05-16 22:08:27,515 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-05-16 22:08:38,248 - root - INFO - 密码管理系统启动
+2025-05-16 22:08:38,278 - root - INFO - 已成功加载应用程序图标: C:\Users\14214\Desktop\pwd_glgj\password_manager\data\password_manager.ico
+2025-05-16 22:08:38,279 - root - INFO - 数据库自动连接状态: 已启用
+2025-05-16 22:08:38,280 - root - INFO - 准备尝试数据库连接...
+2025-05-16 22:08:38,281 - root - INFO - 已启用数据库自动连接
+2025-05-16 22:08:38,281 - root - INFO - 开始检查数据库连接状态...
+2025-05-16 22:08:38,281 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 22:08:38,282 - root - INFO - 连接目标: 192.168.5.8:3306/password_manager, 超时: 3秒
+2025-05-16 22:08:38,290 - root - INFO - 数据库连接测试成功
+2025-05-16 22:08:38,291 - root - INFO - 数据库连接成功，继续启动程序
+2025-05-16 22:08:38,292 - root - INFO - 初始化用户设置模块...
+2025-05-16 22:08:38,292 - root - INFO - 用户设置模块已初始化
+2025-05-16 22:08:38,357 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 22:08:38,359 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 22:08:38,363 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 22:08:38,365 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 22:08:38,387 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 22:08:38,390 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 22:08:38,416 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 22:08:38,432 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 22:08:38,433 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-05-16 22:08:40,224 - core.user - INFO - 用户 admin 登录成功
+2025-05-16 22:08:40,224 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-05-16 22:08:40,228 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-05-16 22:08:40,234 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-05-16 22:08:40,235 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-05-16 22:08:40,269 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-05-16 22:08:40,338 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-05-16 22:08:41,161 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-05-16 22:08:42,253 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 已完成
+2025-05-16 22:08:42,254 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-05-16 22:08:42,254 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-05-16 22:08:42,255 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-05-16 22:08:42,255 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 已跳过
+2025-05-16 22:08:58,885 - features.audit.audit_log_viewer - INFO - 所有模块导入成功
+2025-05-16 22:08:58,886 - ui.password_manager.password_manager_ui - INFO - 使用内嵌方式打开审计日志查看器
+2025-05-16 22:08:58,909 - features.audit.audit_log_viewer - INFO - 界面初始化完成
+2025-05-16 22:08:58,917 - features.audit.audit_log_viewer - INFO - AuditLogViewer初始化成功
+2025-05-16 22:09:08,790 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-05-16 22:09:08,791 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: True
+2025-05-16 22:09:08,794 - ui.password_manager.ui_guide - INFO - 开始预加载菜单图片...
+2025-05-16 22:09:08,795 - ui.password_manager.ui_guide - INFO - 预加载完成，共加载 0 张图片
+2025-05-16 22:09:08,901 - ui.password_manager.ui_guide - INFO - 更新步骤指示器: 当前步骤 1/7
+2025-05-16 22:09:10,338 - core.user_settings - INFO - 已标记引导步骤 main_features 为已完成
+2025-05-16 22:09:10,339 - ui.password_manager.ui_guide - INFO - 用户已完成步骤引导: main_features
+2025-05-16 22:10:52,487 - core.user - INFO - 用户已登出
+2025-05-16 22:10:52,570 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-05-16 22:11:05,797 - root - INFO - 密码管理系统启动
+2025-05-16 22:11:05,845 - root - INFO - 已成功加载应用程序图标: C:\Users\14214\Desktop\pwd_glgj\password_manager\data\password_manager.ico
+2025-05-16 22:11:05,846 - root - INFO - 数据库自动连接状态: 已启用
+2025-05-16 22:11:05,847 - root - INFO - 准备尝试数据库连接...
+2025-05-16 22:11:05,847 - root - INFO - 已启用数据库自动连接
+2025-05-16 22:11:05,848 - root - INFO - 开始检查数据库连接状态...
+2025-05-16 22:11:05,848 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 22:11:05,849 - root - INFO - 连接目标: 192.168.5.8:3306/password_manager, 超时: 3秒
+2025-05-16 22:11:05,867 - root - INFO - 数据库连接测试成功
+2025-05-16 22:11:05,868 - root - INFO - 数据库连接成功，继续启动程序
+2025-05-16 22:11:05,868 - root - INFO - 初始化用户设置模块...
+2025-05-16 22:11:05,869 - root - INFO - 用户设置模块已初始化
+2025-05-16 22:11:05,928 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 22:11:05,932 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 22:11:05,959 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 22:11:05,973 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 22:11:05,977 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 22:11:05,983 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 22:11:06,003 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 22:11:06,007 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 22:11:06,010 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-05-16 22:11:07,521 - core.user - INFO - 用户 admin 登录成功
+2025-05-16 22:11:07,521 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-05-16 22:11:07,525 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-05-16 22:11:07,528 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-05-16 22:11:07,529 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-05-16 22:11:07,551 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-05-16 22:11:07,602 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-05-16 22:11:08,328 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-05-16 22:11:09,437 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 已完成
+2025-05-16 22:11:09,438 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-05-16 22:11:09,438 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-05-16 22:11:09,438 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-05-16 22:11:09,439 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 已跳过
+2025-05-16 22:11:09,647 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 1, 选中行数: 1, 选中行: [1]
+2025-05-16 22:11:09,648 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-05-16 22:11:09,649 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-05-16 22:11:09,649 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-05-16 22:11:09,650 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-05-16 22:11:09,650 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-05-16 22:11:12,213 - ui.password_manager.ui_table.table_events - INFO - 尝试在行1（上方）添加新行 [添加方式: 上方]
+2025-05-16 22:11:12,214 - ui.password_manager.ui_table.table_edit - INFO - 在位置 0 添加新行
+2025-05-16 22:11:12,223 - ui.password_manager.ui_table.table_edit - ERROR - 无法获取行 0 的真实索引
+2025-05-16 22:11:12,224 - ui.password_manager.ui_table.table_edit - INFO - 插入位置已保存: 0
+2025-05-16 22:11:12,224 - ui.password_manager.ui_table.table_events - INFO - 成功在行1（上方）添加新行，新行索引: 1 [添加方式: 上方]
+2025-05-16 22:11:16,568 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑 - 第1行: 新行
+2025-05-16 22:11:16,569 - ui.password_manager.ui_table.table_edit - ERROR - 取消编辑时出错: 'PasswordTable' object has no attribute 'original_row_data'
+2025-05-16 22:11:16,570 - ui.password_manager.ui_table.table_edit - ERROR - Traceback (most recent call last):
+  File "C:\Users\14214\Desktop\pwd_glgj\password_manager\ui\password_manager\ui_table\table_edit.py", line 1122, in cancel_editing
+    self.original_row_data_copy = self.original_row_data
+AttributeError: 'PasswordTable' object has no attribute 'original_row_data'
+
+2025-05-16 22:11:18,061 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 1, 选中行数: 1, 选中行: [1]
+2025-05-16 22:11:18,062 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-05-16 22:11:18,063 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-05-16 22:11:18,064 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-05-16 22:11:18,064 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-05-16 22:11:18,065 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-05-16 22:11:19,299 - ui.password_manager.ui_table.table_events - INFO - 查看密码历史记录 - 所有者: 高文彬, 行索引: 0
+2025-05-16 22:11:19,355 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 开始加载历史数据 - 所有者: 高文彬, 行索引: 0
+2025-05-16 22:11:19,356 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 时间范围: 2025-04-16 22:11:19 至 2025-05-16 22:11:19
+2025-05-16 22:11:19,357 - core.password - INFO - 查询密码历史记录 - 所有者: 高文彬, IP地址: 127.0.0.1
+2025-05-16 22:11:19,357 - core.password - INFO - _get_password_id - 所有者: 高文彬, 索引: 0, 可用记录数: 1
+2025-05-16 22:11:19,357 - core.password - INFO - 查询密码ID - 项目: 示例项目, IP: 127.0.0.1, 账号: username
+2025-05-16 22:11:19,359 - core.password - INFO - 通过精确匹配找到密码ID: 2
+2025-05-16 22:11:19,359 - core.data_storage - INFO - 查询密码历史记录 - 密码ID: 2, 页码: 1, 每页记录数: 10
+2025-05-16 22:11:19,360 - core.data_storage - INFO - 开始时间: 2025-04-16 22:11:19
+2025-05-16 22:11:19,361 - core.data_storage - INFO - 结束时间: 2025-05-16 22:11:19
+2025-05-16 22:11:19,361 - core.data_storage - INFO - IP地址: 127.0.0.1
+2025-05-16 22:11:19,367 - core.data_storage - WARNING - 密码历史记录表中没有任何记录
+2025-05-16 22:11:19,367 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - 历史记录查询结果 - 总记录数: 0, 当前页记录数: 0
+2025-05-16 22:11:19,368 - ui.password_manager.ui_dialogs.password_history_dialog - WARNING - 查询警告: 密码历史记录表中没有任何记录
+2025-05-16 22:11:19,369 - ui.password_manager.ui_dialogs.password_history_dialog - INFO - populate_table开始填充表格，记录数：0
+2025-05-16 22:11:22,236 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 5, 选中行数: 1, 选中行: [1]
+2025-05-16 22:11:22,237 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 1
+2025-05-16 22:11:22,238 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-05-16 22:11:22,238 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-05-16 22:11:22,239 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-05-16 22:11:22,239 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-05-16 22:11:23,714 - ui.password_manager.ui_table.table_edit - ERROR - 无法获取行 0 的真实索引
+2025-05-16 22:11:27,790 - core.user - INFO - 用户已登出
+2025-05-16 22:11:27,794 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-05-16 22:11:46,242 - root - INFO - 密码管理系统启动
+2025-05-16 22:11:46,288 - root - INFO - 已成功加载应用程序图标: C:\Users\14214\Desktop\pwd_glgj\password_manager\data\password_manager.ico
+2025-05-16 22:11:46,289 - root - INFO - 数据库自动连接状态: 已启用
+2025-05-16 22:11:46,290 - root - INFO - 准备尝试数据库连接...
+2025-05-16 22:11:46,290 - root - INFO - 已启用数据库自动连接
+2025-05-16 22:11:46,290 - root - INFO - 开始检查数据库连接状态...
+2025-05-16 22:11:46,291 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 22:11:46,291 - root - INFO - 连接目标: 192.168.5.8:3306/password_manager, 超时: 3秒
+2025-05-16 22:11:46,300 - root - INFO - 数据库连接测试成功
+2025-05-16 22:11:46,301 - root - INFO - 数据库连接成功，继续启动程序
+2025-05-16 22:11:46,302 - root - INFO - 初始化用户设置模块...
+2025-05-16 22:11:46,302 - root - INFO - 用户设置模块已初始化
+2025-05-16 22:11:46,337 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 22:11:46,340 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 22:11:46,364 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 22:11:46,367 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 22:11:46,394 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 22:11:46,398 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 22:11:46,425 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 22:11:46,429 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 22:11:46,432 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-05-16 22:11:48,194 - core.user - INFO - 用户 admin 登录成功
+2025-05-16 22:11:48,194 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-05-16 22:11:48,197 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-05-16 22:11:48,199 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-05-16 22:11:48,200 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-05-16 22:11:48,224 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-05-16 22:11:48,270 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-05-16 22:11:49,070 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-05-16 22:11:50,215 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 已完成
+2025-05-16 22:11:50,215 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-05-16 22:11:50,216 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-05-16 22:11:50,216 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-05-16 22:11:50,217 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 已跳过
+2025-05-16 22:11:52,611 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 2, 选中行数: 1, 选中行: [1]
+2025-05-16 22:11:52,612 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-05-16 22:11:52,612 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-05-16 22:11:52,613 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-05-16 22:11:52,614 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-05-16 22:11:52,614 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-05-16 22:11:55,764 - ui.password_manager.ui_table.base_table - INFO - 已重置表格排序到初始顺序
+2025-05-16 22:11:57,788 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 3, 选中行数: 1, 选中行: [1]
+2025-05-16 22:11:57,789 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-05-16 22:11:57,789 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-05-16 22:11:57,791 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-05-16 22:11:57,791 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-05-16 22:11:57,792 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-05-16 22:12:00,538 - ui.password_manager.ui_table.table_events - INFO - 尝试在行2（下方）添加新行 [添加方式: 下方]
+2025-05-16 22:12:00,539 - ui.password_manager.ui_table.table_edit - INFO - 在位置 1 添加新行
+2025-05-16 22:12:00,541 - ui.password_manager.ui_table.table_edit - ERROR - 无法获取行 1 的真实索引
+2025-05-16 22:12:00,541 - ui.password_manager.ui_table.table_edit - INFO - 插入位置已保存: 1
+2025-05-16 22:12:00,541 - ui.password_manager.ui_table.table_events - INFO - 成功在行2（下方）添加新行，新行索引: 2 [添加方式: 下方]
+2025-05-16 22:12:23,461 - ui.password_manager.ui_table.table_edit - INFO - 取消编辑 - 第2行: 新行
+2025-05-16 22:12:23,461 - ui.password_manager.ui_table.table_edit - ERROR - 取消编辑时出错: 'PasswordTable' object has no attribute 'original_row_data'
+2025-05-16 22:12:23,462 - ui.password_manager.ui_table.table_edit - ERROR - Traceback (most recent call last):
+  File "C:\Users\14214\Desktop\pwd_glgj\password_manager\ui\password_manager\ui_table\table_edit.py", line 1122, in cancel_editing
+    self.original_row_data_copy = self.original_row_data
+AttributeError: 'PasswordTable' object has no attribute 'original_row_data'
+
+2025-05-16 22:12:32,206 - ui.password_manager.ui_table.table_events - INFO - 右键菜单 - 当前行: 1, 当前列: 1, 选中行数: 1, 选中行: [1]
+2025-05-16 22:12:32,207 - ui.password_manager.ui_table.table_events - INFO - 选中的密码单元格数量: 0
+2025-05-16 22:12:32,208 - ui.password_manager.ui_table.table_events - INFO - 准备添加'添加行'子菜单 (选中行数: 1)
+2025-05-16 22:12:32,209 - ui.password_manager.ui_table.table_events - INFO - 已添加'添加行'子菜单，包含上方、下方和末尾三个选项
+2025-05-16 22:12:32,209 - ui.password_manager.ui_table.table_events - INFO - 已添加'编辑行'选项
+2025-05-16 22:12:32,210 - ui.password_manager.ui_table.table_events - INFO - 已添加'查看历史密码修改记录'选项
+2025-05-16 22:12:33,960 - ui.password_manager.ui_table.table_edit - ERROR - 无法获取行 0 的真实索引

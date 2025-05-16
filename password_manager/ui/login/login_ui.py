@@ -17,7 +17,7 @@ from PyQt5.QtWidgets import (
 from PyQt5.QtCore import Qt, pyqtSignal
 from PyQt5.QtGui import QFont, QIcon, QPixmap
 
-from config import FONT_FAMILY, COLORS, VERSION
+from config import FONT_FAMILY, COLORS, VERSION, APP_ICON_FILE
 from core.user import user_manager
 from ui.components.ui_components import (
     ModernButton, ModernLineEdit, ModernLabel, 
@@ -295,4 +295,13 @@ class LoginUI(QWidget):
         """
         显示登录界面
         """
+        # 设置窗口图标
+        try:
+            import os
+            from PyQt5.QtGui import QIcon
+            if os.path.exists(APP_ICON_FILE):
+                self.setWindowIcon(QIcon(APP_ICON_FILE))
+        except Exception as e:
+            logging.warning(f"设置登录窗口图标时出错: {str(e)}")
+        
         self.show() 

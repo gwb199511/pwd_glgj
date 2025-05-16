@@ -10,6 +10,7 @@ import sys
 import subprocess
 import traceback
 import logging
+from datetime import datetime
 
 # 添加项目根目录到Python路径
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -18,13 +19,19 @@ if project_root not in sys.path:
     sys.path.insert(0, project_root)
     print(f"已添加项目根目录到Python路径: {project_root}")
 
+# 定义日志目录和文件
+LOG_DIR = os.path.join(project_root, 'logs')
+if not os.path.exists(LOG_DIR):
+    os.makedirs(LOG_DIR)
+LOG_FILE = os.path.join(LOG_DIR, f'run_{datetime.now().strftime("%Y%m%d")}.log')
+
 # 配置基本日志记录
 logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
         logging.StreamHandler(),
-        logging.FileHandler('run_log.txt', encoding='utf-8')
+        logging.FileHandler(LOG_FILE, encoding='utf-8')
     ]
 )
 logger = logging.getLogger(__name__)

@@ -690,3 +690,93 @@ NameError: name 'ModernLabel' is not defined
 2025-05-16 15:25:23,448 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
 2025-05-16 15:25:23,448 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 已跳过
 2025-05-16 15:25:31,649 - core.user - INFO - 用户已登出
+2025-05-16 15:46:17,124 - root - INFO - 密码管理系统启动
+2025-05-16 15:46:17,135 - root - INFO - 数据库自动连接状态: 已启用
+2025-05-16 15:46:17,135 - root - INFO - 准备尝试数据库连接...
+2025-05-16 15:46:17,136 - root - INFO - 已启用数据库自动连接
+2025-05-16 15:46:17,136 - root - INFO - 开始检查数据库连接状态...
+2025-05-16 15:46:17,136 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 15:46:17,137 - root - INFO - 连接目标: 192.168.8.82:3306/password_manager, 超时: 3秒
+2025-05-16 15:46:17,218 - root - INFO - 数据库连接测试成功
+2025-05-16 15:46:17,218 - root - INFO - 数据库连接成功，继续启动程序
+2025-05-16 15:46:17,218 - root - INFO - 初始化用户设置模块...
+2025-05-16 15:46:17,219 - root - INFO - 用户设置模块已初始化
+2025-05-16 15:46:17,298 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 1
+2025-05-16 15:46:17,337 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 2
+2025-05-16 15:46:17,355 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 3
+2025-05-16 15:46:17,374 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 4
+2025-05-16 15:46:17,389 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 5
+2025-05-16 15:46:17,417 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 6
+2025-05-16 15:46:17,486 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 7
+2025-05-16 15:46:17,506 - core.db_manager - INFO - 预创建连接成功，当前连接池大小: 8
+2025-05-16 15:46:17,518 - core.user - INFO - 成功加载用户 admin 的登录凭证
+2025-05-16 15:46:19,232 - core.user - INFO - 用户 admin 登录成功
+2025-05-16 15:46:19,232 - ui.login.login_ui - INFO - 用户 admin 登录成功
+2025-05-16 15:46:19,277 - core.user - INFO - 成功保存用户 admin 的登录凭证
+2025-05-16 15:46:19,278 - root - INFO - 用户 admin 登录成功，准备打开密码管理界面
+2025-05-16 15:46:19,290 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-05-16 15:46:19,325 - core.user_settings - INFO - 已切换到用户 admin 的设置
+2025-05-16 15:46:19,361 - ui.password_manager.ui_table.base_table - INFO - 已设置必填字段自定义委托
+2025-05-16 15:46:19,963 - ui.password_manager.password_manager_ui - INFO - Excel依赖已安装
+2025-05-16 15:46:21,023 - ui.password_manager.password_manager_ui - INFO - 检查main_features引导状态: 已完成
+2025-05-16 15:46:21,023 - ui.password_manager.ui_guide - INFO - 检查引导 main_features 是否已完成: True
+2025-05-16 15:46:21,024 - ui.password_manager.ui_guide - INFO - 当前是否强制显示引导: False
+2025-05-16 15:46:21,024 - ui.password_manager.ui_guide - INFO - 用户已完成引导: main_features，跳过显示
+2025-05-16 15:46:21,024 - ui.password_manager.password_manager_ui - INFO - 启动main_features引导结果: 已跳过
+2025-05-16 15:46:36,037 - core.user - INFO - 用户已登出
+2025-05-16 15:46:36,051 - core.db_manager - INFO - 批量执行SQL成功，共执行 1 条命令
+2025-05-16 15:46:54,500 - root - INFO - 密码管理系统启动
+2025-05-16 15:46:54,512 - root - INFO - 数据库自动连接状态: 已启用
+2025-05-16 15:46:54,513 - root - INFO - 准备尝试数据库连接...
+2025-05-16 15:46:54,513 - root - INFO - 已启用数据库自动连接
+2025-05-16 15:46:54,513 - root - INFO - 开始检查数据库连接状态...
+2025-05-16 15:46:54,514 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 15:46:54,514 - root - INFO - 连接目标: 192.168.8.82:3306/password_manager, 超时: 3秒
+2025-05-16 15:46:57,523 - root - ERROR - 无法连接到数据库服务器(192.168.8.82:3306): (2003, "Can't connect to MySQL server on '192.168.8.82' (timed out)")
+2025-05-16 15:46:57,524 - root - ERROR - 无法连接到数据库: 无法连接到数据库服务器(192.168.8.82:3306): (2003, "Can't connect to MySQL server on '192.168.8.82' (timed out)")
+2025-05-16 15:50:41,299 - root - INFO - 密码管理系统启动
+2025-05-16 15:50:41,309 - root - INFO - 数据库自动连接状态: 已启用
+2025-05-16 15:50:41,309 - root - INFO - 准备尝试数据库连接...
+2025-05-16 15:50:41,310 - root - INFO - 已启用数据库自动连接
+2025-05-16 15:50:41,310 - root - INFO - 开始检查数据库连接状态...
+2025-05-16 15:50:41,310 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 15:50:41,310 - root - INFO - 连接目标: 192.168.8.82:3306/password_manager, 超时: 3秒
+2025-05-16 15:50:44,326 - root - ERROR - 无法连接到数据库服务器(192.168.8.82:3306): (2003, "Can't connect to MySQL server on '192.168.8.82' (timed out)")
+2025-05-16 15:50:44,327 - root - ERROR - 无法连接到数据库: 无法连接到数据库服务器(192.168.8.82:3306): (2003, "Can't connect to MySQL server on '192.168.8.82' (timed out)")
+2025-05-16 15:50:46,048 - root - INFO - 用户选择修改数据库连接信息
+2025-05-16 15:50:52,293 - root - ERROR - 检查数据库连接时发生异常: cannot access local variable 'QDialog' where it is not associated with a value
+2025-05-16 15:50:52,294 - root - ERROR - Traceback (most recent call last):
+  File "C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py", line 651, in main
+    if config_dialog.exec_() == QDialog.Rejected:
+                                ^^^^^^^
+UnboundLocalError: cannot access local variable 'QDialog' where it is not associated with a value
+
+2025-05-16 15:50:52,295 - root - ERROR - 程序发生错误: cannot access free variable 'QDialog' where it is not associated with a value in enclosing scope
+2025-05-16 15:50:52,298 - root - ERROR - Traceback (most recent call last):
+  File "C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py", line 651, in main
+    if config_dialog.exec_() == QDialog.Rejected:
+                                ^^^^^^^
+UnboundLocalError: cannot access local variable 'QDialog' where it is not associated with a value
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py", line 744, in <module>
+    main()
+  File "C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py", line 682, in main
+    show_critical_error(
+  File "C:\Users\gwb\Desktop\pwd_glgj\password_manager\main.py", line 338, in show_critical_error
+    dialog = QDialog(None, Qt.WindowStaysOnTopHint)
+             ^^^^^^^
+NameError: cannot access free variable 'QDialog' where it is not associated with a value in enclosing scope
+
+2025-05-16 18:12:24,241 - root - INFO - 密码管理系统启动
+2025-05-16 18:12:24,251 - root - INFO - 数据库自动连接状态: 已启用
+2025-05-16 18:12:24,251 - root - INFO - 准备尝试数据库连接...
+2025-05-16 18:12:24,251 - root - INFO - 已启用数据库自动连接
+2025-05-16 18:12:24,252 - root - INFO - 开始检查数据库连接状态...
+2025-05-16 18:12:24,252 - root - INFO - 开始直接测试数据库连接...
+2025-05-16 18:12:24,252 - root - INFO - 连接目标: 192.168.8.82:3306/password_manager, 超时: 3秒
+2025-05-16 18:12:27,270 - root - ERROR - 无法连接到数据库服务器(192.168.8.82:3306): (2003, "Can't connect to MySQL server on '192.168.8.82' (timed out)")
+2025-05-16 18:12:27,270 - root - ERROR - 无法连接到数据库: 无法连接到数据库服务器(192.168.8.82:3306): (2003, "Can't connect to MySQL server on '192.168.8.82' (timed out)")
+2025-05-16 18:12:31,202 - root - INFO - 用户选择退出程序

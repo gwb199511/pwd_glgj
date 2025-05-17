@@ -930,7 +930,10 @@ class DBManager:
             current_time = time.time()
             if not hasattr(self, '_last_query_warning_time') or \
                current_time - self._last_query_warning_time > 10.0:
-                logger.warning("执行查询时无法获取数据库连接")
+                # 检查根日志记录器是否已配置处理器（即setup_logging已执行）
+                root_logger = logging.getLogger()
+                if root_logger.handlers:
+                    logger.warning("执行查询时无法获取数据库连接")
                 self._last_query_warning_time = current_time
             return []
         
@@ -992,7 +995,10 @@ class DBManager:
             current_time = time.time()
             if not hasattr(self, '_last_update_warning_time') or \
                current_time - self._last_update_warning_time > 10.0:
-                logger.warning("执行更新时无法获取数据库连接")
+                # 检查根日志记录器是否已配置处理器（即setup_logging已执行）
+                root_logger = logging.getLogger()
+                if root_logger.handlers:
+                    logger.warning("执行更新时无法获取数据库连接")
                 self._last_update_warning_time = current_time
             return -1
         
@@ -1048,7 +1054,10 @@ class DBManager:
             current_time = time.time()
             if not hasattr(self, '_last_insert_warning_time') or \
                current_time - self._last_insert_warning_time > 10.0:
-                logger.warning("执行插入时无法获取数据库连接")
+                # 检查根日志记录器是否已配置处理器（即setup_logging已执行）
+                root_logger = logging.getLogger()
+                if root_logger.handlers:
+                    logger.warning("执行插入时无法获取数据库连接")
                 self._last_insert_warning_time = current_time
             return -1
         
@@ -1104,7 +1113,10 @@ class DBManager:
             current_time = time.time()
             if not hasattr(self, '_last_batch_warning_time') or \
                current_time - self._last_batch_warning_time > 10.0:
-                logger.warning("执行批量操作时无法获取数据库连接")
+                # 检查根日志记录器是否已配置处理器（即setup_logging已执行）
+                root_logger = logging.getLogger()
+                if root_logger.handlers:
+                    logger.warning("执行批量操作时无法获取数据库连接")
                 self._last_batch_warning_time = current_time
             return False
         

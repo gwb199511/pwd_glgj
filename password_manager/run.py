@@ -30,6 +30,8 @@ if not os.path.exists(LOG_DIR):
 LOG_FILE = os.path.join(LOG_DIR, f'run_{datetime.now().strftime("%Y%m%d")}.log')
 
 # 配置基本日志记录
+# 注意：这是初始日志配置，main.py中的setup_logging会重置这些处理器
+# 如果需要修改日志格式或处理器，请同时更新两处配置
 logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',

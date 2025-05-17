@@ -53,6 +53,13 @@ def setup_logging():
 
     # 配置根日志记录器
     root_logger = logging.getLogger()
+    
+    # 检查是否已经有处理器，避免重复添加
+    if root_logger.handlers:
+        # 清除所有现有的处理器，防止重复日志
+        for handler in root_logger.handlers[:]:
+            root_logger.removeHandler(handler)
+    
     root_logger.setLevel(LOG_LEVEL)
 
     # 控制台处理器

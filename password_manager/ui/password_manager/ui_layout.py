@@ -13,13 +13,13 @@ from PyQt5.QtWidgets import (
     QListWidget, QListWidgetItem, QLabel, QLineEdit,
     QToolBar, QAction, QMainWindow, QStatusBar,
     QTableWidget, QAbstractItemView, QFrame, QSizePolicy,
-    QToolButton, QMenu
+    QToolButton, QMenu, QPushButton, QInputDialog, QMessageBox
 )
 from PyQt5.QtCore import Qt, QSize, QRect
 from PyQt5.QtGui import QFont, QIcon, QPainter, QPixmap, QColor
 
 from config import FONT_FAMILY, COLORS, WINDOW_WIDTH, WINDOW_HEIGHT
-from ui.components.ui_components import ModernLabel, ModernLineEdit, HorizontalLine
+from ui.components.ui_components import ModernLabel, ModernLineEdit, HorizontalLine, ModernButton, show_input_dialog, show_confirmation
 from utils.icon_manager import IconManager
 
 # 配置日志
@@ -216,12 +216,35 @@ class PasswordManagerLayout:
         owner_title = ModernLabel("人员列表", font_size=10, bold=True)
         owner_title.setAlignment(Qt.AlignCenter)
         
+        # 创建人员管理按钮
+        owner_buttons_layout = QHBoxLayout()
+        
+        # 添加人员按钮
+        self.add_owner_btn = QPushButton("+")
+        self.add_owner_btn.setToolTip("<span style='font-size:8pt;'>添加人员</span>")
+        self.add_owner_btn.setMaximumWidth(25)
+        
+        # 编辑人员按钮
+        self.edit_owner_btn = QPushButton("✎")
+        self.edit_owner_btn.setToolTip("<span style='font-size:8pt;'>编辑人员名称</span>")
+        self.edit_owner_btn.setMaximumWidth(25)
+        
+        # 删除人员按钮
+        self.del_owner_btn = QPushButton("-")
+        self.del_owner_btn.setToolTip("<span style='font-size:8pt;'>删除人员</span>")
+        self.del_owner_btn.setMaximumWidth(25)
+        
+        owner_buttons_layout.addWidget(self.add_owner_btn)
+        owner_buttons_layout.addWidget(self.edit_owner_btn)
+        owner_buttons_layout.addWidget(self.del_owner_btn)
+        
         # 创建左侧面板
         left_panel = QWidget()
         left_layout = QVBoxLayout(left_panel)
         left_layout.addWidget(owner_title)
         left_layout.addWidget(HorizontalLine())
         left_layout.addWidget(self.owner_list_widget)
+        left_layout.addLayout(owner_buttons_layout)
         
         # 右侧密码表格
         self.password_table = QTableWidget()
@@ -286,36 +309,44 @@ class PasswordManagerLayout:
         if "search_changed" in callbacks:
             self.search_edit.textChanged.connect(callbacks["search_changed"])
             
+        # 人员管理按钮
+        if "add_owner" in callbacks:
+            self.add_owner_btn.clicked.connect(callbacks["add_owner"])
+            
+        if "edit_owner" in callbacks:
+            self.edit_owner_btn.clicked.connect(callbacks["edit_owner"])
+            
+        if "delete_owner" in callbacks:
+            self.del_owner_btn.clicked.connect(callbacks["delete_owner"])
+            
         # 注意：已禁用表格双击编辑功能
             
     def update_owner_list(self, owners: List[str], current_owner: str = None):
         """
-        更新人员列表，固定显示三个指定人员
+        更新人员列表，显示所有人员
         
         Args:
-            owners (List[str]): 人员列表（不再使用，仅保留参数兼容性）
+            owners (List[str]): 人员列表
             current_owner (str, optional): 当前选中的人员. 默认为 None.
         """
         self.owner_list_widget.clear()
         
-        # 固定显示三个人员
-        fixed_owners = ["徐国明", "高文彬", "石帆"]
-        
-        for owner in fixed_owners:
+        # 显示所有人员
+        for owner in owners:
             item = QListWidgetItem(owner)
             item.setFont(QFont(FONT_FAMILY, 9))
             self.owner_list_widget.addItem(item)
             
         # 如果指定了当前人员，则选中它
-        if current_owner and current_owner in fixed_owners:
+        if current_owner and current_owner in owners:
             items = self.owner_list_widget.findItems(current_owner, Qt.MatchExactly)
             if items:
                 self.owner_list_widget.setCurrentItem(items[0])
                 self.current_owner = current_owner
-        else:
+        elif owners:  # 如果有人员列表
             # 默认选中第一个人员
             self.owner_list_widget.setCurrentRow(0)
-            self.current_owner = fixed_owners[0]
+            self.current_owner = owners[0]
         
     def get_selected_owner(self) -> str:
         """
@@ -327,4 +358,58 @@ class PasswordManagerLayout:
         item = self.owner_list_widget.currentItem()
         if item:
             return item.text()
-        return None 
+        return None
+    
+    def add_owner_dialog(self) -> str:
+        """
+        显示添加人员对话框
+        
+        Returns:
+            str: 新添加的人员名称，取消则返回None
+        """
+        name, ok = show_input_dialog(
+            self.parent, 
+            "添加人员", 
+            "请输入人员姓名:"
+        )
+        
+        if ok and name.strip():
+            return name.strip()
+        return None
+    
+    def edit_owner_dialog(self, current_name: str) -> str:
+        """
+        显示编辑人员对话框
+        
+        Args:
+            current_name (str): 当前人员名称
+            
+        Returns:
+            str: 修改后的人员名称，取消则返回None
+        """
+        name, ok = show_input_dialog(
+            self.parent, 
+            "编辑人员", 
+            "请输入新的姓名:",
+            current_name
+        )
+        
+        if ok and name.strip() and name.strip() != current_name:
+            return name.strip()
+        return None
+    
+    def confirm_delete_owner(self, owner_name: str) -> bool:
+        """
+        确认删除人员
+        
+        Args:
+            owner_name (str): 人员名称
+            
+        Returns:
+            bool: 用户确认删除返回True，否则返回False
+        """
+        return show_confirmation(
+            self.parent,
+            "确认删除",
+            f"确定要删除人员\"{owner_name}\"吗？\n该操作将删除该人员的所有密码记录，且不可恢复！"
+        ) 

@@ -6,7 +6,7 @@ UI组件模块，提供自定义的UI控件
 """
 
 import logging
-from PyQt5.QtWidgets import QPushButton, QLineEdit, QLabel, QFrame, QMessageBox, QToolButton, QStyle
+from PyQt5.QtWidgets import QPushButton, QLineEdit, QLabel, QFrame, QMessageBox, QToolButton, QStyle, QDialog, QVBoxLayout, QHBoxLayout
 from PyQt5.QtCore import Qt, QSize, QEvent, pyqtSignal
 from PyQt5.QtGui import QFont, QColor, QPalette, QIcon, QPixmap
 
@@ -442,4 +442,103 @@ def show_confirmation(parent, title, message):
     msg_box.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
     msg_box.setDefaultButton(QMessageBox.No)
     
-    return msg_box.exec_() == QMessageBox.Yes 
+    return msg_box.exec_() == QMessageBox.Yes
+
+
+class ModernInputDialog(QDialog):
+    """
+    现代风格输入对话框
+    
+    自定义输入对话框外观和行为，提供与整个项目一致的风格。
+    """
+    
+    def __init__(self, parent=None, title="输入", label_text="请输入:", default_text=""):
+        """
+        初始化输入对话框
+        
+        Args:
+            parent (QWidget, optional): 父控件. 默认为 None.
+            title (str, optional): 对话框标题. 默认为 "输入".
+            label_text (str, optional): 标签文本. 默认为 "请输入:".
+            default_text (str, optional): 默认文本. 默认为 "".
+        """
+        super().__init__(parent)
+        self.setWindowTitle(title)
+        self.setWindowFlags(Qt.Dialog | Qt.WindowCloseButtonHint)
+        self.setMinimumWidth(300)
+        
+        # 创建布局
+        layout = QVBoxLayout(self)
+        layout.setContentsMargins(20, 20, 20, 20)
+        layout.setSpacing(10)
+        
+        # 添加标签
+        self.label = ModernLabel(label_text, self, font_size=10)
+        layout.addWidget(self.label)
+        
+        # 添加输入框
+        self.input_field = ModernLineEdit(self, placeholder="")
+        self.input_field.setText(default_text)
+        self.input_field.setMinimumHeight(30)
+        layout.addWidget(self.input_field)
+        
+        layout.addSpacing(10)
+        
+        # 按钮布局
+        button_layout = QHBoxLayout()
+        button_layout.setSpacing(10)
+        
+        # 取消按钮
+        self.cancel_button = ModernButton("取消", self, color=COLORS["secondary"])
+        self.cancel_button.clicked.connect(self.reject)
+        
+        # 确认按钮
+        self.ok_button = ModernButton("确定", self)
+        self.ok_button.clicked.connect(self.accept)
+        self.ok_button.setDefault(True)
+        
+        # 添加按钮到布局
+        button_layout.addStretch()
+        button_layout.addWidget(self.cancel_button)
+        button_layout.addWidget(self.ok_button)
+        
+        layout.addLayout(button_layout)
+        
+        # 设置样式
+        self.setStyleSheet(f"""
+            QDialog {{
+                background-color: white;
+                border: 1px solid {COLORS["border"]};
+                border-radius: 6px;
+            }}
+        """)
+        
+        # 设置焦点
+        self.input_field.setFocus()
+    
+    def get_input(self):
+        """
+        获取用户输入
+        
+        Returns:
+            tuple: (输入文本, 是否点击了确定按钮)
+        """
+        result = self.exec_()
+        return (self.input_field.text(), result == QDialog.Accepted)
+
+
+def show_input_dialog(parent, title, label_text, default_text=""):
+    """
+    显示输入对话框
+    
+    Args:
+        parent (QWidget): 父控件
+        title (str): 对话框标题
+        label_text (str): 标签文本
+        default_text (str, optional): 默认文本. 默认为 "".
+        
+    Returns:
+        tuple: (输入文本, 是否点击了确定按钮)
+    """
+    dialog = ModernInputDialog(parent, title, label_text, default_text)
+    return dialog.get_input() 

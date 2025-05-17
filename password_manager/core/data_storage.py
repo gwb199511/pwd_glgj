@@ -388,32 +388,48 @@ class MySQLStorage(StorageBase):
             # 更新内存中的数据
             self.data[key] = value
             
+            # 记录操作开始
+            logger.info(f"开始设置键 '{key}' 的值 - 表: {self.table_name}")
+            
             # 根据不同表类型处理数据
             if self.table_name == "users":
                 # 删除原有数据
-                db_manager.execute_update(f"DELETE FROM {self.table_name} WHERE username = %s", (key,))
+                delete_sql = f"DELETE FROM {self.table_name} WHERE username = %s"
+                logger.debug(f"执行SQL: {delete_sql} - 参数: {key}")
+                db_manager.execute_update(delete_sql, (key,))
                 
                 # 插入新数据
-                sql = f"INSERT INTO {self.table_name} (username, password) VALUES (%s, %s)"
-                result = db_manager.execute_insert(sql, (key, value))
+                insert_sql = f"INSERT INTO {self.table_name} (username, password) VALUES (%s, %s)"
+                logger.debug(f"执行SQL: {insert_sql} - 参数: {key}, [密码已隐藏]")
+                result = db_manager.execute_insert(insert_sql, (key, value))
+                logger.info(f"插入结果: {result}")
                 return result > 0
                 
             elif self.table_name == "passwords":
                 # 删除原有数据
-                db_manager.execute_update(f"DELETE FROM {self.table_name} WHERE owner = %s", (key,))
+                delete_sql = f"DELETE FROM {self.table_name} WHERE owner = %s"
+                logger.debug(f"执行SQL: {delete_sql} - 参数: {key}")
+                rows_affected = db_manager.execute_update(delete_sql, (key,))
+                logger.info(f"已删除 {rows_affected} 条 {key} 的密码记录")
                 
                 # 插入新数据
                 success = True
+                records_inserted = 0
+                
+                if not value or len(value) == 0:
+                    logger.warning(f"为 {key} 设置的值是空列表，不会插入任何记录")
+                
                 for record in value:
                     if len(record) < 8:  # 确保记录格式正确
+                        logger.warning(f"记录格式不正确，至少需要8个字段: {record}")
                         continue
                     
-                    sql = """
+                    insert_sql = """
                         INSERT INTO passwords 
                         (owner, project_name, func_desc, ip_address, account, password, area, network_type, other_info)
                         VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
                     """
-                    result = db_manager.execute_insert(sql, (
+                    params = (
                         key,           # owner
                         record[0],     # project_name
                         record[1],     # func_desc
@@ -423,11 +439,18 @@ class MySQLStorage(StorageBase):
                         record[5],     # area
                         record[6],     # network_type
                         record[7]      # other_info
-                    ))
+                    )
                     
-                    if result <= 0:
+                    logger.debug(f"执行SQL: {insert_sql} - 参数: {key}, {record[0]}, {record[1]}, {record[2]}, {record[3]}, [密码已隐藏], {record[5]}, {record[6]}, {record[7]}")
+                    result = db_manager.execute_insert(insert_sql, params)
+                    
+                    if result > 0:
+                        records_inserted += 1
+                    else:
+                        logger.error(f"插入记录失败: {record[0]}")
                         success = False
                 
+                logger.info(f"为 {key} 成功修改了 {records_inserted} 条记录")
                 return success
                 
             elif self.table_name == "user_settings":
@@ -568,9 +591,16 @@ class MySQLStorage(StorageBase):
         Returns:
             Dict[str, Any]: 所有数据
         """
-        # 从数据库加载所有数据
-        self.load()
-        return self.data
+        try:
+            # 强制从数据库重新加载数据，而不是使用缓存
+            self.data = {}  # 清除缓存
+            self.load()     # 从数据库重新加载
+            logger.debug(f"从数据库获取所有{self.table_name}数据: {list(self.data.keys())}")
+            return self.data
+        except Exception as e:
+            logger.error(f"获取所有数据时出错: {str(e)}")
+            logger.debug(traceback.format_exc())
+            return self.data
 
 
 class StorageFactory:

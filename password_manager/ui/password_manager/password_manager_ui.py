@@ -113,7 +113,12 @@ class PasswordManagerUI(QMainWindow):
             
             # 搜索相关
             "search_changed": self.operations_manager.handle_search,
-            "clear_search": self.operations_manager.clear_search
+            "clear_search": self.operations_manager.clear_search,
+            
+            # 人员管理相关
+            "add_owner": self.operations_manager.handle_add_owner,
+            "edit_owner": self.operations_manager.handle_edit_owner,
+            "delete_owner": self.operations_manager.handle_delete_owner
         }
         
         self.layout_manager.setup_connections(callbacks)
@@ -123,10 +128,13 @@ class PasswordManagerUI(QMainWindow):
         加载初始数据
         """
         try:
+            # 清空数据缓存，确保从数据库获取最新数据
+            password_manager.db.data = {}
+            
             # 获取所有者列表
             owners = password_manager.get_all_owners()
             
-            # 确保三个固定人员的数据存在
+            # 确保三个固定人员的数据存在（作为初始数据）
             fixed_owners = ["徐国明", "高文彬", "石帆"]
             for owner in fixed_owners:
                 if owner not in owners:
@@ -134,8 +142,13 @@ class PasswordManagerUI(QMainWindow):
                     password_manager.db.set(owner, [])
                     logger.info(f"为人员 {owner} 创建了初始数据结构")
             
-            # 更新人员列表（函数内部已修改为仅显示三个固定人员）
-            self.layout_manager.update_owner_list(fixed_owners)
+            # 重新获取所有者列表（包括新添加的人员）
+            password_manager.db.data = {}  # 再次清空缓存
+            owners = password_manager.get_all_owners()
+            logger.info(f"初始化加载人员列表: {owners}")
+            
+            # 更新人员列表
+            self.layout_manager.update_owner_list(owners)
             
             # 默认选择第一个人员
             self.layout_manager.owner_list_widget.setCurrentRow(0)

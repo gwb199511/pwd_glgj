@@ -1082,12 +1082,37 @@ class DBManager:
                 logger.warning(f"执行SQL插入时参数为字典类型，已转换为JSON字符串: {json_value}")
                 params = (json_value,)
             
+            # 用于日志显示的参数（隐藏敏感信息）
+            log_params = []
+            for param in params:
+                # 如果是密码相关字段，隐藏实际值
+                if isinstance(param, str) and len(param) > 20:  # 可能是加密密码
+                    log_params.append("[加密数据]")
+                else:
+                    log_params.append(param)
+            
+            # 记录详细的SQL执行信息
+            logger.info(f"准备执行SQL插入: {sql}")
+            logger.debug(f"SQL参数: {log_params}")
+            
             with conn.cursor() as cursor:
-                cursor.execute(sql, params)
+                start_time = time.time()
+                affected_rows = cursor.execute(sql, params)
+                execute_time = time.time() - start_time
+                
+                last_id = cursor.lastrowid
                 conn.commit()
-                return cursor.lastrowid
+                
+                # 记录执行结果
+                logger.info(f"SQL插入成功，表: {sql.split('INTO')[1].split('(')[0].strip() if 'INTO' in sql else '未知'}, " +
+                           f"影响行数: {affected_rows}, 执行时间: {execute_time:.4f}秒, 新记录ID: {last_id}")
+                
+                return last_id
         except Exception as e:
             logger.error(f"执行插入时出错: {str(e)}")
+            logger.error(f"SQL语句: {sql}")
+            logger.error(f"参数: {log_params}")
+            logger.debug(traceback.format_exc())
             if conn:
                 conn.rollback()
             return -1

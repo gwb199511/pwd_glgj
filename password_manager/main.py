@@ -78,13 +78,14 @@ def setup_logging():
 
     # 控制台处理器
     console_handler = logging.StreamHandler()
-    console_handler.setLevel(LOG_LEVEL)
+    console_handler.setLevel(logging.INFO)  # 控制台只显示INFO级别及以上的日志
     console_formatter = logging.Formatter(LOG_FORMAT)
     console_handler.setFormatter(console_formatter)
     root_logger.addHandler(console_handler)
 
-    # 文件处理器
+    # 详细文件处理器（所有日志）
     try:
+        # 主日志文件，记录所有级别的日志
         file_handler = RotatingFileHandler(
             LOG_FILE, maxBytes=10*1024*1024, backupCount=5, encoding='utf-8'
         )
@@ -92,10 +93,35 @@ def setup_logging():
         file_formatter = logging.Formatter(LOG_FORMAT)
         file_handler.setFormatter(file_formatter)
         root_logger.addHandler(file_handler)
-        logging.info(f"日志将写入: {LOG_FILE}")
+        
+        # SQL操作日志文件，专门记录SQL操作
+        sql_log_file = os.path.join(LOG_DIR, f'sql_{datetime.now().strftime("%Y%m%d")}.log')
+        sql_handler = RotatingFileHandler(
+            sql_log_file, maxBytes=10*1024*1024, backupCount=3, encoding='utf-8'
+        )
+        sql_handler.setLevel(logging.DEBUG)
+        sql_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        sql_handler.setFormatter(sql_formatter)
+        
+        # 为特定的模块设置SQL日志处理器
+        db_manager_logger = logging.getLogger('core.db_manager')
+        db_manager_logger.setLevel(logging.DEBUG)
+        db_manager_logger.addHandler(sql_handler)
+        
+        data_storage_logger = logging.getLogger('core.data_storage')
+        data_storage_logger.setLevel(logging.DEBUG)
+        data_storage_logger.addHandler(sql_handler)
+        
+        logging.info(f"主日志将写入: {LOG_FILE}")
+        logging.info(f"SQL操作日志将写入: {sql_log_file}")
     except Exception as e:
         logging.error(f"无法设置日志文件 {LOG_FILE}: {str(e)}")
         # 此时仍能通过控制台处理器记录日志
+
+    # 设置特定模块的日志级别
+    logging.getLogger('core.db_manager').setLevel(logging.DEBUG)
+    logging.getLogger('core.data_storage').setLevel(logging.DEBUG)
+    logging.getLogger('ui.password_manager.ui_operations').setLevel(logging.DEBUG)
 
     # 记录启动信息
     logging.info("密码管理系统启动")

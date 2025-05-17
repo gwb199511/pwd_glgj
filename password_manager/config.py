@@ -61,7 +61,8 @@ COLORS = {
     "dark": "#343a40",
     "bg_light": "#f5f5f5",
     "text_dark": "#212529",
-    "border": "#dee2e6"
+    "border": "#dee2e6",
+    "light_hover": "#e9ecef"  # 添加用于菜单项悬停的颜色
 }
 
 # 日志配置

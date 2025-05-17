@@ -6,9 +6,9 @@ UI组件模块，提供自定义的UI控件
 """
 
 import logging
-from PyQt5.QtWidgets import QPushButton, QLineEdit, QLabel, QFrame, QMessageBox, QToolButton, QStyle, QDialog, QVBoxLayout, QHBoxLayout
+from PyQt5.QtWidgets import QPushButton, QLineEdit, QLabel, QFrame, QMessageBox, QToolButton, QStyle, QDialog, QVBoxLayout, QHBoxLayout, QMenu, QTextEdit
 from PyQt5.QtCore import Qt, QSize, QEvent, pyqtSignal
-from PyQt5.QtGui import QFont, QColor, QPalette, QIcon, QPixmap
+from PyQt5.QtGui import QFont, QColor, QPalette, QIcon, QPixmap, QTextCursor
 
 from config import COLORS, FONT_FAMILY
 
@@ -173,6 +173,82 @@ class ModernLineEdit(QLineEdit):
             }}
         """
         self.setStyleSheet(style)
+
+    def contextMenuEvent(self, event):
+        """
+        重写上下文菜单事件处理，创建符合项目UI风格的中文右键菜单
+        
+        Args:
+            event (QContextMenuEvent): 上下文菜单事件
+        """
+        menu = QMenu(self)
+        menu.setFont(QFont(FONT_FAMILY, 9))
+        
+        # 设置菜单样式与项目其他部分保持一致
+        menu.setStyleSheet(f"""
+            QMenu {{
+                background-color: white;
+                border: 1px solid {COLORS["border"]};
+                border-radius: 4px;
+                padding: 5px;
+            }}
+            QMenu::item {{
+                padding: 5px 25px 5px 15px;
+                border-radius: 3px;
+                margin: 2px;
+            }}
+            QMenu::item:selected {{
+                background-color: {COLORS["light_hover"]};
+                color: {COLORS["primary"]};
+            }}
+            QMenu::separator {{
+                height: 1px;
+                background-color: {COLORS["border"]};
+                margin: 5px 15px;
+            }}
+        """)
+        
+        # 添加中文菜单项
+        undo_action = menu.addAction("撤销")
+        undo_action.setEnabled(self.isUndoAvailable())
+        undo_action.triggered.connect(self.undo)
+        
+        redo_action = menu.addAction("重做")
+        redo_action.setEnabled(self.isRedoAvailable())
+        redo_action.triggered.connect(self.redo)
+        
+        menu.addSeparator()
+        
+        cut_action = menu.addAction("剪切")
+        cut_action.setEnabled(self.hasSelectedText() and not self.isReadOnly())
+        cut_action.triggered.connect(self.cut)
+        
+        copy_action = menu.addAction("复制")
+        copy_action.setEnabled(self.hasSelectedText())
+        copy_action.triggered.connect(self.copy)
+        
+        paste_action = menu.addAction("粘贴")
+        paste_action.setEnabled(not self.isReadOnly())
+        paste_action.triggered.connect(self.paste)
+        
+        delete_action = menu.addAction("删除")
+        delete_action.setEnabled(self.hasSelectedText() and not self.isReadOnly())
+        delete_action.triggered.connect(lambda: self.deleteSelectedText())
+        
+        menu.addSeparator()
+        
+        select_all_action = menu.addAction("全选")
+        select_all_action.setEnabled(len(self.text()) > 0)
+        select_all_action.triggered.connect(self.selectAll)
+        
+        # 显示菜单
+        menu.exec_(event.globalPos())
+    
+    def deleteSelectedText(self):
+        """
+        删除选中的文本
+        """
+        self.insert("")
 
     def setClearButtonEnabled(self, enable):
         """
@@ -541,4 +617,119 @@ def show_input_dialog(parent, title, label_text, default_text=""):
         tuple: (输入文本, 是否点击了确定按钮)
     """
     dialog = ModernInputDialog(parent, title, label_text, default_text)
-    return dialog.get_input() 
+    return dialog.get_input()
+
+
+class ModernTextEdit(QTextEdit):
+    """
+    现代风格多行文本编辑框
+    
+    自定义多行文本编辑器外观和行为，支持中文上下文菜单。
+    """
+
+    def __init__(self, parent=None, placeholder="", read_only=False):
+        """
+        初始化多行文本编辑框
+        
+        Args:
+            parent (QWidget, optional): 父控件. 默认为 None.
+            placeholder (str, optional): 占位符文本. 默认为 "".
+            read_only (bool, optional): 是否为只读模式. 默认为 False.
+        """
+        super().__init__(parent)
+        self.placeholder = placeholder
+        self._setup_style()
+        
+        if read_only:
+            self.setReadOnly(True)
+            
+    def _setup_style(self):
+        """
+        设置文本编辑框样式
+        """
+        self.setFont(QFont(FONT_FAMILY, 9))
+        self.setPlaceholderText(self.placeholder)
+        
+        # 基本样式
+        style = f"""
+            QTextEdit {{
+                border: 1px solid {COLORS["border"]};
+                border-radius: 4px;
+                padding: 6px;
+                background-color: {COLORS["light"]};
+            }}
+            QTextEdit:focus {{
+                border: 1px solid {COLORS["primary"]};
+            }}
+        """
+        self.setStyleSheet(style)
+
+    def contextMenuEvent(self, event):
+        """
+        重写上下文菜单事件处理，创建符合项目UI风格的中文右键菜单
+        
+        Args:
+            event (QContextMenuEvent): 上下文菜单事件
+        """
+        menu = QMenu(self)
+        menu.setFont(QFont(FONT_FAMILY, 9))
+        
+        # 设置菜单样式与项目其他部分保持一致
+        menu.setStyleSheet(f"""
+            QMenu {{
+                background-color: white;
+                border: 1px solid {COLORS["border"]};
+                border-radius: 4px;
+                padding: 5px;
+            }}
+            QMenu::item {{
+                padding: 5px 25px 5px 15px;
+                border-radius: 3px;
+                margin: 2px;
+            }}
+            QMenu::item:selected {{
+                background-color: {COLORS["light_hover"]};
+                color: {COLORS["primary"]};
+            }}
+            QMenu::separator {{
+                height: 1px;
+                background-color: {COLORS["border"]};
+                margin: 5px 15px;
+            }}
+        """)
+        
+        # 添加中文菜单项
+        undo_action = menu.addAction("撤销")
+        undo_action.setEnabled(self.document().isUndoAvailable())
+        undo_action.triggered.connect(self.undo)
+        
+        redo_action = menu.addAction("重做")
+        redo_action.setEnabled(self.document().isRedoAvailable())
+        redo_action.triggered.connect(self.redo)
+        
+        menu.addSeparator()
+        
+        cut_action = menu.addAction("剪切")
+        cut_action.setEnabled(self.textCursor().hasSelection() and not self.isReadOnly())
+        cut_action.triggered.connect(self.cut)
+        
+        copy_action = menu.addAction("复制")
+        copy_action.setEnabled(self.textCursor().hasSelection())
+        copy_action.triggered.connect(self.copy)
+        
+        paste_action = menu.addAction("粘贴")
+        paste_action.setEnabled(not self.isReadOnly())
+        paste_action.triggered.connect(self.paste)
+        
+        delete_action = menu.addAction("删除")
+        delete_action.setEnabled(self.textCursor().hasSelection() and not self.isReadOnly())
+        delete_action.triggered.connect(lambda: self.textCursor().removeSelectedText())
+        
+        menu.addSeparator()
+        
+        select_all_action = menu.addAction("全选")
+        select_all_action.setEnabled(len(self.toPlainText()) > 0)
+        select_all_action.triggered.connect(self.selectAll)
+        
+        # 显示菜单
+        menu.exec_(event.globalPos()) 

@@ -15,7 +15,7 @@ from PyQt5.QtWidgets import (
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QColor
 
-from config import PASSWORD_COLUMNS
+from config import PASSWORD_COLUMNS, COLORS, FONT_FAMILY
 from ui.password_manager.ui_utils import set_table_headers
 from ui.password_manager.ui_table.custom_delegates import RequiredFieldDelegate, TooltipDelegate
 
@@ -278,7 +278,43 @@ class BasePasswordTable:
         """
         self.table.setContextMenuPolicy(Qt.CustomContextMenu)
         # 连接信号在子类中实现
+    
+    def _apply_menu_style(self, menu):
+        """
+        应用菜单样式
         
+        为菜单应用统一的样式，使其与项目整体UI保持一致
+        
+        Args:
+            menu (QMenu): 要应用样式的菜单
+        """
+        menu.setStyleSheet(f"""
+            QMenu {{
+                background-color: white;
+                border: 1px solid {COLORS["border"]};
+                border-radius: 4px;
+                padding: 5px;
+                font-family: "{FONT_FAMILY}";
+                font-size: 9pt;
+            }}
+            QMenu::item {{
+                padding: 6px 25px 6px 20px;
+                border: 1px solid transparent;
+            }}
+            QMenu::item:selected {{
+                background-color: #e9f0f9;
+                color: {COLORS["primary"]};
+            }}
+            QMenu::separator {{
+                height: 1px;
+                background-color: {COLORS["border"]};
+                margin: 5px 10px;
+            }}
+            QMenu::icon {{
+                padding-left: 10px;
+            }}
+        """)
+    
     def _show_header_context_menu(self, position):
         """
         显示表头右键菜单
@@ -288,6 +324,9 @@ class BasePasswordTable:
         """
         # 创建菜单
         menu = QMenu(self.table)
+        
+        # 应用菜单样式
+        self._apply_menu_style(menu)
         
         # 添加重置排序选项
         reset_sort_action = QAction("重置排序", self.table)

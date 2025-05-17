@@ -16,7 +16,7 @@ from PyQt5.QtWidgets import QMenu, QAction, QTableWidgetItem, QApplication
 from PyQt5.QtCore import Qt, QObject, QEvent, QItemSelectionModel
 from PyQt5.QtGui import QIcon
 
-from config import PASSWORD_COLUMNS
+from config import PASSWORD_COLUMNS, COLORS, FONT_FAMILY
 from ui.password_manager.ui_guide import start_walkthrough
 
 class TableEventsMixin:
@@ -59,6 +59,9 @@ class TableEventsMixin:
             
             # 创建菜单
             menu = QMenu(self.table)
+            
+            # 应用菜单样式
+            self.base_table._apply_menu_style(menu)
             
             # 添加菜单项 - 检查是否有密码列被选中
             if password_cell_count > 0:
@@ -358,6 +361,9 @@ class TableEventsMixin:
         # 创建上下文菜单
         context_menu = QMenu()
         
+        # 应用菜单样式
+        self.base_table._apply_menu_style(context_menu)
+        
         # 添加菜单项
         # 复制密码
         copy_action = QAction("复制密码", self.table)
@@ -403,6 +409,9 @@ class TableEventsMixin:
         """
         # 创建上下文菜单
         context_menu = QMenu()
+        
+        # 应用菜单样式
+        self.base_table._apply_menu_style(context_menu)
         
         # 添加菜单项
         # 复制IP地址
@@ -552,6 +561,31 @@ class TableEventsMixin:
         except Exception as e:
             logger.error(f"_copy_cell_to_clipboard处理单元格时出错: {str(e)}")
             return False
+
+    def _handle_general_context_menu(self, position, row, col, cell_value, parent=None):
+        """
+        处理通用字段的上下文菜单
+        
+        Args:
+            position: 菜单显示位置
+            row (int): 行索引
+            col (int): 列索引
+            cell_value (str): 单元格值
+            parent: 父窗口
+        """
+        # 创建上下文菜单
+        context_menu = QMenu()
+        
+        # 应用菜单样式
+        self.base_table._apply_menu_style(context_menu)
+        
+        # 添加复制操作
+        copy_action = QAction("复制内容", self.table)
+        copy_action.triggered.connect(lambda: self._copy_cell_to_clipboard(row, col))
+        context_menu.addAction(copy_action)
+        
+        # 显示菜单
+        context_menu.exec_(self.table.viewport().mapToGlobal(position))
 
 class TableEventFilter(QObject):
     """

@@ -16,7 +16,7 @@ from PyQt5.QtWidgets import (QDialog, QVBoxLayout, QHBoxLayout, QFormLayout,
 from PyQt5.QtCore import Qt, pyqtSignal, QObject, QThread
 
 from config import COLORS, FONT_FAMILY
-from ui.components.ui_components import ModernButton, ModernLineEdit, ModernLabel, HorizontalLine, show_message
+from ui.components.ui_components import ModernButton, ModernLineEdit, ModernLabel, HorizontalLine, show_message, show_confirmation
 from core.db_manager import db_manager
 
 # 配置日志
@@ -252,6 +252,14 @@ class MySQLConfigDialog(QDialog):
         """初始化数据库和表结构"""
         # 获取配置
         config = self.get_config_from_ui()
+        
+        # 使用项目自定义的确认对话框
+        if not show_confirmation(
+            self,
+            "警告",
+            "您确定要初始化数据库吗？\n\n此操作将会创建新的数据库和表结构，如果数据库已存在，可能会导致数据丢失！"
+        ):
+            return
         
         # 禁用按钮
         self.init_db_button.setEnabled(False)

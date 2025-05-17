@@ -416,33 +416,48 @@ class MySQLConfigDialog(QDialog):
             storage_type (str): 存储类型，"local"或"mysql"
         """
         try:
-            import os
             import config
             
-            # 直接使用已导入的config模块的文件路径
-            config_file = os.path.abspath(config.__file__)
-            logger.info(f"使用配置文件路径: {config_file}")
-            
-            with open(config_file, 'r', encoding='utf-8') as f:
-                content = f.read()
-            
-            # 替换存储类型
-            import re
-            new_content = re.sub(
-                r'STORAGE_TYPE\s*=\s*"[^"]*"',
-                f'STORAGE_TYPE = "{storage_type}"',
-                content
-            )
-            
-            with open(config_file, 'w', encoding='utf-8') as f:
-                f.write(new_content)
-            
+            # 直接修改内存中的配置，而不是修改文件
+            config.STORAGE_TYPE = storage_type
             logger.info(f"存储类型已更新为: {storage_type}")
             
-            # 重新加载配置模块
-            import importlib
-            importlib.reload(config)
-            
+            # 尝试修改配置文件，但如果失败也不影响程序运行
+            try:
+                import os
+                import sys
+                
+                # 判断是否在PyInstaller环境中
+                if getattr(sys, 'frozen', False):
+                    logger.info("检测到PyInstaller环境，跳过修改配置文件")
+                    return
+                    
+                # 直接使用已导入的config模块的文件路径
+                config_file = os.path.abspath(config.__file__)
+                logger.info(f"使用配置文件路径: {config_file}")
+                
+                # 确保文件存在并且可写
+                if os.path.exists(config_file) and os.access(config_file, os.W_OK):
+                    with open(config_file, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                    
+                    # 替换存储类型
+                    import re
+                    new_content = re.sub(
+                        r'STORAGE_TYPE\s*=\s*"[^"]*"',
+                        f'STORAGE_TYPE = "{storage_type}"',
+                        content
+                    )
+                    
+                    with open(config_file, 'w', encoding='utf-8') as f:
+                        f.write(new_content)
+                    
+                    logger.info(f"配置文件已更新")
+                else:
+                    logger.warning(f"配置文件不存在或不可写: {config_file}")
+            except Exception as e:
+                logger.warning(f"更新配置文件时出错，但不影响程序运行: {str(e)}")
+                
         except Exception as e:
             logger.error(f"更新存储类型时出错: {str(e)}")
             show_message(self, "配置更新失败", f"更新存储类型时出错: {str(e)}", QMessageBox.Critical)

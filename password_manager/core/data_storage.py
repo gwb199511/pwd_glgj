@@ -606,8 +606,9 @@ class StorageFactory:
         Returns:
             str: 强制返回"mysql"作为存储类型，确保系统始终使用MySQL存储
         """
-        # 从配置中获取存储类型，但始终返回mysql
-        # 这样即使配置文件被修改，也会保持使用MySQL
+        # 始终强制返回"mysql"作为存储类型
+        # 从config导入STORAGE_TYPE，但忽略它的值
+        from config import STORAGE_TYPE
         return "mysql"
 
 

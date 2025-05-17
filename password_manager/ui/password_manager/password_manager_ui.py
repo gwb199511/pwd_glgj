@@ -155,28 +155,47 @@ class PasswordManagerUI(QMainWindow):
     def keyPressEvent(self, event):
         """
         处理键盘事件
-        
-        Args:
-            event: 键盘事件
         """
-        # 如果表格有焦点，让表格处理Ctrl+C复制事件
-        if self.table_manager.table.hasFocus() and event.modifiers() == Qt.ControlModifier and event.key() == Qt.Key_C:
-            # 不处理，让事件过滤器处理
-            super().keyPressEvent(event)
+        # 如果按下Ctrl+C且表格有焦点，则复制表格选中内容
+        if event.key() == Qt.Key_C and event.modifiers() == Qt.ControlModifier and self.table_manager.table.hasFocus():
+            logger.info("检测到Ctrl+C快捷键，正在复制表格内容...")
+            
+            # 直接调用复制方法
+            if self.table_manager.copy_selected_content():
+                logger.info("Ctrl+C复制成功")
+            else:
+                logger.warning("Ctrl+C复制失败")
+                
+            # 标记事件已处理
+            event.accept()
             return
-        
-        # Ctrl+F: 聚焦搜索框
-        if event.modifiers() == Qt.ControlModifier and event.key() == Qt.Key_F:
+            
+        # 如果按下Ctrl+F，则定位到搜索框
+        elif event.key() == Qt.Key_F and event.modifiers() == Qt.ControlModifier:
+            logger.debug("检测到Ctrl+F快捷键，定位到搜索框")
             self.layout_manager.search_edit.setFocus()
+            event.accept()
             
-        # Delete: 删除选中的密码
+        # 如果按下Delete键，则删除密码
         elif event.key() == Qt.Key_Delete:
-            self.operations_manager.delete_password()
-            
-        # Escape: 取消编辑
-        elif event.key() == Qt.Key_Escape and self.table_manager.editing_row >= 0:
-            self.table_manager.cancel_editing()
-            
+            logger.debug("检测到Delete键，尝试删除选中密码")
+            if self.table_manager.table.hasFocus():
+                self.operations_manager.delete_password()
+                event.accept()
+                
+        # 如果按下Escape键，取消编辑
+        elif event.key() == Qt.Key_Escape:
+            if self.table_manager.editing_row >= 0:
+                logger.debug("检测到Escape键，取消编辑")
+                self.table_manager.cancel_editing()
+                event.accept()
+            else:
+                # 将焦点设置回表格
+                logger.debug("检测到Escape键，将焦点设置回表格")
+                self.table_manager.table.setFocus()
+                event.accept()
+                
+        # 其他键盘事件交给父类处理
         else:
             super().keyPressEvent(event)
             

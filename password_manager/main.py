@@ -40,7 +40,7 @@ from core.db_user_settings import db_user_settings
 from core.db_manager import db_manager
 
 # 添加ui组件的导入
-from ui.components.ui_components import ModernButton, ModernLabel, HorizontalLine
+from ui.components.ui_components import ModernButton, ModernLabel, HorizontalLine, show_message
 
 
 def setup_logging():
@@ -319,21 +319,55 @@ def show_database_error(app, message):
     return result[0]
 
 
+def load_storage_type():
+    """
+    在PyInstaller环境中从storage_type.conf加载存储类型配置
+    """
+    try:
+        import sys
+        import os
+        import config
+        
+        # 判断是否在PyInstaller环境中
+        if getattr(sys, 'frozen', False):
+            # 使用程序所在目录的data子目录
+            base_dir = os.path.dirname(sys.executable)
+            storage_file = os.path.join(base_dir, 'data', 'storage_type.conf')
+            
+            if os.path.exists(storage_file):
+                logging.info(f"在PyInstaller环境中找到存储类型配置文件: {storage_file}")
+                try:
+                    with open(storage_file, 'r', encoding='utf-8') as f:
+                        storage_type = f.read().strip()
+                    
+                    if storage_type in ("local", "mysql"):
+                        logging.info(f"从配置文件加载存储类型: {storage_type}")
+                        config.STORAGE_TYPE = storage_type
+                    else:
+                        logging.warning(f"配置文件中的存储类型无效: {storage_type}，使用默认值")
+                except Exception as e:
+                    logging.error(f"读取存储类型配置文件时出错: {str(e)}")
+        else:
+            logging.debug("非PyInstaller环境，不需要额外加载存储类型配置")
+    except Exception as e:
+        logging.error(f"加载存储类型时出错: {str(e)}")
+        logging.error(traceback.format_exc())
+
+
 def main():
     """
-    主函数
+    主函数，程序入口点
     """
+    # 加载存储类型配置（在PyInstaller环境中）
+    load_storage_type()
+    
     # 设置日志系统
     setup_logging()
     
-    # 导入必需的全局组件到局部变量，避免作用域问题
-    from PyQt5.QtWidgets import QDialog as _QDialog
-    from PyQt5.QtWidgets import QApplication, QVBoxLayout, QHBoxLayout, QProgressBar, QLabel
+    # 导入必需的组件
+    from PyQt5.QtWidgets import QDialog, QVBoxLayout, QHBoxLayout, QProgressBar, QLabel
     from PyQt5.QtCore import Qt
     from ui.components.ui_components import ModernButton, ModernLabel, HorizontalLine, show_message
-    
-    # 将QDialog全局引用保存到局部变量，避免作用域问题
-    QDialog = _QDialog
     
     # 创建应用程序
     app = QApplication(sys.argv)
@@ -360,9 +394,6 @@ def main():
     
     # 创建错误消息处理函数，确保任何错误都能在GUI中显示
     def show_critical_error(title, message, details=None):
-        # 使用函数外部定义的QDialog而不是尝试重新导入它
-        nonlocal QDialog  # 明确使用外部作用域的QDialog
-        
         # 创建自定义对话框
         dialog = QDialog(None, Qt.WindowStaysOnTopHint)
         dialog.setWindowTitle(title)

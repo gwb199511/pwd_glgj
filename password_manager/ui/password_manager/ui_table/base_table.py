@@ -77,6 +77,10 @@ class BasePasswordTable:
         # 设置表格属性
         self.table.setSelectionBehavior(QAbstractItemView.SelectItems)  # 设置为单元格选择模式，允许选择单个单元格
         self.table.setSelectionMode(QAbstractItemView.ExtendedSelection)  # 允许多选
+        
+        # 确保表格可以正确处理复制操作
+        self.table.setProperty("copyAvailable", True)  # 设置copyAvailable属性
+        
         self.table.setAlternatingRowColors(True)
         self.table.setEditTriggers(QAbstractItemView.NoEditTriggers)  # 默认不可编辑（在编辑模式下会改为SingleClicked）
         

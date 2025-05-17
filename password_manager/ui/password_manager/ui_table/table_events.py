@@ -13,7 +13,7 @@ from typing import List, Tuple, Optional
 logger = logging.getLogger(__name__)
 
 from PyQt5.QtWidgets import QMenu, QAction, QTableWidgetItem, QApplication
-from PyQt5.QtCore import Qt, QObject, QEvent
+from PyQt5.QtCore import Qt, QObject, QEvent, QItemSelectionModel
 from PyQt5.QtGui import QIcon
 
 from config import PASSWORD_COLUMNS
@@ -144,22 +144,75 @@ class TableEventsMixin:
         """
         复制选中的内容到剪贴板
         """
-        selected_items = self.table.selectedItems()
-        if not selected_items:
-            return False
+        # 先尝试确保表格有焦点，以便获取准确的选择状态
+        if not self.table.hasFocus():
+            logger.debug("表格没有焦点，尝试将焦点设置到表格")
+            self.table.setFocus()
             
-        # 获取所有选中的单元格内容，按行列顺序组织
-        rows = {}
-        cols = set()
+        # 1. 先尝试使用selectionModel获取选中的单元格
+        selection_model = self.table.selectionModel()
+        if selection_model:
+            selected_indexes = selection_model.selectedIndexes()
+            logger.debug(f"selectionModel报告选中了 {len(selected_indexes)} 个单元格")
+        else:
+            selected_indexes = []
+            logger.warning("无法获取selectionModel")
+            
+        # 2. 也尝试使用selectedItems获取选中的单元格（作为备用方法）
+        selected_items = self.table.selectedItems()
+        logger.debug(f"selectedItems报告选中了 {len(selected_items)} 个单元格")
         
-        # 首先收集所有选中的行和列
-        for item in selected_items:
-            row_idx = item.row()
-            col_idx = item.column()
-            if row_idx not in rows:
-                rows[row_idx] = {}
-            rows[row_idx][col_idx] = item.text()
-            cols.add(col_idx)
+        # 3. 如果两种方法选中的单元格数量不一致，使用数量更多的那个方法
+        if len(selected_indexes) > len(selected_items):
+            logger.debug("使用selectionModel提供的选择")
+            # 构建一个rows字典，与后面处理selectedItems的方式一致
+            rows = {}
+            cols = set()
+            
+            # 从selected_indexes中获取信息
+            for index in selected_indexes:
+                row_idx = index.row()
+                col_idx = index.column()
+                if row_idx not in rows:
+                    rows[row_idx] = {}
+                
+                # 获取单元格内容
+                item = self.table.item(row_idx, col_idx)
+                if item:
+                    rows[row_idx][col_idx] = item.text()
+                else:
+                    rows[row_idx][col_idx] = ""
+                    
+                cols.add(col_idx)
+        else:
+            # 使用selectedItems提供的选择
+            logger.debug("使用selectedItems提供的选择")
+            if not selected_items:
+                logger.warning("没有选中任何单元格")
+                return False
+            
+            # 构建rows字典
+            rows = {}
+            cols = set()
+            
+            # 从selected_items中获取信息
+            for item in selected_items:
+                row_idx = item.row()
+                col_idx = item.column()
+                if row_idx not in rows:
+                    rows[row_idx] = {}
+                rows[row_idx][col_idx] = item.text()
+                cols.add(col_idx)
+        
+        # 如果没有选中的单元格，返回失败
+        if not rows:
+            logger.warning("复制失败：未选中任何单元格")
+            return False
+                
+        # 调试信息
+        logger.info(f"复制数据结构包含 {len(rows)} 行和 {len(cols)} 列")
+        logger.debug(f"行索引: {sorted(rows.keys())}")
+        logger.debug(f"列索引: {sorted(cols)}")
         
         # 构建要复制的文本，按表格格式组织
         text_lines = []
@@ -178,12 +231,38 @@ class TableEventsMixin:
         # 将行组合成完整文本
         text = "\n".join(text_lines)
         
-        # 复制到剪贴板
-        clipboard = QApplication.clipboard()
-        clipboard.setText(text)
+        # 记录要复制的文本内容
+        logger.debug(f"准备复制的文本内容:\n{text}")
         
-        logger.info(f"已复制{len(selected_items)}个单元格内容到剪贴板（表格格式）")
-        return True
+        try:
+            # 强制重复设置几次，确保复制成功
+            # 复制到剪贴板
+            clipboard = QApplication.clipboard()
+            
+            # 强制清除剪贴板
+            clipboard.clear()
+            
+            # 设置文本到剪贴板，尝试三次以确保成功
+            for i in range(3):
+                clipboard.setText(text)
+                copied_text = clipboard.text()
+                if copied_text == text:
+                    logger.debug(f"复制成功，尝试次数: {i+1}")
+                    break
+                else:
+                    logger.warning(f"复制尝试 {i+1} 失败，重试...")
+            
+            # 最后验证一次
+            final_text = clipboard.text()
+            if final_text != text:
+                logger.warning(f"所有复制尝试都失败，剪贴板内容与期望不符")
+                return False
+                
+            logger.info(f"已复制选中区域内容到剪贴板 ({len(text_lines)}行x{len(cols)}列)")
+            return True
+        except Exception as e:
+            logger.error(f"复制到剪贴板时出错: {str(e)}")
+            return False
     
     def _add_row_with_logging(self, position: int, position_type: str):
         """
@@ -403,6 +482,77 @@ class TableEventsMixin:
         except Exception as e:
             logger.error(f"查看密码历史记录时出错: {str(e)}")
 
+    def _copy_cell_to_clipboard(self, row, col):
+        """
+        复制单元格内容到剪贴板
+        
+        Args:
+            row (int): 行索引
+            col (int): 列索引
+            
+        Returns:
+            bool: 是否成功复制
+        """
+        try:
+            # 验证行列索引是否有效
+            if row < 0 or row >= self.table.rowCount():
+                logger.warning(f"行索引 {row} 超出有效范围 [0, {self.table.rowCount()-1}]")
+                return False
+                
+            if col < 0 or col >= self.table.columnCount():
+                logger.warning(f"列索引 {col} 超出有效范围 [0, {self.table.columnCount()-1}]")
+                return False
+            
+            # 获取单元格内容
+            item = self.table.item(row, col)
+            if not item:
+                logger.warning(f"单元格 [{row+1}, {col+1}] 为空")
+                return False
+                
+            content = item.text()
+            if not content:
+                logger.warning(f"单元格 [{row+1}, {col+1}] 内容为空")
+                return False
+                
+            # 获取列名，用于日志记录
+            col_name = "未知"
+            if col < len(PASSWORD_COLUMNS):
+                col_name = PASSWORD_COLUMNS[col]
+                
+            logger.debug(f"准备复制的单元格内容: [{row+1}, {col+1}] ({col_name}): {content[:10]}...")
+            
+            try:
+                # 复制到剪贴板
+                clipboard = QApplication.clipboard()
+                
+                # 强制清除剪贴板
+                clipboard.clear()
+                
+                # 设置文本到剪贴板，尝试三次以确保成功
+                for i in range(3):
+                    clipboard.setText(content)
+                    copied_text = clipboard.text()
+                    if copied_text == content:
+                        logger.debug(f"复制成功，尝试次数: {i+1}")
+                        break
+                    else:
+                        logger.warning(f"复制尝试 {i+1} 失败，重试...")
+                
+                # 最后验证一次
+                final_text = clipboard.text()
+                if final_text != content:
+                    logger.warning(f"所有复制尝试都失败，剪贴板内容与期望不符")
+                    return False
+                    
+                logger.info(f"已复制行 {row+1} 的「{col_name}」单元格内容到剪贴板")
+                return True
+            except Exception as e:
+                logger.error(f"复制单元格内容到剪贴板时出错: {str(e)}")
+                return False
+        except Exception as e:
+            logger.error(f"_copy_cell_to_clipboard处理单元格时出错: {str(e)}")
+            return False
+
 class TableEventFilter(QObject):
     """
     表格事件过滤器
@@ -440,50 +590,11 @@ class TableEventFilter(QObject):
             
         # 处理键盘事件
         if event.type() == QEvent.KeyPress:
-            # 处理Ctrl+C复制
+            # 处理Ctrl+C复制 - 总是让这个事件传递给主窗口，不在这里处理
             if event.modifiers() == Qt.ControlModifier and event.key() == Qt.Key_C:
-                # 获取选中的内容
-                selected_items = self.table.selectedItems()
-                if not selected_items:
-                    return False
-                
-                # 获取所有选中的单元格内容，按行列顺序组织
-                rows = {}
-                cols = set()
-                
-                # 首先收集所有选中的行和列
-                for item in selected_items:
-                    row_idx = item.row()
-                    col_idx = item.column()
-                    if row_idx not in rows:
-                        rows[row_idx] = {}
-                    rows[row_idx][col_idx] = item.text()
-                    cols.add(col_idx)
-                
-                # 构建要复制的文本，按表格格式组织
-                text_lines = []
-                for row_idx in sorted(rows.keys()):
-                    row_data = rows[row_idx]
-                    line = []
-                    # 遍历所有选中的列
-                    for col_idx in sorted(cols):
-                        # 如果该单元格被选中，添加其内容，否则添加空字符串
-                        if col_idx in row_data:
-                            line.append(row_data[col_idx])
-                        else:
-                            line.append("")
-                    text_lines.append("\t".join(line))
-                
-                # 将行组合成完整文本
-                text = "\n".join(text_lines)
-                
-                # 复制到剪贴板
-                clipboard = QApplication.clipboard()
-                clipboard.setText(text)
-                
-                logger.info(f"已复制{len(selected_items)}个单元格内容到剪贴板（表格格式）")
-                return True
-                
+                logger.info("表格事件过滤器: 检测到Ctrl+C，不拦截此事件，让主窗口处理")
+                return False
+            
             # 处理Ctrl+A全选
             if event.modifiers() == Qt.ControlModifier and event.key() == Qt.Key_A:
                 # 执行表格全选
@@ -501,22 +612,8 @@ class TableEventFilter(QObject):
                     row = current_item.row()
                     col = current_item.column()
                     
-                    # 根据列类型触发相应的引导
-                    if col == 4:  # 密码列
-                        # 获取主窗口作为引导对话框的父窗口
-                        if hasattr(self.table, 'parent'):
-                            parent = self.table.parent()
-                            if parent:
-                                # 不再调用旧的引导功能
-                                logger.info(f"密码字段编辑 - 行: {row+1}")
-                    
-                    elif col == 2:  # IP地址列
-                        # 获取主窗口作为引导对话框的父窗口
-                        if hasattr(self.table, 'parent'):
-                            parent = self.table.parent()
-                            if parent:
-                                # 不再调用旧的引导功能
-                                logger.info(f"IP地址字段编辑 - 行: {row+1}")
+                    # 记录编辑字段信息
+                    logger.debug(f"表格单元格获得焦点 - 行: {row+1}, 列: {col+1}")
         
         # 其他事件交给默认处理
         return super().eventFilter(obj, event) 

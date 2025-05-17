@@ -426,10 +426,27 @@ class DBManager:
             Dict[str, Any]: 数据库配置字典
         """
         try:
-            if os.path.exists(DB_CONFIG_FILE):
-                with open(DB_CONFIG_FILE, 'r', encoding='utf-8') as f:
-                    return json.load(f)
+            # 判断是否在PyInstaller环境中
+            import sys
+            if getattr(sys, 'frozen', False):
+                # 在PyInstaller环境中，使用程序所在目录的data子目录
+                base_dir = os.path.dirname(sys.executable)
+                data_dir = os.path.join(base_dir, 'data')
+                db_config_file = os.path.join(data_dir, 'db_config.json')
+                logger.info(f"PyInstaller环境，使用配置文件路径: {db_config_file}")
             else:
+                # 开发环境，使用原始路径
+                db_config_file = DB_CONFIG_FILE
+                logger.info(f"开发环境，使用配置文件路径: {db_config_file}")
+            
+            if os.path.exists(db_config_file):
+                logger.info(f"找到数据库配置文件: {db_config_file}")
+                with open(db_config_file, 'r', encoding='utf-8') as f:
+                    config = json.load(f)
+                logger.info("成功加载数据库配置")
+                return config
+            else:
+                logger.info(f"配置文件不存在: {db_config_file}，使用默认配置")
                 # 如果配置文件不存在，使用默认配置
                 config = DEFAULT_MYSQL_CONFIG.copy()
                 # 保存默认配置
@@ -437,6 +454,7 @@ class DBManager:
                 return config
         except Exception as e:
             logger.error(f"加载数据库配置时出错: {str(e)}")
+            logger.error(traceback.format_exc())
             return DEFAULT_MYSQL_CONFIG.copy()
     
     def _save_config(self, config: Dict[str, Any]) -> bool:
@@ -450,14 +468,32 @@ class DBManager:
             bool: 操作成功返回True，否则返回False
         """
         try:
-            # 确保目录存在
-            os.makedirs(os.path.dirname(DB_CONFIG_FILE), exist_ok=True)
+            # 判断是否在PyInstaller环境中
+            import sys
+            if getattr(sys, 'frozen', False):
+                # 在PyInstaller环境中，使用程序所在目录的data子目录
+                base_dir = os.path.dirname(sys.executable)
+                data_dir = os.path.join(base_dir, 'data')
+                db_config_file = os.path.join(data_dir, 'db_config.json')
+                logger.info(f"PyInstaller环境，使用配置文件路径: {db_config_file}")
+            else:
+                # 开发环境，使用原始路径
+                db_config_file = DB_CONFIG_FILE
+                data_dir = os.path.dirname(db_config_file)
+                logger.info(f"开发环境，使用配置文件路径: {db_config_file}")
             
-            with open(DB_CONFIG_FILE, 'w', encoding='utf-8') as f:
+            # 确保目录存在
+            os.makedirs(data_dir, exist_ok=True)
+            
+            # 保存配置
+            with open(db_config_file, 'w', encoding='utf-8') as f:
                 json.dump(config, f, ensure_ascii=False, indent=4)
+            
+            logger.info(f"数据库配置已保存到: {db_config_file}")
             return True
         except Exception as e:
             logger.error(f"保存数据库配置时出错: {str(e)}")
+            logger.error(traceback.format_exc())
             return False
     
     def connect(self) -> Tuple[bool, str]:

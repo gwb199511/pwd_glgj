@@ -369,38 +369,51 @@ class MySQLConfigDialog(QDialog):
         """保存配置"""
         # 获取配置
         config = self.get_config_from_ui()
+        logger.info(f"准备保存数据库配置: {config['host']}:{config['port']}/{config['database']}")
         
         try:
             # 保存配置，不进行连接测试
+            logger.info("调用db_manager._save_config保存配置")
             if not db_manager._save_config(config):
+                logger.error("db_manager._save_config返回失败")
                 show_message(self, "保存失败", "保存配置文件失败，请检查文件权限或磁盘空间", QMessageBox.Critical)
                 return
+            else:
+                logger.info("db_manager._save_config保存配置成功")
                 
             # 更新内部配置对象
             db_manager.config = config
+            logger.info("已更新内部配置对象")
             
             # 关闭现有连接池
             if db_manager._connection_pool is not None:
                 db_manager._connection_pool.close_all()
                 db_manager._connection_pool = None
+                logger.info("已关闭现有连接池")
             
             # 尝试进行测试连接，但即使失败也继续
+            logger.info("测试新配置的连接")
             success, message = db_manager.test_connection()
             if not success:
                 logger.warning(f"配置已保存，但连接测试失败: {message}")
                 # 显示警告，但不阻止保存
                 show_message(self, "配置已保存", f"配置已保存，但连接测试失败：\n{message}\n\n您可能需要初始化数据库。", QMessageBox.Warning)
+            else:
+                logger.info(f"连接测试成功: {message}")
             
             # 设置存储类型为mysql
             storage_type = "mysql"
+            logger.info(f"设置存储类型为: {storage_type}")
             
             # 修改配置文件中的存储模式
             self._update_storage_type(storage_type)
             
             # 发送存储模式变更信号
             self.storage_mode_changed.emit(storage_type)
+            logger.info("已发送存储模式变更信号")
             
             # 关闭对话框
+            logger.info("保存配置完成，关闭对话框")
             self.accept()
         except Exception as e:
             error_message = f"保存配置时出错: {str(e)}"
@@ -420,7 +433,7 @@ class MySQLConfigDialog(QDialog):
             
             # 直接修改内存中的配置，而不是修改文件
             config.STORAGE_TYPE = storage_type
-            logger.info(f"存储类型已更新为: {storage_type}")
+            logger.info(f"存储类型已更新为内存中的: {storage_type}")
             
             # 尝试修改配置文件，但如果失败也不影响程序运行
             try:
@@ -429,7 +442,21 @@ class MySQLConfigDialog(QDialog):
                 
                 # 判断是否在PyInstaller环境中
                 if getattr(sys, 'frozen', False):
-                    logger.info("检测到PyInstaller环境，跳过修改配置文件")
+                    logger.info("检测到PyInstaller环境")
+                    # 在PyInstaller环境中，创建一个storage_type.conf文件
+                    base_dir = os.path.dirname(sys.executable)
+                    data_dir = os.path.join(base_dir, 'data')
+                    os.makedirs(data_dir, exist_ok=True)
+                    
+                    storage_file = os.path.join(data_dir, 'storage_type.conf')
+                    logger.info(f"在PyInstaller环境中创建存储类型配置文件: {storage_file}")
+                    
+                    try:
+                        with open(storage_file, 'w', encoding='utf-8') as f:
+                            f.write(storage_type)
+                        logger.info(f"已将存储类型 {storage_type} 保存到配置文件")
+                    except Exception as e:
+                        logger.error(f"写入存储类型配置文件时出错: {str(e)}")
                     return
                     
                 # 直接使用已导入的config模块的文件路径
@@ -452,14 +479,16 @@ class MySQLConfigDialog(QDialog):
                     with open(config_file, 'w', encoding='utf-8') as f:
                         f.write(new_content)
                     
-                    logger.info(f"配置文件已更新")
+                    logger.info(f"配置文件已更新为{storage_type}")
                 else:
                     logger.warning(f"配置文件不存在或不可写: {config_file}")
             except Exception as e:
                 logger.warning(f"更新配置文件时出错，但不影响程序运行: {str(e)}")
+                logger.warning(traceback.format_exc())
                 
         except Exception as e:
             logger.error(f"更新存储类型时出错: {str(e)}")
+            logger.error(traceback.format_exc())
             show_message(self, "配置更新失败", f"更新存储类型时出错: {str(e)}", QMessageBox.Critical)
 
 

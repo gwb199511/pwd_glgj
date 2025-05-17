@@ -47,9 +47,23 @@ def setup_logging():
     """
     设置日志系统
     """
+    # 声明全局变量
+    global LOG_DIR, LOG_FILE
+    
     # 确保日志目录存在
     if not os.path.exists(LOG_DIR):
-        os.makedirs(LOG_DIR)
+        try:
+            os.makedirs(LOG_DIR)
+            logging.info(f"创建日志目录: {LOG_DIR}")
+        except Exception as e:
+            print(f"无法创建日志目录 {LOG_DIR}: {str(e)}")
+            # 若无法创建指定路径，则使用用户文档目录
+            import pathlib
+            user_docs = pathlib.Path.home() / "Documents" / "密码管理器" / "logs"
+            user_docs.mkdir(parents=True, exist_ok=True)
+            LOG_DIR = str(user_docs)
+            LOG_FILE = os.path.join(LOG_DIR, f'app_{datetime.now().strftime("%Y%m%d")}.log')
+            print(f"将使用备用日志目录: {LOG_DIR}")
 
     # 配置根日志记录器
     root_logger = logging.getLogger()
@@ -70,13 +84,18 @@ def setup_logging():
     root_logger.addHandler(console_handler)
 
     # 文件处理器
-    file_handler = RotatingFileHandler(
-        LOG_FILE, maxBytes=10*1024*1024, backupCount=5, encoding='utf-8'
-    )
-    file_handler.setLevel(LOG_LEVEL)
-    file_formatter = logging.Formatter(LOG_FORMAT)
-    file_handler.setFormatter(file_formatter)
-    root_logger.addHandler(file_handler)
+    try:
+        file_handler = RotatingFileHandler(
+            LOG_FILE, maxBytes=10*1024*1024, backupCount=5, encoding='utf-8'
+        )
+        file_handler.setLevel(LOG_LEVEL)
+        file_formatter = logging.Formatter(LOG_FORMAT)
+        file_handler.setFormatter(file_formatter)
+        root_logger.addHandler(file_handler)
+        logging.info(f"日志将写入: {LOG_FILE}")
+    except Exception as e:
+        logging.error(f"无法设置日志文件 {LOG_FILE}: {str(e)}")
+        # 此时仍能通过控制台处理器记录日志
 
     # 记录启动信息
     logging.info("密码管理系统启动")

@@ -8,11 +8,21 @@
 import os
 import logging
 from datetime import datetime
+import sys
 
 # 基本路径配置
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = os.path.join(BASE_DIR, 'data')
-LOG_DIR = os.path.join(BASE_DIR, 'logs')
+
+# 判断是否在PyInstaller环境中
+if getattr(sys, 'frozen', False):
+    # 在PyInstaller环境中，使用程序所在目录的logs子目录
+    BASE_DIR = os.path.dirname(sys.executable)
+    DATA_DIR = os.path.join(BASE_DIR, 'data')
+    LOG_DIR = os.path.join(BASE_DIR, 'logs')
+else:
+    # 开发环境，使用原始路径
+    DATA_DIR = os.path.join(BASE_DIR, 'data')
+    LOG_DIR = os.path.join(BASE_DIR, 'logs')
 
 # 数据文件路径
 USER_DATA_FILE = os.path.join(DATA_DIR, 'users.json')

@@ -24,9 +24,29 @@ if project_root not in sys.path:
     print(f"已添加项目根目录到Python路径: {project_root}")
 
 # 定义日志目录和文件
-LOG_DIR = os.path.join(project_root, 'logs')
+# 判断是否在PyInstaller环境中
+if getattr(sys, 'frozen', False):
+    # 在PyInstaller环境中，使用程序所在目录的logs子目录
+    exe_dir = os.path.dirname(sys.executable)
+    LOG_DIR = os.path.join(exe_dir, 'logs')
+else:
+    # 开发环境，使用原始路径
+    LOG_DIR = os.path.join(project_root, 'logs')
+
+# 确保日志目录存在
 if not os.path.exists(LOG_DIR):
-    os.makedirs(LOG_DIR)
+    try:
+        os.makedirs(LOG_DIR)
+        print(f"创建日志目录: {LOG_DIR}")
+    except Exception as e:
+        print(f"无法创建日志目录 {LOG_DIR}: {str(e)}")
+        # 若无法创建指定路径，则使用用户文档目录
+        import pathlib
+        user_docs = pathlib.Path.home() / "Documents" / "密码管理器" / "logs"
+        user_docs.mkdir(parents=True, exist_ok=True)
+        LOG_DIR = str(user_docs)
+        print(f"将使用备用日志目录: {LOG_DIR}")
+
 LOG_FILE = os.path.join(LOG_DIR, f'run_{datetime.now().strftime("%Y%m%d")}.log')
 
 # 配置基本日志记录

@@ -6,7 +6,7 @@ UI组件模块，提供自定义的UI控件
 """
 
 import logging
-from PyQt5.QtWidgets import QPushButton, QLineEdit, QLabel, QFrame, QMessageBox
+from PyQt5.QtWidgets import QPushButton, QLineEdit, QLabel, QFrame, QMessageBox, QToolButton, QStyle
 from PyQt5.QtCore import Qt, QSize, QEvent, pyqtSignal
 from PyQt5.QtGui import QFont, QColor, QPalette, QIcon, QPixmap
 
@@ -147,8 +147,9 @@ class ModernLineEdit(QLineEdit):
         super().__init__(parent)
         self.placeholder = placeholder
         self.password_mode = password_mode
+        self._clear_button = None # 初始化清空按钮成员变量
         self._setup_style()
-        
+
     def _setup_style(self):
         """
         设置输入框样式
@@ -159,19 +160,62 @@ class ModernLineEdit(QLineEdit):
         if self.password_mode:
             self.setEchoMode(QLineEdit.Password)
             
+        # 基本样式，确保有足够的右内边距给按钮
         style = f"""
             QLineEdit {{
                 border: 1px solid {COLORS["border"]};
                 border-radius: 4px;
-                padding: 2px 6px;
+                padding: 2px 36px 2px 6px; /* 右内边距调整为36px */
                 background-color: {COLORS["light"]};
             }}
             QLineEdit:focus {{
                 border: 1px solid {COLORS["primary"]};
             }}
         """
-        
         self.setStyleSheet(style)
+
+    def setClearButtonEnabled(self, enable):
+        """
+        重写setClearButtonEnabled以获取并存储清空按钮的引用。
+        """
+        super().setClearButtonEnabled(enable)
+        if enable:
+            # 尝试通过对象名称找到标准的清空按钮，如果失败再用类型查找
+            button = self.findChild(QToolButton, "qt_QLineEdit_clearbutton")
+            if not button:
+                button = self.findChild(QToolButton)
+            self._clear_button = button
+            if self._clear_button:
+                # 设置一个初始的、更可靠的图标
+                self._clear_button.setIcon(self.style().standardIcon(QStyle.SP_LineEditClearButton))
+                # 移除可能冲突的子控件样式，由resizeEvent控制
+                self._clear_button.setStyleSheet("") 
+        else:
+            self._clear_button = None
+
+    def resizeEvent(self, event):
+        """
+        重写尺寸变化事件处理器，调整清空按钮位置
+        """
+        super().resizeEvent(event)
+        
+        if self._clear_button and self.isClearButtonEnabled():
+            # 按钮大小为输入框高度减去一定的垂直边距 (例如上下各4px)
+            button_size = self.height() - 8 
+            self._clear_button.setFixedSize(button_size, button_size)
+            
+            # 图标大小略小于按钮，使其有边距感
+            self._clear_button.setIconSize(QSize(int(button_size * 0.65), int(button_size * 0.65)))
+            
+            # 将按钮的右边缘定位在距离输入框右边缘10px的位置
+            # 按钮的x坐标 = 输入框宽度 - 按钮宽度 - 10px (右侧视觉边距)
+            x = self.width() - button_size - 10
+            y = (self.height() - button_size) // 2 # 垂直居中
+            self._clear_button.move(x, y)
+            
+            # 可以保留或移除按钮的自定义样式，因为标准图标通常足够
+            # 如果需要自定义背景等，可以在这里设置
+            # self._clear_button.setStyleSheet("...")
 
 
 class ModernLabel(QLabel):

@@ -15,8 +15,8 @@ from PyQt5.QtWidgets import (
     QTableWidget, QAbstractItemView, QFrame, QSizePolicy,
     QToolButton, QMenu
 )
-from PyQt5.QtCore import Qt, QSize
-from PyQt5.QtGui import QFont, QIcon
+from PyQt5.QtCore import Qt, QSize, QRect
+from PyQt5.QtGui import QFont, QIcon, QPainter, QPixmap, QColor
 
 from config import FONT_FAMILY, COLORS, WINDOW_WIDTH, WINDOW_HEIGHT
 from ui.components.ui_components import ModernLabel, ModernLineEdit, HorizontalLine
@@ -145,13 +145,17 @@ class PasswordManagerLayout:
         self.search_edit = ModernLineEdit(placeholder="输入关键词搜索...")
         self.search_edit.setFixedWidth(200)
         self.search_edit.setFont(QFont(FONT_FAMILY, 9))
+        
+        # 使用Qt的内置清空按钮
         self.search_edit.setClearButtonEnabled(True)
+        
+        # 设置搜索框样式 - 现在清空按钮样式由ModernLineEdit类控制
         self.search_edit.setStyleSheet("""
             QLineEdit {
                 border: 1px solid #c0c0c0;
                 border-radius: 4px;
                 background-color: #ffffff;
-                padding: 2px 18px 2px 5px;
+                padding: 2px 5px;
                 margin: 3px 10px 3px 5px;
             }
             QLineEdit:focus {

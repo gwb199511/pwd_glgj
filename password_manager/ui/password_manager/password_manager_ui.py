@@ -688,18 +688,30 @@ class PasswordManagerUI(QMainWindow):
         tools_menu.clear()
         help_menu.clear()
         
+        # 获取图标管理器实例
+        icon_manager = self.layout_manager.icon_manager
+        
         # 文件菜单
         # Excel导入导出子菜单
         excel_menu = QMenu("导入/导出", self)
+        excel_menu_icon = icon_manager.get_icon("导入/导出")
+        if excel_menu_icon:
+            excel_menu.setIcon(excel_menu_icon)
         
         # 导入Excel
         import_action = QAction("从Excel导入", self)
         import_action.triggered.connect(self._import_from_excel)
+        import_icon = icon_manager.get_icon("从Excel导入")
+        if import_icon:
+            import_action.setIcon(import_icon)
         excel_menu.addAction(import_action)
         
         # 导出Excel（支持单人导出和多人导出）
         export_action = QAction("导出到Excel", self)
         export_action.triggered.connect(self._export_to_excel)
+        export_icon = icon_manager.get_icon("导出到Excel")
+        if export_icon:
+            export_action.setIcon(export_icon)
         excel_menu.addAction(export_action)
         
         file_menu.addMenu(excel_menu)
@@ -707,22 +719,34 @@ class PasswordManagerUI(QMainWindow):
         # 退出动作
         exit_action = QAction("退出", self)
         exit_action.triggered.connect(self.close)
+        exit_icon = icon_manager.get_icon("退出")
+        if exit_icon:
+            exit_action.setIcon(exit_icon)
         file_menu.addAction(exit_action)
         
         # 工具菜单
         # 数据库配置
         db_config_action = QAction("数据库配置", self)
         db_config_action.triggered.connect(self._open_mysql_config)
+        db_icon = icon_manager.get_icon("数据库配置")
+        if db_icon:
+            db_config_action.setIcon(db_icon)
         tools_menu.addAction(db_config_action)
         
         # 密码生成器
         password_generator_action = QAction("密码生成器", self)
         password_generator_action.triggered.connect(self._open_password_generator)
+        pw_icon = icon_manager.get_icon("密码生成器")
+        if pw_icon:
+            password_generator_action.setIcon(pw_icon)
         tools_menu.addAction(password_generator_action)
         
         # 审计日志查看
         audit_log_action = QAction("审计日志", self)
         audit_log_action.triggered.connect(self._open_audit_log_viewer)
+        log_icon = icon_manager.get_icon("审计日志")
+        if log_icon:
+            audit_log_action.setIcon(log_icon)
         tools_menu.addAction(audit_log_action)
         
         # 添加重置引导选项
@@ -731,16 +755,25 @@ class PasswordManagerUI(QMainWindow):
         # 显示主界面引导
         show_main_guide_action = QAction("显示主界面引导", self)
         show_main_guide_action.triggered.connect(self._show_main_guide_directly)
+        guide_icon = icon_manager.get_icon("显示字典引导")
+        if guide_icon:
+            show_main_guide_action.setIcon(guide_icon)
         tools_menu.addAction(show_main_guide_action)
         
         reset_guides_action = QAction("重置所有引导", self)
         reset_guides_action.triggered.connect(self._reset_all_guides)
+        update_icon = icon_manager.get_icon("检查更新")
+        if update_icon:
+            reset_guides_action.setIcon(update_icon)
         tools_menu.addAction(reset_guides_action)
         
         # 帮助菜单
         # 关于
         about_action = QAction("关于", self)
         about_action.triggered.connect(self._show_about_dialog)
+        about_icon = icon_manager.get_icon("关于")
+        if about_icon:
+            about_action.setIcon(about_icon)
         help_menu.addAction(about_action)
 
     def _import_from_excel(self):

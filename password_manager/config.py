@@ -85,5 +85,5 @@ DEFAULT_MYSQL_CONFIG = {
 }
 
 # 版本信息
-VERSION = "1.0.3"
+VERSION = "1.0.4"
 BUILD_DATE = "2025-05-17" 

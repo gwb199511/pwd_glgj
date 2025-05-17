@@ -279,6 +279,27 @@ class BasePasswordTable:
         self.table.setContextMenuPolicy(Qt.CustomContextMenu)
         # 连接信号在子类中实现
     
+    def apply_icons_to_context_menu(self, menu=None):
+        """
+        应用图标到上下文菜单
+        
+        使用IconManager为上下文菜单项应用相应的图标
+        
+        Args:
+            menu (QMenu, optional): 要应用图标的菜单，如果为None则不执行任何操作
+        """
+        if menu is None:
+            return
+            
+        # 导入图标管理器
+        from utils.icon_manager import IconManager
+        
+        # 获取图标管理器实例
+        icon_manager = IconManager()
+        
+        # 应用图标到菜单
+        icon_manager.apply_context_menu_icons(menu)
+    
     def _apply_menu_style(self, menu):
         """
         应用菜单样式

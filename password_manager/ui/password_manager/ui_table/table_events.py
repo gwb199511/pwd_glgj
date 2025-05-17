@@ -18,6 +18,7 @@ from PyQt5.QtGui import QIcon
 
 from config import PASSWORD_COLUMNS, COLORS, FONT_FAMILY
 from ui.password_manager.ui_guide import start_walkthrough
+from utils.icon_manager import IconManager
 
 class TableEventsMixin:
     """
@@ -41,97 +42,156 @@ class TableEventsMixin:
         row = self.table.rowAt(position.y())
         col = self.table.columnAt(position.x())
         
-        # 只在有效行上显示菜单
-        if row >= 0:
-            # 获取所有选中的单元格
+        # 选中的单元格数量
+        selected_items = self.table.selectedItems()
+        if not selected_items and row >= 0:
+            # 当点击未选中的单元格时，默认选中该单元格
+            self.table.setCurrentCell(row, col)
             selected_items = self.table.selectedItems()
-            # 获取选中的行（去重）
-            selected_rows = list(set(item.row() for item in selected_items))
-            selected_count = len(selected_rows)
+        
+        # 创建上下文菜单
+        menu = QMenu()
+        
+        # 应用菜单样式
+        self.base_table._apply_menu_style(menu)
+        
+        # 导入图标管理器
+        icon_manager = IconManager()
+        
+        # 检查是否有密码列被选中
+        password_cells = []
+        password_cell_count = 0
+        for item in selected_items:
+            if item.column() == PASSWORD_COLUMNS.index("密码"):
+                password_cells.append((item.row(), item.column()))
+                password_cell_count += 1
             
-            # 找出选中的密码列单元格
-            password_cells = [(item.row(), item.column()) for item in selected_items if item.column() == 4]
-            password_cell_count = len(password_cells)
+        # 记录右键菜单信息到日志
+        logger.info(f"右键菜单 - 当前行: {row + 1}, 当前列: {col + 1}, 选中行数: {len(selected_items)}, 选中行: {[r + 1 for r in [item.row() for item in selected_items]]}")
+        logger.info(f"选中的密码单元格数量: {password_cell_count}")
+        
+        # 添加菜单项 - 检查是否有密码列被选中
+        if password_cell_count > 0:
+            # 复制
+            copy_action = QAction("复制", self.table)
+            copy_action.triggered.connect(self.copy_selected_content)
             
-            # 记录右键菜单信息到日志
-            logger.info(f"右键菜单 - 当前行: {row + 1}, 当前列: {col + 1}, 选中行数: {selected_count}, 选中行: {[r + 1 for r in selected_rows]}")
-            logger.info(f"选中的密码单元格数量: {password_cell_count}")
+            # 设置图标
+            copy_icon = icon_manager.get_icon("复制")
+            if copy_icon:
+                copy_action.setIcon(copy_icon)
             
-            # 创建菜单
-            menu = QMenu(self.table)
+            menu.addAction(copy_action)
             
-            # 应用菜单样式
-            self.base_table._apply_menu_style(menu)
-            
-            # 添加菜单项 - 检查是否有密码列被选中
-            if password_cell_count > 0:
-                # 复制
-                copy_action = QAction(QIcon(""), "复制", self.table)
-                copy_action.triggered.connect(self.copy_selected_content)
-                menu.addAction(copy_action)
-                
-                # 生成新密码
-                if selected_items:
-                    menu.addSeparator()
-                    
-                    # 生成随机密码并更新到服务器
-                    ssh_update_action = QAction(QIcon(""), "生成16位随机密码\n并更新到服务器", self.table)
-                    ssh_update_action.triggered.connect(lambda: self._generate_and_update_passwords(password_cells, 16))
-                    menu.addAction(ssh_update_action)
-            else:
-                # 复制内容
-                copy_action = QAction(QIcon(""), "复制", self.table)
-                copy_action.triggered.connect(self.copy_selected_content)
-                menu.addAction(copy_action)
-                
-            # 编辑和删除菜单项（不管在哪一列）
-            menu.addSeparator()
-            
-            # 添加行功能 - 只在单行选择或无选择时显示
-            if row >= 0 and selected_count <= 1:  # 确保在有效行上点击了右键，且最多只选中了一行
-                logger.info(f"准备添加'添加行'子菜单 (选中行数: {selected_count})")
-                add_menu = menu.addMenu("添加行")
-                
-                # 在上方添加行
-                add_above_action = QAction(QIcon(""), "在上方添加行", self.table)
-                add_above_action.triggered.connect(lambda: self._add_row_with_logging(row, "上方"))
-                add_menu.addAction(add_above_action)
-                
-                # 在下方添加行
-                add_below_action = QAction(QIcon(""), "在下方添加行", self.table)
-                add_below_action.triggered.connect(lambda: self._add_row_with_logging(row + 1, "下方"))
-                add_menu.addAction(add_below_action)
-                
-                # 在末尾添加行
-                add_last_action = QAction(QIcon(""), "在末尾添加行", self.table)
-                add_last_action.triggered.connect(lambda: self._add_row_with_logging(self.table.rowCount(), "末尾"))
-                add_menu.addAction(add_last_action)
-                
-                logger.info(f"已添加'添加行'子菜单，包含上方、下方和末尾三个选项")
+            # 生成新密码
+            if selected_items:
                 menu.addSeparator()
-            
-            # 编辑行功能 - 只在单行选择且有效行选择时显示
-            if row >= 0 and selected_count == 1:
-                edit_action = QAction(QIcon(""), "编辑行", self.table)
-                edit_action.triggered.connect(lambda: self.edit_row(row))
-                menu.addAction(edit_action)
-                logger.info(f"已添加'编辑行'选项")
                 
-                # 添加查看历史记录选项
-                history_action = QAction(QIcon(""), "查看历史密码修改记录", self.table)
-                history_action.triggered.connect(lambda: self._view_password_history(row))
-                menu.addAction(history_action)
-                logger.info(f"已添加'查看历史密码修改记录'选项")
+                # 生成随机密码并更新到服务器
+                generate_text = "生成16位随机密码\n并更新到服务器"
+                ssh_update_action = QAction(generate_text, self.table)
+                ssh_update_action.triggered.connect(lambda: self._generate_and_update_passwords(password_cells, 16))
                 
-            # 删除行(们)
-            if selected_count > 0:
-                delete_text = "删除选中的行" if selected_count > 1 else "删除行"
-                delete_action = QAction(QIcon(""), delete_text, self.table)
-                delete_action.triggered.connect(lambda: self.delete_selected_rows(selected_rows))
-                menu.addAction(delete_action)
+                # 设置图标
+                generate_icon = icon_manager.get_icon(generate_text)
+                if generate_icon:
+                    ssh_update_action.setIcon(generate_icon)
+                
+                menu.addAction(ssh_update_action)
+        else:
+            # 复制内容
+            copy_action = QAction("复制", self.table)
+            copy_action.triggered.connect(self.copy_selected_content)
             
-            # 显示菜单
-            menu.exec_(self.table.mapToGlobal(position))
+            # 设置图标
+            copy_icon = icon_manager.get_icon("复制")
+            if copy_icon:
+                copy_action.setIcon(copy_icon)
+            
+            menu.addAction(copy_action)
+            
+        # 编辑和删除菜单项（不管在哪一列）
+        menu.addSeparator()
+        
+        # 添加行功能 - 只在单行选择或无选择时显示
+        if row >= 0 and len(selected_items) <= 1:  # 确保在有效行上点击了右键，且最多只选中了一行
+            logger.info(f"准备添加'添加行'子菜单 (选中行数: {len(selected_items)})")
+            
+            # 创建添加行菜单
+            add_menu_action = menu.addAction("添加行")
+            add_menu = menu.addMenu("添加行")
+            
+            # 设置图标
+            add_icon = icon_manager.get_icon("添加行")
+            if add_icon:
+                add_menu_action.setIcon(add_icon)
+                add_menu.setIcon(add_icon)
+            
+            # 在上方添加行
+            add_above_action = QAction("在上方添加行", self.table)
+            add_above_action.triggered.connect(lambda: self._add_row_with_logging(row, "上方"))
+            add_menu.addAction(add_above_action)
+            
+            # 在下方添加行
+            add_below_action = QAction("在下方添加行", self.table)
+            add_below_action.triggered.connect(lambda: self._add_row_with_logging(row + 1, "下方"))
+            add_menu.addAction(add_below_action)
+            
+            # 在末尾添加行
+            add_last_action = QAction("在末尾添加行", self.table)
+            add_last_action.triggered.connect(lambda: self._add_row_with_logging(self.table.rowCount(), "末尾"))
+            add_menu.addAction(add_last_action)
+            
+            logger.info(f"已添加'添加行'子菜单，包含上方、下方和末尾三个选项")
+            menu.addSeparator()
+        
+        # 编辑行功能 - 只在单行选择且有效行选择时显示
+        if row >= 0 and len(selected_items) == 1:
+            # 编辑行
+            edit_action = QAction("编辑行", self.table)
+            edit_action.triggered.connect(lambda: self.edit_row(row))
+            
+            # 设置图标
+            edit_icon = icon_manager.get_icon("编辑行")
+            if edit_icon:
+                edit_action.setIcon(edit_icon)
+            
+            menu.addAction(edit_action)
+            logger.info(f"已添加'编辑行'选项")
+            
+            # 添加查看历史记录选项
+            history_action = QAction("查看历史密码修改记录", self.table)
+            history_action.triggered.connect(lambda: self._view_password_history(row))
+            
+            # 设置图标
+            history_icon = icon_manager.get_icon("查看历史密码修改记录")
+            if history_icon:
+                history_action.setIcon(history_icon)
+            
+            menu.addAction(history_action)
+            logger.info(f"已添加'查看历史密码修改记录'选项")
+            
+        # 删除行(们)
+        if len(selected_items) > 0:
+            # 获取唯一的选中行号
+            selected_rows = list(set(item.row() for item in selected_items))
+            
+            delete_text = "删除选中的行" if len(selected_rows) > 1 else "删除行"
+            delete_action = QAction(delete_text, self.table)
+            delete_action.triggered.connect(lambda: self.delete_selected_rows(selected_rows))
+            
+            # 设置图标
+            delete_icon = icon_manager.get_icon(delete_text)
+            if delete_icon:
+                delete_action.setIcon(delete_icon)
+            
+            menu.addAction(delete_action)
+        
+        # 显示菜单前应用图标
+        self.base_table.apply_icons_to_context_menu(menu)
+        
+        # 显示菜单
+        menu.exec_(self.table.viewport().mapToGlobal(position))
     
     def _add_editing_row_proxy(self):
         """

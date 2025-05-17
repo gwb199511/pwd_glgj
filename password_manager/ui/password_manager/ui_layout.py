@@ -20,6 +20,7 @@ from PyQt5.QtGui import QFont, QIcon, QPainter, QPixmap, QColor
 
 from config import FONT_FAMILY, COLORS, WINDOW_WIDTH, WINDOW_HEIGHT
 from ui.components.ui_components import ModernLabel, ModernLineEdit, HorizontalLine
+from utils.icon_manager import IconManager
 
 # 配置日志
 logger = logging.getLogger(__name__)
@@ -42,6 +43,9 @@ class PasswordManagerLayout:
         self.parent = parent_window
         self.widget = QWidget()
         self.current_owner = None
+        
+        # 初始化图标管理器
+        self.icon_manager = IconManager()
         
         self._create_status_bar()
         self._create_toolbar()
@@ -66,30 +70,45 @@ class PasswordManagerLayout:
         # 创建菜单按钮
         # 文件菜单按钮
         self.file_button = QToolButton(self.parent)
-        self.file_button.setText("文件")
+        self.file_button.setText("文件")  # 移除□前缀，只在图标映射中使用
         self.file_button.setPopupMode(QToolButton.InstantPopup)
-        self.file_button.setToolButtonStyle(Qt.ToolButtonTextOnly)
+        self.file_button.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)  # 修改为文本旁显示图标
         self.file_button.setFont(menu_button_font)
         self.file_menu = QMenu(self.parent)
         self.file_button.setMenu(self.file_menu)
         
+        # 设置文件菜单按钮图标
+        file_icon = self.icon_manager.get_icon("□文件")  # 仍然使用带□前缀的图标映射
+        if file_icon:
+            self.file_button.setIcon(file_icon)
+        
         # 工具菜单按钮
         self.tools_button = QToolButton(self.parent)
-        self.tools_button.setText("工具")
+        self.tools_button.setText("工具")  # 移除□前缀，只在图标映射中使用
         self.tools_button.setPopupMode(QToolButton.InstantPopup)
-        self.tools_button.setToolButtonStyle(Qt.ToolButtonTextOnly)
+        self.tools_button.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
         self.tools_button.setFont(menu_button_font)
         self.tools_menu = QMenu(self.parent)
         self.tools_button.setMenu(self.tools_menu)
         
+        # 设置工具菜单按钮图标
+        tools_icon = self.icon_manager.get_icon("□工具")  # 仍然使用带□前缀的图标映射
+        if tools_icon:
+            self.tools_button.setIcon(tools_icon)
+        
         # 帮助菜单按钮
         self.help_button = QToolButton(self.parent)
-        self.help_button.setText("帮助")
+        self.help_button.setText("帮助")  # 移除□前缀，只在图标映射中使用
         self.help_button.setPopupMode(QToolButton.InstantPopup)
-        self.help_button.setToolButtonStyle(Qt.ToolButtonTextOnly)
+        self.help_button.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
         self.help_button.setFont(menu_button_font)
         self.help_menu = QMenu(self.parent)
         self.help_button.setMenu(self.help_menu)
+        
+        # 设置帮助菜单按钮图标
+        help_icon = self.icon_manager.get_icon("□帮助")  # 仍然使用带□前缀的图标映射
+        if help_icon:
+            self.help_button.setIcon(help_icon)
         
         # 添加默认菜单项，稍后会被替换
         self.file_menu.addAction("默认文件菜单项")
@@ -107,12 +126,12 @@ class PasswordManagerLayout:
         self.toolbar.addWidget(self.tools_button)
         self.toolbar.addWidget(self.help_button)
         
-        # 设置菜单按钮的样式
+        # 设置菜单按钮的样式 - 修改为支持图标
         menu_button_style = """
             QToolButton {
                 background-color: transparent;
                 border: none;
-                padding: 6px 12px;
+                padding: 6px 8px 6px 5px;
                 font-weight: bold;
             }
             QToolButton:hover {

@@ -135,8 +135,15 @@ class TableEditMixin:
             self.editing_row = row
             
             # 通知委托进入编辑模式
-            if hasattr(self, 'required_field_delegate'):
+            # 优先使用表格的set_editing_mode方法，确保所有委托都能收到更新
+            if hasattr(self, 'base_table') and hasattr(self.base_table, 'set_editing_mode'):
+                self.base_table.set_editing_mode(True, row)
+                logger.debug("使用base_table.set_editing_mode设置编辑模式")
+            elif hasattr(self, 'required_field_delegate'):
                 self.required_field_delegate.set_editing_mode(True, row)
+                logger.debug("使用required_field_delegate.set_editing_mode设置编辑模式")
+            else:
+                logger.warning("无法找到合适的方法设置编辑模式！")
             
             # 记录行数据的原始副本用于取消操作
             self.original_row_data = get_row_data(self.table, row)
@@ -942,9 +949,16 @@ class TableEditMixin:
         self.original_row_data = None
         
         # 通知委托退出编辑模式
-        if hasattr(self, 'required_field_delegate'):
+        # 优先使用表格的set_editing_mode方法，确保所有委托都能收到更新
+        if hasattr(self, 'base_table') and hasattr(self.base_table, 'set_editing_mode'):
+            self.base_table.set_editing_mode(False)
+            logger.debug("使用base_table.set_editing_mode退出编辑模式")
+        elif hasattr(self, 'required_field_delegate'):
             self.required_field_delegate.set_editing_mode(False)
-            
+            logger.debug("使用required_field_delegate.set_editing_mode退出编辑模式")
+        else:
+            logger.warning("无法找到合适的方法退出编辑模式！")
+    
     def _update_ui_after_edit(self, action_desc):
         """编辑后更新UI状态"""
         # 显示状态栏消息
@@ -1171,8 +1185,15 @@ class TableEditMixin:
             self.original_row_data_copy = None
             
             # 通知委托退出编辑模式
-            if hasattr(self, 'required_field_delegate'):
+            # 优先使用表格的set_editing_mode方法，确保所有委托都能收到更新
+            if hasattr(self, 'base_table') and hasattr(self.base_table, 'set_editing_mode'):
+                self.base_table.set_editing_mode(False)
+                logger.debug("使用base_table.set_editing_mode退出编辑模式")
+            elif hasattr(self, 'required_field_delegate'):
                 self.required_field_delegate.set_editing_mode(False)
+                logger.debug("使用required_field_delegate.set_editing_mode退出编辑模式")
+            else:
+                logger.warning("无法找到合适的方法退出编辑模式！")
             
             # 重置表格选择模式
             self.table.setSelectionMode(QAbstractItemView.ExtendedSelection)
@@ -1199,8 +1220,15 @@ class TableEditMixin:
             self.original_row_data = None
             self.original_row_data_copy = None
             
-            if hasattr(self, 'required_field_delegate'):
+            # 优先使用表格的set_editing_mode方法，确保所有委托都能收到更新
+            if hasattr(self, 'base_table') and hasattr(self.base_table, 'set_editing_mode'):
+                self.base_table.set_editing_mode(False)
+                logger.debug("异常处理中：使用base_table.set_editing_mode退出编辑模式")
+            elif hasattr(self, 'required_field_delegate'):
                 self.required_field_delegate.set_editing_mode(False)
+                logger.debug("异常处理中：使用required_field_delegate.set_editing_mode退出编辑模式")
+            else:
+                logger.warning("异常处理中：无法找到合适的方法退出编辑模式！")
                 
             self.table.setSelectionMode(QAbstractItemView.ExtendedSelection)
             self.table.setEditTriggers(QAbstractItemView.NoEditTriggers)

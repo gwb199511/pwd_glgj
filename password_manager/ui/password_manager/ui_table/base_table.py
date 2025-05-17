@@ -17,7 +17,7 @@ from PyQt5.QtGui import QColor
 
 from config import PASSWORD_COLUMNS
 from ui.password_manager.ui_utils import set_table_headers
-from ui.password_manager.ui_table.custom_delegates import RequiredFieldDelegate
+from ui.password_manager.ui_table.custom_delegates import RequiredFieldDelegate, TooltipDelegate
 
 # 配置日志
 logger = logging.getLogger(__name__)
@@ -49,6 +49,9 @@ class BasePasswordTable:
         # 设置表格的table_manager属性，方便引导功能直接访问
         self.table.setProperty("table_manager", self)
         
+        # 保存委托引用
+        self.delegates = []
+        
         self._setup_table()
         self._setup_custom_delegates()  # 设置自定义委托
         self._setup_context_menu()  # 设置右键菜单
@@ -69,6 +72,94 @@ class BasePasswordTable:
             col = item.column()
             item.setText("")
             self.table.editItem(item)
+    
+    def _setup_custom_delegates(self):
+        """
+        设置自定义委托
+        
+        为表格添加自定义的单元格委托，实现必填字段黄色背景等特殊效果
+        """
+        # 创建必填字段委托
+        self.required_delegate = RequiredFieldDelegate(self.table)
+        # 将必填字段委托设置为整个表格的默认委托
+        self.table.setItemDelegate(self.required_delegate)
+        
+        # 保存委托引用
+        self.delegates.append(self.required_delegate)
+        
+        # 为"其他账号"列添加工具提示代理
+        self.tooltip_delegate = TooltipDelegate(self.table, column_index=7)
+        self.table.setItemDelegateForColumn(7, self.tooltip_delegate)
+        
+        # 保存委托引用
+        self.delegates.append(self.tooltip_delegate)
+        
+        logger.info("已设置自定义表格委托，包括必填字段高亮和工具提示功能")
+    
+    def set_editing_mode(self, is_editing, row=-1):
+        """
+        设置表格编辑模式
+        
+        同时更新所有委托的编辑模式状态
+        
+        Args:
+            is_editing (bool): 是否处于编辑模式
+            row (int): 正在编辑的行索引，默认为-1表示没有正在编辑的行
+        """
+        # 更新内部状态
+        self.editing_row = row if is_editing else -1
+        
+        # 更新编辑触发器
+        if is_editing:
+            self.table.setEditTriggers(QAbstractItemView.DoubleClicked | QAbstractItemView.EditKeyPressed)
+        else:
+            self.table.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        
+        # 通知所有委托更新编辑模式状态
+        for delegate in self.delegates:
+            if hasattr(delegate, 'set_editing_mode'):
+                delegate.set_editing_mode(is_editing, row)
+                logger.debug(f"更新委托 {type(delegate).__name__} 的编辑模式: is_editing={is_editing}, row={row}")
+        
+        # 刷新表格显示
+        self.table.viewport().update()
+        
+        logger.info(f"表格编辑模式已{'开启' if is_editing else '关闭'}, 行={row}")
+    
+    def start_editing(self, row):
+        """
+        开始编辑指定行
+        
+        Args:
+            row (int): 要编辑的行索引
+        """
+        if row < 0 or row >= self.table.rowCount():
+            logger.warning(f"尝试编辑无效行: {row}")
+            return
+        
+        # 设置编辑模式
+        self.set_editing_mode(True, row)
+        
+        # 聚焦到第一列
+        self.table.setCurrentCell(row, 0)
+        
+        logger.info(f"开始编辑行 {row}")
+    
+    def stop_editing(self):
+        """
+        停止当前编辑
+        """
+        # 如果没有在编辑，直接返回
+        if self.editing_row == -1:
+            return
+        
+        # 清除当前选择
+        self.table.clearSelection()
+        
+        # 关闭编辑模式
+        self.set_editing_mode(False)
+        
+        logger.info("停止编辑")
     
     def _setup_table(self):
         """
@@ -180,18 +271,6 @@ class BasePasswordTable:
         # 设置水平表头右键菜单策略
         self.table.horizontalHeader().setContextMenuPolicy(Qt.CustomContextMenu)
         self.table.horizontalHeader().customContextMenuRequested.connect(self._show_header_context_menu)
-    
-    def _setup_custom_delegates(self):
-        """
-        设置自定义委托
-        
-        为表格添加自定义的单元格委托，实现必填字段黄色背景等特殊效果
-        """
-        # 创建并设置必填字段委托
-        self.required_field_delegate = RequiredFieldDelegate(self.table)
-        self.table.setItemDelegate(self.required_field_delegate)
-        
-        logger.info("已设置必填字段自定义委托")
     
     def _setup_context_menu(self):
         """

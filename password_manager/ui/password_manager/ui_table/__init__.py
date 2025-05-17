@@ -36,6 +36,9 @@ class PasswordTable(BasePasswordTable,
         # 调用基类初始化
         BasePasswordTable.__init__(self, table_widget)
         
+        # 设置base_table引用，方便其他混入类访问基础表格功能
+        self.base_table = self
+        
         # 连接右键菜单信号
         self.table.customContextMenuRequested.connect(self._show_context_menu)
         

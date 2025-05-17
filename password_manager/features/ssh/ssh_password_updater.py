@@ -13,22 +13,19 @@ import platform
 import shutil
 import datetime
 import time
-import paramiko
 from logging.handlers import RotatingFileHandler
 from typing import Tuple, Optional, Union, Dict, Any
 import socket
 
-# 创建日志目录 - 使用相对路径
-logs_dir = 'logs'
-if not os.path.exists(logs_dir):
-    os.makedirs(logs_dir)
+# 导入配置文件中的日志目录路径常量
+from config import LOG_DIR
 
 # 配置SSH操作专用日志
 ssh_logger = logging.getLogger('ssh_password_updater')
 ssh_logger.setLevel(logging.INFO)
 
-# 创建文件处理器 - 使用相对路径和日志轮替
-ssh_log_file = os.path.join(logs_dir, 'ssh_operations.log')
+# 创建文件处理器 - 使用配置中的LOG_DIR路径
+ssh_log_file = os.path.join(LOG_DIR, 'ssh_operations.log')
 # 使用RotatingFileHandler，限制单个日志文件大小为1MB，最多保留5个备份文件
 file_handler = RotatingFileHandler(
     ssh_log_file,
